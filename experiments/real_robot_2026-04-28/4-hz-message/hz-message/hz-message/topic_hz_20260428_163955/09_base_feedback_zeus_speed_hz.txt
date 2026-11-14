@@ -1,0 +1,31 @@
+话题: /zeus_speed
+测量时长: 12s
+开始时间: 2026-04-28 16:40:59
+
+subscribed to [/zeus_speed]
+average rate: 19.938
+	min: 0.049s max: 0.053s std dev: 0.00076s window: 19
+average rate: 19.999
+	min: 0.047s max: 0.053s std dev: 0.00093s window: 39
+average rate: 19.999
+	min: 0.047s max: 0.053s std dev: 0.00080s window: 59
+average rate: 19.998
+	min: 0.047s max: 0.053s std dev: 0.00072s window: 79
+average rate: 19.997
+	min: 0.047s max: 0.053s std dev: 0.00068s window: 99
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00064s window: 119
+average rate: 20.001
+	min: 0.047s max: 0.053s std dev: 0.00060s window: 139
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00058s window: 159
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00062s window: 179
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00059s window: 199
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00066s window: 219
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00066s window: 220
+
+结束时间: 2026-04-28 16:41:12

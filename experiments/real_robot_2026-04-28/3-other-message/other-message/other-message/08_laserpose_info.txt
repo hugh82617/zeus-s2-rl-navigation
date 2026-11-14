@@ -1,0 +1,10 @@
+========== /laserpose info ==========
+Type: geometry_msgs/PoseWithCovarianceStamped
+
+Publishers: 
+ * /relocalization (http://192.168.1.102:37767/)
+
+Subscribers: 
+ * /tf_pub_node (http://192.168.1.102:45143/)
+
+

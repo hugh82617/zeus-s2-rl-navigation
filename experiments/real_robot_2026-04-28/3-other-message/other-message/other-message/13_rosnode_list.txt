@@ -1,0 +1,19 @@
+========== 8. ROS 节点列表 ==========
+/base_link_to_localizer
+/cmd_vel_switch
+/joint_state_publisher_gui
+/joy_node
+/map_server
+/map_to_odom
+/move_base
+/nodelet_manager
+/relocalization
+/robot_state_publisher
+/rosout
+/rplidarNode
+/rviz
+/rviz_1777363569473012009
+/teleop_joy
+/tf_pub_node
+/velocity_smoother
+/zeus_s2_driver

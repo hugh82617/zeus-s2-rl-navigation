@@ -1,0 +1,9 @@
+========== 13. IMU 相关进程检查 ==========
+ros      16596  0.4  0.8 410976 65896 pts/1    Ssl+ 17:05   0:01 /usr/bin/python /opt/ros/melodic/bin/roslaunch zeus_s2_bringup all_start.launch
+ros      16695  0.3  0.8 408136 65396 pts/2    Ssl+ 17:05   0:01 /usr/bin/python /opt/ros/melodic/bin/roslaunch rplidar_ros rplidar_a3.launch
+ros      16725  0.3  0.8 408388 65280 pts/3    Ssl+ 17:05   0:01 /usr/bin/python /opt/ros/melodic/bin/roslaunch fdilink launch_imu.launch
+ros      16742  2.0  0.1 436128 12788 ?        Ssl  17:05   0:06 /home/ros/catkin_ws/devel/lib/fdilink/launch_imu_node /fdi_imu:=/imu/data /fdi_mag:=/mag/mag_calib __name:=launch_imu_node __log:=/home/ros/.ros/log/61416bbc-42e1-11f1-b20d-c9d2db399832/launch_imu_node-1.log
+ros      16762  0.4  0.8 407876 64992 pts/4    Ssl+ 17:05   0:01 /usr/bin/python /opt/ros/melodic/bin/roslaunch cartographer_ros demo_backpack_2d.launch
+ros      16779 21.6  0.3 1115088 28184 ?       Ssl  17:05   1:04 /home/ros/google_ws/install_isolated/lib/cartographer_ros/cartographer_node -configuration_directory /home/ros/google_ws/install_isolated/share/cartographer_ros/configuration_files -configuration_basename backpack_2d.lua scan:=/scan imu:=/imu/data __name:=cartographer_node __log:=/home/ros/.ros/log/61416bbc-42e1-11f1-b20d-c9d2db399832/cartographer_node-2.log
+ros      17013  0.4  0.0  57604  6520 pts/11   S+   17:09   0:00 /bin/bash /home/ros/check_imu_message.sh
+ros      17648  0.0  0.0  53756  3700 pts/11   S+   17:10   0:00 tee -a /home/ros/imu-check-message/18_imu_process_check.txt

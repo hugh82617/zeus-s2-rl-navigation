@@ -1,0 +1,58 @@
+item,value,evidence
+auto_detected_control_mode,rl,active_mode_or_topic_count
+goal_seen,True,goal_topics
+goal_reached_status_seen,False,goal_status_or_move_base_status
+robot_moved,True,zeus_speed_or_odom
+max_abs_v_feedback,0.49999999999999994,/zeus_speed or /odom
+max_abs_w_feedback,0.5,/zeus_speed or /odom
+latest_goal_status,goal_tracking,/rl_local_goal_status
+latest_mode,,/cmd_vel_switch/active_mode
+,,
+active_mode_value,count,/cmd_vel_switch/active_mode
+,,
+status_value,count,status_topics
+/rl/debug/goal_status_echo:goal_received,2,status_topics
+/rl_local_goal_status:goal_tracking,2,status_topics
+/rl/debug/goal_status_echo:goal_tracking,2,status_topics
+/rl_local_goal_status:goal_received,2,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=28.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=6.1s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=32.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=11.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:idle finished_trials=5 out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=29.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=33.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=36.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=17.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=40.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=35.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=37.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=8.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=19.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=30.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=13.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=18.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=7.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=38.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=39.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=31.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=4.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=27.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=3.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=21.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=14.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=12.1s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=20.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=25.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=9.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=5.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=1.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=24.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=10.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=34.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=23.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=2.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=26.1s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=22.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=15.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics
+/multi_trial_four_folder_recorder/status:active trial_007 duration=16.0s moved=True goal_seen=True out=/home/ros/hz-message/multi_trial_four_folder_record/run_20260428_213011 zj=/home/ros/hz-message/zj.txt,1,status_topics

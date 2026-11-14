@@ -1,0 +1,29 @@
+话题: /scan
+测量时长: 12s
+开始时间: 2026-04-28 16:40:15
+
+subscribed to [/scan]
+average rate: 14.203
+	min: 0.067s max: 0.074s std dev: 0.00307s window: 14
+average rate: 14.160
+	min: 0.066s max: 0.075s std dev: 0.00329s window: 29
+average rate: 14.158
+	min: 0.066s max: 0.075s std dev: 0.00326s window: 43
+average rate: 14.157
+	min: 0.066s max: 0.075s std dev: 0.00329s window: 57
+average rate: 14.158
+	min: 0.066s max: 0.076s std dev: 0.00340s window: 71
+average rate: 14.155
+	min: 0.066s max: 0.076s std dev: 0.00335s window: 85
+average rate: 14.157
+	min: 0.066s max: 0.076s std dev: 0.00334s window: 99
+average rate: 14.164
+	min: 0.065s max: 0.077s std dev: 0.00339s window: 114
+average rate: 14.163
+	min: 0.065s max: 0.077s std dev: 0.00337s window: 128
+average rate: 14.164
+	min: 0.065s max: 0.077s std dev: 0.00333s window: 142
+average rate: 14.160
+	min: 0.065s max: 0.077s std dev: 0.00337s window: 155
+
+结束时间: 2026-04-28 16:40:27

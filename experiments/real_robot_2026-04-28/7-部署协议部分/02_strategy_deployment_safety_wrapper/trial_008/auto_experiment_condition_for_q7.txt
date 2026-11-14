@@ -1,0 +1,16 @@
+trial_id: 008
+start_wall: 2026-04-28 21:35:59
+end_wall: 2026-04-28 21:36:46
+start_ros: 1777383359.983867
+end_ros: 1777383406.9
+duration_sec: 46.9170980453
+stop_reason: auto_stop_by_vehicle_stable_zero_speed
+auto_detected_mode: rl
+goal_seen: True
+goal_signature: /rl_local_goal_body_data_1.4124_0.5195_0.0000_0.3525
+goal_reached_status_seen: True
+robot_moved: True
+max_abs_v_feedback: 0.500000
+max_abs_w_feedback: 0.500000
+latest_goal_status: goal_reached
+latest_mode: 

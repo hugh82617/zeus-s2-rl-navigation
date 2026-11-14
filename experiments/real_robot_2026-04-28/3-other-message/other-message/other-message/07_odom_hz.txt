@@ -1,0 +1,30 @@
+========== /odom hz ==========
+subscribed to [/odom]
+average rate: 14.119
+	min: 0.056s max: 0.084s std dev: 0.00812s window: 13
+average rate: 14.059
+	min: 0.056s max: 0.085s std dev: 0.00859s window: 28
+average rate: 14.060
+	min: 0.056s max: 0.085s std dev: 0.00788s window: 42
+average rate: 14.043
+	min: 0.056s max: 0.085s std dev: 0.00755s window: 56
+average rate: 14.052
+	min: 0.056s max: 0.086s std dev: 0.00759s window: 70
+average rate: 14.061
+	min: 0.056s max: 0.090s std dev: 0.00760s window: 84
+average rate: 14.065
+	min: 0.052s max: 0.090s std dev: 0.00800s window: 98
+average rate: 14.073
+	min: 0.052s max: 0.090s std dev: 0.00762s window: 112
+average rate: 14.068
+	min: 0.052s max: 0.090s std dev: 0.00759s window: 126
+average rate: 14.074
+	min: 0.052s max: 0.090s std dev: 0.00735s window: 140
+average rate: 14.066
+	min: 0.052s max: 0.090s std dev: 0.00727s window: 154
+average rate: 14.070
+	min: 0.052s max: 0.090s std dev: 0.00715s window: 168
+average rate: 14.061
+	min: 0.052s max: 0.090s std dev: 0.00712s window: 182
+average rate: 14.070
+	min: 0.052s max: 0.090s std dev: 0.00713s window: 195

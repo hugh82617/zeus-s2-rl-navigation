@@ -1,0 +1,477 @@
+[
+  {
+    "path": "experiments/datasets/900批次8个csv文件(2)/900批次csv文件/0414对标ESA设置的rollout_episode_dwa.csv",
+    "n": 900,
+    "fields": [
+      "episode_id",
+      "method",
+      "scenario_type",
+      "scenario_name",
+      "speed_tier",
+      "outcome",
+      "collision_sector",
+      "total_steps",
+      "start_dist_m",
+      "release_step",
+      "release_reason",
+      "cew_hit_max_cap",
+      "obs_in_conflict_zone_at_release",
+      "robot_progress_at_release",
+      "wait_steps_before_release",
+      "turning_intensity",
+      "first_pass_step"
+    ],
+    "outcomes": {
+      "timeout": 367,
+      "collision": 344,
+      "success": 189
+    },
+    "groups": [
+      {
+        "scenario": "Crossing",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "success": 29,
+          "timeout": 41,
+          "collision": 30
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "timeout": 43,
+          "collision": 26,
+          "success": 31
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "timeout": 47,
+          "collision": 28,
+          "success": 25
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "timeout": 30,
+          "collision": 40,
+          "success": 30
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 33,
+          "collision": 42,
+          "timeout": 25
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "timeout": 32,
+          "collision": 36,
+          "success": 32
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "collision": 50,
+          "timeout": 48,
+          "success": 2
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "timeout": 50,
+          "success": 6,
+          "collision": 44
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "timeout": 51,
+          "collision": 48,
+          "success": 1
+        }
+      }
+    ]
+  },
+  {
+    "path": "experiments/datasets/900批次8个csv文件(2)/900批次csv文件/rollout_episode_dwa.csv",
+    "n": 900,
+    "fields": [
+      "episode_id",
+      "method",
+      "scenario_type",
+      "scenario_name",
+      "speed_tier",
+      "outcome",
+      "collision_sector",
+      "total_steps",
+      "start_dist_m",
+      "release_step",
+      "release_reason",
+      "cew_hit_max_cap",
+      "obs_in_conflict_zone_at_release",
+      "robot_progress_at_release",
+      "wait_steps_before_release",
+      "turning_intensity",
+      "first_pass_step"
+    ],
+    "outcomes": {
+      "timeout": 547,
+      "success": 124,
+      "collision": 229
+    },
+    "groups": [
+      {
+        "scenario": "Crossing",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "success": 25,
+          "timeout": 62,
+          "collision": 13
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "timeout": 69,
+          "success": 26,
+          "collision": 5
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "timeout": 69,
+          "collision": 7,
+          "success": 24
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "timeout": 35,
+          "collision": 48,
+          "success": 17
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "collision": 49,
+          "success": 15,
+          "timeout": 36
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "timeout": 39,
+          "collision": 47,
+          "success": 14
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "collision": 21,
+          "timeout": 78,
+          "success": 1
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "timeout": 78,
+          "collision": 20,
+          "success": 2
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "timeout": 81,
+          "collision": 19
+        }
+      }
+    ]
+  },
+  {
+    "path": "experiments/datasets/900批次8个csv文件(2)/900批次csv文件/rollout_episode_esa_off.csv",
+    "n": 900,
+    "fields": [
+      "episode_id",
+      "method",
+      "scenario_type",
+      "scenario_name",
+      "speed_tier",
+      "outcome",
+      "collision_sector",
+      "total_steps",
+      "start_dist_m",
+      "release_step",
+      "release_reason",
+      "cew_hit_max_cap",
+      "obs_in_conflict_zone_at_release",
+      "robot_progress_at_release",
+      "wait_steps_before_release",
+      "turning_intensity",
+      "first_pass_step"
+    ],
+    "outcomes": {
+      "success": 266,
+      "collision": 591,
+      "timeout": 43
+    },
+    "groups": [
+      {
+        "scenario": "Crossing",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "collision": 77,
+          "timeout": 3,
+          "success": 20
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 31,
+          "collision": 64,
+          "timeout": 5
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "collision": 79,
+          "success": 20,
+          "timeout": 1
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "collision": 43,
+          "success": 45,
+          "timeout": 12
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 55,
+          "collision": 39,
+          "timeout": 6
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "success": 45,
+          "collision": 44,
+          "timeout": 11
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "collision": 85,
+          "success": 13,
+          "timeout": 2
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 24,
+          "collision": 75,
+          "timeout": 1
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "collision": 85,
+          "success": 13,
+          "timeout": 2
+        }
+      }
+    ]
+  },
+  {
+    "path": "experiments/datasets/900批次8个csv文件(2)/900批次csv文件/rollout_episode_esa_on.csv",
+    "n": 900,
+    "fields": [
+      "episode_id",
+      "method",
+      "scenario_type",
+      "scenario_name",
+      "speed_tier",
+      "outcome",
+      "collision_sector",
+      "total_steps",
+      "start_dist_m",
+      "release_step",
+      "release_reason",
+      "cew_hit_max_cap",
+      "obs_in_conflict_zone_at_release",
+      "robot_progress_at_release",
+      "wait_steps_before_release",
+      "turning_intensity",
+      "first_pass_step"
+    ],
+    "outcomes": {
+      "success": 814,
+      "collision": 73,
+      "timeout": 13
+    },
+    "groups": [
+      {
+        "scenario": "Crossing",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "success": 99,
+          "collision": 1
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 100
+        }
+      },
+      {
+        "scenario": "Crossing",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "success": 97,
+          "collision": 3
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "success": 75,
+          "collision": 22,
+          "timeout": 3
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 88,
+          "collision": 9,
+          "timeout": 3
+        }
+      },
+      {
+        "scenario": "Diagonal",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "success": 80,
+          "collision": 19,
+          "timeout": 1
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "high",
+        "n": 100,
+        "outcomes": {
+          "success": 93,
+          "collision": 5,
+          "timeout": 2
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "low",
+        "n": 100,
+        "outcomes": {
+          "success": 90,
+          "timeout": 2,
+          "collision": 8
+        }
+      },
+      {
+        "scenario": "Head-on",
+        "speed": "mid",
+        "n": 100,
+        "outcomes": {
+          "success": 92,
+          "collision": 6,
+          "timeout": 2
+        }
+      }
+    ]
+  }
+]

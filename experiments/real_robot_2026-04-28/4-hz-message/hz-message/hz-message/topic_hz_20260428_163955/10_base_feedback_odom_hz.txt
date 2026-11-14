@@ -1,0 +1,29 @@
+话题: /odom
+测量时长: 12s
+开始时间: 2026-04-28 16:41:13
+
+subscribed to [/odom]
+average rate: 14.173
+	min: 0.057s max: 0.084s std dev: 0.00811s window: 13
+average rate: 14.130
+	min: 0.057s max: 0.084s std dev: 0.00714s window: 27
+average rate: 14.152
+	min: 0.057s max: 0.084s std dev: 0.00653s window: 41
+average rate: 14.190
+	min: 0.057s max: 0.088s std dev: 0.00689s window: 56
+average rate: 14.174
+	min: 0.057s max: 0.088s std dev: 0.00694s window: 70
+average rate: 14.169
+	min: 0.050s max: 0.088s std dev: 0.00710s window: 84
+average rate: 14.169
+	min: 0.050s max: 0.088s std dev: 0.00706s window: 98
+average rate: 14.163
+	min: 0.050s max: 0.088s std dev: 0.00674s window: 112
+average rate: 14.172
+	min: 0.050s max: 0.088s std dev: 0.00658s window: 126
+average rate: 14.171
+	min: 0.050s max: 0.088s std dev: 0.00684s window: 141
+average rate: 14.169
+	min: 0.050s max: 0.088s std dev: 0.00686s window: 154
+
+结束时间: 2026-04-28 16:41:25

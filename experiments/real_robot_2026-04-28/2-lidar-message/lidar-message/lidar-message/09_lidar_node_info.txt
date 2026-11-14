@@ -1,0 +1,33 @@
+========== 9. rplidar 相关节点详细信息 ==========
+---------- node: /rplidarNode ----------
+--------------------------------------------------------------------------------
+Node [/rplidarNode]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /scan [sensor_msgs/LaserScan]
+
+Subscriptions: None
+
+Services: 
+ * /rplidarNode/get_loggers
+ * /rplidarNode/set_logger_level
+ * /start_motor
+ * /stop_motor
+
+
+contacting node http://192.168.1.102:34921/ ...
+Pid: 4556
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (39035 - 192.168.1.102:41336) [14]
+    * transport: TCPROS
+ * topic: /scan
+    * to: /relocalization
+    * direction: outbound (39035 - 192.168.1.102:41346) [15]
+    * transport: TCPROS
+ * topic: /scan
+    * to: /move_base
+    * direction: outbound (39035 - 192.168.1.102:48694) [16]
+    * transport: TCPROS
+

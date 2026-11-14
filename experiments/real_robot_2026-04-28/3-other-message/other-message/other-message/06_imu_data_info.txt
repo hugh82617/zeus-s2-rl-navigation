@@ -1,0 +1,9 @@
+========== /imu/data info ==========
+Type: sensor_msgs/Imu
+
+Publishers: None
+
+Subscribers: 
+ * /relocalization (http://192.168.1.102:37767/)
+
+

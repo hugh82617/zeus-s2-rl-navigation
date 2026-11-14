@@ -1,0 +1,230 @@
+===== 所有 frequency/rate/hz/controller 相关参数 =====
+/cmd_vel_switch/pub_rate
+/move_base/DWAPlannerROS/acc_lim_theta
+/move_base/DWAPlannerROS/acc_lim_trans
+/move_base/DWAPlannerROS/acc_lim_x
+/move_base/DWAPlannerROS/acc_lim_y
+/move_base/DWAPlannerROS/angular_sim_granularity
+/move_base/DWAPlannerROS/controller_frequency
+/move_base/DWAPlannerROS/forward_point_distance
+/move_base/DWAPlannerROS/goal_distance_bias
+/move_base/DWAPlannerROS/latch_xy_goal_tolerance
+/move_base/DWAPlannerROS/max_scaling_factor
+/move_base/DWAPlannerROS/max_vel_theta
+/move_base/DWAPlannerROS/max_vel_trans
+/move_base/DWAPlannerROS/max_vel_x
+/move_base/DWAPlannerROS/max_vel_y
+/move_base/DWAPlannerROS/min_vel_theta
+/move_base/DWAPlannerROS/min_vel_trans
+/move_base/DWAPlannerROS/min_vel_x
+/move_base/DWAPlannerROS/min_vel_y
+/move_base/DWAPlannerROS/occdist_scale
+/move_base/DWAPlannerROS/oscillation_reset_angle
+/move_base/DWAPlannerROS/oscillation_reset_dist
+/move_base/DWAPlannerROS/path_distance_bias
+/move_base/DWAPlannerROS/prune_plan
+/move_base/DWAPlannerROS/publish_cost_grid_pc
+/move_base/DWAPlannerROS/publish_traj_pc
+/move_base/DWAPlannerROS/restore_defaults
+/move_base/DWAPlannerROS/scaling_speed
+/move_base/DWAPlannerROS/sim_granularity
+/move_base/DWAPlannerROS/sim_time
+/move_base/DWAPlannerROS/stop_time_buffer
+/move_base/DWAPlannerROS/theta_stopped_vel
+/move_base/DWAPlannerROS/trans_stopped_vel
+/move_base/DWAPlannerROS/twirling_scale
+/move_base/DWAPlannerROS/use_dwa
+/move_base/DWAPlannerROS/vth_samples
+/move_base/DWAPlannerROS/vx_samples
+/move_base/DWAPlannerROS/vy_samples
+/move_base/DWAPlannerROS/xy_goal_tolerance
+/move_base/DWAPlannerROS/yaw_goal_tolerance
+/move_base/base_global_planner
+/move_base/base_local_planner
+/move_base/controller_frequency
+/move_base/controller_patience
+/move_base/global_costmap/obstacle_layer/scan/expected_update_rate
+/move_base/global_costmap/publish_frequency
+/move_base/global_costmap/update_frequency
+/move_base/local_costmap/obstacle_layer/scan/expected_update_rate
+/move_base/local_costmap/publish_frequency
+/move_base/local_costmap/update_frequency
+/move_base/planner_frequency
+/move_base/planner_patience
+/rplidarNode/serial_baudrate
+/velocity_smoother/frequency
+/zeus_s2_driver/baud_rate
+
+===== RL 推理节点相关参数 =====
+/cmd_vel_switch/rl_topic
+/move_base/DWAPlannerROS/twirling_scale
+
+===== 参数具体取值 =====
+----- /cmd_vel_switch/pub_rate -----
+20.0
+
+----- /cmd_vel_switch/rl_topic -----
+/rl_cmd_vel
+
+----- /move_base/DWAPlannerROS/acc_lim_theta -----
+5.0
+
+----- /move_base/DWAPlannerROS/acc_lim_trans -----
+0.1
+
+----- /move_base/DWAPlannerROS/acc_lim_x -----
+2.5
+
+----- /move_base/DWAPlannerROS/acc_lim_y -----
+0.0
+
+----- /move_base/DWAPlannerROS/angular_sim_granularity -----
+0.1
+
+----- /move_base/DWAPlannerROS/controller_frequency -----
+10.0
+
+----- /move_base/DWAPlannerROS/forward_point_distance -----
+0.352
+
+----- /move_base/DWAPlannerROS/goal_distance_bias -----
+20.0
+
+----- /move_base/DWAPlannerROS/latch_xy_goal_tolerance -----
+false
+
+----- /move_base/DWAPlannerROS/max_scaling_factor -----
+0.2
+
+----- /move_base/DWAPlannerROS/max_vel_theta -----
+0.9
+
+----- /move_base/DWAPlannerROS/max_vel_trans -----
+0.6
+
+----- /move_base/DWAPlannerROS/max_vel_x -----
+0.3
+
+----- /move_base/DWAPlannerROS/max_vel_y -----
+0.0
+
+----- /move_base/DWAPlannerROS/min_vel_theta -----
+0.5
+
+----- /move_base/DWAPlannerROS/min_vel_trans -----
+0.0
+
+----- /move_base/DWAPlannerROS/min_vel_x -----
+0.0
+
+----- /move_base/DWAPlannerROS/min_vel_y -----
+0.0
+
+----- /move_base/DWAPlannerROS/occdist_scale -----
+0.01
+
+----- /move_base/DWAPlannerROS/oscillation_reset_angle -----
+0.2
+
+----- /move_base/DWAPlannerROS/oscillation_reset_dist -----
+0.05
+
+----- /move_base/DWAPlannerROS/path_distance_bias -----
+50.0
+
+----- /move_base/DWAPlannerROS/prune_plan -----
+false
+
+----- /move_base/DWAPlannerROS/publish_cost_grid_pc -----
+true
+
+----- /move_base/DWAPlannerROS/publish_traj_pc -----
+true
+
+----- /move_base/DWAPlannerROS/restore_defaults -----
+false
+
+----- /move_base/DWAPlannerROS/scaling_speed -----
+0.25
+
+----- /move_base/DWAPlannerROS/sim_granularity -----
+0.025
+
+----- /move_base/DWAPlannerROS/sim_time -----
+1.5
+
+----- /move_base/DWAPlannerROS/stop_time_buffer -----
+0.2
+
+----- /move_base/DWAPlannerROS/theta_stopped_vel -----
+0.1
+
+----- /move_base/DWAPlannerROS/trans_stopped_vel -----
+0.1
+
+----- /move_base/DWAPlannerROS/twirling_scale -----
+0.0
+
+----- /move_base/DWAPlannerROS/use_dwa -----
+true
+
+----- /move_base/DWAPlannerROS/vth_samples -----
+40
+
+----- /move_base/DWAPlannerROS/vx_samples -----
+20
+
+----- /move_base/DWAPlannerROS/vy_samples -----
+1
+
+----- /move_base/DWAPlannerROS/xy_goal_tolerance -----
+0.1
+
+----- /move_base/DWAPlannerROS/yaw_goal_tolerance -----
+0.1
+
+----- /move_base/base_global_planner -----
+navfn/NavfnROS
+
+----- /move_base/base_local_planner -----
+dwa_local_planner/DWAPlannerROS
+
+----- /move_base/controller_frequency -----
+10.0
+
+----- /move_base/controller_patience -----
+15.0
+
+----- /move_base/global_costmap/obstacle_layer/scan/expected_update_rate -----
+0
+
+----- /move_base/global_costmap/publish_frequency -----
+3.5
+
+----- /move_base/global_costmap/update_frequency -----
+3.0
+
+----- /move_base/local_costmap/obstacle_layer/scan/expected_update_rate -----
+0
+
+----- /move_base/local_costmap/publish_frequency -----
+2.0
+
+----- /move_base/local_costmap/update_frequency -----
+5.0
+
+----- /move_base/planner_frequency -----
+2.0
+
+----- /move_base/planner_patience -----
+5.0
+
+----- /rplidarNode/serial_baudrate -----
+256000
+
+----- /velocity_smoother/frequency -----
+20.0
+
+----- /zeus_s2_driver/baud_rate -----
+115200
+

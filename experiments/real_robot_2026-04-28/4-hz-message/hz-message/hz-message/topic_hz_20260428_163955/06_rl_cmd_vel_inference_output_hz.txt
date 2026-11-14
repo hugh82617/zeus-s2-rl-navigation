@@ -1,0 +1,19 @@
+话题: /rl_cmd_vel
+测量时长: 12s
+开始时间: 2026-04-28 16:40:32
+
+subscribed to [/rl_cmd_vel]
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+no new messages
+
+结束时间: 2026-04-28 16:40:44

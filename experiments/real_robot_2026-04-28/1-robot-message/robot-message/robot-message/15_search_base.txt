@@ -1,0 +1,365 @@
+========== 搜索 base 关键词 ==========
+/home/ros/catkin_ws/src/llm_path_planner/scripts/dwa_local_planner_node.py:343:        self.base_frame = rospy.get_param("~base_frame", "base_footprint")
+/home/ros/catkin_ws/src/llm_path_planner/scripts/dwa_local_planner_node.py:616:            # speed limiting based on nearest obstacle (preserve direction)
+/home/ros/catkin_ws/src/llm_path_planner/scripts/llm_service_node.py:7:- 使用 TF 将路径点从 path_frame(默认 map) 转到 lidar_frame(默认 base_laser)
+/home/ros/catkin_ws/src/llm_path_planner/scripts/llm_service_node.py:47:        self.lidar_frame    = rospy.get_param("~lidar_frame", "base_laser")  # 雷达TF名
+/home/ros/catkin_ws/src/llm_path_planner/scripts/waypoint_executor.py:26:    pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+/home/ros/catkin_ws/src/llm_path_planner/scripts/llm_goal_publisher_node.py:89:            self.tf_listener.waitForTransform(self.path_frame, 'base_footprint', rospy.Time(0), rospy.Duration(1.0))
+/home/ros/catkin_ws/src/llm_path_planner/scripts/llm_goal_publisher_node.py:90:            (trans, rot) = self.tf_listener.lookupTransform(self.path_frame, 'base_footprint', rospy.Time(0))
+/home/ros/catkin_ws/src/llm_path_planner/odom_to_base_link_tf_publisher.py:10:        rospy.init_node('odom_to_base_link_tf_publisher')
+/home/ros/catkin_ws/src/llm_path_planner/odom_to_base_link_tf_publisher.py:13:        rospy.loginfo("odom_to_base_link_tf_publisher 节点启动，开始发布 odom -> base_link 变换")
+/home/ros/catkin_ws/src/llm_path_planner/odom_to_base_link_tf_publisher.py:22:            'base_link',  # child frame
+/home/ros/catkin_ws/src/llm_path_planner/launch/robot_pose_ekf.launch:4:    <param name="base_footprint_frame" value="base_footprint"/>
+/home/ros/catkin_ws/src/rl_planner/CMakeLists.txt:202:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:26:        self.goal_topic = rospy.get_param("~goal_topic", "/move_base_simple/goal")
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:28:        self.base_frame = rospy.get_param("~base_frame", "base_footprint")
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:62:        rospy.loginfo("[RL_GOAL_TF] base_frame          : %s", self.base_frame)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:117:    def _transform_goal_to_base(self, goal_msg):
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:120:        if src_frame == self.base_frame.strip("/"):
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:127:            out_pose.header.frame_id = self.base_frame
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:133:                self.base_frame,
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:144:            out_pose = self.listener.transformPose(self.base_frame, goal_for_tf)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:157:                goal_msg.header.frame_id, self.base_frame, str(e)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:166:                self.base_frame,
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:170:            trans, rot = self.listener.lookupTransform(self.global_frame, self.base_frame, rospy.Time(0))
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:208:    def _publish_body_goal(self, pose_in_base, goal_snap):
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:209:        dx = float(pose_in_base.pose.position.x)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:210:        dy = float(pose_in_base.pose.position.y)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:211:        dz = float(pose_in_base.pose.position.z)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:220:        out_pose.header.frame_id = self.base_frame
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:221:        out_pose.pose = pose_in_base.pose
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:278:            pose_in_base = self._transform_goal_to_base(goal_snap)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:279:            if pose_in_base is not None:
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:280:                self._publish_body_goal(pose_in_base, goal_snap)
+匹配到二进制文件 /home/ros/catkin_ws/src/rl_planner/scripts/__pycache__/rl_planner_node.cpython-38.pyc
+/home/ros/catkin_ws/src/rl_planner/scripts/odom_to_path.py:18:        self.goal_topic = rospy.get_param("~goal_topic", "/move_base/current_goal")
+/home/ros/catkin_ws/src/rl_planner/scripts/odom_to_path.py:127:        # 注意：这里默认 /odom 与 /move_base/current_goal 在同一坐标系下可直接比较
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py.save:6:订阅: /scan, /odom, /move_base/NavfnROS/plan
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py.save:52:        self.plan_topic   = rospy.get_param("~plan_topic",   "/move_base/NavfnROS/plan")
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py:234:        rospy.loginfo("[RL]   goal_tolerance=%.2f (distance-based local stop enabled)", self.goal_tolerance)
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py:445:        def lidar_block(arr, base_idx, label_prefix):
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py:446:            """把 arr 的前20个值逐行打印，base_idx 是全局索引偏移"""
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py:449:                rows.append("    [{:>3d}]  {:.6f}".format(base_idx + i, float(v)))
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:7:  1. 位姿基准统一到 base_footprint:
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:9:     TF 查询得到的 map -> base_footprint 变换. 轨迹 / 起点 / 终点 /
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:10:     路径长度 / 效率 / 终点误差 全部以 base_footprint 为基准.
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:23:  6. DWA /move_base/status 按 goal_id.stamp 过滤, 旧 goal 的
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:112:        self.goal_topic        = rospy.get_param("~goal_topic",        "/move_base/current_goal")
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:116:        self.dwa_status_topic  = rospy.get_param("~dwa_status_topic",  "/move_base/status")
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:123:        self.robot_frame       = rospy.get_param("~robot_frame",       "base_footprint")
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:133:        # 过滤旧 goal 的 /move_base/status 时, 允许的 stamp 容差
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:157:        self.latest_goal  = None     # /move_base/current_goal 得到, map 坐标系
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:158:        self.latest_pose  = None     # base_footprint 在 map 下的位姿 (TF)
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:297:    # TF: map -> base_footprint
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:300:        """查询 base_footprint 在 map 下的位姿; 成功返回 dict, 失败返回 None."""
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:537:        """/laserpose 只用作 TF 查询触发; latest_pose 存的是 base_footprint 位姿."""
+/home/ros/catkin_ws/src/rl_planner/scripts/pipeline_verifier_node.py:1572:            w.write("    第 3 节的 anchor-based traceability,而不是本节的 msg 数。\n")
+/home/ros/catkin_ws/src/rl_planner/scripts/pipeline_verifier_node.py:1736:            w.write("  stage 3 anchor-based traceability (post-warmup) "
+/home/ros/catkin_ws/src/rl_planner/launch/rl_local_goal_provider.launch:4:  <arg name="plan_topic" default="/move_base/NavfnROS/plan" />
+/home/ros/catkin_ws/src/rl_planner/launch/rl_local_goal_provider.launch:5:  <arg name="goal_topic" default="/move_base_simple/goal" />
+/home/ros/catkin_ws/src/rl_planner/launch/rl_local_goal_provider.launch:7:  <arg name="base_frame" default="base_footprint" />
+/home/ros/catkin_ws/src/rl_planner/launch/rl_local_goal_provider.launch:33:    <param name="base_frame" value="$(arg base_frame)" />
+/home/ros/catkin_ws/src/rl_planner/launch/experiment_logger_with_obs556.launch:9:    <param name="goal_topic" value="/move_base/current_goal" />
+/home/ros/catkin_ws/src/rl_planner/launch/experiment_logger_with_obs556.launch:13:    <param name="dwa_status_topic" value="/move_base/status" />
+/home/ros/catkin_ws/src/rl_planner/launch/experiment_logger_with_obs556.launch:22:    <param name="robot_frame" value="base_footprint" />
+/home/ros/catkin_ws/src/rl_planner/launch/laser_switch.launch:15:        args="0.370 0 0 0 0 0 base_footprint laser_link_aligned 100" />
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:106:        base_footprint:
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:135:        car_base_link:
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:225:      Topic: /move_base/NavfnROS/plan
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:274:        base_footprint:
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:286:        car_base_link:
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:326:            base_footprint:
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:327:              car_base_link:
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:462:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/CMakeLists.txt:201:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/CMakeLists.txt:195:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/ext_cfg/cartographer/zeus_s2_2d.lua:24:  published_frame = "base_footprint",
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:55:  <include file="$(find zeus_s2_navi)/launch/move_base.launch" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:61:          -configuration_basename zeus_s2_2d_localization.lua
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2_gazebo.rviz:64:        base_footprint:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2_gazebo.rviz:93:        car_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2_gazebo.rviz:152:        velodyne_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2_gazebo.rviz:243:    Fixed Frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2_gazebo.rviz:259:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz:67:        base_footprint:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz:96:        car_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz:186:    Fixed Frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz:202:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2-gps_c16_d435-gazebo.rviz:63:        base_footprint:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2-gps_c16_d435-gazebo.rviz:92:        car_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2-gps_c16_d435-gazebo.rviz:171:        velodyne_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2-gps_c16_d435-gazebo.rviz:274:    Fixed Frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2-gps_c16_d435-gazebo.rviz:290:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:307:<Link z:Id="i1" xmlns="http://schemas.datacontract.org/2004/07/SW2URDF" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/"><Attributes><Attribute z:Id="i2"><AttributeType>name</AttributeType><IsRequired>true</IsRequired><Value i:type="a:string" xmlns:a="http://www.w3.org/2001/XMLSchema">base_link</Value></Attribute></Attributes><ChildElements><URDFElement z:Id="i3" i:type="Inertial"><Attributes/><ChildElements><URDFElement z:Id="i4" i:type="Origin"><Attributes><Attribute z:Id="i5"><AttributeType>xyz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute><Attribute z:Id="i6"><AttributeType>rpy</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute></Attributes><ChildElements/><ElementName>origin</ElementName><required>false</required><RPYAttribute z:Ref="i6"/><XYZAttribute z:Ref="i5"/><isCustomized>false</isCustomized></URDFElement><URDFElement z:Id="i7" i:type="Mass"><Attributes><Attribute z:Id="i8"><AttributeType>value</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute></Attributes><ChildElements/><ElementName>mass</ElementName><required>false</required><ValueAttribute z:Ref="i8"/></URDFElement><URDFElement z:Id="i9" i:type="Inertia"><Attributes><Attribute z:Id="i10"><AttributeType>ixx</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute><Attribute z:Id="i11"><AttributeType>ixy</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute><Attribute z:Id="i12"><AttributeType>ixz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute><Attribute z:Id="i13"><AttributeType>iyy</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute><Attribute z:Id="i14"><AttributeType>iyz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute><Attribute z:Id="i15"><AttributeType>izz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:double" xmlns:a="http://www.w3.org/2001/XMLSchema">0</Value></Attribute></Attributes><ChildElements/><ElementName>inertia</ElementName><required>false</required><IxxAttribute z:Ref="i10"/><IxyAttribute z:Ref="i11"/><IxzAttribute z:Ref="i12"/><IyyAttribute z:Ref="i13"/><IyzAttribute z:Ref="i14"/><IzzAttribute z:Ref="i15"/></URDFElement></ChildElements><ElementName>inertial</ElementName><required>false</required><Inertia z:Ref="i9"/><Mass z:Ref="i7"/><Origin z:Ref="i4"/></URDFElement><URDFElement z:Id="i16" i:type="Visual"><Attributes/><ChildElements><URDFElement z:Id="i17" i:type="Origin"><Attributes><Attribute z:Id="i18"><AttributeType>xyz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute><Attribute z:Id="i19"><AttributeType>rpy</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute></Attributes><ChildElements/><ElementName>origin</ElementName><required>false</required><RPYAttribute z:Ref="i19"/><XYZAttribute z:Ref="i18"/><isCustomized>false</isCustomized></URDFElement><URDFElement z:Id="i20" i:type="Geometry"><Attributes/><ChildElements><URDFElement z:Id="i21" i:type="Mesh"><Attributes><Attribute z:Id="i22"><AttributeType>filename</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>mesh</ElementName><required>false</required><FilenameAttribute z:Ref="i22"/></URDFElement></ChildElements><ElementName>geometry</ElementName><required>true</required><Mesh z:Ref="i21"/></URDFElement><URDFElement z:Id="i23" i:type="Material"><Attributes><Attribute z:Id="i24"><AttributeType>name</AttributeType><IsRequired>true</IsRequired><Value i:type="a:string" xmlns:a="http://www.w3.org/2001/XMLSchema"/></Attribute></Attributes><ChildElements><URDFElement z:Id="i25" i:type="Color"><Attributes><Attribute z:Id="i26"><AttributeType>rgba</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>1</a:double><a:double>1</a:double><a:double>1</a:double><a:double>1</a:double></Value></Attribute></Attributes><ChildElements/><ElementName>color</ElementName><required>false</required><RGBAAttribute z:Ref="i26"/></URDFElement><URDFElement z:Id="i27" i:type="Texture"><Attributes><Attribute z:Id="i28"><AttributeType>filename</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>texture</ElementName><required>false</required><FilenameAttribute z:Ref="i28"/><wFilename/></URDFElement></ChildElements><ElementName>material</ElementName><required>false</required><Color z:Ref="i25"/><NameAttribute z:Ref="i24"/><Texture z:Ref="i27"/></URDFElement></ChildElements><ElementName>visual</ElementName><required>false</required><Geometry z:Ref="i20"/><Material z:Ref="i23"/><Origin z:Ref="i17"/></URDFElement><URDFElement z:Id="i29" i:type="Collision"><Attributes/><ChildElements><URDFElement z:Id="i30" i:type="Origin"><Attributes><Attribute z:Id="i31"><AttributeType>xyz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute><Attribute z:Id="i32"><AttributeType>rpy</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute></Attributes><ChildElements/><ElementName>origin</ElementName><required>false</required><RPYAttribute z:Ref="i32"/><XYZAttribute z:Ref="i31"/><isCustomized>false</isCustomized></URDFElement><URDFElement z:Id="i33" i:type="Geometry"><Attributes/><ChildElements><URDFElement z:Id="i34" i:type="Mesh"><Attributes><Attribute z:Id="i35"><AttributeType>filename</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>mesh</ElementName><required>false</required><FilenameAttribute z:Ref="i35"/></URDFElement></ChildElements><ElementName>geometry</ElementName><required>true</required><Mesh z:Ref="i34"/></URDFElement></ChildElements><ElementName>collision</ElementName><required>false</required><Geometry z:Ref="i33"/><Origin z:Ref="i30"/></URDFElement><URDFElement z:Id="i36" i:type="Joint"><Attributes><Attribute z:Id="i37"><AttributeType>name</AttributeType><IsRequired>true</IsRequired><Value i:type="a:string" xmlns:a="http://www.w3.org/2001/XMLSchema"/></Attribute><Attribute z:Id="i38"><AttributeType>type</AttributeType><IsRequired>true</IsRequired><Value i:type="a:string" xmlns:a="http://www.w3.org/2001/XMLSchema"/></Attribute></Attributes><ChildElements><URDFElement z:Id="i39" i:type="Origin"><Attributes><Attribute z:Id="i40"><AttributeType>xyz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute><Attribute z:Id="i41"><AttributeType>rpy</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute></Attributes><ChildElements/><ElementName>origin</ElementName><required>false</required><RPYAttribute z:Ref="i41"/><XYZAttribute z:Ref="i40"/><isCustomized>false</isCustomized></URDFElement><URDFElement z:Id="i42" i:type="ParentLink"><Attributes><Attribute z:Id="i43"><AttributeType>link</AttributeType><IsRequired>true</IsRequired><Value i:type="a:string" xmlns:a="http://www.w3.org/2001/XMLSchema"/></Attribute></Attributes><ChildElements/><ElementName>parent</ElementName><required>true</required><NameAttribute z:Ref="i43"/></URDFElement><URDFElement z:Id="i44" i:type="ChildLink"><Attributes><Attribute z:Id="i45"><AttributeType>link</AttributeType><IsRequired>true</IsRequired><Value i:type="a:string" xmlns:a="http://www.w3.org/2001/XMLSchema"/></Attribute></Attributes><ChildElements/><ElementName>child</ElementName><required>true</required><NameAttribute z:Ref="i45"/></URDFElement><URDFElement z:Id="i46" i:type="Axis"><Attributes><Attribute z:Id="i47"><AttributeType>xyz</AttributeType><IsRequired>true</IsRequired><Value i:type="a:ArrayOfdouble" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:double>0</a:double><a:double>0</a:double><a:double>0</a:double></Value></Attribute></Attributes><ChildElements/><ElementName>axis</ElementName><required>false</required><XYZAttribute z:Ref="i47"/></URDFElement><URDFElement z:Id="i48" i:type="Limit"><Attributes><Attribute z:Id="i49"><AttributeType>lower</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i50"><AttributeType>upper</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i51"><AttributeType>effort</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i52"><AttributeType>velocity</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>limit</ElementName><required>false</required><EffortAttribute z:Ref="i51"/><LowerAttribute z:Ref="i49"/><UpperAttribute z:Ref="i50"/><VelocityAttribute z:Ref="i52"/></URDFElement><URDFElement z:Id="i53" i:type="Calibration"><Attributes><Attribute z:Id="i54"><AttributeType>rising</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i55"><AttributeType>falling</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>calibration</ElementName><required>false</required><FallingAttribute z:Ref="i55"/><RisingAttribute z:Ref="i54"/></URDFElement><URDFElement z:Id="i56" i:type="Dynamics"><Attributes><Attribute z:Id="i57"><AttributeType>damping</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i58"><AttributeType>friction</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>dynamics</ElementName><required>false</required><DampingAttribute z:Ref="i57"/><FrictionAttribute z:Ref="i58"/></URDFElement><URDFElement z:Id="i59" i:type="SafetyController"><Attributes><Attribute z:Id="i60"><AttributeType>soft_upper</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i61"><AttributeType>soft_lower</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i62"><AttributeType>k_position</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i63"><AttributeType>k_velocity</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>safety_controller</ElementName><required>false</required><KPositionAttribute z:Ref="i62"/><KVelocityAttribute z:Ref="i63"/><SoftLowerAttribute z:Ref="i61"/><SoftUpperAttribute z:Ref="i60"/></URDFElement><URDFElement z:Id="i64" i:type="Mimic"><Attributes><Attribute z:Id="i65"><AttributeType>joint</AttributeType><IsRequired>true</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i66"><AttributeType>multiplier</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute><Attribute z:Id="i67"><AttributeType>offset</AttributeType><IsRequired>false</IsRequired><Value i:nil="true"/></Attribute></Attributes><ChildElements/><ElementName>mimic</ElementName><required>false</required><JointNameAttribute z:Ref="i65"/><MultiplierAttribute z:Ref="i66"/><OffsetAttribute z:Ref="i67"/></URDFElement></ChildElements><ElementName>joint</ElementName><required>false</required><Axis z:Ref="i46"/><AxisName/><Calibration z:Ref="i53"/><Child z:Ref="i44"/><CoordinateSystemName>Automatically Generate</CoordinateSystemName><Dynamics z:Ref="i56"/><Limit z:Ref="i48"/><Mimic z:Ref="i64"/><NameAttribute z:Ref="i37"/><Origin z:Ref="i39"/><Parent z:Ref="i42"/><Safety z:Ref="i59"/><TypeAttribute z:Ref="i38"/></URDFElement></ChildElements><ElementName>link</ElementName><required>true</required><Children/><Collision z:Ref="i29"/><Inertial z:Ref="i3"/><Joint z:Ref="i36"/><NameAttribute z:Ref="i2"/><Parent i:nil="true"/><STLQualityFine>false</STLQualityFine><SWComponentPIDs xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:base64Binary>4C4AAAUAAAD//v8TD1xmj2aPtmfEfvZOMwAtADEALQAxAEAAegBlAHUAcwBfAHMAMgAEAAAAEAAAAAEAAAABAAAAvAAAAA==</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8SMpaeZA9oLQAxADMALQAxAC0ANABAAHoAZQB1AHMAXwBzADIABAAAABAAAAABAAAAAQAAANECAAA=</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8SMpaeZA9oLQAxADMALQAxAC0AMwBAAHoAZQB1AHMAXwBzADIABAAAABAAAAABAAAAAQAAAM0CAAA=</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8VAF9zUQj/NXWQbgljrpQJ/zMALQAxAC0AMQBAAHoAZQB1AHMAXwBzADIABAAAABAAAAABAAAAAQAAAPYCAAA=</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8UwVRXW4tX0mOnXi0AMQAzAC0AMQAtADEAQAB6AGUAdQBzAF8AcwAyAAQAAAAQAAAAAQAAAAEAAAD/AgAA</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8TUX+/ftJj41MtADEAMwAtADEALQAxAEAAegBlAHUAcwBfAHMAMgAEAAAAEAAAAAEAAAABAAAABQMAAA==</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8WYpd/ZzIAMwAyAKVj41MtADEAMwAtADEALQAxAEAAegBlAHUAcwBfAHMAMgAEAAAAEAAAAAEAAAABAAAACgMAAA==</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8bVwBTAC0AMgAwACqCenrSY6deLQA0AK+CLQAxADMALQAxAC0AMQBAAHoAZQB1AHMAXwBzADIABAAAABAAAAABAAAAAQAAABQDAAA=</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8WuWViXzV1z5E+Zjp5aIgtADEAMwAtADEALQAxAEAAegBlAHUAcwBfAHMAMgAEAAAAEAAAAAEAAAABAAAAHAMAAA==</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8VMgAyAG0AbQAJY66ULQAxADMALQAxAC0AMQBAAHoAZQB1AHMAXwBzADIABAAAABAAAAABAAAAAQAAACEDAAA=</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8X3YTibDIAMgAlYFxQAF9zUS0AMQAzAC0AMQAtADEAQAB6AGUAdQBzAF8AcwAyAAQAAAAQAAAAAQAAAAEAAAAmAwAA</a:base64Binary><a:base64Binary>4C4AAAUAAAD//v8X3YTibDIAMgAlYFxQAF9zUS0AMQAzAC0AMQAtADIAQAB6AGUAdQBzAF8AcwAyAAQAAAAQAAAAAQAAAAEAAAArAwAA</a:base64Binary></SWComponentPIDs><SWMainComponentPID i:nil="true"/><Visual z:Ref="i16"/><isFixedFrame>false</isFixedFrame><isIncomplete>false</isIncomplete></Link>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:324:2021-03-02 14:46:29,385 INFO  ExportHelper.cs: 270 - Exporting link: base_link
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:325:2021-03-02 14:46:29,386 INFO  ExportHelper.cs: 272 - Link base_link has 0 children
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:326:2021-03-02 14:46:29,387 INFO  ExportHelper.cs: 318 - base_link: Exporting STL with coordinate frame Origin_global
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:327:2021-03-02 14:46:29,387 INFO  ExportHelper.cs: 323 - base_link: Reference geometry name 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:328:2021-03-02 14:46:30,402 INFO  ExportHelper.cs: 331 - Saving STL to D:\zeus_s2_description\meshes\base_link.STL
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:7:  <link name="base_footprint"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:8:  <link name="car_base_link">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:30:  <joint name="base_footprint_joint" type="fixed">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:32:    <parent link="base_footprint"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:33:    <child link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:35:  <gazebo reference="car_base_link">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:63:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:94:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:125:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:156:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:187:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:218:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:249:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:280:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:311:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:358:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:405:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:452:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:499:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:526:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:553:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:580:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:607:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:649:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:674:          <!-- Noise parameters based on published spec for Hokuyo laser
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:697:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:706:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:712:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:838:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:842:  <joint name="velodyne_base_mount_joint" type="fixed">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:844:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:845:    <child link="velodyne_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:847:  <link name="velodyne_base_link">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:855:        <mesh filename="package://velodyne_description/meshes/VLP16_base_1.dae"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:860:        <mesh filename="package://velodyne_description/meshes/VLP16_base_2.dae"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:870:  <joint name="velodyne_base_scan_joint" type="fixed">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:872:    <parent link="velodyne_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:949:      <robotBaseFrame>base_footprint</robotBaseFrame>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_body.xacro:33:    <gazebo reference="car_base_link">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:14:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:23:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:4:  <xacro:arg name="body_link" default="car_base_link" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:15:  <link name="base_footprint" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:17:  <xacro:car_body parent_prefix = "base_footprint">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:88:      <parent link="car_base_link" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:133:      <robotBaseFrame>base_footprint</robotBaseFrame>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:7:  <link name="base_footprint"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:8:  <link name="car_base_link">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:30:  <joint name="base_footprint_joint" type="fixed">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:32:    <parent link="base_footprint"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:33:    <child link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:35:  <gazebo reference="car_base_link">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:63:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:94:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:125:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:156:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:187:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:218:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:249:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:280:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:327:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:374:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:421:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:468:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:495:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:522:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:549:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:576:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:601:          <!-- Noise parameters based on published spec for Hokuyo laser
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:617:    <parent link="car_base_link"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:660:      <robotBaseFrame>base_footprint</robotBaseFrame>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/ls_c16.xacro:55:            <!-- Noise parameters based on published spec for Hokuyo laser
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/laser_a2.xacro:58:            <!-- Noise parameters based on published spec for Hokuyo laser
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:4:  <xacro:arg name="body_link" default="car_base_link" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:26:  <link name="base_footprint" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:28:  <xacro:car_body parent_prefix = "base_footprint">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:111:      <parent link="car_base_link" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:116:  <VLP-16 parent="car_base_link" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="${gpu}">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:139:      <robotBaseFrame>base_footprint</robotBaseFrame>
+匹配到二进制文件 /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/meshes/d435_base.STL
+/home/ros/catkin_ws/src/mobile/zeus_s2/LICENSE:41:      form, that is based on (or derived from) the Work and for which the
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:180:        std::string base_frame_;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:991:    n.param<std::string>("base_frame",base_frame_,std::string("base_footprint"));
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:976:    n.param<std::string>("base_frame",base_frame_,std::string("base_footprint"));
+匹配到二进制文件 /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/LS伺服驱动器通讯使用手册-20200602.pdf
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/config/zeus_params.yaml:9:# base_frame: base_link  #底盘坐标系
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/config/zeus_params.yaml:10:# #publish_odom_transform: False #是否发布odom->base_footprint坐标变换
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/config/zeus_params.yaml:59:base_frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:58:        base_footprint:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:70:        car_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:108:            base_footprint:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:109:              car_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:156:        base_footprint:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:185:        car_base_link:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:345:      Topic: /move_base/TrajectoryPlannerROS/global_plan
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:368:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/CMakeLists.txt:199:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/global_costmap_params.yaml:3:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/move_base_params.yaml:9:base_local_planner: "dwa_local_planner/DWAPlannerROS"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/move_base_params.yaml:11:# ~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/move_base_params.yaml:12:# ~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/local_costmap_params.yaml:3:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/fake/global_costmap_params.yaml:3:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/fake/local_costmap_params.yaml:3:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:3:  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:8:    <rosparam file="$(find zeus_s2_navi)/config/zeus/base_local_planner_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:9:    <rosparam file="$(find zeus_s2_navi)/config/zeus/move_base_params.yaml" command="load" />
+匹配到二进制文件 /home/ros/catkin_ws/src/mobile/zeus_s2/.git/index
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:5:# The "pre-rebase" hook is run just before "git rebase" starts doing
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:12:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:15:# merged to 'next' branch from getting rebased, because allowing it
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:19:basebranch="$1"
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:36:# Now we are dealing with a topic branch being rebased
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:37:# on top of master.  Is it OK to rebase it?
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:119:    merged into other branches can be easily rebased without
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/hooks/pre-rebase.sample:153:We would want to allow C to be rebased, refuse A, and encourage
+/home/ros/catkin_ws/src/sensor/dyp-a05/CMakeLists.txt:201:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/sensor/dyp-a05/LICENSE:41:      form, that is based on (or derived from) the Work and for which the
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:5:# The "pre-rebase" hook is run just before "git rebase" starts doing
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:12:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:15:# merged to 'next' branch from getting rebased, because allowing it
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:19:basebranch="$1"
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:36:# Now we are dealing with a topic branch being rebased
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:37:# on top of master.  Is it OK to rebase it?
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:119:    merged into other branches can be easily rebased without
+/home/ros/catkin_ws/src/sensor/dyp-a05/.git/hooks/pre-rebase.sample:153:We would want to allow C to be rebased, refuse A, and encourage
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:5:# The "pre-rebase" hook is run just before "git rebase" starts doing
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:12:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:15:# merged to 'next' branch from getting rebased, because allowing it
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:19:basebranch="$1"
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:36:# Now we are dealing with a topic branch being rebased
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:37:# on top of master.  Is it OK to rebase it?
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:119:    merged into other branches can be easily rebased without
+/home/ros/catkin_ws/src/sensor/fdilink_imu/.git/hooks/pre-rebase.sample:153:We would want to allow C to be rebased, refuse A, and encourage
+/home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink/rviz/fdilink.rviz:117:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink/CMakeLists.txt:202:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/sensor/rplidar_ros/rviz/rplidar.rviz:94:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/include/rptypes.h:61://based on stdint.h
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/src/hal/types.h:40://based on stdint.h
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/src/rplidar_driver.cpp:1197:            int dist_base1 = dist_major;
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/src/rplidar_driver.cpp:1198:            int dist_base2 = dist_major2;
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/src/rplidar_driver.cpp:1201:                dist_base1 = dist_major2;
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/src/rplidar_driver.cpp:1211:                dist_q2[1] = (dist_predict1 + dist_base1) << 2;
+/home/ros/catkin_ws/src/sensor/rplidar_ros/sdk/src/rplidar_driver.cpp:1219:                dist_q2[2] = (dist_predict2 + dist_base2) << 2;
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:5:# The "pre-rebase" hook is run just before "git rebase" starts doing
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:12:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:15:# merged to 'next' branch from getting rebased, because allowing it
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:19:basebranch="$1"
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:36:# Now we are dealing with a topic branch being rebased
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:37:# on top of master.  Is it OK to rebase it?
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:119:    merged into other branches can be easily rebased without
+/home/ros/catkin_ws/src/sensor/rplidar_ros/.git/hooks/pre-rebase.sample:153:We would want to allow C to be rebased, refuse A, and encourage
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/rosnodeinterface.h:109:      void baseRateTask(void);
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/slros_generic_pubsub.h:107:    MsgType _msg; ///< A prototype of the message to publish (will be filled based on Simulink bus
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/slros_msgconvert_utils.h:38: * of the base class.
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/slros_msgconvert_utils.h:50: * of the base class.
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/MW_custom_RTOS_header.h:12:extern void *baseRateTask(void *arg);
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/MW_custom_RTOS_header.h:15:extern pthread_t baseRateThread;
+/home/ros/catkin_ws/src/exp_6_2020b/include/exp_6_2020b/MW_custom_RTOS_header.h:18:extern sem_t baserateTaskSem;
+/home/ros/catkin_ws/src/exp_6_2020b/src/rosnodeinterface.cpp:70:          baseRateTask, this);
+/home/ros/catkin_ws/src/exp_6_2020b/src/rosnodeinterface.cpp:123:    // Scheduler Task using ROS Wall clock timer to run base-rate
+/home/ros/catkin_ws/src/exp_6_2020b/src/rosnodeinterface.cpp:134:    void NodeInterface::baseRateTask(void)
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:9:#include <move_base_msgs/MoveBaseAction.h>
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:22:using Client =  actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> ;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:27:geometry_msgs::Pose2D base_p_;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:35:void feedbackCb(const move_base_msgs::MoveBaseFeedbackConstPtr& feedback);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:38:void baseposeCallback(geometry_msgs::Pose2D bp);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:120:void feedbackCb(const move_base_msgs::MoveBaseFeedbackConstPtr& feedback)
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:122:	//ROS_INFO("Got base_position of Feedback");
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:123:	current_point.x = feedback->base_position.pose.position.x;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:124:	current_point.y = feedback->base_position.pose.position.y;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:125:	current_point.z = feedback->base_position.pose.position.z;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:129:void baseposeCallback(geometry_msgs::Pose2D bp)
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:131:	base_p_.x = bp.x;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:132:	base_p_.y = bp.y;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:133:	base_p_.theta = bp.theta;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:134:    //ROS_INFO("x y: %f  %f  %f ",base_p_.x,base_p_.y,base_p_.theta);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:160:	ros::Subscriber sub_basepos = node.subscribe("basepose",1000,baseposeCallback);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:163:	ROS_INFO("Waiting for move_base action server...");
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:164:	actionClient = new Client("move_base", true);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:167:		ROS_WARN("Can't connected to move base server");
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:170:	ROS_INFO("Connected to move base server");
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:180:	move_base_msgs::MoveBaseGoal goal;
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:13:  move_base_msgs
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:78:#   geometry_msgs#   move_base_msgs#   visualization_msgs
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:113:    CATKIN_DEPENDS actionlib geometry_msgs move_base_msgs roscpp rospy tf visualization_msgs
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:201:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/scene/navi_scene/package.xml:54:  <build_depend>move_base_msgs</build_depend>
+/home/ros/catkin_ws/src/scene/navi_scene/package.xml:61:  <build_export_depend>move_base_msgs</build_export_depend>
+/home/ros/catkin_ws/src/scene/navi_scene/package.xml:68:  <exec_depend>move_base_msgs</exec_depend>
+/home/ros/catkin_ws/src/move_navi/tf_pub/include/tf_pub/tf_pub.h:89:    ros::Publisher pub_basepose;
+/home/ros/catkin_ws/src/move_navi/tf_pub/include/tf_pub/tf_pub.h:90:    geometry_msgs::Pose2D base_pose_;
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:50:      base_pose_.x = p.pose.pose.position.x;
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:51:      base_pose_.y = p.pose.pose.position.y;
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:52:      double basepose_theta = tf2::getYaw(p_pose.pose.pose.orientation)-theta_;
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:53:      base_pose_.theta = atan2(sin(basepose_theta), cos(basepose_theta)); 
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:54:      base_pose_.theta = tf2::getYaw(p_pose.pose.pose.orientation)-theta_;
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:55:      pub_basepose.publish(base_pose_);
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:65:      odom_quat = tf::createQuaternionMsgFromYaw(base_pose_.theta);
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:69:      odom.child_frame_id = "base_footprint";
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:80:      odom_trans.child_frame_id = "base_footprint";
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:115:    pub_basepose = nh_.advertise<geometry_msgs::Pose2D>("basepose", 50);
+/home/ros/catkin_ws/src/move_navi/tf_pub/src/tf_pub.cpp:162:      //ROS_INFO("base to odom transform");
+/home/ros/catkin_ws/src/move_navi/tf_pub/CMakeLists.txt:212:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/move_navi/tf_pub/README.md:16:启动自动模式导航功能：roslaunch tf_pub move_base.launch
+匹配到二进制文件 /home/ros/catkin_ws/src/move_navi/tf_pub/param/.base_local_planner_params.yaml.swm
+匹配到二进制文件 /home/ros/catkin_ws/src/move_navi/tf_pub/param/.base_local_planner_params.yaml.swp
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/global_costmap_params.yaml:3:#   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/global_costmap_params.yaml:15:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/move_base_params.yaml:32:# ~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/move_base_params.yaml:33:# ~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/local_costmap_params.yaml:3:#   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/local_costmap_params.yaml:17:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/global_costmap_params.yaml:3:#   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/global_costmap_params.yaml:15:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/move_base_params.yaml:10:# ~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/move_base_params.yaml:11:# ~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/local_costmap_params.yaml:3:#   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/local_costmap_params.yaml:17:   robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/global_costmap_params.yaml:3:  robot_base_frame: base_footprint
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:2:  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:7:    <rosparam file="$(find tf_pub)/param/nky/base_local_planner_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:8:    <rosparam file="$(find tf_pub)/param/nky/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/slam_gmapping.xml:4:    <param name="base_frame" value="/base_link" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base_params.yaml:1:base_global_planner: global_planner/GlobalPlanner
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base_params.yaml:2:base_local_planner: dwa_local_planner/DWAPlannerROS
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/local_costmap_params.yaml:3:  robot_base_frame: base_footprint
+匹配到二进制文件 /home/ros/catkin_ws/src/move_navi/tf_pub/param/.base_local_planner_params.yaml.swo
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/global_costmap_params.yaml:3:   robot_base_frame: base_footprint      #在全局代价地图中机器人本体的基坐标系，就是机器人上的根坐标系
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/move_base_params.yaml:1:shutdown_costmaps: false                #当move_base在不活动状态时,是否关掉costmap.
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/move_base_params.yaml:13:base_global_planner: "global_planner/GlobalPlanner"               #指定用于move_base的局部规划器名称.
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/move_base_params.yaml:14:base_local_planner: "teb_local_planner/TebLocalPlannerROS"      #指定用于move_base的全局规划器插件名称.
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/local_costmap_params.yaml:3:   robot_base_frame: base_footprint                                      #机器人本体的基坐标系;
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/base_global_planner_param.yaml:2:base_global_planner: "global_planner/GlobalPlanner"  
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/base_global_planner_param.yaml:4:base_local_planner: "teb_local_planner/TebLocalPlannerROS"
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d.launch:10:  <arg name="frame_id" default="base_footprint" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d.launch:24:  <node pkg="tf" type="static_transform_publisher" name="base_link_to_localizer" args="$(arg x) $(arg y) $(arg z) $(arg yaw) $(arg pitch) $(arg roll) $(arg frame_id) $(arg child_frame_id) $(arg period_in_ms) " />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d_gazebo_s1.launch:10:  <arg name="frame_id" default="base_footprint" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d_gazebo_s1.launch:24:  <node pkg="tf" type="static_transform_publisher" name="base_link_to_localizer" args="$(arg x) $(arg y) $(arg z) $(arg yaw) $(arg pitch) $(arg roll) $(arg frame_id) $(arg child_frame_id) $(arg period_in_ms) " />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:7:  <node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen" clear_params="true">
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:12:    <rosparam file="$(find bringup)/param/base_global_planner_param.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:14:    <rosparam file="$(find bringup)/param/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:23:  <!-- move_base -->
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:24:  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:25:    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:30:    <rosparam file="$(find tf_pub)/param/nav/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_3d.launch:10:  <arg name="frame_id" default="base_footprint" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_3d.launch:24:  <node pkg="tf" type="static_transform_publisher" name="base_link_to_localizer" args="$(arg x) $(arg y) $(arg z) $(arg yaw) $(arg pitch) $(arg roll) $(arg frame_id) $(arg child_frame_id) $(arg period_in_ms) " />
+匹配到二进制文件 /home/ros/catkin_ws/src/move_navi/tf_pub/.git/index
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:5:# The "pre-rebase" hook is run just before "git rebase" starts doing
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:12:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:15:# merged to 'next' branch from getting rebased, because allowing it
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:19:basebranch="$1"
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:36:# Now we are dealing with a topic branch being rebased
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:37:# on top of master.  Is it OK to rebase it?
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:119:    merged into other branches can be easily rebased without
+/home/ros/catkin_ws/src/move_navi/tf_pub/.git/hooks/pre-rebase.sample:153:We would want to allow C to be rebased, refuse A, and encourage
+/home/ros/catkin_ws/src/teleop/teleop_joy/CMakeLists.txt:204:## Add gtest based cpp test target and link libraries
+/home/ros/catkin_ws/src/teleop/teleop_joy/LICENSE:41:      form, that is based on (or derived from) the Work and for which the
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:5:# The "pre-rebase" hook is run just before "git rebase" starts doing
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:12:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:15:# merged to 'next' branch from getting rebased, because allowing it
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:19:basebranch="$1"
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:36:# Now we are dealing with a topic branch being rebased
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:37:# on top of master.  Is it OK to rebase it?
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:119:    merged into other branches can be easily rebased without
+/home/ros/catkin_ws/src/teleop/teleop_joy/.git/hooks/pre-rebase.sample:153:We would want to allow C to be rebased, refuse A, and encourage

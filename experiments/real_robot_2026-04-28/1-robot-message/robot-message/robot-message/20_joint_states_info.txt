@@ -1,0 +1,10 @@
+========== /joint_states 话题信息 ==========
+Type: sensor_msgs/JointState
+
+Publishers: 
+ * /joint_state_publisher_gui (http://192.168.1.102:42041/)
+
+Subscribers: 
+ * /robot_state_publisher (http://192.168.1.102:37275/)
+
+

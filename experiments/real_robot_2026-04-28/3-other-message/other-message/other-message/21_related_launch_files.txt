@@ -1,0 +1,1043 @@
+========== 16. 相关 launch 文件内容 ==========
+
+========== package: zeus_s2_driver, path: /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver ==========
+
+---------- /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/launch/zeus_s2_driver.launch ----------
+<launch>
+	<param name="use_sim_time" value="false" />
+	
+    <!-- 启动zeus_s2_driver驱动包 -->
+    <node pkg="zeus_s2_driver" type="zeus_s2_driver" name="zeus_s2_driver" output="screen">
+        <rosparam file="$(find zeus_s2_driver)/config/zeus_params.yaml" command="load"/>
+    </node>
+
+</launch>
+
+========== package: zeus_s2_bringup, path: /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup ==========
+
+---------- /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <!-- 设置launch文件的参数 -->
+  <arg name="world_name" value="$(find zeus_s2_bringup)/worlds/cloister.world"/>
+  <arg name="2d_map_name" value="(find zeus_s2_bringup)/maps/map_2021-11-10_16-24-56.pbstream" />
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <!-- 运行gazebo仿真环境 -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)" />
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- 加载机器人模型描述参数 -->
+  <param name="robot_description" textfile="$(find zeus_s2_description)/urdf/zeus_s2.urdf" />
+
+  <!-- 在gazebo中加载机器人模型-->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+      args="-urdf -model zeus_s2 -param robot_description"/> 
+
+  <!-- 运行robot_state_publisher节点，发布tf  -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"  output="screen" >
+    <!--param name="publish_frequency" type="double" value="100.0" /-->
+  </node>
+
+  <!-- 运行joint_state_publisher节点，发布机器人的关节状态  -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- 运行导航避障框架 -->
+  <include file="$(find zeus_s2_navi)/launch/move_base.launch" />
+
+  <!-- 运行建图定位模块 -->
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename zeus_s2_2d_localization.lua
+          -load_state_filename $(arg 2d_map_name)"
+      output="screen">
+  </node>
+
+  <!-- 谷歌地图转栅格地图 -->
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+  <!-- 开启北通遥控手柄 -->
+  <!--include file="$(find teleop_twist_joy)/launch/teleop.launch" /-->
+
+  <!-- RVIZ显示 -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find zeus_s2_navi)/rviz/zeus_s2.rviz" />
+
+</launch>
+
+---------- /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch ----------
+<launch>
+    <param name="use_sim_time" value="false"/>
+
+    <!-- 启动zeus_s2_driver驱动包 -->
+    <include file="$(find zeus_s2_driver)/launch/zeus_s2_driver.launch" />
+
+    <!-- 启动手柄遥控节点 -->
+<!--
+    <node name="joy_node" pkg="joy" type="joy_node" output="screen" respawn="false"/>
+    <node name="joy_teleop" pkg="zeus_s2_driver" type="joy_teleop.py" output="screen" respawn="false">
+	    <param name="x_speed_scale"  value="0.8" />
+	    <param name="w_speed_scale"  value="1.6" />
+	    <remap from="/cmd_vel" to="/raw_cmd_vel"/>	
+    </node>
+-->
+    <include file="$(find teleop_joy)/launch/beitong.launch" />
+
+    <!-- 速度指令切换节点：teleop / dwa / rl -> raw_cmd_vel -->
+    <node pkg="zeus_s2_bringup"
+          type="cmd_vel_switch.py"
+          name="cmd_vel_switch"
+          output="screen">
+        <param name="teleop_topic" value="/teleop_cmd_vel" />
+        <param name="dwa_topic"    value="/raw_cmd_vel_dwa" />
+        <param name="rl_topic"     value="/rl_cmd_vel" />
+        <param name="out_topic"    value="/raw_cmd_vel" />
+        <param name="mode_topic"   value="/cmd_vel_mode" />
+        <param name="active_topic" value="/cmd_vel_switch/active_mode" />
+
+        <param name="pub_rate"        value="20.0" />
+        <param name="cmd_timeout"     value="0.5" />
+        <param name="teleop_timeout"  value="0.3" />
+        <param name="mode"            value="rl" />
+    </node>
+    
+    <!--Example standalone launcher for the velocity smoother-->
+    <arg name="node_name"             value="velocity_smoother"/>
+    <arg name="nodelet_manager_name"  value="nodelet_manager"/>
+    <arg name="config_file"           value="$(find zeus_s2_driver)/config/standalone.yaml"/>
+    <arg name="raw_cmd_vel_topic"     value="raw_cmd_vel"/>
+    <arg name="smooth_cmd_vel_topic"  value="zeus_speed"/>
+    <arg name="robot_cmd_vel_topic"   value="robot_cmd_vel"/>
+    <arg name="odom_topic"            value="odom"/>
+  
+    <!-- nodelet manager -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager"/>
+  
+    <!-- velocity smoother -->
+    <include file="$(find yocs_velocity_smoother)/launch/velocity_smoother.launch">
+        <arg name="node_name"             value="$(arg node_name)"/>
+        <arg name="nodelet_manager_name"  value="$(arg nodelet_manager_name)"/>
+        <arg name="config_file"           value="$(arg config_file)"/>
+        <arg name="raw_cmd_vel_topic"     value="$(arg raw_cmd_vel_topic)"/>
+        <arg name="smooth_cmd_vel_topic"  value="$(arg smooth_cmd_vel_topic)"/>
+        <arg name="robot_cmd_vel_topic"   value="$(arg robot_cmd_vel_topic)"/>
+        <arg name="odom_topic"            value="$(arg odom_topic)"/>
+    </include>
+
+</launch>
+
+---------- /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/rplidar_ros.launch ----------
+<launch>
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+  <param name="serial_port"         type="string" value="/dev/RPLIDAR"/>  
+  <param name="serial_baudrate"     type="int"    value="256000"/><!--A3 -->
+  <param name="frame_id"            type="string" value="laser"/>
+  <param name="inverted"            type="bool"   value="false"/>
+  <param name="angle_compensate"    type="bool"   value="true"/>
+  <param name="scan_mode"           type="string" value="Sensitivity"/>
+  </node>
+</launch>
+
+========== package: fdilink, path: /home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink ==========
+
+---------- /home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink/launch/launch_imu.launch ----------
+<?xml version="1.0"?>
+<launch>
+    <arg name="use_rviz" default="true"/>
+    <node pkg="fdilink" type="launch_imu_node" name="launch_imu_node" output="screen">
+        <!--设置imu连接的串口号，下面为默认值-->
+        <param name="imu_serial_port" value="/dev/imu"/>
+        <!--设置imu的话题名，下面为默认值-->
+        <remap from="/fdi_imu" to="/imu/data"/>
+        <!--设置磁力计的话题名，下面为默认值-->
+        <remap from="/fdi_mag" to="/mag/mag_calib"/>
+    </node>
+    <!-- rviz -->
+    <!--<node pkg="rviz" type="rviz" name="odom_rviz" required="true"
+          args="-d $(find fdilink)/rviz/fdilink.rviz" if="$(arg use_rviz)"/>-->
+</launch>
+
+========== package: relocalization, path: /home/ros/localization_ws/src/2dlocal/relocalization ==========
+
+---------- /home/ros/localization_ws/src/2dlocal/relocalization/launch/relocalization.launch ----------
+<launch>
+    <node pkg="relocalization" type="relocalization" name="relocalization" output="screen" >
+            <param name="pgm_file_path" value="$(find relocalization)/data/map_imu.pgm" />
+            <param name="yaml_file_path" value="$(find relocalization)/data/map_imu.yaml"/>
+            <param name="occupy_file_path" value="$(find relocalization)/data/occupy_grid_index.txt"/>
+            <param name="curt_position_file_path" value="$(find relocalization)/data/"/>
+            <param name="match_ratio_threshold" value="0.45"/>   
+    </node>
+</launch>
+
+========== package: tf_pub, path: /home/ros/catkin_ws/src/move_navi/tf_pub ==========
+
+---------- /home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d.launch ----------
+<!-- -->
+<launch>
+
+  <arg name="x" default="0.37" />
+  <arg name="y" default="0.0" />
+  <arg name="z" default="0" /> 
+  <arg name="yaw" default="3.14" />
+  <arg name="pitch" default="0.0" />
+  <arg name="roll" default="0.0" />
+  <arg name="frame_id" default="base_footprint" />
+  <arg name="child_frame_id" default="laser_link" />
+  <arg name="period_in_ms" default="10" />
+  
+  
+  <node pkg="tf_pub" type="tf_pub_node" name="tf_pub_node" output="screen">
+  	<param name="x" value="$(arg x)" />
+  	<param name="y" value="$(arg y)" />
+  	<param name="theta" value="$(arg yaw)" /> 
+  
+  </node>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find relocalization)/data/map_imu.yaml"/> 
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_localizer" args="$(arg x) $(arg y) $(arg z) $(arg yaw) $(arg pitch) $(arg roll) $(arg frame_id) $(arg child_frame_id) $(arg period_in_ms) " />
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 10 " />
+
+
+</launch>
+
+---------- /home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d_gazebo_s1.launch ----------
+<!-- -->
+<launch>
+
+  <arg name="x" default="0.155" />
+  <arg name="y" default="0.0" />
+  <arg name="z" default="0.217" /> 
+  <arg name="yaw" default="0" />
+  <arg name="pitch" default="0.0" />
+  <arg name="roll" default="0.0" />
+  <arg name="frame_id" default="base_footprint" />
+  <arg name="child_frame_id" default="laser_link" />
+  <arg name="period_in_ms" default="10" />
+  
+  
+  <node pkg="tf_pub" type="tf_pub_node" name="tf_pub_node" output="screen">
+  	<param name="x" value="$(arg x)" />
+  	<param name="y" value="$(arg y)" />
+  	<param name="theta" value="$(arg yaw)" /> 
+  
+  </node>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find zeus_s1_bringup)/maps/map_2021-11-10_15-45-26.yaml"/> 
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_localizer" args="$(arg x) $(arg y) $(arg z) $(arg yaw) $(arg pitch) $(arg roll) $(arg frame_id) $(arg child_frame_id) $(arg period_in_ms) " />
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 10 " />
+
+
+</launch>
+
+---------- /home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch ----------
+<!-- 
+    ROS navigation stack with velocity smoother and safety (reactive) controller
+-->
+<launch>
+ 
+<!--
+  <node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find bringup)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/base_global_planner_param.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/move_base_params.yaml" command="load" />
+  </node>
+-->
+
+
+  <arg name="cmd_vel_topic" default="/raw_cmd_vel_dwa" />
+  <arg name="odom_topic" default="odom" />
+  <arg name="move_forward_only" default="false"/>
+
+  <!-- move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find tf_pub)/param/nav/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find tf_pub)/param/nav/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find tf_pub)/param/nav/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tf_pub)/param/nav/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tf_pub)/param/nav/move_base_params.yaml" command="load" />
+    <rosparam file="$(find tf_pub)/param/nav/dwa_local_planner_params_burger.yaml" command="load" />
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
+  </node>
+
+
+</launch>
+
+---------- /home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_3d.launch ----------
+<!-- -->
+<launch>
+
+  <arg name="x" default="0.05" />
+  <arg name="y" default="0.0" />
+  <arg name="z" default="0" /> 
+  <arg name="yaw" default="0" />
+  <arg name="pitch" default="0.0" />
+  <arg name="roll" default="0.0" />
+  <arg name="frame_id" default="base_footprint" />
+  <arg name="child_frame_id" default="velodyne" />
+  <arg name="period_in_ms" default="10" />
+  
+  
+  <node pkg="tf_pub" type="tf_pub_node" name="tf_pub_node" output="screen">
+  	<param name="x" value="$(arg x)" />
+  	<param name="y" value="$(arg y)" />
+  	<param name="theta" value="$(arg yaw)" /> 
+  
+  </node>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find hdl_localization)/data/map.yaml"/> 
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_localizer" args="$(arg x) $(arg y) $(arg z) $(arg yaw) $(arg pitch) $(arg roll) $(arg frame_id) $(arg child_frame_id) $(arg period_in_ms) " />
+
+<node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 map odom 10 " />
+
+
+</launch>
+
+========== package: cartographer_ros, path: /home/ros/google_ws/install_isolated/share/cartographer_ros ==========
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/offline_backpack_2d.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <arg name="bag_filenames"/>
+  <arg name="no_rviz" default="false"/>
+  <arg name="rviz_config" default="$(find cartographer_ros)/configuration_files/demo_2d.rviz"/>
+  <arg name="configuration_directory" default="$(find cartographer_ros)/configuration_files"/>
+  <arg name="configuration_basenames" default="backpack_2d.lua"/>
+  <arg name="urdf_filenames" default="$(find cartographer_ros)/urdf/backpack_2d.urdf"/>
+  <arg name="launch_prefix" default=""/>
+
+  <remap from="echoes" to="horizontal_laser_2d"/>
+  <include file="$(find cartographer_ros)/launch/offline_node.launch">
+    <arg name="bag_filenames" value="$(arg bag_filenames)"/>
+    <arg name="no_rviz" value="$(arg no_rviz)"/>
+    <arg name="rviz_config" value="$(arg rviz_config)"/>
+    <arg name="configuration_directory" value="$(arg configuration_directory)"/>
+    <arg name="configuration_basenames" value="$(arg configuration_basenames)"/>
+    <arg name="urdf_filenames" value="$(arg urdf_filenames)"/>
+    <arg name="launch_prefix" value="$(arg launch_prefix)"/>
+  </include>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/backpack_2d.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/backpack_2d.urdf" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_2d.lua"
+      output="screen">
+    <remap from="scan" to="/scan" />
+    <remap from="imu" to="/imu/data" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_backpack_3d.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <include file="$(find cartographer_ros)/launch/backpack_3d.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_3d.rviz" />
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_backpack_2d_localization.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/backpack_2d.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_2d_localization.lua
+          -load_state_filename $(arg load_state_filename)"
+      output="screen">
+    <remap from="echoes" to="horizontal_laser_2d" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/offline_backpack_3d.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <arg name="bag_filenames"/>
+  <arg name="no_rviz" default="false"/>
+  <arg name="rviz_config" default="$(find cartographer_ros)/configuration_files/demo_3d.rviz"/>
+  <arg name="configuration_directory" default="$(find cartographer_ros)/configuration_files"/>
+  <arg name="configuration_basenames" default="backpack_3d.lua"/>
+  <arg name="urdf_filenames" default="$(find cartographer_ros)/urdf/backpack_3d.urdf"/>
+  <arg name="launch_prefix" default=""/>
+
+  <remap from="points2_1" to="horizontal_laser_3d" />
+  <remap from="points2_2" to="vertical_laser_3d" />
+  <include file="$(find cartographer_ros)/launch/offline_node.launch">
+    <arg name="bag_filenames" value="$(arg bag_filenames)"/>
+    <arg name="no_rviz" value="$(arg no_rviz)"/>
+    <arg name="rviz_config" value="$(arg rviz_config)"/>
+    <arg name="configuration_directory" value="$(arg configuration_directory)"/>
+    <arg name="configuration_basenames" value="$(arg configuration_basenames)"/>
+    <arg name="urdf_filenames" value="$(arg urdf_filenames)"/>
+    <arg name="launch_prefix" value="$(arg launch_prefix)"/>
+  </include>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/backpack_3d.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/backpack_3d.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_3d.lua"
+      output="screen">
+    <remap from="points2_1" to="horizontal_laser_3d" />
+    <remap from="points2_2" to="vertical_laser_3d" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_revo_lds.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename revo_lds.lua"
+      output="screen">
+    <remap from="scan" to="horizontal_laser_2d" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/assets_writer_backpack_2d.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <arg name="config_file" default="assets_writer_backpack_2d.lua"/>
+  <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
+      type="cartographer_assets_writer" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename $(arg config_file)
+          -urdf_filename $(find cartographer_ros)/urdf/backpack_2d.urdf
+          -bag_filenames $(arg bag_filenames)
+          -pose_graph_filename $(arg pose_graph_filename)"
+      output="screen">
+  </node>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/visualize_pbstream.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename visualize_pbstream.lua
+          -load_state_filename $(arg pbstream_filename)
+          -load_frozen_state=false
+          -start_trajectory_with_default_topics=false"
+      output="screen">
+  </node>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/grpc_demo_backpack_2d.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/backpack_2d.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_grpc_server" pkg="cartographer_ros"
+      type="cartographer_grpc_server.sh" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_2d_server.lua">
+  </node>
+
+  <node name="cartographer_grpc_node" pkg="cartographer_ros"
+      type="cartographer_grpc_node" args="
+	  -client_id CLIENT_ID
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_2d.lua"
+      output="screen">
+    <remap from="echoes" to="horizontal_laser_2d" />
+  </node>
+
+  <node name="playbag" pkg="rosbag" type="play"
+        args="--clock $(arg bag_filename)" />
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_taurob_tracker.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <include file="$(find cartographer_ros)/launch/taurob_tracker.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_3d.rviz" />
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/offline_node.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <arg name="bag_filenames"/>
+  <arg name="no_rviz"/>
+  <arg name="rviz_config"/>
+  <arg name="configuration_directory"/>
+  <arg name="configuration_basenames"/>
+  <arg name="urdf_filenames"/>
+  <arg name="launch_prefix"/>
+
+  <param name="/use_sim_time" value="true" />
+
+  <group unless="$(arg no_rviz)">
+    <node name="rviz"
+          pkg="rviz"
+          type="rviz"
+          required="true"
+          args="-d $(arg rviz_config)" />
+
+    <node name="cartographer_occupancy_grid_node"
+        pkg="cartographer_ros"
+        type="cartographer_occupancy_grid_node"
+        args="-resolution 0.05" />
+  </group>
+
+  <node name="cartographer_offline_node" pkg="cartographer_ros"
+      required="$(arg no_rviz)"
+      type="cartographer_offline_node" args="
+          -configuration_directory $(arg configuration_directory)
+          -configuration_basenames $(arg configuration_basenames)
+          -urdf_filenames $(arg urdf_filenames)
+          -bag_filenames $(arg bag_filenames)"
+      launch-prefix="$(arg launch_prefix)"
+      output="screen"/>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/taurob_tracker.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename taurob_tracker.lua"
+      output="screen">
+    <remap from="scan" to="/spin_laser/scan" />
+    <remap from="imu" to="/imu/data" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_pr2.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory
+              $(find cartographer_ros)/configuration_files
+          -configuration_basename pr2.lua"
+      output="screen">
+    <remap from="scan" to="/base_scan" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+  <node name="tf_remove_frames" pkg="cartographer_ros"
+      type="tf_remove_frames.py">
+    <remap from="tf_out" to="/tf" />
+    <rosparam param="remove_frames">
+      - map
+      - odom_combined
+    </rosparam>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)">
+    <remap from="tf" to="tf_in" />
+  </node>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/grpc_demo_backpack_2d_localization.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/backpack_2d.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_grpc_node" pkg="cartographer_ros"
+      type="cartographer_grpc_node" args="
+	  -client_id CLIENT_ID
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_2d.lua
+          -map_filename $(arg map_filename)"
+      output="screen">
+    <remap from="echoes" to="horizontal_laser_2d" />
+  </node>
+
+  <node name="playbag" pkg="rosbag" type="play"
+        args="--clock $(arg bag_filename)" />
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/assets_writer_ros_map.launch ----------
+<!--
+  Copyright 2018 The Cartographer Authors
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+  Using this will generate one .pgm and one .yaml file that together
+  form the typical occupancy grid ROS map.
+  The files will be placed in the same directory of the bag file.
+  Remember to change configuration in the lua config_file.
+-->
+
+<launch>
+  <arg name="urdf_filename" default="$(find cartographer_ros)/urdf/backpack_2d.urdf"/>
+
+  <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
+      type="cartographer_assets_writer" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename assets_writer_ros_map.lua
+          -urdf_filename $(arg urdf_filename)
+          -bag_filenames $(arg bag_filenames)
+          -pose_graph_filename $(arg pose_graph_filename)"
+      output="screen">
+  </node>
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_backpack_2d.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="false" />
+
+  <include file="$(find cartographer_ros)/launch/backpack_2d.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/demo_backpack_3d_localization.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/backpack_3d.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename backpack_3d_localization.lua
+          -load_state_filename $(arg load_state_filename)"
+      output="screen">
+    <remap from="points2_1" to="horizontal_laser_3d" />
+    <remap from="points2_2" to="vertical_laser_3d" />
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_3d.rviz" />
+  <node name="playbag" pkg="rosbag" type="play"
+      args="--clock $(arg bag_filename)" />
+</launch>
+
+---------- /home/ros/google_ws/install_isolated/share/cartographer_ros/launch/assets_writer_backpack_3d.launch ----------
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<launch>
+  <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
+      type="cartographer_assets_writer" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename assets_writer_backpack_3d.lua
+          -urdf_filename $(find cartographer_ros)/urdf/backpack_3d.urdf
+          -bag_filenames $(arg bag_filenames)
+          -pose_graph_filename $(arg pose_graph_filename)"
+      output="screen">
+  </node>
+</launch>
+
+========== package: move_base, path: /opt/ros/melodic/share/move_base ==========

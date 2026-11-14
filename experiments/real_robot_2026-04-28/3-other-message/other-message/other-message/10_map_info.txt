@@ -1,0 +1,10 @@
+========== /map info ==========
+Type: nav_msgs/OccupancyGrid
+
+Publishers: 
+ * /map_server (http://192.168.1.102:41921/)
+
+Subscribers: 
+ * /move_base (http://192.168.1.102:44171/)
+
+

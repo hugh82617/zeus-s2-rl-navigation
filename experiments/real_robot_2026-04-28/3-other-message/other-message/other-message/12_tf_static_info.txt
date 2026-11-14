@@ -1,0 +1,13 @@
+========== /tf_static info ==========
+Type: tf2_msgs/TFMessage
+
+Publishers: 
+ * /robot_state_publisher (http://192.168.1.102:37275/)
+
+Subscribers: 
+ * /tf_pub_node (http://192.168.1.102:45143/)
+ * /move_base (http://192.168.1.102:44171/)
+ * /rviz_1777363569473012009 (http://192.168.1.102:44173/)
+ * /rviz (http://192.168.1.102:36677/)
+
+

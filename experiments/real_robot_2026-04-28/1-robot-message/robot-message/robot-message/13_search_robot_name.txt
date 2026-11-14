@@ -1,0 +1,5 @@
+========== 搜索机器人名称 robot name ==========
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:6:<robot name="zeus_s2">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:2:<robot name="zeus_s2" xmlns:xacro="http://wiki.ros.org/xacro">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:6:<robot name="zeus_s2">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:2:<robot name="zeus_s2" xmlns:xacro="http://wiki.ros.org/xacro">

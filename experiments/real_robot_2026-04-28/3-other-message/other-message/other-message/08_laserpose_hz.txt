@@ -1,0 +1,30 @@
+========== /laserpose hz ==========
+subscribed to [/laserpose]
+average rate: 14.102
+	min: 0.061s max: 0.082s std dev: 0.00595s window: 14
+average rate: 14.068
+	min: 0.059s max: 0.083s std dev: 0.00578s window: 28
+average rate: 14.075
+	min: 0.059s max: 0.086s std dev: 0.00606s window: 42
+average rate: 14.089
+	min: 0.059s max: 0.086s std dev: 0.00577s window: 56
+average rate: 14.081
+	min: 0.059s max: 0.086s std dev: 0.00571s window: 70
+average rate: 14.094
+	min: 0.059s max: 0.095s std dev: 0.00641s window: 84
+average rate: 14.094
+	min: 0.059s max: 0.095s std dev: 0.00660s window: 99
+average rate: 14.076
+	min: 0.059s max: 0.095s std dev: 0.00652s window: 113
+average rate: 14.081
+	min: 0.054s max: 0.095s std dev: 0.00692s window: 127
+average rate: 14.097
+	min: 0.054s max: 0.095s std dev: 0.00699s window: 141
+average rate: 14.083
+	min: 0.051s max: 0.095s std dev: 0.00716s window: 155
+average rate: 14.094
+	min: 0.051s max: 0.095s std dev: 0.00740s window: 169
+average rate: 14.084
+	min: 0.051s max: 0.095s std dev: 0.00736s window: 183
+average rate: 14.087
+	min: 0.051s max: 0.095s std dev: 0.00722s window: 197

@@ -1,0 +1,27 @@
+========== 17. Python 关键字段提取 ==========
+
+---------- /imu ----------
+('not received:', ROSException('timeout exceeded while waiting for message on topic /imu',))
+
+---------- /imu/data ----------
+('not received:', ROSException('timeout exceeded while waiting for message on topic /imu/data',))
+
+---------- /odom ----------
+topic exists and message received
+('frame_id:', 'odom')
+('child_frame_id:', 'base_footprint')
+('stamp:', 1777365380.4869025)
+('position:', 1.0440305908390206, 0.002212066139153094, 0.0)
+('orientation:', 0.0, 0.0, -0.9998888883773146, 0.01490674007213412)
+('linear velocity:', 0.0, 0.0, 0.0)
+('angular velocity:', 0.0, 0.0, 0.0)
+
+---------- /laserpose ----------
+topic exists and message received
+('frame_id:', 'map')
+('stamp:', 1777365380.4869025)
+('position:', 0.6741950269047084, -0.008817695843288164, 0.0)
+('orientation:', 0.0, 0.0, 0.014110497116101087, 0.9999004419796685)
+
+---------- /amcl_pose ----------
+('not received:', ROSException('timeout exceeded while waiting for message on topic /amcl_pose',))

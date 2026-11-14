@@ -1,0 +1,59 @@
+keywords: model,onnx,actor,policy,input_name,output_name,rl,il
+
+----- /cmd_vel_switch/rl_topic -----
+/rl_cmd_vel
+
+----- /experiment_logger_with_obs556/fill_stats_topic -----
+/rl/lidar_181_fill_stats
+
+----- /experiment_logger_with_obs556/rl_status_topic -----
+/rl_local_goal_status
+
+----- /experiment_logger_with_obs556/static_tf_child_frame -----
+laser_link_aligned
+
+----- /move_base/DWAPlannerROS/max_scaling_factor -----
+0.2
+
+----- /move_base/DWAPlannerROS/oscillation_reset_angle -----
+0.2
+
+----- /move_base/DWAPlannerROS/oscillation_reset_dist -----
+0.05
+
+----- /move_base/DWAPlannerROS/twirling_scale -----
+0.0
+
+----- /move_base/global_costmap/inflation_layer/cost_scaling_factor -----
+10.0
+
+----- /move_base/local_costmap/inflation_layer/cost_scaling_factor -----
+10.0
+
+----- /move_base/oscillation_distance -----
+0.3
+
+----- /move_base/oscillation_timeout -----
+10.0
+
+----- /relocalization/curt_position_file_path -----
+/home/ros/localization_ws/src/2dlocal/relocalization/data/
+
+----- /relocalization/occupy_file_path -----
+/home/ros/localization_ws/src/2dlocal/relocalization/data/occupy_grid_index.txt
+
+----- /relocalization/pgm_file_path -----
+/home/ros/localization_ws/src/2dlocal/relocalization/data/map4.20.pgm
+
+----- /relocalization/yaml_file_path -----
+/home/ros/localization_ws/src/2dlocal/relocalization/data/map4.20.yaml
+
+----- /velocity_smoother/decel_factor -----
+2.0
+
+----- /zeus_s2_driver/angular_correction_factor -----
+1.0
+
+----- /zeus_s2_driver/linear_correction_factor -----
+1.0
+

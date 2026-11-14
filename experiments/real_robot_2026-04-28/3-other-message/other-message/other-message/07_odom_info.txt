@@ -1,0 +1,11 @@
+========== /odom info ==========
+Type: nav_msgs/Odometry
+
+Publishers: 
+ * /tf_pub_node (http://192.168.1.102:45143/)
+
+Subscribers: 
+ * /nodelet_manager (http://192.168.1.102:42773/)
+ * /move_base (http://192.168.1.102:44171/)
+
+

@@ -1,0 +1,25 @@
+# Local caches and generated build outputs
+__pycache__/
+*.pyc
+.vs/
+.idea/
+.DS_Store
+build/
+devel/
+install/
+log/
+logs/latest*
+*.slxc
+*.asv
+*.swp
+
+# Credentials and local-only settings
+.env
+.env.*
+*.pem
+*.key
+
+# Large raw media is attached to GitHub Releases
+*.bag
+*.zip
+!**/README.md

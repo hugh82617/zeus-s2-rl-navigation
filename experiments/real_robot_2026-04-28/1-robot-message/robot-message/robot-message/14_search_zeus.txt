@@ -1,0 +1,300 @@
+========== 搜索 zeus 关键词 ==========
+/home/ros/catkin_ws/src/llm_path_planner/scripts/dwa_local_planner_node.py:346:        self.cmd_topic = rospy.get_param("~cmd_topic", "/zeus_speed")
+匹配到二进制文件 /home/ros/catkin_ws/src/rl_planner/scripts/__pycache__/rl_planner_node.cpython-38.pyc
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py.save:49:        self.model_path   = rospy.get_param("~model_path",   "/home/ros/catkin_ws/src/rl_planner/models/zeus_stage1_model_1999.onnx")
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py:57:        self.speed_topic = rospy.get_param("~speed_topic", "/zeus_speed")
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:114:        self.speed_topic       = rospy.get_param("~speed_topic",       "/zeus_speed")
+/home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py:159:        self.latest_speed = None     # /zeus_speed (Twist)
+/home/ros/catkin_ws/src/rl_planner/launch/rl_planner_node.launch:13:        <param name="speed_topic" value="/zeus_speed" />
+/home/ros/catkin_ws/src/rl_planner/launch/experiment_logger_with_obs556.launch:11:    <param name="speed_topic" value="/zeus_speed" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/CMakeLists.txt:2:project(zeus_s2_msgs)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/CMakeLists.txt:108:#  LIBRARIES zeus_s2_msgs
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/CMakeLists.txt:127:#   src/${PROJECT_NAME}/zeus_s2_msgs.cpp
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/CMakeLists.txt:138:# add_executable(${PROJECT_NAME}_node src/zeus_s2_msgs_node.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/CMakeLists.txt:202:# catkin_add_gtest(${PROJECT_NAME}-test test/test_zeus_s2_msgs.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/package.xml:3:  <name>zeus_s2_msgs</name>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/package.xml:5:  <description>The zeus_s2_msgs package</description>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_msgs/package.xml:22:  <!-- <url type="website">http://wiki.ros.org/zeus_s2_msgs</url> -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/CMakeLists.txt:2:project(zeus_s2_bringup)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/CMakeLists.txt:103:#  LIBRARIES zeus_s2_bringup
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/CMakeLists.txt:121:#   src/${PROJECT_NAME}/zeus_s2_bringup.cpp
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/CMakeLists.txt:132:# add_executable(${PROJECT_NAME}_node src/zeus_s2_bringup_node.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/CMakeLists.txt:196:# catkin_add_gtest(${PROJECT_NAME}-test test/test_zeus_s2_bringup.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/scripts/start.sh:6:roslaunch zeus_s2_bringup all_start.launch
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/ext_cfg/cartographer/zeus_s2_2d_localization.lua:15:include "zeus_s2_2d.lua"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch.bak:4:    <!-- 启动zeus_s2_driver驱动包 -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch.bak:5:    <include file="$(find zeus_s2_driver)/launch/zeus_s2_driver.launch" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch.bak:10:    <node name="joy_teleop" pkg="zeus_s2_driver" type="joy_teleop.py" output="screen" respawn="false">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch.bak:21:    <arg name="config_file"           value="$(find zeus_s2_driver)/config/standalone.yaml"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch.bak:23:    <arg name="smooth_cmd_vel_topic"  value="zeus_speed"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:21:  <arg name="world_name" value="$(find zeus_s2_bringup)/worlds/cloister.world"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:22:  <arg name="2d_map_name" value="(find zeus_s2_bringup)/maps/map_2021-11-10_16-24-56.pbstream" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:40:  <param name="robot_description" textfile="$(find zeus_s2_description)/urdf/zeus_s2.urdf" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:44:      args="-urdf -model zeus_s2 -param robot_description"/> 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:55:  <include file="$(find zeus_s2_navi)/launch/move_base.launch" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:61:          -configuration_basename zeus_s2_2d_localization.lua
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:75:      args="-d $(find zeus_s2_navi)/rviz/zeus_s2.rviz" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch:4:    <!-- 启动zeus_s2_driver驱动包 -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch:5:    <include file="$(find zeus_s2_driver)/launch/zeus_s2_driver.launch" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch:10:    <node name="joy_teleop" pkg="zeus_s2_driver" type="joy_teleop.py" output="screen" respawn="false">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch:19:    <node pkg="zeus_s2_bringup"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch:39:    <arg name="config_file"           value="$(find zeus_s2_driver)/config/standalone.yaml"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/all_start.launch:41:    <arg name="smooth_cmd_vel_topic"  value="zeus_speed"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/package.xml:3:  <name>zeus_s2_bringup</name>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/package.xml:5:  <description>The zeus_s2_bringup package</description>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/package.xml:22:  <!-- <url type="website">http://wiki.ros.org/zeus_s2_bringup</url> -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/CMakeLists.txt:3:project(zeus_s2_description)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:9:2021-03-02 14:39:22,886 INFO  SwAddin.cs: 271 - Assembly export called for file zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:13:2021-03-02 14:39:25,101 INFO  ExportHelperExtension.cs: 1131 - Retrieving features of type [CoordSys] from zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:14:2021-03-02 14:39:25,108 INFO  ExportHelperExtension.cs: 1142 - Found 112 in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:15:2021-03-02 14:39:25,109 INFO  ExportHelperExtension.cs: 1152 - Found 0 features of type [CoordSys] in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:84:2021-03-02 14:39:25,176 INFO  ExportHelperExtension.cs: 1131 - Retrieving features of type [RefAxis] from zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:85:2021-03-02 14:39:25,176 INFO  ExportHelperExtension.cs: 1142 - Found 112 in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:86:2021-03-02 14:39:25,177 INFO  ExportHelperExtension.cs: 1152 - Found 0 features of type [RefAxis] in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:162:2021-03-02 14:45:33,007 INFO  ExportHelperExtension.cs: 1131 - Retrieving features of type [CoordSys] from zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:163:2021-03-02 14:45:33,010 INFO  ExportHelperExtension.cs: 1142 - Found 115 in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:164:2021-03-02 14:45:33,011 INFO  ExportHelperExtension.cs: 1152 - Found 1 features of type [CoordSys] in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:233:2021-03-02 14:45:33,089 INFO  ExportHelperExtension.cs: 1131 - Retrieving features of type [RefAxis] from zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:234:2021-03-02 14:45:33,089 INFO  ExportHelperExtension.cs: 1142 - Found 115 in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:235:2021-03-02 14:45:33,090 INFO  ExportHelperExtension.cs: 1152 - Found 0 features of type [RefAxis] in zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:308:2021-03-02 14:46:27,362 INFO  AssemblyExportForm.cs: 308 - Saving URDF package to D:\zeus_s2_description
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:310:2021-03-02 14:46:27,369 INFO  ExportHelper.cs: 153 - Creating package directories with name zeus_s2_description and save path D:\
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:311:2021-03-02 14:46:28,552 INFO  ExportHelper.cs: 162 - Creating CMakeLists.txt at D:\zeus_s2_description\CMakeLists.txt
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:312:2021-03-02 14:46:28,558 INFO  ExportHelper.cs: 166 - Creating joint names config at D:\zeus_s2_description\config\joint_names_zeus_s2_description.yaml
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:313:2021-03-02 14:46:28,563 INFO  ExportHelper.cs: 170 - Creating package.xml at D:\zeus_s2_description\package.xml
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:314:2021-03-02 14:46:28,564 INFO  PackageXMLWriter.cs: 21 - Creating package.xml at D:\zeus_s2_description\package.xml
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:315:2021-03-02 14:46:28,571 INFO  ExportHelper.cs: 177 - Creating RVIZ launch file in D:\zeus_s2_description\launch\
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:316:2021-03-02 14:46:28,578 INFO  ExportHelper.cs: 182 - Creating Gazebo launch file in D:\zeus_s2_description\launch\
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:328:2021-03-02 14:46:30,402 INFO  ExportHelper.cs: 331 - Saving STL to D:\zeus_s2_description\meshes\base_link.STL
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:333:2021-03-02 14:46:37,636 INFO  ExportHelper.cs: 228 - Writing URDF file to D:\zeus_s2_description\urdf\zeus_s2_description.urdf
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:334:2021-03-02 14:46:37,648 INFO  CSVImportExport.cs: 32 - Writing CSV file D:\zeus_s2_description\urdf\zeus_s2_description.csv
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/export.log:337:2021-03-02 14:46:37,697 INFO  ExportHelper.cs: 440 - Copying C:\Users\zhwl\sw2urdf_logs\sw2urdf.log to D:\zeus_s2_description\export.log
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:3:<!-- |    This document was autogenerated by xacro from zeus_s2-gps_c16_d435.xacro     | -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:6:<robot name="zeus_s2">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:17:        <mesh filename="package://zeus_s2_description/meshes/car_body.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:26:        <mesh filename="package://zeus_s2_description/meshes/car_body.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:48:        <mesh filename="package://zeus_s2_description/meshes/car_baffle.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:57:        <mesh filename="package://zeus_s2_description/meshes/car_baffle.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:79:        <mesh filename="package://zeus_s2_description/meshes/car_roof.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:88:        <mesh filename="package://zeus_s2_description/meshes/car_roof.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:110:        <mesh filename="package://zeus_s2_description/meshes/car_tower.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:119:        <mesh filename="package://zeus_s2_description/meshes/car_tower.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:141:        <mesh filename="package://zeus_s2_description/meshes/stop_key.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:150:        <mesh filename="package://zeus_s2_description/meshes/stop_key.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:172:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:181:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:203:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:212:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:234:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:243:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:265:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:274:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:296:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:305:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:343:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:352:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:390:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:399:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:437:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:446:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:484:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:493:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:511:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:520:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:538:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:547:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:565:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:574:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:592:        <mesh filename="package://zeus_s2_description/meshes/fd_beidou.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:601:        <mesh filename="package://zeus_s2_description/meshes/fd_beidou.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:634:        <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:643:        <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:697:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:706:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:724:        <mesh filename="package://zeus_s2_description/meshes/d435_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:733:        <mesh filename="package://zeus_s2_description/meshes/d435_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:751:        <mesh filename="package://zeus_s2_description/meshes/d435_tray.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:760:        <mesh filename="package://zeus_s2_description/meshes/d435_tray.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:778:        <mesh filename="package://zeus_s2_description/meshes/d435_cam.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf:787:        <mesh filename="package://zeus_s2_description/meshes/d435_cam.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_baffle.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/car_baffle.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_baffle.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/car_baffle.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_body.xacro:13:          <mesh filename="package://zeus_s2_description/meshes/car_body.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_body.xacro:22:          <mesh filename="package://zeus_s2_description/meshes/car_body.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_tower.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/car_tower.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_tower.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/car_tower.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:14:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:23:        <mesh filename="package://zeus_s2_description/meshes/d435_base.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:43:          <mesh filename="package://zeus_s2_description/meshes/d435_bracket.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:52:          <mesh filename="package://zeus_s2_description/meshes/d435_bracket.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:72:          <mesh filename="package://zeus_s2_description/meshes/d435_tray.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:81:          <mesh filename="package://zeus_s2_description/meshes/d435_tray.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:101:          <mesh filename="package://zeus_s2_description/meshes/d435_cam.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro:110:          <mesh filename="package://zeus_s2_description/meshes/d435_cam.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:2:<robot name="zeus_s2" xmlns:xacro="http://wiki.ros.org/xacro">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:6:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_body.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:7:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_baffle.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:8:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_roof.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:9:  <xacro:include filename="$(find zeus_s2_description)/urdf/stop_key.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:10:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_bracket.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:11:  <xacro:include filename="$(find zeus_s2_description)/urdf/wheel_12.0.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:12:  <xacro:include filename="$(find zeus_s2_description)/urdf/radar_s.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro:13:  <xacro:include filename="$(find zeus_s2_description)/urdf/laser_a2.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:3:<!-- |    This document was autogenerated by xacro from zeus_s2.xacro                  | -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:6:<robot name="zeus_s2">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:17:        <mesh filename="package://zeus_s2_description/meshes/car_body.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:26:        <mesh filename="package://zeus_s2_description/meshes/car_body.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:48:        <mesh filename="package://zeus_s2_description/meshes/car_baffle.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:57:        <mesh filename="package://zeus_s2_description/meshes/car_baffle.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:79:        <mesh filename="package://zeus_s2_description/meshes/car_roof.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:88:        <mesh filename="package://zeus_s2_description/meshes/car_roof.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:110:        <mesh filename="package://zeus_s2_description/meshes/stop_key.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:119:        <mesh filename="package://zeus_s2_description/meshes/stop_key.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:141:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:150:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:172:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:181:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:203:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:212:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:234:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:243:        <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:265:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:274:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:312:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:321:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:359:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:368:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:406:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:415:        <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:453:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:462:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:480:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:489:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:507:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:516:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:534:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:543:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:561:        <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf:570:        <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_bracket.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_bracket.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/car_bracket.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/wheel_12.0.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/wheel_12.0.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/wheel_12.0.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/ls_c16.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/ls_c16.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/laser_a2.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/laser_a2.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/laser_a2.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/radar_s.xacro:14:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/radar_s.xacro:23:        <mesh filename="package://zeus_s2_description/meshes/radar_s.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_roof.xacro:14:          <mesh filename="package://zeus_s2_description/meshes/car_roof.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_roof.xacro:23:          <mesh filename="package://zeus_s2_description/meshes/car_roof.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:2:<robot name="zeus_s2" xmlns:xacro="http://wiki.ros.org/xacro">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:6:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_body.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:7:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_baffle.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:8:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_roof.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:9:  <xacro:include filename="$(find zeus_s2_description)/urdf/stop_key.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:10:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_tower.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:11:  <xacro:include filename="$(find zeus_s2_description)/urdf/fd_beidou.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:12:  <xacro:include filename="$(find zeus_s2_description)/urdf/car_bracket.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:13:  <xacro:include filename="$(find zeus_s2_description)/urdf/wheel_12.0.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:14:  <xacro:include filename="$(find zeus_s2_description)/urdf/radar_s.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:15:  <xacro:include filename="$(find zeus_s2_description)/urdf/laser_a2.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro:16:  <xacro:include filename="$(find zeus_s2_description)/urdf/d435.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/stop_key.xacro:14:          <mesh  filename="package://zeus_s2_description/meshes/stop_key.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/stop_key.xacro:23:          <mesh  filename="package://zeus_s2_description/meshes/stop_key.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/fd_beidou.xacro:15:          <mesh filename="package://zeus_s2_description/meshes/fd_beidou.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/fd_beidou.xacro:24:          <mesh filename="package://zeus_s2_description/meshes/fd_beidou.STL" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo-gps_c16_d435.launch:22:    <param name="robot_description" command="$(find xacro)/xacro '$(find zeus_s2_description)/urdf/zeus_s2-gps_c16_d435.xacro'" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo-gps_c16_d435.launch:34:          args="-urdf -model zeus_s2 -param robot_description"/> 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo-gps_c16_d435.launch:37:    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zeus_s2_description)/rviz/zeus_s2-gps_c16_d435-gazebo.rviz" required="true" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/display-gps_c16.launch:4:    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find zeus_s2_description)/urdf/zeus_s2-gps_c16.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/display-gps_c16.launch:16:    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zeus_s2_description)/rviz/zeus_s2.rviz" required="true" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/display.launch:4:    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find zeus_s2_description)/urdf/zeus_s2.xacro" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/display.launch:16:    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zeus_s2_description)/rviz/zeus_s2.rviz" required="true" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo.launch:4:    <arg name="world_name" value="$(find zeus_s2_description)/worlds/playground.world"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo.launch:22:    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find zeus_s2_description)/urdf/zeus_s2.xacro'" /> 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo.launch:34:          args="-urdf -model zeus_s2 -param robot_description"/> 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/launch/gazebo.launch:37:    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zeus_s2_description)/rviz/zeus_s2_gazebo.rviz" required="true" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/package.xml:2:  <name>zeus_s2_description</name>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/package.xml:5:    <p>URDF Description package for zeus_s2_description</p>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/package.xml:7:for zeus_s2_description robot</p>
+/home/ros/catkin_ws/src/mobile/zeus_s2/README.md:1:# zeus_s2
+/home/ros/catkin_ws/src/mobile/zeus_s2/README.md:78:1.  启动动力系统：roslaunch zeus_s2_bringup all_start.launch
+/home/ros/catkin_ws/src/mobile/zeus_s2/README.md:79:2.  启动导航仿真：roslaunch zeus_s2_bringup fake_navi.launch
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:10:#include "zeus_s2_driver/controlcan.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:19:#include "zeus_s2_msgs/Feedback.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:20:#include "zeus_s2_msgs/wheel_state.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:21:#include "zeus_s2_msgs/motor_pid_vol.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:22:#include "zeus_s2_msgs/joy_control.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:23:#include <zeus_s2_driver/PID_reconfigConfig.h> 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:131:        void cmd_joy_callback(const zeus_s2_msgs::joy_control::ConstPtr& msg);
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:152:        void dynamic_reconfig_callback(zeus_s2_driver::PID_reconfigConfig &config,uint32_t level);
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:171:        zeus_s2_msgs::Feedback  left_right_wheel_state_;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:173:        zeus_s2_msgs::motor_pid_vol  motor_pid_[4];             //调试pid参数类型
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/include/zeus_s2_driver/zeus_s2_driver.h:190:        zeus_s2_msgs::joy_control   ps3_control_;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/can-ctrl.c:55:#include "../include/zeus_s2_driver/can-ctrl.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:1:#include  "../include/zeus_s2_driver/zeus_s2_driver.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:134:void DriverPub::cmd_joy_callback(const zeus_s2_msgs::joy_control::ConstPtr& msg)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:889:void DriverPub::dynamic_reconfig_callback(zeus_s2_driver::PID_reconfigConfig &config,uint32_t level)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:1031:    dynamic_reconfigure::Server<zeus_s2_driver::PID_reconfigConfig> reconfig_server;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:1032:	dynamic_reconfigure::Server<zeus_s2_driver::PID_reconfigConfig>::CallbackType f;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:1041:        wheel_state_feedback_=n.advertise<zeus_s2_msgs::Feedback>("/motor_driverFeedback",10);
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp.bak:1042:        cmd_sub_ = n.subscribe<geometry_msgs::Twist>("/zeus_speed",1,&DriverPub::cmd_vel_callback,this);      //接受上层下发的速度指令
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:1:#include  "../include/zeus_s2_driver/zeus_s2_driver.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:134:void DriverPub::cmd_joy_callback(const zeus_s2_msgs::joy_control::ConstPtr& msg)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:874:void DriverPub::dynamic_reconfig_callback(zeus_s2_driver::PID_reconfigConfig &config,uint32_t level)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:1016:    dynamic_reconfigure::Server<zeus_s2_driver::PID_reconfigConfig> reconfig_server;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:1017:	dynamic_reconfigure::Server<zeus_s2_driver::PID_reconfigConfig>::CallbackType f;
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:1026:        wheel_state_feedback_=n.advertise<zeus_s2_msgs::Feedback>("/motor_driverFeedback",10);
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/zeus_s2_driver.cpp:1027:        cmd_sub_ = n.subscribe<geometry_msgs::Twist>("/zeus_speed",1,&DriverPub::cmd_vel_callback,this);      //接受上层下发的速度指令
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/my_timer.c:10:#include "../include/zeus_s2_driver/my_timer.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/src/my_timer.c:11:// #include  "../include/zeus_s2_driver/zeus_s2_driver.h"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:2:project(zeus_s2_driver)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:18:    zeus_s2_msgs
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:120: LIBRARIES zeus_s2_driver
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:121: CATKIN_DEPENDS roscpp std_msgs rospy tf geometry_msgs  zeus_s2_msgs 
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:140:add_executable(zeus_s2_driver src/zeus_s2_driver.cpp  )
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:141:add_dependencies(zeus_s2_driver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:142:target_link_libraries(zeus_s2_driver ${catkin_LIBRARIES}  ${CMAKE_CURRENT_SOURCE_DIR}/libs/libcontrolcan.so)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:146:add_executable(zeus_s2_driver src/zeus_s2_driver.cpp  src/can-ctrl.c )
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:147:add_dependencies(zeus_s2_driver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:148:target_link_libraries(zeus_s2_driver ${catkin_LIBRARIES}  )
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:153:# link_directories(./include/zeus_s2_driver)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:157:#   src/${PROJECT_NAME}/zeus_s2_driver.cpp
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/CMakeLists.txt:168:# add_executable(${PROJECT_NAME}_node src/zeus_s2_driver_node.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/config/cfg/PID_reconfig.cfg:2:PACKAGE = "zeus_s2_driver"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/config/cfg/PID_reconfig.cfg:18:exit(gen.generate(PACKAGE, "zeus_s2_driver", "PID_reconfig"))
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/launch/zeus_s2_driver.launch:4:    <!-- 启动zeus_s2_driver驱动包 -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/launch/zeus_s2_driver.launch:5:    <node pkg="zeus_s2_driver" type="zeus_s2_driver" name="zeus_s2_driver" output="screen">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/launch/zeus_s2_driver.launch:6:        <rosparam file="$(find zeus_s2_driver)/config/zeus_params.yaml" command="load"/>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/package.xml:3:  <name>zeus_s2_driver</name>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/package.xml:5:  <description>The zeus_s2_driver package</description>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/package.xml:22:  <!-- <url type="website">http://wiki.ros.org/zeus_s2_driver</url> -->
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/package.xml:60:  <build_depend>zeus_s2_msgs</build_depend>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver/package.xml:71:  <exec_depend>zeus_s2_msgs</exec_depend>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/CMakeLists.txt:2:project(zeus_s2_navi)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/CMakeLists.txt:107:#  LIBRARIES zeus_s2_navi
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/CMakeLists.txt:125:#   src/${PROJECT_NAME}/zeus_s2_navi.cpp
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/CMakeLists.txt:136:# add_executable(${PROJECT_NAME}_node src/zeus_s2_navi_node.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/CMakeLists.txt:200:# catkin_add_gtest(${PROJECT_NAME}-test test/test_zeus_s2_navi.cpp)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:4:    <rosparam file="$(find zeus_s2_navi)/config/zeus/costmap_common_params.yaml" command="load" ns="global_costmap" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:5:    <rosparam file="$(find zeus_s2_navi)/config/zeus/costmap_common_params.yaml" command="load" ns="local_costmap" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:6:    <rosparam file="$(find zeus_s2_navi)/config/zeus/local_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:7:    <rosparam file="$(find zeus_s2_navi)/config/zeus/global_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:8:    <rosparam file="$(find zeus_s2_navi)/config/zeus/base_local_planner_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:9:    <rosparam file="$(find zeus_s2_navi)/config/zeus/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:10:    <rosparam file="$(find zeus_s2_navi)/config/zeus/dwa_local_planner_params_burger.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/package.xml:3:  <name>zeus_s2_navi</name>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/package.xml:5:  <description>The zeus_s2_navi package</description>
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/package.xml:22:  <!-- <url type="website">http://wiki.ros.org/zeus_s2_navi</url> -->
+匹配到二进制文件 /home/ros/catkin_ws/src/mobile/zeus_s2/.git/index
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/config:7:	url = https://gitee.com/zhwl_1981/zeus_s2.git
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/logs/HEAD:1:0000000000000000000000000000000000000000 63db0eb4baadaa805571122b45a7a4daced6b26d ros <ros@ros.(none)> 1711776935 +0800	clone: from https://gitee.com/zhwl_1981/zeus_s2.git
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/logs/refs/remotes/origin/HEAD:1:0000000000000000000000000000000000000000 63db0eb4baadaa805571122b45a7a4daced6b26d ros <ros@ros.(none)> 1711776935 +0800	clone: from https://gitee.com/zhwl_1981/zeus_s2.git
+/home/ros/catkin_ws/src/mobile/zeus_s2/.git/logs/refs/heads/master:1:0000000000000000000000000000000000000000 63db0eb4baadaa805571122b45a7a4daced6b26d ros <ros@ros.(none)> 1711776935 +0800	clone: from https://gitee.com/zhwl_1981/zeus_s2.git
+/home/ros/catkin_ws/src/mobile/zeus_s2/README.en.md:1:# zeus_s2
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:202:# catkin_add_gtest(${PROJECT_NAME}-test test/test_zeus_s2_scene.cpp)
+/home/ros/catkin_ws/src/move_navi/tf_pub/map/hdmap.yaml:1:image: /home/ros/Work/ziyan/t_ws/src/zeus_s2_navigation/control/map/hdmap.pgm
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/tf_pub_2d_gazebo_s1.launch:22:  <node name="map_server" pkg="map_server" type="map_server" args="$(find zeus_s1_bringup)/maps/map_2021-11-10_15-45-26.yaml"/> 
+/home/ros/catkin_ws/src/.rosinstall:11:    local-name: mobile/zeus_s2
+/home/ros/catkin_ws/src/.rosinstall:12:    uri: https://gitee.com/zhwl_1981/zeus_s2.git

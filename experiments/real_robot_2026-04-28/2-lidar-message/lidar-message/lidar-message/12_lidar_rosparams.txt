@@ -1,0 +1,45 @@
+========== 12. 与雷达相关的 ROS 参数 ==========
+---------- /laser_pose ----------
+1
+---------- /move_base/DWAPlannerROS/oscillation_reset_angle ----------
+0.2
+---------- /move_base/global_costmap/obstacle_layer/obstacle_range ----------
+5.0
+---------- /move_base/global_costmap/obstacle_layer/raytrace_range ----------
+5.0
+---------- /move_base/global_costmap/obstacle_layer/scan/clearing ----------
+true
+---------- /move_base/global_costmap/obstacle_layer/scan/data_type ----------
+LaserScan
+---------- /move_base/global_costmap/obstacle_layer/scan/expected_update_rate ----------
+0
+---------- /move_base/global_costmap/obstacle_layer/scan/marking ----------
+true
+---------- /move_base/global_costmap/obstacle_layer/scan/topic ----------
+/scan
+---------- /move_base/local_costmap/obstacle_layer/obstacle_range ----------
+5.0
+---------- /move_base/local_costmap/obstacle_layer/raytrace_range ----------
+5.0
+---------- /move_base/local_costmap/obstacle_layer/scan/clearing ----------
+true
+---------- /move_base/local_costmap/obstacle_layer/scan/data_type ----------
+LaserScan
+---------- /move_base/local_costmap/obstacle_layer/scan/expected_update_rate ----------
+0
+---------- /move_base/local_costmap/obstacle_layer/scan/marking ----------
+true
+---------- /move_base/local_costmap/obstacle_layer/scan/topic ----------
+/scan
+---------- /rplidarNode/angle_compensate ----------
+true
+---------- /rplidarNode/frame_id ----------
+laser_link
+---------- /rplidarNode/inverted ----------
+false
+---------- /rplidarNode/scan_mode ----------
+Sensitivity
+---------- /rplidarNode/serial_baudrate ----------
+256000
+---------- /rplidarNode/serial_port ----------
+/dev/laser

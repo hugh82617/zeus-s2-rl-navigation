@@ -1,0 +1,81 @@
+{
+  "path": "source:07 Assets/D0-ROS-Bags/navigation_research_20260622_181156.bag",
+  "magic": "#ROSBAG V2.0",
+  "connections": [
+    {
+      "topic": "/move_base/global_costmap/costmap",
+      "type": "nav_msgs/OccupancyGrid",
+      "conn": 0
+    },
+    {
+      "topic": "/move_base/local_costmap/costmap",
+      "type": "nav_msgs/OccupancyGrid",
+      "conn": 1
+    },
+    {
+      "topic": "/raw_cmd_vel",
+      "type": "geometry_msgs/Twist",
+      "conn": 2
+    },
+    {
+      "topic": "/odom",
+      "type": "nav_msgs/Odometry",
+      "conn": 3
+    },
+    {
+      "topic": "/move_base/global_costmap/costmap_updates",
+      "type": "map_msgs/OccupancyGridUpdate",
+      "conn": 4
+    },
+    {
+      "topic": "/move_base/local_costmap/costmap_updates",
+      "type": "map_msgs/OccupancyGridUpdate",
+      "conn": 5
+    },
+    {
+      "topic": "/move_base_simple/goal",
+      "type": "geometry_msgs/PoseStamped",
+      "conn": 6
+    },
+    {
+      "topic": "/move_base/goal",
+      "type": "move_base_msgs/MoveBaseActionGoal",
+      "conn": 7
+    },
+    {
+      "topic": "/raw_cmd_vel_dwa",
+      "type": "geometry_msgs/Twist",
+      "conn": 8
+    },
+    {
+      "topic": "/move_base/current_goal",
+      "type": "geometry_msgs/PoseStamped",
+      "conn": 9
+    },
+    {
+      "topic": "/move_base/NavfnROS/plan",
+      "type": "nav_msgs/Path",
+      "conn": 10
+    },
+    {
+      "topic": "/move_base/DWAPlannerROS/trajectory_cloud",
+      "type": "sensor_msgs/PointCloud2",
+      "conn": 11
+    },
+    {
+      "topic": "/move_base/DWAPlannerROS/cost_cloud",
+      "type": "sensor_msgs/PointCloud2",
+      "conn": 12
+    },
+    {
+      "topic": "/move_base/DWAPlannerROS/global_plan",
+      "type": "nav_msgs/Path",
+      "conn": 13
+    },
+    {
+      "topic": "/move_base/DWAPlannerROS/local_plan",
+      "type": "nav_msgs/Path",
+      "conn": 14
+    }
+  ]
+}

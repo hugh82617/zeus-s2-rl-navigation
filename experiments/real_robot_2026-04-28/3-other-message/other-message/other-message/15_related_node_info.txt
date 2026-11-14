@@ -1,0 +1,465 @@
+========== 10. 相关节点详细信息 ==========
+
+---------- node: /base_link_to_localizer ----------
+--------------------------------------------------------------------------------
+Node [/base_link_to_localizer]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+
+Subscriptions: None
+
+Services: 
+ * /base_link_to_localizer/get_loggers
+ * /base_link_to_localizer/set_logger_level
+
+
+contacting node http://192.168.1.102:44879/ ...
+Pid: 4639
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (52663 - 192.168.1.102:36486) [11]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node
+    * direction: outbound (52663 - 192.168.1.102:36476) [12]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /move_base
+    * direction: outbound (52663 - 192.168.1.102:37906) [13]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz_1777363569473012009
+    * direction: outbound (52663 - 192.168.1.102:37914) [10]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz
+    * direction: outbound (52663 - 192.168.1.102:37916) [15]
+    * transport: TCPROS
+
+
+---------- node: /joint_state_publisher_gui ----------
+--------------------------------------------------------------------------------
+Node [/joint_state_publisher_gui]
+Publications: 
+ * /joint_states [sensor_msgs/JointState]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /joint_state_publisher_gui/get_loggers
+ * /joint_state_publisher_gui/set_logger_level
+
+
+contacting node http://192.168.1.102:42041/ ...
+Pid: 5002
+Connections:
+ * topic: /joint_states
+    * to: /robot_state_publisher
+    * direction: outbound (34081 - 192.168.1.102:49440) [12]
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (34081 - 192.168.1.102:49434) [8]
+    * transport: TCPROS
+
+
+---------- node: /map_to_odom ----------
+--------------------------------------------------------------------------------
+Node [/map_to_odom]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+
+Subscriptions: None
+
+Services: 
+ * /map_to_odom/get_loggers
+ * /map_to_odom/set_logger_level
+
+
+contacting node http://192.168.1.102:41077/ ...
+Pid: 4644
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (57161 - 192.168.1.102:37650) [10]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node
+    * direction: outbound (57161 - 192.168.1.102:37644) [12]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /move_base
+    * direction: outbound (57161 - 192.168.1.102:47556) [13]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz_1777363569473012009
+    * direction: outbound (57161 - 192.168.1.102:47566) [14]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz
+    * direction: outbound (57161 - 192.168.1.102:47572) [15]
+    * transport: TCPROS
+
+
+---------- node: /move_base ----------
+--------------------------------------------------------------------------------
+Node [/move_base]
+Publications: 
+ * /move_base/DWAPlannerROS/cost_cloud [sensor_msgs/PointCloud2]
+ * /move_base/DWAPlannerROS/global_plan [nav_msgs/Path]
+ * /move_base/DWAPlannerROS/local_plan [nav_msgs/Path]
+ * /move_base/DWAPlannerROS/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/DWAPlannerROS/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/DWAPlannerROS/trajectory_cloud [sensor_msgs/PointCloud2]
+ * /move_base/NavfnROS/plan [nav_msgs/Path]
+ * /move_base/current_goal [geometry_msgs/PoseStamped]
+ * /move_base/feedback [move_base_msgs/MoveBaseActionFeedback]
+ * /move_base/global_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/global_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base/global_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/global_costmap/inflation_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/inflation_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/obstacle_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/obstacle_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/static_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/static_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /move_base/local_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/local_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base/local_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/local_costmap/inflation_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/inflation_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/local_costmap/obstacle_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/obstacle_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/local_costmap/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/result [move_base_msgs/MoveBaseActionResult]
+ * /move_base/status [actionlib_msgs/GoalStatusArray]
+ * /raw_cmd_vel_dwa [geometry_msgs/Twist]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /map [nav_msgs/OccupancyGrid]
+ * /move_base/cancel [unknown type]
+ * /move_base/global_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /move_base/local_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base_simple/goal [geometry_msgs/PoseStamped]
+ * /odom [nav_msgs/Odometry]
+ * /scan [sensor_msgs/LaserScan]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+ * /velodyne_points [unknown type]
+
+Services: 
+ * /move_base/DWAPlannerROS/set_parameters
+ * /move_base/NavfnROS/make_plan
+ * /move_base/clear_costmaps
+ * /move_base/get_loggers
+ * /move_base/global_costmap/inflation_layer/set_parameters
+ * /move_base/global_costmap/obstacle_layer/set_parameters
+ * /move_base/global_costmap/set_parameters
+ * /move_base/global_costmap/static_layer/set_parameters
+ * /move_base/local_costmap/inflation_layer/set_parameters
+ * /move_base/local_costmap/obstacle_layer/set_parameters
+ * /move_base/local_costmap/set_parameters
+ * /move_base/make_plan
+ * /move_base/set_logger_level
+ * /move_base/set_parameters
+
+
+contacting node http://192.168.1.102:44171/ ...
+Pid: 4822
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (41311 - 192.168.1.102:44100) [15]
+    * transport: TCPROS
+ * topic: /raw_cmd_vel_dwa
+    * to: /cmd_vel_switch
+    * direction: outbound (41311 - 192.168.1.102:44086) [14]
+    * transport: TCPROS
+ * topic: /move_base/goal
+    * to: /move_base
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /zeus_s2_driver (http://192.168.1.102:35407/)
+    * direction: inbound (58676 - 192.168.1.102:39053) [16]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node (http://192.168.1.102:45143/)
+    * direction: inbound (58374 - 192.168.1.102:45911) [17]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /base_link_to_localizer (http://192.168.1.102:44879/)
+    * direction: inbound (37906 - 192.168.1.102:52663) [18]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /map_to_odom (http://192.168.1.102:41077/)
+    * direction: inbound (47556 - 192.168.1.102:57161) [19]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://192.168.1.102:37275/)
+    * direction: inbound (55774 - 192.168.1.102:59821) [26]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://192.168.1.102:37275/)
+    * direction: inbound (55760 - 192.168.1.102:59821) [25]
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz_1777363569473012009 (http://192.168.1.102:44173/)
+    * direction: inbound (40654 - 192.168.1.102:35403) [23]
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz (http://192.168.1.102:36677/)
+    * direction: inbound (60316 - 192.168.1.102:51833) [24]
+    * transport: TCPROS
+ * topic: /map
+    * to: /map_server (http://192.168.1.102:41921/)
+    * direction: inbound (39734 - 192.168.1.102:56413) [11]
+    * transport: TCPROS
+ * topic: /scan
+    * to: /rplidarNode (http://192.168.1.102:34921/)
+    * direction: inbound (48694 - 192.168.1.102:39035) [21]
+    * transport: TCPROS
+ * topic: /odom
+    * to: /tf_pub_node (http://192.168.1.102:45143/)
+    * direction: inbound (58384 - 192.168.1.102:45911) [10]
+    * transport: TCPROS
+ * topic: /move_base/goal
+    * to: /move_base (http://192.168.1.102:44171/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+
+
+---------- node: /relocalization ----------
+--------------------------------------------------------------------------------
+Node [/relocalization]
+Publications: 
+ * /laserpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /imu/data [unknown type]
+ * /odom_wheel [unknown type]
+ * /scan [sensor_msgs/LaserScan]
+
+Services: 
+ * /relocalization/get_loggers
+ * /relocalization/set_logger_level
+
+
+contacting node http://192.168.1.102:37767/ ...
+Pid: 4744
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (46611 - 192.168.1.102:42234) [13]
+    * transport: TCPROS
+ * topic: /laserpose
+    * to: /tf_pub_node
+    * direction: outbound (46611 - 192.168.1.102:42238) [10]
+    * transport: TCPROS
+ * topic: /scan
+    * to: /rplidarNode (http://192.168.1.102:34921/)
+    * direction: inbound (41346 - 192.168.1.102:39035) [11]
+    * transport: TCPROS
+
+
+---------- node: /robot_state_publisher ----------
+--------------------------------------------------------------------------------
+Node [/robot_state_publisher]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Subscriptions: 
+ * /joint_states [sensor_msgs/JointState]
+
+Services: 
+ * /robot_state_publisher/get_loggers
+ * /robot_state_publisher/set_logger_level
+
+
+contacting node http://192.168.1.102:37275/ ...
+Pid: 5003
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (59821 - 192.168.1.102:55734) [11]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node
+    * direction: outbound (59821 - 192.168.1.102:55710) [17]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz_1777363569473012009
+    * direction: outbound (59821 - 192.168.1.102:55736) [12]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /move_base
+    * direction: outbound (59821 - 192.168.1.102:55774) [15]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz
+    * direction: outbound (59821 - 192.168.1.102:55800) [20]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /tf_pub_node
+    * direction: outbound (59821 - 192.168.1.102:55720) [18]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /rviz_1777363569473012009
+    * direction: outbound (59821 - 192.168.1.102:55752) [13]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /move_base
+    * direction: outbound (59821 - 192.168.1.102:55760) [14]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /rviz
+    * direction: outbound (59821 - 192.168.1.102:55784) [19]
+    * transport: TCPROS
+ * topic: /joint_states
+    * to: /joint_state_publisher_gui (http://192.168.1.102:42041/)
+    * direction: inbound (49440 - 192.168.1.102:34081) [21]
+    * transport: TCPROS
+
+
+---------- node: /tf_pub_node ----------
+--------------------------------------------------------------------------------
+Node [/tf_pub_node]
+Publications: 
+ * /basepose [geometry_msgs/Pose2D]
+ * /odom [nav_msgs/Odometry]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+
+Subscriptions: 
+ * /laserpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /tf_pub_node/get_loggers
+ * /tf_pub_node/set_logger_level
+
+
+contacting node http://192.168.1.102:45143/ ...
+Pid: 4636
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (45911 - 192.168.1.102:33202) [10]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /move_base
+    * direction: outbound (45911 - 192.168.1.102:58374) [19]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz_1777363569473012009
+    * direction: outbound (45911 - 192.168.1.102:58390) [21]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz
+    * direction: outbound (45911 - 192.168.1.102:58400) [22]
+    * transport: TCPROS
+ * topic: /odom
+    * to: /nodelet_manager
+    * direction: outbound (45911 - 192.168.1.102:33200) [11]
+    * transport: TCPROS
+ * topic: /odom
+    * to: /move_base
+    * direction: outbound (45911 - 192.168.1.102:58384) [20]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node (http://192.168.1.102:45143/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /zeus_s2_driver (http://192.168.1.102:35407/)
+    * direction: inbound (33320 - 192.168.1.102:39053) [16]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /base_link_to_localizer (http://192.168.1.102:44879/)
+    * direction: inbound (36476 - 192.168.1.102:52663) [17]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /map_to_odom (http://192.168.1.102:41077/)
+    * direction: inbound (37644 - 192.168.1.102:57161) [18]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://192.168.1.102:37275/)
+    * direction: inbound (55710 - 192.168.1.102:59821) [23]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://192.168.1.102:37275/)
+    * direction: inbound (55720 - 192.168.1.102:59821) [24]
+    * transport: TCPROS
+ * topic: /laserpose
+    * to: /relocalization (http://192.168.1.102:37767/)
+    * direction: inbound (42238 - 192.168.1.102:46611) [15]
+    * transport: TCPROS
+
+
+---------- node: /zeus_s2_driver ----------
+--------------------------------------------------------------------------------
+Node [/zeus_s2_driver]
+Publications: 
+ * /motor_driverFeedback [zeus_s2_msgs/Feedback]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+ * /zeus_s2_driver/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /zeus_s2_driver/parameter_updates [dynamic_reconfigure/Config]
+
+Subscriptions: 
+ * /zeus_speed [geometry_msgs/Twist]
+
+Services: 
+ * /zeus_s2_driver/get_loggers
+ * /zeus_s2_driver/set_logger_level
+ * /zeus_s2_driver/set_parameters
+
+
+contacting node http://192.168.1.102:35407/ ...
+Pid: 4428
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (39053 - 192.168.1.102:36152) [11]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node
+    * direction: outbound (39053 - 192.168.1.102:33320) [14]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /move_base
+    * direction: outbound (39053 - 192.168.1.102:58676) [15]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz_1777363569473012009
+    * direction: outbound (39053 - 192.168.1.102:58678) [16]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz
+    * direction: outbound (39053 - 192.168.1.102:58692) [17]
+    * transport: TCPROS
+ * topic: /zeus_speed
+    * to: /nodelet_manager (http://192.168.1.102:42773/)
+    * direction: inbound (58034 - 192.168.1.102:58421) [13]
+    * transport: TCPROS
+

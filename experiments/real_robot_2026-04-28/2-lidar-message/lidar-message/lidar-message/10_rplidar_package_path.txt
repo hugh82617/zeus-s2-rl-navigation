@@ -1,0 +1,2 @@
+========== 10. rplidar_ros 功能包路径 ==========
+/home/ros/catkin_ws/src/sensor/rplidar_ros

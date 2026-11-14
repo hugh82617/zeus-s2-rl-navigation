@@ -1,0 +1,1877 @@
+========== 13. TF monitor ==========
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0950147 Max Delay: 0.0950147
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00638727 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00911379 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.000489272 Max Delay: 0.000489272
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.000492174 Max Delay: 0.000492174
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.000493477 Max Delay: 0.000493477
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.000494801 Max Delay: 0.000494801
+Node: unknown_publisher 391.922 Hz, Average Delay: 0.00532709 Max Delay: 0.0950147
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0877516 Max Delay: 0.0950147
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00903306 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00923482 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00162468 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00162679 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00162779 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00162869 Max Delay: 0.00304126
+Node: unknown_publisher 235.704 Hz, Average Delay: -0.00166499 Max Delay: 0.0950147
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0886267 Max Delay: 0.0956598
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00905815 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00919086 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00125976 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00126167 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00126249 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0012633 Max Delay: 0.00304126
+Node: unknown_publisher 228.049 Hz, Average Delay: -0.00199576 Max Delay: 0.0956598
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.090573 Max Delay: 0.10065
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00894537 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00905217 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00111187 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00111373 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00111451 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00111524 Max Delay: 0.00304126
+Node: unknown_publisher 225.42 Hz, Average Delay: -0.00190105 Max Delay: 0.10065
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.08936 Max Delay: 0.10065
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00904088 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00901662 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00105183 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00105392 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00105476 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00105554 Max Delay: 0.00304126
+Node: unknown_publisher 222.792 Hz, Average Delay: -0.00252163 Max Delay: 0.10065
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0898878 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00903738 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909144 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00121677 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00121942 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00122032 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00122119 Max Delay: 0.00304126
+Node: unknown_publisher 223.116 Hz, Average Delay: -0.00209213 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0904681 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00908211 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0091233 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00114214 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00114497 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00114604 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00114691 Max Delay: 0.00304126
+Node: unknown_publisher 222.698 Hz, Average Delay: -0.00212706 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0902644 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00911327 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00917019 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00110333 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00110602 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00110703 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00110786 Max Delay: 0.00304126
+Node: unknown_publisher 222.507 Hz, Average Delay: -0.00220271 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896368 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00912669 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00921521 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.0010589 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00106146 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00106248 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00106427 Max Delay: 0.00304126
+Node: unknown_publisher 222.493 Hz, Average Delay: -0.00226428 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089534 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00911 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00920036 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00115819 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00116059 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00116156 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0011632 Max Delay: 0.00304126
+Node: unknown_publisher 222.215 Hz, Average Delay: -0.00227028 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0895084 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914313 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00922452 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00110812 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00111044 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00111138 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00111291 Max Delay: 0.00304126
+Node: unknown_publisher 222.019 Hz, Average Delay: -0.00229989 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089288 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914772 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00923939 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00107182 Max Delay: 0.00303855
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00107409 Max Delay: 0.00303994
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00107501 Max Delay: 0.00304064
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00107646 Max Delay: 0.00304126
+Node: unknown_publisher 221.866 Hz, Average Delay: -0.00233771 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0898977 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00911777 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00917492 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00120962 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00121189 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00121282 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00121422 Max Delay: 0.00512512
+Node: unknown_publisher 221.459 Hz, Average Delay: -0.00226072 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0899187 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00911452 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00916614 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00125173 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00125398 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00125489 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00125622 Max Delay: 0.00512512
+Node: unknown_publisher 221.314 Hz, Average Delay: -0.00226145 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896608 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.0091326 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00917281 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00123182 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00123412 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.001235 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00123628 Max Delay: 0.00512512
+Node: unknown_publisher 221.262 Hz, Average Delay: -0.00229813 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0895486 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914412 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0091736 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00117396 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00117618 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00117705 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0011783 Max Delay: 0.00512512
+Node: unknown_publisher 221.127 Hz, Average Delay: -0.00232515 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0898351 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915081 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00917474 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00124526 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00124746 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00124837 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00124961 Max Delay: 0.00512512
+Node: unknown_publisher 220.771 Hz, Average Delay: -0.00231266 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089566 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915321 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00917732 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00125124 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00125351 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0012544 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00125561 Max Delay: 0.00512512
+Node: unknown_publisher 220.788 Hz, Average Delay: -0.00233707 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0891842 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915191 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00918579 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00123702 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00123927 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00124018 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00124136 Max Delay: 0.00512512
+Node: unknown_publisher 221.001 Hz, Average Delay: -0.00236208 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0890412 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915849 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00917683 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.0013199 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132217 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0013231 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132427 Max Delay: 0.00512512
+Node: unknown_publisher 220.975 Hz, Average Delay: -0.00237095 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0893333 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00916269 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915856 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.0014062 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00140865 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00140964 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00141081 Max Delay: 0.00512512
+Node: unknown_publisher 220.619 Hz, Average Delay: -0.00235318 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0893184 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00917428 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915961 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00137192 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00137434 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00137531 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00137645 Max Delay: 0.00512512
+Node: unknown_publisher 220.684 Hz, Average Delay: -0.00235783 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089202 Max Delay: 0.102717
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00917374 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0091671 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00132699 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132936 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00133031 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0013314 Max Delay: 0.00512512
+Node: unknown_publisher 220.702 Hz, Average Delay: -0.00238695 Max Delay: 0.102717
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896333 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.0091448 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0091551 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138678 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00138915 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00139011 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0013912 Max Delay: 0.00512512
+Node: unknown_publisher 220.361 Hz, Average Delay: -0.00233283 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0893919 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913258 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915986 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00139237 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00139474 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00139569 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00139675 Max Delay: 0.00512512
+Node: unknown_publisher 220.446 Hz, Average Delay: -0.00237638 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0892813 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913802 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915762 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00137142 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00137376 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00137469 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00137573 Max Delay: 0.00512512
+Node: unknown_publisher 220.359 Hz, Average Delay: -0.00239512 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0894141 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914811 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915141 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00134943 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00135173 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135265 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00135367 Max Delay: 0.00512512
+Node: unknown_publisher 220.277 Hz, Average Delay: -0.00239698 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0893705 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915497 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00916118 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00134069 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00134301 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00134391 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00134491 Max Delay: 0.00512512
+Node: unknown_publisher 220.34 Hz, Average Delay: -0.00241588 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0892389 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00916566 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00916491 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00134992 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00135235 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135328 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00135428 Max Delay: 0.00512512
+Node: unknown_publisher 220.469 Hz, Average Delay: -0.00242191 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0892573 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915138 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915362 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00131675 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00131917 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132008 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132105 Max Delay: 0.00512512
+Node: unknown_publisher 220.382 Hz, Average Delay: -0.00237558 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0890848 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915919 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0091607 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00129214 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00129452 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00129544 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0012964 Max Delay: 0.00512512
+Node: unknown_publisher 220.432 Hz, Average Delay: -0.00239731 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0892117 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00916447 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915896 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00128029 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00128266 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00128357 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00128452 Max Delay: 0.00512512
+Node: unknown_publisher 220.418 Hz, Average Delay: -0.00238215 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089254 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915927 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00915485 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00129866 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00130106 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00130197 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00130292 Max Delay: 0.00512512
+Node: unknown_publisher 220.265 Hz, Average Delay: -0.00237662 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0892169 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914618 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913869 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00135072 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.0013531 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135401 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00135496 Max Delay: 0.00512512
+Node: unknown_publisher 220.308 Hz, Average Delay: -0.00237901 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089373 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914382 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914086 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00134033 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00134271 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00134363 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00134456 Max Delay: 0.00512512
+Node: unknown_publisher 220.137 Hz, Average Delay: -0.00238085 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.08938 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914872 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914354 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00135648 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00135883 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135974 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00136066 Max Delay: 0.00512512
+Node: unknown_publisher 220.125 Hz, Average Delay: -0.00238969 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0894334 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.0091508 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914589 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.0013407 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00134304 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00134393 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00134484 Max Delay: 0.00512512
+Node: unknown_publisher 220.351 Hz, Average Delay: -0.00234597 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0895107 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913748 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0091383 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00132645 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132877 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132966 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00133055 Max Delay: 0.00512512
+Node: unknown_publisher 220.334 Hz, Average Delay: -0.00232968 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0895973 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.0091401 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913577 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.001313 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00131531 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00131619 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00131707 Max Delay: 0.00512512
+Node: unknown_publisher 220.42 Hz, Average Delay: -0.00232172 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896254 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914643 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913896 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00134751 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.0013499 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135079 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00135167 Max Delay: 0.00512512
+Node: unknown_publisher 220.33 Hz, Average Delay: -0.00230182 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897336 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914334 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914238 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00133623 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00133861 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0013395 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00134037 Max Delay: 0.00512512
+Node: unknown_publisher 220.219 Hz, Average Delay: -0.00229982 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896727 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913054 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914246 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00132832 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00133067 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00133155 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00133241 Max Delay: 0.00512512
+Node: unknown_publisher 220.438 Hz, Average Delay: -0.00229859 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897853 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913298 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913997 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00132427 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132663 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132751 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132836 Max Delay: 0.00512512
+Node: unknown_publisher 220.154 Hz, Average Delay: -0.00227379 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089743 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913683 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914576 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00131799 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132034 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132122 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132207 Max Delay: 0.00512512
+Node: unknown_publisher 220.311 Hz, Average Delay: -0.00228707 Max Delay: 0.107561
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896897 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913619 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00914042 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00132163 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132395 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132482 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132566 Max Delay: 0.00512512
+Node: unknown_publisher 220.599 Hz, Average Delay: -0.0023053 Max Delay: 0.101332
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897978 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913354 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913705 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00131026 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00131257 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00131344 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00131427 Max Delay: 0.00512512
+Node: unknown_publisher 220.533 Hz, Average Delay: -0.00229581 Max Delay: 0.101591
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897642 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913012 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913796 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00131738 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00131967 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132054 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132136 Max Delay: 0.00512512
+Node: unknown_publisher 220.528 Hz, Average Delay: -0.00229574 Max Delay: 0.101987
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.089802 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913404 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00913011 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00131291 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00131518 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00131604 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00131686 Max Delay: 0.00512512
+Node: unknown_publisher 220.176 Hz, Average Delay: -0.0022716 Max Delay: 0.101987
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0899297 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913728 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00912355 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00130144 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00130371 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00130457 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00130538 Max Delay: 0.00512512
+Node: unknown_publisher 219.994 Hz, Average Delay: -0.00224038 Max Delay: 0.101987
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0899138 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913352 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00912142 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00129305 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.0012953 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00129615 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00129696 Max Delay: 0.00512512
+Node: unknown_publisher 220.035 Hz, Average Delay: -0.00222492 Max Delay: 0.101987
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0898711 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913329 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00911861 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00129472 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00129699 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00129785 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00129865 Max Delay: 0.00512512
+Node: unknown_publisher 219.675 Hz, Average Delay: -0.00223128 Max Delay: 0.101987
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0900064 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914396 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00911628 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00132467 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00132693 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00132779 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00132859 Max Delay: 0.00512512
+Node: unknown_publisher 220.09 Hz, Average Delay: -0.00216966 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.090109 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914114 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00911459 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00133609 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00133834 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0013392 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00133999 Max Delay: 0.00512512
+Node: unknown_publisher 219.987 Hz, Average Delay: -0.00214132 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0900643 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00912974 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00910165 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00134847 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00135077 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135163 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00135243 Max Delay: 0.00512512
+Node: unknown_publisher 220.374 Hz, Average Delay: -0.00214421 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0900059 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913317 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909753 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00137092 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00137321 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00137408 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00137487 Max Delay: 0.00512512
+Node: unknown_publisher 220.576 Hz, Average Delay: -0.00217181 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0899761 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00912976 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909082 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00135796 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00136024 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0013611 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00136189 Max Delay: 0.00512512
+Node: unknown_publisher 220.21 Hz, Average Delay: -0.00220072 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0898158 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913648 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.0090882 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00135129 Max Delay: 0.00511955
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00135357 Max Delay: 0.00512263
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00135443 Max Delay: 0.00512393
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00135521 Max Delay: 0.00512512
+Node: unknown_publisher 220.454 Hz, Average Delay: -0.0021231 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897716 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913973 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909167 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.0013808 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00138307 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00138393 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.0013847 Max Delay: 0.00532854
+Node: unknown_publisher 220.332 Hz, Average Delay: -0.00214696 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897681 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914226 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00908959 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138687 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00138916 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00139002 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00139079 Max Delay: 0.00532854
+Node: unknown_publisher 220.687 Hz, Average Delay: -0.00217211 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897981 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913575 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00908414 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138388 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00138614 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.001387 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00138776 Max Delay: 0.00532854
+Node: unknown_publisher 220.863 Hz, Average Delay: -0.00215822 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897996 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00915385 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00910177 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138116 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00138345 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0013843 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00138507 Max Delay: 0.00532854
+Node: unknown_publisher 220.784 Hz, Average Delay: -0.00227457 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0897554 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.0091548 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00910199 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138409 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.0013864 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00138726 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00138804 Max Delay: 0.00532854
+Node: unknown_publisher 220.812 Hz, Average Delay: -0.00220051 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896687 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914214 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909388 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138947 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00139175 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00139261 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00139338 Max Delay: 0.00532854
+Node: unknown_publisher 220.814 Hz, Average Delay: -0.00230965 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0895768 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914814 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909707 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138092 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00138319 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00138405 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00138482 Max Delay: 0.00532854
+Node: unknown_publisher 220.507 Hz, Average Delay: -0.00235019 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0895482 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.0091441 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909978 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00137309 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00137536 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00137622 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00137698 Max Delay: 0.00532854
+Node: unknown_publisher 220.488 Hz, Average Delay: -0.00234277 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896107 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00914662 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909156 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00138553 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.0013878 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.00138867 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00138943 Max Delay: 0.00532854
+Node: unknown_publisher 220.706 Hz, Average Delay: -0.00231406 Max Delay: 0.102843
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0
+
+
+
+RESULTS: for all Frames
+
+Frames:
+Frame: base_footprint published by unknown_publisher Average Delay: 0.0896779 Max Delay: 0.107561
+Frame: bracket_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: bracket_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_baffle_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_base_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_roof_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: car_stop_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: imu_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: laser_link published by unknown_publisher Average Delay: -0.00913807 Max Delay: 0
+Frame: odom published by unknown_publisher Average Delay: -0.00909563 Max Delay: 0
+Frame: radar_fl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_fr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rl_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: radar_rr_link published by unknown_publisher(static) Average Delay: 0 Max Delay: 0
+Frame: wheel_fl_link published by unknown_publisher Average Delay: 0.00137658 Max Delay: 0.00532501
+Frame: wheel_fr_link published by unknown_publisher Average Delay: 0.00137884 Max Delay: 0.0053271
+Frame: wheel_rl_link published by unknown_publisher Average Delay: 0.0013797 Max Delay: 0.00532796
+Frame: wheel_rr_link published by unknown_publisher Average Delay: 0.00138047 Max Delay: 0.00532854
+Node: unknown_publisher 220.786 Hz, Average Delay: -0.00232755 Max Delay: 0.106936
+Node: unknown_publisher(static) 1e+08 Hz, Average Delay: 0 Max Delay: 0

@@ -1,0 +1,1666 @@
+======================================================================
+系统延迟记录与分析完整文字记录
+======================================================================
+
+试验编号：trial_007
+本文件汇总该次试验中的 Header 延迟、链路近似延迟、调试 age 信息和控制响应延迟。
+
+
+======================================================================
+一、Header 时间戳延迟
+======================================================================
+
+话题：/diagnostics
+  样本数：41
+  平均延迟ms：39.2038182514
+  中位数ms：17.541885376
+  P95 ms：136.090517044
+
+话题：/joint_states
+  样本数：403
+  平均延迟ms：40.878093568
+  中位数ms：16.0479545593
+  P95 ms：178.902864456
+
+话题：/laserpose
+  样本数：577
+  平均延迟ms：174.105206643
+  中位数ms：135.088920593
+  P95 ms：366.512537003
+
+话题：/move_base/DWAPlannerROS/cost_cloud
+  样本数：99
+  平均延迟ms：3593.04531656
+  中位数ms：3312.20817566
+  P95 ms：6365.57292938
+
+话题：/move_base/DWAPlannerROS/global_plan
+  样本数：117
+  平均延迟ms：125675.130102
+  中位数ms：123514.18066
+  P95 ms：139520.562172
+
+话题：/move_base/DWAPlannerROS/local_plan
+  样本数：361
+  平均延迟ms：146.954935343
+  中位数ms：55.7885169983
+  P95 ms：619.240760803
+
+话题：/move_base/DWAPlannerROS/trajectory_cloud
+  样本数：366
+  平均延迟ms：452.950263284
+  中位数ms：154.720783234
+  P95 ms：1611.53769493
+
+话题：/move_base/NavfnROS/plan
+  样本数：93
+  平均延迟ms：60976.9454002
+  中位数ms：62113.3215427
+  P95 ms：67972.3155499
+
+话题：/move_base/current_goal
+  样本数：2
+  平均延迟ms：97.5338220596
+  中位数ms：131.873846054
+  P95 ms：131.873846054
+
+话题：/move_base/feedback
+  样本数：368
+  平均延迟ms：52.3792608925
+  中位数ms：20.2734470367
+  P95 ms：234.23409462
+
+话题：/move_base/global_costmap/costmap_updates
+  样本数：121
+  平均延迟ms：53.9139282605
+  中位数ms：25.1660346985
+  P95 ms：261.304855347
+
+话题：/move_base/global_costmap/footprint
+  样本数：121
+  平均延迟ms：35.4793308195
+  中位数ms：13.4227275848
+  P95 ms：162.260770798
+
+话题：/move_base/goal
+  样本数：2
+  平均延迟ms：60.4360103607
+  中位数ms：97.83244133
+  P95 ms：97.83244133
+
+话题：/move_base/local_costmap/costmap
+  样本数：57
+  平均延迟ms：46.1440630126
+  中位数ms：23.7774848938
+  P95 ms：153.301000595
+
+话题：/move_base/local_costmap/costmap_updates
+  样本数：9
+  平均延迟ms：17.2502994537
+  中位数ms：11.5115642548
+  P95 ms：33.1690311432
+
+话题：/move_base/local_costmap/footprint
+  样本数：199
+  平均延迟ms：40.8146045915
+  中位数ms：14.773607254
+  P95 ms：196.962356567
+
+话题：/move_base/result
+  样本数：2
+  平均延迟ms：92.8763151169
+  中位数ms：169.805049896
+  P95 ms：169.805049896
+
+话题：/move_base/status
+  样本数：206
+  平均延迟ms：42.0846348827
+  中位数ms：12.4924182892
+  P95 ms：214.669704437
+
+话题：/move_base_simple/goal
+  样本数：2
+  平均延迟ms：25.3193378448
+  中位数ms：25.8989334106
+  P95 ms：25.8989334106
+
+话题：/odom
+  样本数：576
+  平均延迟ms：169.61799355
+  中位数ms：138.234376907
+  P95 ms：330.3399086
+
+话题：/rl/debug/obs0_181_scan_vis
+  样本数：575
+  平均延迟ms：145.469736016
+  中位数ms：119.761228561
+  P95 ms：312.689304352
+
+话题：/rl_local_goal_body_pose
+  样本数：800
+  平均延迟ms：57.6110628247
+  中位数ms：20.1940536499
+  P95 ms：247.045040131
+
+话题：/scan
+  样本数：578
+  平均延迟ms：185.045642424
+  中位数ms：123.423099518
+  P95 ms：520.617246628
+
+话题：/scan_aligned
+  样本数：574
+  平均延迟ms：234.018840856
+  中位数ms：130.517482758
+  P95 ms：773.365020752
+
+话题：/tf
+  样本数：8618
+  平均延迟ms：818.393258546
+  中位数ms：745.222330093
+  P95 ms：1986.7773056
+
+
+======================================================================
+二、链路近似延迟
+======================================================================
+
+链路：goal_body_to_obs556
+  样本数：573
+  平均延迟ms：49.3758723374
+  中位数ms：28.6049842834
+  P95 ms：211.99798584
+
+链路：lidar181_to_lidar543
+  样本数：576
+  平均延迟ms：54.2998988595
+  中位数ms：26.2219905853
+  P95 ms：222.326040268
+
+链路：lidar543_to_obs556
+  样本数：570
+  平均延迟ms：55.9491069693
+  中位数ms：30.3719043732
+  P95 ms：203.711032867
+
+链路：lidar543_to_rl_cmd_vel
+  样本数：570
+  平均延迟ms：60.7801567044
+  中位数ms：33.5628986359
+  P95 ms：212.134122849
+
+链路：obs556_to_rl_cmd_vel
+  样本数：571
+  平均延迟ms：50.7968703836
+  中位数ms：31.9578647614
+  P95 ms：187.587976456
+
+链路：raw_cmd_vel_to_zeus_speed
+  样本数：799
+  平均延迟ms：35.8832189825
+  中位数ms：16.9379711151
+  P95 ms：166.141033173
+
+链路：rl_cmd_vel_to_raw_cmd_vel
+  样本数：803
+  平均延迟ms：48.0247292097
+  中位数ms：31.7029953003
+  P95 ms：178.015947342
+
+链路：scan_aligned_to_lidar181
+  样本数：569
+  平均延迟ms：102.289853071
+  中位数ms：55.9990406036
+  P95 ms：403.459072113
+
+链路：scan_to_scan_aligned
+  样本数：574
+  平均延迟ms：64.7610284726
+  中位数ms：43.4110164642
+  P95 ms：235.342025757
+
+链路：speed_feedback_to_obs556
+  样本数：571
+  平均延迟ms：66.0507223861
+  中位数ms：40.2538776398
+  P95 ms：236.515045166
+
+
+======================================================================
+三、调试 age 信息
+======================================================================
+
+话题：/rl/debug/goal_age_ms
+  样本数：575
+  平均首值：34.7992079656
+  P95 首值：47.0278244019
+
+话题：/rl/debug/speed_age_ms
+  样本数：574
+  平均首值：25.4253768537
+  P95 首值：47.8754043579
+
+话题：/rl/debug/sync_age_pair_ms
+  样本数：575
+  平均首值：25.4617053104
+  P95 首值：47.8754043579
+
+
+======================================================================
+四、控制响应延迟
+======================================================================
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：131.366968155
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：32.3669910431
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：45.1579093933
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.2198123932
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：76.3349533081
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.1799030304
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.6560668945
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.32509994507
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：7.27891921997
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：57.9090118408
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：98.953962326
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.2669887543
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：87.9499912262
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.3940448761
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.2608737946
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.5950107574
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：71.7940330505
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：60.3239536285
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：57.6710700989
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：57.5618743896
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：57.3880672455
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：57.2929382324
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：18.6450481415
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.81409645081
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.4290828705
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.46706199646
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：39.5941734314
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：30.5821895599
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：23.3609676361
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：49.3099689484
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：5.58590888977
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.2941684723
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.9701366425
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：44.0289974213
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：38.4681224823
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.1499042511
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.22989845276
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：43.0660247803
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：3.32880020142
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：37.6460552216
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：31.238079071
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：56.7281246185
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：19.1280841827
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：27.1060466766
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.3249034882
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.82406806946
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.690076828
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：32.4430465698
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.9459629059
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.9190216064
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.326871871948
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：28.7718772888
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.70588493347
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：39.2489433289
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：18.6328887939
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.181913375854
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：21.6009616852
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：3.00192832947
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.9951496124
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：39.1170978546
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.05898284912
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.78003311157
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.16991996765
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.4279212952
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.23286247253
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：89.5948410034
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.2297954559
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.25386428833
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：25.8989334106
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：26.6089439392
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.0229511261
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.7061252594
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：12.9179954529
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：48.4509468079
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.8239650726
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：38.2010936737
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：20.4930305481
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：106.870889664
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：78.3169269562
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：58.6020946503
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：25.2249240875
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：122.282981873
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：61.1848831177
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：7.35211372375
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.23803520203
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：37.5509262085
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：16.8850421906
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：52.0029067993
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.0340423584
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：41.4619445801
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.8199329376
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：73.096036911
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：3.64804267883
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：58.5749149323
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：6.58202171326
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.61807441711
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.8389339447
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：41.3229465485
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：12.3150348663
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：21.1379528046
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.39106941223
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.699043273926
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：26.4739990234
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.78401374817
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.94787979126
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.96814537048
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.0581035614
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：51.735162735
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.3740901947
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：52.640914917
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.1969776154
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：15.0220394135
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：15.9831047058
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：45.1002120972
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.5290412903
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.63814353943
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：185.313940048
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：95.8950519562
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：709.370136261
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.00605392456
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：125.155925751
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：34.9209308624
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.8988819122
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.85894966125
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.53596496582
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：7.15494155884
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.9668312073
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.375043869
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.5319023132
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：39.1080379486
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：37.1379852295
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：31.1839580536
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：47.3389625549
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：23.6649513245
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.302947998
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：27.8038978577
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.2018699646
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：53.9410114288
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：53.8499355316
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：106.780052185
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：101.166009903
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：100.722074509
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：98.3319282532
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：98.1259346008
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：16.5891647339
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：52.8690814972
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：40.5938625336
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：40.0810241699
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：39.9239063263
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.10997390747
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：15.4581069946
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：21.6851234436
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：20.1110839844
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.78091430664
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：80.0280570984
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：20.6110477448
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：87.0010852814
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：51.7251491547
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：43.6670780182
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：43.5039997101
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：15.7721042633
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.03296470642
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：12.0232105255
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：15.5789852142
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.4670734406
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：31.5210819244
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：18.3401107788
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：19.1769599915
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.54604148865
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：73.7950801849
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：5.94401359558
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：7.28297233582
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：51.3679981232
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：18.9180374146
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：22.6359367371
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：43.3759689331
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：63.2619857788
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.2010307312
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：26.1800289154
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.838994979858
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.582933425903
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.5591545105
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.598192214966
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：71.7129707336
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：37.535905838
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：66.4629936218
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.98210906982
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：45.6130504608
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：7.38787651062
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：81.3388824463
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：42.8290367126
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.0889415741
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：82.1459293365
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：44.3360805511
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：223.165988922
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：201.989889145
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：198.966026306
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.773109436
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.38701629639
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：65.3829574585
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.0870666504
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：135.644197464
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：108.909130096
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：146.283149719
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：128.534078598
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：71.053981781
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：68.2001113892
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：56.0810565948
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：28.1620025635
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：16.1480903625
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：29.0977954865
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：335.561990738
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：226.687908173
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：194.888830185
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：194.725990295
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.55193901062
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：191.138029099
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：190.68813324
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：190.269947052
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：202.60310173
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：202.286958694
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：202.212095261
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：125.844955444
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：125.645875931
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：125.556945801
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：123.274087906
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：127.154111862
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：126.791000366
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：126.657962799
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.4870185852
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：318.927049637
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：309.17096138
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：308.861970901
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：307.757139206
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：301.975011826
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：301.603078842
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：301.489114761
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：301.380157471
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：301.138162613
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：301.031112671
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：144.536018372
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：144.255876541
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：144.16384697
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：118.293046951
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：117.938041687
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：63.8380050659
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：245.245933533
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：176.347017288
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：176.135063171
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：239.201068878
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：132.246017456
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：92.0250415802
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：123.210906982
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：118.093013763
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：117.76304245
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：5.05900382996
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.92095947266
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.79793548584
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.23908233643
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：173.411846161
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：107.009887695
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：105.67688942
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：58.5010051727
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：136.261940002
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：134.258985519
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：133.958101273
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：133.464097977
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：64.316034317
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：188.515901566
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.5749950409
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.6348266602
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：81.0420513153
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：39.3440723419
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.484167099
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.237165451
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：6.93917274475
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：6.35719299316
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.158071517944
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：61.5680217743
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：170.067071915
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：150.525093079
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：100.702047348
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：99.1249084473
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：33.9589118958
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.21595573425
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：31.4037799835
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.4150047302
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：269.706010818
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：238.917827606
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：186.774969101
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：187.697887421
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：112.115859985
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：49.2408275604
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：47.5518703461
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：43.7068939209
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：20.8280086517
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.58913230896
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：16.713142395
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.283002853394
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：21.3370323181
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：50.7209300995
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.62693786621
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：4.53901290894
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：56.2610626221
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：3.55005264282
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.78282165527
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：0.502824783325
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：32.3219299316
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：22.0160484314
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.73804092407
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：37.9071235657
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：98.89793396
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.6160335541
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：59.5018863678
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：59.2088699341
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：5.24997711182
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：15.2540206909
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：26.9320011139
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：8.55898857117
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：23.9238739014
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.6790065765
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.83892250061
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：50.124168396
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：92.3838615417
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：87.3730182648
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：18.091917038
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：12.834072113
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：10.9980106354
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.8340511322
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：11.1310482025
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：9.32002067566
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：52.4039268494
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：5.10501861572
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：38.5251045227
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：24.0969657898
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：58.7358474731
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：37.2760295868
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：58.9962005615
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：30.5910110474
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：109.013080597
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：53.6379814148
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：12.5551223755
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：2.18296051025
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：1.55401229858
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.2839164734
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：17.1239376068
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：14.2419338226
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：13.1120681763
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：6.42395019531
+
+控制话题：/raw_cmd_vel
+  状态：responded
+  执行响应延迟ms：6.78706169128
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：26.7388820648
+
+控制话题：/rl_cmd_vel
+  状态：responded
+  执行响应延迟ms：5.61594963074
+
+
+======================================================================
+五、系统延迟结论
+======================================================================
+
+Header 延迟反映带时间戳消息从发布到接收的时间差；链路近似延迟反映上下游 ROS 话题回调之间的时间间隔；控制响应延迟反映控制指令变化到底盘速度反馈变化之间的响应时间。对于不带 Header 的中间观测和控制话题，记录结果属于近似链路延迟，不能表述为严格同一帧硬同步端到端延迟。

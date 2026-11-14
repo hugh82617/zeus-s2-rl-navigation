@@ -1,0 +1,13 @@
+========== 11. IMU 相关功能包路径 ==========
+
+---------- package: fdilink ----------
+/home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink
+
+---------- package: fdilink_ahrs ----------
+[rospack] Error: package 'fdilink_ahrs' not found
+
+---------- package: imu_filter_madgwick ----------
+[rospack] Error: package 'imu_filter_madgwick' not found
+
+---------- package: robot_localization ----------
+[rospack] Error: package 'robot_localization' not found

@@ -1,0 +1,293 @@
+======================================================================
+zj：真实部署实验最终问题回答总文本
+======================================================================
+
+试验编号：trial_008
+生成时间：2026-04-28 21:36:59
+
+本文件为单独保存的最终回答文本，用于集中回答以下问题：
+1. 问题4：系统运行频率。
+2. 问题7：策略部署协议与安全包裹。
+3. 问题8：系统延迟记录与分析。
+4. 图片中的五类系统时延：传感延迟、观测组装延迟、推理延迟、控制发布延迟、执行延迟。
+5. 本次记录生成了哪些文件、每类文件包含什么信息、这些信息有什么作用。
+
+
+======================================================================
+一、实验基本信息
+======================================================================
+
+本次 trial 的开始条件：记录节点收到目标点相关消息后自动开始记录。
+目标点相关话题包括：/rl_local_goal_body、/move_base_simple/goal、/move_base/current_goal、/rl_local_goal_status。
+本次 trial 的结束条件：机器人已经发生过有效运动，随后底盘反馈速度稳定为零并持续满足稳定停止时间要求。
+
+开始时间：2026-04-28 21:35:59
+结束时间：2026-04-28 21:36:46
+持续时间：46.917 s
+停止原因：auto_stop_by_vehicle_stable_zero_speed
+是否检测到目标点：True
+是否检测到目标到达状态：True
+车辆是否实际运动：True
+自动检测到的控制模式为：rl
+
+
+======================================================================
+二、问题4：系统运行频率
+======================================================================
+
+1. LiDAR 更新频率：
+话题 /scan：消息数为 670，实际测得频率为 14.303 Hz。
+话题 /scan_aligned：消息数为 667，实际测得频率为 14.211 Hz。
+话题 /rl/lidar_181：消息数为 670，实际测得频率为 14.289 Hz。
+话题 /rl/lidar_543：消息数为 669，实际测得频率为 14.282 Hz。
+说明：/scan 反映原始激光雷达数据更新频率，/scan_aligned、/rl/lidar_181 和 /rl/lidar_543 反映进入策略观测前的预处理与堆叠频率。
+
+2. 策略模型推理频率：
+话题 /rl/obs_556：消息数为 519，实际测得频率为 14.236 Hz。
+话题 /rl_cmd_vel：消息数为 520，实际测得频率为 14.241 Hz。
+话题 /rl/debug/inference_time_ms：消息数为 0，实际测得频率为 未记录。
+说明：/rl/obs_556 表示策略模型输入观测的形成频率，/rl_cmd_vel 表示策略模型输出控制指令的发布频率。
+
+3. 控制指令发布频率：
+话题 /rl_cmd_vel：消息数为 520，实际测得频率为 14.241 Hz。
+话题 /il_cmd_vel：消息数为 0，实际测得频率为 未记录。
+话题 /raw_cmd_vel：消息数为 939，实际测得频率为 20.005 Hz。
+话题 /cmd_vel：消息数为 0，实际测得频率为 未记录。
+话题 /cmd_vel_switch/selected_cmd_vel：消息数为 0，实际测得频率为 未记录。
+说明：控制指令发布频率应结合策略输出话题、控制源切换后的话题和最终底盘控制接口话题共同判断。
+
+4. 底盘反馈频率：
+话题 /zeus_speed：消息数为 935，实际测得频率为 19.952 Hz。
+话题 /odom：消息数为 667，实际测得频率为 14.220 Hz。
+说明：/zeus_speed 反映底盘速度反馈频率，/odom 反映里程计反馈频率。
+
+5. 这些频率是配置参数还是实际测量结果：
+本文件中列出的频率均来自记录节点在真实机器人执行任务期间对 ROS 话题的实际订阅统计，因此属于 ROS 话题实际测量结果，而不是单纯配置参数。配置参数只能表示节点理论设定频率，实际频率还会受到节点运行状态、ROS 调度、传感器驱动、系统负载和消息队列影响。
+
+
+======================================================================
+三、问题7：策略部署协议与安全包裹
+======================================================================
+
+1. 是否直接使用仿真训练完成的策略模型进行在线推理：
+真实部署阶段应以模型文件加载、推理进程存在性和训练进程缺失情况作为判断依据。本次记录中的模型与进程证据如下：
+模型文件检查：
+-rw-rw-r-- 1 ros ros 14K 3月  27 14:27 /home/ros/catkin_ws/src/rl_planner/models/model_1200_actor.onnx
+
+模型 MD5 校验：
+496e2beaadf2b6514d34589d46be6881  /home/ros/catkin_ws/src/rl_planner/models/model_1200_actor.onnx
+
+推理/部署相关进程：
+message+   795  0.0  0.0  51648  6148 ?        Ss   15:38   0:10 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root       816  0.0  0.1 434328 10564 ?        Ssl  15:38   0:04 /usr/sbin/ModemManager --filter-policy=strict
+root       838  0.0  0.1 298248 10112 ?        Ssl  15:38   0:01 /usr/lib/policykit-1/polkitd --no-debug
+ros        982  0.0  0.0  52220  6764 ?        Ss   15:38   0:02 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ros       1132  0.0  0.0  50060  4228 ?        S    15:38   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+ros       1265  0.0  0.2 358316 23448 tty1     Sl   15:38   0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ros       1346  0.0  0.0 418136  6056 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ros       1453  0.0  0.0 271940  6524 tty1     Sl+  15:38   0:00 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+ros       1484  0.0  0.8 887416 68016 ?        Ssl  15:38   0:00 /usr/lib/evolution/evolution-calendar-factory
+ros       1554  0.0  0.7 1131076 63296 ?       Sl   15:38   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx1484x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/1484/2
+ros       1569  0.0  0.3 727692 24976 ?        Ssl  15:38   0:00 /usr/lib/evolution/evolution-addressbook-factory
+ros       1587  0.0  0.3 1014504 31304 ?       Sl   15:38   0:00 /usr/lib/evolution/evolution-addressbook-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx1569x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/1569/2
+root      1816  0.0  0.0   4516   748 ?        S    15:39   0:00 bpfilter_umh
+ros       3794  0.0  0.5 395260 45672 tty1     Sl+  16:04   0:00 /usr/lib/firefox/firefox -contentproc -parentBuildID 20230522134052 -prefsLen 27474 -prefMapSize 233348 -appDir /usr/lib/firefox/browser {d122518e-cc67-4f3b-a313-f2d049159c45} 3723 true socket
+ros       3812  0.0  1.6 2698580 132472 tty1   Sl+  16:04   0:02 /usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 27615 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {9586f480-812a-4161-8312-d0599a036bf2} 3723 true tab
+ros       3857  0.0  1.2 2634584 103008 tty1   Sl+  16:04   0:01 /usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 33001 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {8405a1d4-c47c-4d15-9194-cb714cf61307} 3723 true tab
+ros       3918  0.2  1.7 2657568 140952 tty1   Sl+  16:04   0:57 /usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 28570 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {d1a32bd1-9e1f-4e4b-bec3-9c0e502772e5} 3723 true tab
+ros       4604  0.0  1.0 2589144 84156 tty1    Sl+  20:53   0:00 /usr/lib/firefox/firefox -contentproc -childID 286 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {38aec79e-582d-469f-a00e-0d25527e3f11} 3723 true tab
+ros       5724  0.3  1.1 1537052 93276 ?       Sl   16:07   1:10 /usr/bin/nautilus --gapplication-service
+ros       9681  0.0  0.9 2584208 76608 tty1    Sl+  21:09   0:00 /usr/lib/firefox/firefox -contentproc -childID 287 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {547eed8a-ff2d-4ded-b398-505b7e36caed} 3723 true tab
+ros      12501  0.0  0.9 2584208 77800 tty1    Sl+  21:14   0:00 /usr/lib/firefox/firefox -contentproc -childID 288 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {96505df7-75d4-4138-90e8-b4706f7ee45d} 3723 true tab
+ros      13204  0.1  0.1 368544 12480 ?        Ssl  21:15   0:02 /home/ros/catkin_ws/devel/lib/teleop_joy/teleop_joy /cmd_vel:=/teleop_cmd_vel __name:=teleop_joy __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/teleop_joy-3.log
+ros      13209  3.0  0.7 1213604 62384 ?       Ssl  21:15   0:40 python /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/scripts/cmd_vel_switch.py __name:=cmd_vel_switch __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/cmd_vel_switch-4.log
+ros      13217  0.2  0.1 613520 15892 ?        Ssl  21:15   0:03 /opt/ros/melodic/lib/nodelet/nodelet load yocs_velocity_smoother/VelocitySmootherNodelet nodelet_manager velocity_smoother/raw_cmd_vel:=raw_cmd_vel velocity_smoother/smooth_cmd_vel:=zeus_speed velocity_smoother/robot_cmd_vel:=robot_cmd_vel velocity_smoother/odometry:=odom __name:=velocity_smoother __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/velocity_smoother-6.log
+ros      13623  0.0  0.0  57592  6504 pts/6    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch tf_pub move_base.launch; exec bash
+ros      13674  0.3  0.8 408388 65592 pts/6    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch tf_pub move_base.launch
+ros      13689 27.7  0.4 964560 39896 ?        Ssl  21:15   5:59 /opt/ros/melodic/lib/move_base/move_base cmd_vel:=/raw_cmd_vel_dwa odom:=odom __name:=move_base __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/move_base-1.log
+ros      13890 17.0  2.2 2445912 184348 ?      Rsl  21:15   3:39 /opt/ros/melodic/lib/rviz/rviz -d /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz __name:=rviz __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/rviz-3.log
+ros      13988  0.3  0.8 408392 65856 pts/16   Sl+  21:17   0:04 /usr/bin/python /opt/ros/melodic/bin/roslaunch rl_planner experiment_logger_with_obs556.launch
+ros      14003 16.0  1.1 2552932 89696 ?       Ssl  21:17   3:08 python /home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py __name:=experiment_logger_with_obs556 __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/experiment_logger_with_obs556-1.log
+ros      14058  8.4  0.7 845484 63212 pts/10   Sl+  21:17   1:37 python /home/ros/catkin_ws/src/rl_planner/scripts/laser_switch.py
+ros      14070 24.3  0.8 1436276 64836 pts/12  Sl+  21:17   4:39 python /home/ros/catkin_ws/src/rl_planner/scripts/lidar_obs_single_frame.py
+ros      14106  3.5  0.7 1139444 61820 pts/13  Sl+  21:17   0:41 python /home/ros/catkin_ws/src/rl_planner/scripts/lidar_stack_543_node.py
+ros      16019 12.7  1.0 1627372 87884 pts/9   Sl+  21:22   1:50 python2 /home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py
+ros      16104 21.7  0.8 2253844 68576 pts/14  Sl+  21:22   3:07 /home/ros/miniconda3/envs/onnx_env/bin/python /home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py
+ros      19107 35.9  6.2 3396520 504004 pts/11 Sl+  21:30   2:28 python /home/ros/catkin_ws/src/rl_planner/scripts/multi_trial_four_folder_recorder_node.py
+ros      20123  0.1  0.9 2584224 76108 tty1    Sl+  21:34   0:00 /usr/lib/firefox/firefox -contentproc -childID 289 -isForBrowser -prefsLen 28868 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {45962008-17ec-4ffa-9f7e-52b9d5918732} 3723 true tab
+
+训练/微调相关进程：
+未检测到 train、finetune、backward、optimizer、ppo、rsl_rl 等训练或在线微调相关进程。
+结论说明：如果检测结果显示存在 ONNX/策略推理相关进程，并且未检测到训练、反向传播、优化器更新或在线微调相关进程，则可以说明本次真实部署使用的是仿真训练完成后导出的策略模型进行在线推理，实验期间未进行额外重训练、参数微调或针对真实场景的在线再优化。
+
+2. 控制源切换情况：
+自动检测到的控制模式为：rl。
+控制源状态统计如下：
+  未检测到 /cmd_vel_switch/active_mode 的有效模式消息。
+
+3. 速度限幅与实际输出范围：
+话题 /rl_cmd_vel：线速度范围为 -0.200 m/s 到 0.500 m/s，角速度范围为 -0.500 rad/s 到 0.500 rad/s，零速度消息数为 1，非零速度消息数为 519。
+话题 /il_cmd_vel：未记录到速度样本。
+话题 /raw_cmd_vel：线速度范围为 -0.200 m/s 到 0.500 m/s，角速度范围为 -0.500 rad/s 到 0.500 rad/s，零速度消息数为 208，非零速度消息数为 731。
+话题 /cmd_vel：未记录到速度样本。
+话题 /zeus_speed：线速度范围为 -0.192 m/s 到 0.500 m/s，角速度范围为 -0.500 rad/s 到 0.500 rad/s，零速度消息数为 189，非零速度消息数为 746。
+话题 /odom：线速度范围为 0.000 m/s 到 0.000 m/s，角速度范围为 0.000 rad/s 到 0.000 rad/s，零速度消息数为 667，非零速度消息数为 0。
+说明：以上为本次 trial 中实际观测到的速度输出或反馈范围，不等同于配置层面的最大允许速度。配置层面的限幅参数应结合 ROS 参数服务器和推理节点代码确认。
+
+4. 安全机制具体参数：
+记录节点自身用于实验分段和稳定停止判定的参数如下：
+  最小 trial 时长：3.000 s。
+  最大 trial 时长：300.000 s。
+  稳定停止判定时间：2.000 s。
+  车辆运动判定线速度阈值：0.030 m/s。
+  车辆运动判定角速度阈值：0.050 rad/s。
+  控制指令变化判定线速度阈值：0.020 m/s。
+  控制指令变化判定角速度阈值：0.030 rad/s。
+  底盘响应判定线速度变化阈值：0.015 m/s。
+  底盘响应判定角速度变化阈值：0.030 rad/s。
+  控制响应最大等待时间：5.000 s。
+
+ROS 参数服务器中检索到的速度限幅、角速度限制、安全停车距离、目标到达阈值、异常输入处理和控制源切换相关参数如下：
+/cmd_vel_switch/active_topic：/cmd_vel_switch/active_mode
+/cmd_vel_switch/cmd_timeout：0.5
+/cmd_vel_switch/dwa_topic：/raw_cmd_vel_dwa
+/cmd_vel_switch/mode：rl
+/cmd_vel_switch/mode_topic：/cmd_vel_mode
+/cmd_vel_switch/out_topic：/raw_cmd_vel
+/cmd_vel_switch/pub_rate：20.0
+/cmd_vel_switch/rl_topic：/rl_cmd_vel
+/cmd_vel_switch/teleop_timeout：0.3
+/cmd_vel_switch/teleop_topic：/teleop_cmd_vel
+/experiment_logger_with_obs556/active_mode_topic：/cmd_vel_switch/active_mode
+/experiment_logger_with_obs556/header_timeout_sec：0.5
+/experiment_logger_with_obs556/tf_lookup_timeout：0.1
+/move_base/DWAPlannerROS/acc_lim_theta：5.0
+/move_base/DWAPlannerROS/acc_lim_trans：0.1
+/move_base/DWAPlannerROS/acc_lim_x：2.5
+/move_base/DWAPlannerROS/latch_xy_goal_tolerance：False
+/move_base/DWAPlannerROS/max_vel_theta：0.9
+/move_base/DWAPlannerROS/max_vel_trans：0.6
+/move_base/DWAPlannerROS/max_vel_x：0.3
+/move_base/DWAPlannerROS/min_vel_theta：0.5
+/move_base/DWAPlannerROS/min_vel_trans：0.0
+/move_base/DWAPlannerROS/min_vel_x：0.0
+/move_base/DWAPlannerROS/xy_goal_tolerance：0.1
+/move_base/DWAPlannerROS/yaw_goal_tolerance：0.1
+/move_base/global_costmap/footprint：[[-0.47,-0.38],[-0.47,0.38],[0.47,0.38],[0.47,-0.38]]
+/move_base/global_costmap/footprint_padding：0.01
+/move_base/global_costmap/inflation_layer/inflation_radius：0.9
+/move_base/global_costmap/obstacle_layer/footprint_clearing_enabled：True
+/move_base/global_costmap/obstacle_layer/obstacle_range：5.0
+/move_base/global_costmap/obstacle_layer/raytrace_range：5.0
+/move_base/global_costmap/robot_radius：0.46
+/move_base/global_costmap/transform_tolerance：1.0
+/move_base/local_costmap/footprint：[[-0.47,-0.38],[-0.47,0.38],[0.47,0.38],[0.47,-0.38]]
+/move_base/local_costmap/footprint_padding：0.01
+/move_base/local_costmap/inflation_layer/inflation_radius：0.55
+/move_base/local_costmap/obstacle_layer/footprint_clearing_enabled：True
+/move_base/local_costmap/obstacle_layer/obstacle_range：5.0
+/move_base/local_costmap/obstacle_layer/raytrace_range：5.0
+/move_base/local_costmap/robot_radius：0.46
+/move_base/local_costmap/transform_tolerance：1.0
+/move_base/oscillation_timeout：10.0
+
+5. 工程安全包裹总结：
+部署过程中引入或记录的工程安全机制包括：速度限幅、动作裁剪、目标到达判定、目标到达后的零速度停车、控制源切换、急停或安全停车话题监听、异常输入状态记录、速度反馈与目标点 age 记录、以及底盘响应检测。若某些机制没有在 ROS 参数或话题中出现，则应在论文中说明该机制未被显式检测到，而不能虚构具体参数。
+
+
+======================================================================
+四、问题8：系统延迟记录与分析
+======================================================================
+
+1. 实验过程中是否记录系统延迟：
+本次 trial 已记录系统延迟。记录内容包括带 Header 消息的时间戳延迟、上下游 ROS 话题之间的近似链路延迟、调试 age 话题、策略推理相关延迟以及控制指令到底盘反馈的响应延迟。
+
+2. LiDAR 数据采集到观测生成的延迟：
+话题 /scan：样本数为 670，平均延迟为 350.729 ms，中位数为 238.656 ms，P95 延迟为 1073.542 ms。
+链路 scan_to_scan_aligned：样本数为 665，平均延迟为 105.357 ms，中位数为 59.311 ms，P95 延迟为 398.185 ms。
+链路 scan_aligned_to_lidar181：样本数为 669，平均延迟为 106.481 ms，中位数为 71.041 ms，P95 延迟为 357.510 ms。
+链路 lidar181_to_lidar543：样本数为 669，平均延迟为 50.694 ms，中位数为 27.740 ms，P95 延迟为 181.626 ms。
+链路 lidar543_to_obs556：样本数为 518，平均延迟为 67.114 ms，中位数为 34.760 ms，P95 延迟为 247.381 ms。
+
+3. 观测生成到策略推理输出的延迟：
+链路 obs556_to_rl_cmd_vel：样本数为 520，平均延迟为 83.809 ms，中位数为 47.720 ms，P95 延迟为 317.570 ms。
+链路 lidar543_to_rl_cmd_vel：样本数为 519，平均延迟为 68.126 ms，中位数为 41.566 ms，P95 延迟为 228.017 ms。
+
+4. 策略输出到控制指令发布的延迟：
+链路 rl_cmd_vel_to_raw_cmd_vel：样本数为 936，平均延迟为 1202.329 ms，中位数为 64.073 ms，P95 延迟为 7960.022 ms。
+链路 rl_cmd_vel_to_cmd_vel：未形成有效延迟样本。
+链路 raw_cmd_vel_to_cmd_vel：未形成有效延迟样本。
+
+5. 控制指令发布到底盘实际响应的延迟：
+控制指令到底盘反馈响应延迟：有效响应样本数为 333，平均响应延迟为 88.649 ms，中位数为 43.630 ms，P95 延迟为 349.426 ms，未形成明确响应的事件数为 0。
+
+6. 调试 age 与同步状态：
+话题 /rl/debug/goal_age_ms：样本数为 521，平均首值为 24.433，中位数为 23.799，P95 为 46.104。
+话题 /rl/debug/speed_age_ms：样本数为 521，平均首值为 24.811，中位数为 25.627，P95 为 47.566。
+话题 /rl/debug/sync_age_pair_ms：样本数为 521，平均首值为 24.811，中位数为 25.627，P95 为 47.566。
+
+7. 延迟是否会影响闭环稳定性和实验可靠性：
+系统延迟会影响真实机器人闭环控制稳定性。若传感延迟、观测组装延迟、推理延迟、控制发布延迟或执行响应延迟长期接近甚至超过控制周期，则机器人可能基于滞后的环境状态进行决策，导致避障反应滞后、控制输出抖动、轨迹不连续或目标到达判定滞后。因此，在论文中应结合实际记录到的平均延迟、中位数和 P95 延迟判断系统实时性。如果各环节延迟均保持在控制周期允许范围内，则可说明系统具备较好的实时闭环运行基础；如果某些链路延迟样本缺失，则只能说明该链路在本次 trial 中未形成可观测记录，不能强行作为有效延迟证据。
+
+
+======================================================================
+五、图片中的五类系统时延分解
+======================================================================
+
+1. 传感延迟：
+传感延迟指真实环境发生变化后，传感器完成采集并形成 ROS 消息，到该消息被上层程序接收之间的时间差。本次 trial 中主要通过 /scan、/odom、/imu、/tf 等带 Header 的话题计算 now - header.stamp。
+话题 /scan：样本数为 670，平均延迟为 350.729 ms，中位数为 238.656 ms，P95 延迟为 1073.542 ms。
+话题 /odom：样本数为 667，平均延迟为 190.120 ms，中位数为 149.767 ms，P95 延迟为 423.259 ms。
+话题 /imu：未形成可计算的 Header 时间戳延迟样本。
+
+2. 观测组装延迟：
+观测组装延迟指 LiDAR、速度反馈和目标信息被拼接成策略输入观测向量的时间间隔。本次 trial 中主要通过 scan_to_scan_aligned、scan_aligned_to_lidar181、lidar181_to_lidar543、lidar543_to_obs556 等链路估计。
+链路 scan_to_scan_aligned：样本数为 665，平均延迟为 105.357 ms，中位数为 59.311 ms，P95 延迟为 398.185 ms。
+链路 scan_aligned_to_lidar181：样本数为 669，平均延迟为 106.481 ms，中位数为 71.041 ms，P95 延迟为 357.510 ms。
+链路 lidar181_to_lidar543：样本数为 669，平均延迟为 50.694 ms，中位数为 27.740 ms，P95 延迟为 181.626 ms。
+链路 lidar543_to_obs556：样本数为 518，平均延迟为 67.114 ms，中位数为 34.760 ms，P95 延迟为 247.381 ms。
+
+3. 推理延迟：
+推理延迟指 556 维观测输入模型后，到模型输出线速度和角速度控制指令之间的时间间隔。本次 trial 中主要通过 obs556_to_rl_cmd_vel 和 /rl/debug/inference_time_ms 记录。
+链路 obs556_to_rl_cmd_vel：样本数为 520，平均延迟为 83.809 ms，中位数为 47.720 ms，P95 延迟为 317.570 ms。
+未检测到 /rl/debug/inference_time_ms 直接推理耗时话题。
+
+4. 控制发布延迟：
+控制发布延迟指模型输出控制命令后，到 ROS 节点真正发布到底盘控制接口之间的时间间隔。本次 trial 中主要通过 rl_cmd_vel_to_raw_cmd_vel、rl_cmd_vel_to_cmd_vel 和 raw_cmd_vel_to_cmd_vel 链路估计。
+链路 rl_cmd_vel_to_raw_cmd_vel：样本数为 936，平均延迟为 1202.329 ms，中位数为 64.073 ms，P95 延迟为 7960.022 ms。
+链路 rl_cmd_vel_to_cmd_vel：未形成有效延迟样本。
+链路 raw_cmd_vel_to_cmd_vel：未形成有效延迟样本。
+
+5. 执行延迟：
+执行延迟指底盘收到控制命令后，到电机或底盘速度反馈真正产生可见运动响应之间的时间间隔。本次 trial 中主要通过控制指令变化与 /zeus_speed 反馈变化之间的时间差估计。
+控制指令到底盘反馈响应延迟：有效响应样本数为 333，平均响应延迟为 88.649 ms，中位数为 43.630 ms，P95 延迟为 349.426 ms，未形成明确响应的事件数为 0。
+
+
+======================================================================
+六、本次记录的信息、文件内容及作用说明
+======================================================================
+
+1. 01_frequency_information 文件夹
+该文件夹用于保存系统运行频率信息。每个 trial 中包含 frequency_summary.csv、auto_experiment_condition.txt 和 answer_frequency_full.txt。frequency_summary.csv 记录各 ROS 话题的消息数量、持续时间、实际发布频率、平均周期、周期波动等信息。该类信息用于证明系统频率来自真实运行期间的 ROS 话题实际测量，而不是仅依赖配置参数。
+
+2. 02_strategy_deployment_safety_wrapper 文件夹
+该文件夹用于保存策略部署协议与安全包裹信息。每个 trial 中包含 velocity_limit_actual_extrema.csv、control_source_mode_auto_detection.csv、safety_control_topic_status.csv、auto_experiment_condition_for_q7.txt 和 answer_strategy_deployment_safety_full.txt。它用于回答真实部署是否直接使用仿真训练模型、是否未进行重训练或微调、是否存在速度限幅、急停、控制源切换、目标到达停车和异常输入处理等安全机制。
+
+3. 03_system_delay_analysis 文件夹
+该文件夹用于保存系统延迟记录与分析信息。每个 trial 中包含 header_stamp_delay_summary.csv、chain_delay_summary.csv、debug_age_numeric_summary.csv、cmd_to_base_response_events.csv、auto_experiment_condition_for_q8.txt 和 answer_system_delay_analysis_full.txt。它用于回答实验过程中是否记录系统延迟、记录了哪些环节的延迟，以及这些延迟是否可能影响真实机器人闭环控制稳定性。
+
+4. 04_system_end_to_end_delay_chain 文件夹
+该文件夹用于保存端到端时延链路分解信息。每个 trial 中包含 01_sensor_delay_header.csv、02_observation_assembly_delay.csv、03_inference_delay.csv、04_control_publish_delay.csv、05_execution_response_delay.csv、06_total_chain_delay_events.csv、07_debug_age_topics.csv、08_related_topic_frequency.csv 和 answer_end_to_end_delay_chain_full.txt。它用于将系统时延清晰分解为传感延迟、观测组装延迟、推理延迟、控制发布延迟和执行延迟。
+
+5. 04_system_end_to_end_delay_chain/01_sensor_delay_all_categories 文件夹
+该文件夹用于保存全类别传感器、状态反馈和硬件工况信息。每个 trial 中包含 sensor_topic_inventory.csv、sensor_header_delay_detail.csv、sensor_delay_category_summary.csv、sensor_no_header_topics.csv、sensor_topic_frequency.csv、sensor_frame_id_summary.csv 和 answer_sensor_hardware_info_full.txt。它用于证明真实部署实验记录的不只是 RL 节点，而是完整机器人系统中的传感器、底盘反馈、坐标变换、定位、地图和硬件状态。
+
+6. summary 文件夹
+summary 文件夹用于保存多次实验汇总信息，包括 all_trials_index.csv、multi_trial_statistics.csv、answer_multi_trial_summary_full.txt 和本文件 zj.txt。all_trials_index.csv 记录每个 trial 的摘要，multi_trial_statistics.csv 对多次 trial 的指标计算平均值、标准差、中位数、P90、P95、最大值和最小值。zj.txt 是最终单独文本，集中回答论文需要的关键问题，并说明所有记录信息和文件作用。
+
+
+======================================================================
+七、最终总结
+======================================================================
+
+本次记录节点以目标点消息作为 trial 开始标志，以机器人运动后速度稳定为零作为 trial 结束标志，完整覆盖真实机器人从感知输入、观测构建、策略推理、控制发布到底盘执行响应的闭环过程。系统运行频率由 ROS 话题实际测量得到；策略部署协议通过模型文件、推理进程、训练进程和控制源状态进行验证；安全包裹通过速度范围、控制源切换、安全话题、目标到达停车和异常输入相关参数进行说明；系统延迟被分解为传感延迟、观测组装延迟、推理延迟、控制发布延迟和执行延迟。最终生成的 zj.txt 可作为论文中回答第4、7、8问以及系统时延链路说明的集中依据。

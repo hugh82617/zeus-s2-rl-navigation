@@ -1,0 +1,112 @@
+========== 3. IMU 串口设备检查 ==========
+---- /dev/imu 检查 ----
+lrwxrwxrwx 1 root root 7 4月  28 15:38 /dev/imu -> ttyACM0
+
+---- /dev/ttyUSB* 检查 ----
+crwxrwxrwx 1 root dialout 188, 0 4月  28 17:05 /dev/ttyUSB0
+crwxrwxrwx 1 root dialout 188, 1 4月  28 15:38 /dev/ttyUSB1
+
+---- /dev/ttyACM* 检查 ----
+crwxrwxrwx 1 root dialout 166, 0 4月  28 15:38 /dev/ttyACM0
+
+---- /dev/serial/by-id 检查 ----
+总用量 0
+lrwxrwxrwx 1 root root 13 4月  28 15:38 usb-1a86_USB_Single_Serial_558B008725-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root 13 4月  28 15:38 usb-FTDI_FT232R_USB_UART_A9S6N45W-if00-port0 -> ../../ttyUSB1
+lrwxrwxrwx 1 root root 13 4月  28 15:38 usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_e698bf973cc4f3439019a7e1c1e83cb2-if00-port0 -> ../../ttyUSB0
+
+---- USB 设备检查 lsusb ----
+Bus 001 Device 002: ID 8087:8000 Intel Corp. 
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 002: ID 0951:1666 Kingston Technology DataTraveler G4
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 009: ID 0573:1573 Zoran Co. Personal Media Division (Nogatech) 
+Bus 002 Device 012: ID 04d8:0053 Microchip Technology, Inc. 
+Bus 002 Device 007: ID 0403:6001 Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC
+Bus 002 Device 006: ID 05e3:0610 Genesys Logic, Inc. 4-port hub
+Bus 002 Device 005: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x UART Bridge / myAVR mySmartUSB light
+Bus 002 Device 003: ID 045e:028e Microsoft Corp. Xbox360 Controller
+Bus 002 Device 002: ID 1a86:55d4 QinHeng Electronics 
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+---- 最近串口插拔日志 dmesg ----
+[    3.031697] usb 2-5: New USB device found, idVendor=10c4, idProduct=ea60, bcdDevice= 1.00
+[    3.031699] usb 2-5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.031700] usb 2-5: Product: CP2102 USB to UART Bridge
+[    3.031701] usb 2-5: Manufacturer: Silicon Labs
+[    3.031702] usb 2-5: SerialNumber: e698bf973cc4f3439019a7e1c1e83cb2
+[    3.157739] usb 3-3: new SuperSpeed Gen 1 USB device number 2 using xhci_hcd
+[    3.180925] usb 3-3: New USB device found, idVendor=0951, idProduct=1666, bcdDevice= 1.10
+[    3.180927] usb 3-3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[    3.180928] usb 3-3: Product: DataTraveler 3.0
+[    3.180929] usb 3-3: Manufacturer: Kingston
+[    3.180930] usb 3-3: SerialNumber: E0D55EA574AB15C05964B9F2
+[    3.184663] usb-storage 3-3:1.0: USB Mass Storage device detected
+[    3.184768] scsi host3: usb-storage 3-3:1.0
+[    3.184850] usbcore: registered new interface driver usb-storage
+[    3.186291] usbcore: registered new interface driver uas
+[    3.305722] usb 2-8: new high-speed USB device number 6 using xhci_hcd
+[    3.455466] usb 2-8: New USB device found, idVendor=05e3, idProduct=0610, bcdDevice=61.60
+[    3.455468] usb 2-8: New USB device strings: Mfr=0, Product=1, SerialNumber=0
+[    3.455469] usb 2-8: Product: USB2.0 Hub
+[    3.456716] hub 2-8:1.0: USB hub found
+[    3.749716] usb 2-8.1: new full-speed USB device number 7 using xhci_hcd
+[    3.859761] usb 2-8.1: New USB device found, idVendor=0403, idProduct=6001, bcdDevice= 6.00
+[    3.859763] usb 2-8.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.859765] usb 2-8.1: Product: FT232R USB UART
+[    3.859766] usb 2-8.1: Manufacturer: FTDI
+[    3.859767] usb 2-8.1: SerialNumber: A9S6N45W
+[    3.945684] usb 2-8.2: new full-speed USB device number 8 using xhci_hcd
+[    4.047849] usb 2-8.2: New USB device found, idVendor=04d8, idProduct=0053, bcdDevice= 3.41
+[    4.047851] usb 2-8.2: New USB device strings: Mfr=1, Product=3, SerialNumber=0
+[    4.047852] usb 2-8.2: Product: Chuangxin Tech USBCAN/CANalyst-II
+[    4.047853] usb 2-8.2: Manufacturer: Microchip Technology Inc.
+[    4.153727] usb 2-8.4: new full-speed USB device number 9 using xhci_hcd
+[    4.259095] usb 2-8.4: New USB device found, idVendor=0573, idProduct=1573, bcdDevice=80.07
+[    4.259097] usb 2-8.4: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    4.259098] usb 2-8.4: Product: USB Audio and HID
+[    4.259099] usb 2-8.4: Manufacturer: CSCTEK
+[    4.259099] usb 2-8.4: SerialNumber: A34004801402
+[    4.960608] cdc_acm 2-1:1.0: ttyACM0: USB ACM device
+[    4.960886] usbcore: registered new interface driver cdc_acm
+[    4.960887] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    4.974860] usbcore: registered new interface driver usbserial_generic
+[    4.974872] usbserial: USB Serial support registered for generic
+[    4.976635] input: Microsoft X-Box 360 pad as /devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2:1.0/input/input3
+[    4.976772] usbcore: registered new interface driver xpad
+[    4.985224] usbcore: registered new interface driver cp210x
+[    4.985238] usbserial: USB Serial support registered for cp210x
+[    4.985275] cp210x 2-5:1.0: cp210x converter detected
+[    4.990932] usbcore: registered new interface driver ftdi_sio
+[    4.990949] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    4.991073] ftdi_sio 2-8.1:1.0: FTDI USB Serial Device converter detected
+[    4.991109] usb 2-8.1: Detected FT232RL
+[    4.991137] usb 2-5: cp210x converter now attached to ttyUSB0
+[    4.996060] usb 2-8.1: FTDI USB Serial Device converter now attached to ttyUSB1
+[    5.079035] usbhid 2-8.4:1.3: couldn't find an input interrupt endpoint
+[    5.079076] usbcore: registered new interface driver usbhid
+[    5.079078] usbhid: USB HID core driver
+[    5.198261] usb 2-8.4: Warning! Unlikely big volume range (=511), cval->res is probably wrong.
+[    5.198264] usb 2-8.4: [5] FU [Mic Capture Volume] ch = 1, val = -8192/-1/16
+[    5.200174] usb 2-8.4: Warning! Unlikely big volume range (=896), cval->res is probably wrong.
+[    5.200177] usb 2-8.4: [6] FU [PCM Playback Volume] ch = 2, val = -16384/-2048/16
+[    5.200448] usbcore: registered new interface driver snd-usb-audio
+[ 1585.530277] usb 2-8.2: USB disconnect, device number 8
+[ 1585.757654] usb 2-8.2: new full-speed USB device number 10 using xhci_hcd
+[ 1585.863613] usb 2-8.2: New USB device found, idVendor=04d8, idProduct=0053, bcdDevice= 3.41
+[ 1585.863617] usb 2-8.2: New USB device strings: Mfr=1, Product=3, SerialNumber=0
+[ 1585.863620] usb 2-8.2: Product: Chuangxin Tech USBCAN/CANalyst-II
+[ 1585.863622] usb 2-8.2: Manufacturer: Microchip Technology Inc.
+[ 4391.034767] usb 2-8.2: USB disconnect, device number 10
+[ 4391.266338] usb 2-8.2: new full-speed USB device number 11 using xhci_hcd
+[ 4391.369767] usb 2-8.2: New USB device found, idVendor=04d8, idProduct=0053, bcdDevice= 3.41
+[ 4391.369780] usb 2-8.2: New USB device strings: Mfr=1, Product=3, SerialNumber=0
+[ 4391.369788] usb 2-8.2: Product: Chuangxin Tech USBCAN/CANalyst-II
+[ 4391.369793] usb 2-8.2: Manufacturer: Microchip Technology Inc.
+[ 5197.580866] usb 2-8.2: usbfs: process 12404 (zeus_s2_driver) did not claim interface 0 before use
+[ 5197.690943] usb 2-8.2: USB disconnect, device number 11
+[ 5197.916617] usb 2-8.2: new full-speed USB device number 12 using xhci_hcd
+[ 5198.022951] usb 2-8.2: New USB device found, idVendor=04d8, idProduct=0053, bcdDevice= 3.41
+[ 5198.022955] usb 2-8.2: New USB device strings: Mfr=1, Product=3, SerialNumber=0
+[ 5198.022956] usb 2-8.2: Product: Chuangxin Tech USBCAN/CANalyst-II
+[ 5198.022958] usb 2-8.2: Manufacturer: Microchip Technology Inc.
