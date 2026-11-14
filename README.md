@@ -4,6 +4,8 @@
 
 **平台主线：ROS1、Noetic、Zeus S2、二维激光雷达、PPO、ONNX Runtime。** 早期 MATLAB / Simulink 模型另保存 ROS Melodic 目标配置；不同阶段的配置按原记录保留。
 
+![Zeus S2实车平台](experiments/real_robot_2026-04-28/5-机器人实物图/机器人实物图-4.jpg)
+
 [项目经历与问题解决](docs/project-journey.md) · [系统架构](docs/architecture.md) · [训练与部署](docs/training-and-deployment.md) · [实验与数据](experiments/README.md) · [全部视频目录](media/README.md)
 
 ## 演示与完成情况
@@ -36,7 +38,7 @@ flowchart LR
     F --> K[观测校验与实验记录]
 ```
 
-早期 Python 部署把 RViz 最终目标变换到车体系，策略直接输出二维动作；后续 C++ 插件通过 `move_base.setPlan()` 获取全局路径，再选择前瞻点。两者属于不同阶段，不能把早期实车运行记录当作后续插件已验证的证据。
+早期 Python 部署把 RViz 最终目标变换到车体系，策略直接输出二维动作；后续由 `move_base` 调用 C++ 局部规划器的 `setPlan()` 传入全局路径，再选择前瞻点。两者属于不同阶段，不能把早期实车运行记录当作后续插件已验证的证据。
 
 Stage3 观测为 `3线速度 + 3角速度 + 3重力 + 4目标 + 181×3激光 = 556维`。激光视场为 -135° 至 135°，按12m归一化，历史顺序为当前、上一帧、上上帧。Stage1另有194维模型，必须按配套配置使用。
 
