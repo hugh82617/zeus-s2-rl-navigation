@@ -1,0 +1,1842 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+============================================================
+pipeline_verifier_node.py
+------------------------------------------------------------
+在线 LiDAR 预处理链路验证 + 实验后自动分析报告生成节点。
+
+目标:不再走 "录制 bag -> CSV 导出 -> 离线脚本" 这条流程,
+      而是在实验过程中同时做实时校验,实验结束(Ctrl+C 或 rosnode kill)
+      后直接在磁盘上生成一份可读的 .txt 分析报告。
+
+订阅话题(13):
+  Stage 1:
+    /scan                           sensor_msgs/LaserScan
+    /scan_aligned                   sensor_msgs/LaserScan
+    /scan_aligned_invalid_mask      std_msgs/Float32MultiArray (len=N_raw)
+    /scan_aligned_invalid_stats     std_msgs/Float32MultiArray (len=4)
+  Stage 2:
+    /rl/lidar_181                   std_msgs/Float32MultiArray (len=181)
+    /rl/lidar_181_stamp             std_msgs/Header
+    /rl/lidar_181_src_map           std_msgs/Float32MultiArray (len=543)
+    /rl/lidar_181_repair_mask       std_msgs/Float32MultiArray (len=181)
+    /rl/lidar_181_fill_stats        std_msgs/Float32MultiArray (len=4)
+  Stage 3:
+    /rl/lidar_543                   std_msgs/Float32MultiArray (len=543)
+    /rl/lidar_543_ids               std_msgs/Float32MultiArray (len=3)
+    /rl/lidar_543_ids_vis           std_msgs/Float32MultiArray (len=543)
+    /rl/lidar_543_stamps            std_msgs/Float64MultiArray (len=3)
+
+核验锚点:/rl/lidar_543。每到一帧 543:
+    1) 从 FIFO 队列配出本帧的 4 路 Stage 3 伴随数据
+    2) 用 /rl/lidar_543_stamps 的 [t0,t1,t2] 作为 key,回查三个
+       Stage 2 frame(缓冲字典 self.s2_frames[stamp_key])
+    3) 每个 Stage 2 frame 的 stamp 反查同 key 的 Stage 1 frame
+       (Stage 1 透传 header.stamp,两者同 key)
+    4) 跨级一致性逐项校验,结果追加写入 frames 临时文件
+    5) 发现异常即时 logwarn_throttle
+
+Stage 1 / Stage 2 的独立校验在 frame 首次 "5 路 / 4 路全部到齐"
+时做一次,结果缓存在 frame 对象上。Stage 3 锚定时只查表,不再重算。
+
+实时告警(rospy.logwarn_throttle):
+  - 三帧时间戳反跳
+  - 543 缺少 stage 2/stage 1 反向链接
+  - repair_ratio 超阈值(默认 0.30)
+  - 任一话题 > silence_timeout 秒无新消息(默认 3s)
+  - 长度/类型不符、数值越界、mask 非 0/1 等格式异常
+
+报告输出:
+  ~/lidar/data/pipeline_report_<timestamp>.txt
+
+  Part 1:
+    - 话题接收计数与近似 Hz
+    - 三级帧数对齐情况
+    - 跨级追溯覆盖率(543 -> stage2 / stage1 / scan)
+    - 三级验证通过率
+    - 异常类型明细计数
+    - 总体结论(PASS / ACCEPTABLE / FAIL)
+
+  Part 2:
+    - 每一帧 /rl/lidar_543 的逐帧全链路追溯
+    - 三段(t0/t1/t2)各自的 stage 2 / stage 1 指标
+    - 该帧各级异常列表(若有)
+    - 每帧 verdict
+
+部署位置:~/catkin_ws/src/rl_planner/scripts/pipeline_verifier_node.py
+赋权:    chmod +x pipeline_verifier_node.py
+启动:    rosrun rl_planner pipeline_verifier_node.py
+         或加到 launch:
+           <node pkg="rl_planner" type="pipeline_verifier_node.py"
+                 name="pipeline_verifier" output="screen"/>
+
+参数(ROS param):
+  ~report_dir                 : '~/lidar/data'
+  ~buffer_seconds             : 5.0     stage 1/2 frame 缓冲保留秒数
+  ~repair_ratio_warn          : 0.30    单帧 repair_ratio 告警阈值
+  ~severe_ratio_warn          : 0.10    单帧 severe_ratio 告警阈值
+  ~interp_tol_normalized      : 1e-4    stage 2 插值一致性容差(归一化空间)
+  ~rotation_check_sample_beams: 20      stage 1 rotation 抽样 beam 数
+  ~silence_timeout_seconds    : 3.0     话题静默告警阈值
+  ~max_frames_written         : 20000   Part 2 最多记录帧数(上限保护)
+  ~enable_stabilize_recheck   : true    stage 3 是否做 median 稳态反推
+  ~verdict_thresholds         :
+        anomaly_rate_pass     = 0.005   任一异常率 <= 此值 -> 贡献 PASS 判定
+        anomaly_rate_acceptable = 0.05  <= 此值 -> 贡献 ACCEPTABLE
+Python 2/3 兼容(ROS Melodic / Noetic 均可)。
+
+CHANGELOG v1.3 -> v1.4 (稳定性 + 关闭时序 + 缺件分类):
+  [崩溃修复] _try_anchor_s3 之前只用 `s2 is not None` 判定链接有效,
+         但 Stage2Frame 一收到 stamp 就进 dict,此时 .rmask / .l181 等
+         其他 5-tuple 字段可能还是 None,_validate_stage3 访问 .data
+         时 AttributeError。改为 only link when s2.validated == True。
+  [防御] _validate_stage3 所有 .data 访问统一用 _s2_fields_ready 分层
+         判空,缺哪块字段就精确记录 V3/missing_<t*>_<field>,不再
+         crash。另外 _try_anchor_s3 对 _validate_stage3 整体 try/except,
+         任何未预料的异常都被吞住并记为 V3/validator_exception。
+  [关机时序] _on_shutdown 重写:先 shutting_down=True,再 unregister
+         subscribers(让 rospy 停止投递),然后持锁一次(drain in-flight
+         callbacks),之后才 close frames_file 和 write_final_report。
+         每个 callback 首行 `if self.shutting_down: return`。
+         _write_frame_entry 也加 frames_file.closed 二重保险。
+         彻底消除 "I/O operation on closed file"。
+  [分类] 异常命名按前缀分三类:
+           S1/S2/S3/* : 管线真实异常
+           W3/*       : Stage 3 warmup 期特有(预期行为)
+           V3/*       : 校验器自身缺件 (如 s2 frame 5-tuple 未到齐,
+                        或 validator 抛出未预期异常)
+         只有 pipeline (S1/S2/S3) 异常计入 Stage 3 validated_fail 分母。
+         仅含 V3/ 异常的帧归到 incomplete_trace_frames 桶,不污染失败率。
+  [报告] Section 5 重构为三段:5.1 Pipeline / 5.2 Warmup / 5.3 Verifier-
+         completeness。另对 4 条定义敏感的 S1/S2 异常(invmask_actual_
+         mismatch / fstats_count / fstats_ratio / mask0_but_raw_inf)
+         附上校验器假设说明,明确这些可能是 verifier 与节点口径差异,
+         而非管线 bug,待下一轮对照节点源码定位。
+============================================================
+"""
+
+from __future__ import division, print_function
+
+import math
+import os
+import sys
+import time
+import threading
+from collections import deque, defaultdict
+
+import rospy
+from sensor_msgs.msg import LaserScan
+from std_msgs.msg import Float32MultiArray, Float64MultiArray, Header
+
+
+# ============================================================
+# 常量
+# ============================================================
+NUM_BEAMS = 181
+STACKED_DIM = 543
+LIDAR_MAX_DISTANCE = 16.0   # 与 stage 2 v3_2 对齐
+
+# 话题名
+T_SCAN              = "/scan"
+T_SCAN_ALIGNED      = "/scan_aligned"
+T_SCAN_INVMASK      = "/scan_aligned_invalid_mask"
+T_SCAN_INVSTATS     = "/scan_aligned_invalid_stats"
+T_L181              = "/rl/lidar_181"
+T_L181_STAMP        = "/rl/lidar_181_stamp"
+T_L181_SRCMAP       = "/rl/lidar_181_src_map"
+T_L181_RMASK        = "/rl/lidar_181_repair_mask"
+T_L181_FSTATS       = "/rl/lidar_181_fill_stats"
+T_L543              = "/rl/lidar_543"
+T_L543_IDS          = "/rl/lidar_543_ids"
+T_L543_IDSVIS       = "/rl/lidar_543_ids_vis"
+T_L543_STAMPS       = "/rl/lidar_543_stamps"
+
+ALL_TOPICS = [
+    T_SCAN, T_SCAN_ALIGNED, T_SCAN_INVMASK, T_SCAN_INVSTATS,
+    T_L181, T_L181_STAMP, T_L181_SRCMAP, T_L181_RMASK, T_L181_FSTATS,
+    T_L543, T_L543_IDS, T_L543_IDSVIS, T_L543_STAMPS,
+]
+
+
+# ============================================================
+# 工具函数
+# ============================================================
+def _stamp_key(t):
+    """将 rospy.Time 或浮点秒统一成微秒精度字符串作为字典 key。"""
+    if hasattr(t, "to_sec"):
+        s = t.to_sec()
+    else:
+        s = float(t)
+    return "%.6f" % s
+
+
+def _values_equal(a, b, abs_tol=1e-6):
+    a_nan = (a != a); b_nan = (b != b)
+    if a_nan and b_nan: return True
+    if a_nan or b_nan:  return False
+    if math.isinf(a) and math.isinf(b):
+        return (a > 0) == (b > 0)
+    if math.isinf(a) or math.isinf(b):
+        return False
+    return abs(a - b) <= abs_tol
+
+
+def _is_invalid_raw(r, rmin, rmax):
+    if r is None: return True
+    if math.isnan(r) or math.isinf(r): return True
+    if r < 0: return True
+    if r < rmin: return True
+    if r > rmax: return True
+    return False
+
+
+def _safe_div(a, b, default=0.0):
+    return (a / b) if b else default
+
+
+# ============================================================
+# Frame 数据类
+# ============================================================
+class Stage1Frame(object):
+    __slots__ = ("stamp_key", "stamp_sec",
+                 "scan", "aligned", "invmask", "invstats",
+                 "anomalies", "validated")
+
+    def __init__(self, stamp_key, stamp_sec):
+        self.stamp_key = stamp_key
+        self.stamp_sec = stamp_sec
+        self.scan = None
+        self.aligned = None
+        self.invmask = None
+        self.invstats = None
+        self.anomalies = []
+        self.validated = False
+
+
+class Stage2Frame(object):
+    __slots__ = ("stamp_key", "stamp_sec",
+                 "l181", "stamp_msg", "srcmap", "rmask", "fstats",
+                 "anomalies", "linked_s1", "validated")
+
+    def __init__(self):
+        self.stamp_key = None
+        self.stamp_sec = None
+        self.l181 = None
+        self.stamp_msg = None
+        self.srcmap = None
+        self.rmask = None
+        self.fstats = None
+        self.anomalies = []
+        self.linked_s1 = None
+        self.validated = False
+
+
+class Stage3Frame(object):
+    __slots__ = ("recv_time", "local_idx",
+                 "l543", "ids", "ids_vis", "stamps",
+                 "linked_s2_t0", "linked_s2_t1", "linked_s2_t2",
+                 "anomalies",
+                 "is_warmup", "trace_completeness",
+                 # v1.3: 两相校验
+                 "identity_ok",
+                 # v1.3: t0 rule summary 统计
+                 "t0_valid_total", "t0_valid_matched", "t0_valid_violated",
+                 "t0_repair_total", "t0_repair_matched", "t0_repair_violated")
+
+    def __init__(self):
+        self.recv_time = None
+        self.local_idx = None
+        self.l543 = None
+        self.ids = None
+        self.ids_vis = None
+        self.stamps = None
+        self.linked_s2_t0 = None
+        self.linked_s2_t1 = None
+        self.linked_s2_t2 = None
+        self.anomalies = []
+        # v1.2: stage 3 状态机首帧/次帧的 warmup 判定
+        #       (stamps[0]==stamps[1]==stamps[2] 或 stamps[1]==stamps[2])
+        self.is_warmup = False
+        # v1.2: 反向追溯时找到的 s2 frame 数量 (0..3)
+        #       < 3 表明该帧落在 verifier 启动瞬态,s2 buffer 尚未覆盖
+        self.trace_completeness = 0
+        # v1.3: Phase 1 身份确认是否通过
+        #       False 时不继续做 Phase 2 内容比对,避免一个身份错位误报成
+        #       三四个块内容异常
+        self.identity_ok = True
+        # v1.3: t0 rule (mask==0 走 cur; mask==1 走 median)逐 beam 统计,
+        #       写进逐帧报告的 t0 rule summary 区块
+        self.t0_valid_total = 0
+        self.t0_valid_matched = 0
+        self.t0_valid_violated = 0
+        self.t0_repair_total = 0
+        self.t0_repair_matched = 0
+        self.t0_repair_violated = 0
+
+
+# ============================================================
+# 主节点
+# ============================================================
+class PipelineVerifierNode(object):
+    def __init__(self):
+        # ---------- 参数 ----------
+        self.report_dir = os.path.expanduser(
+            rospy.get_param("~report_dir", "~/lidar/data"))
+        self.buffer_seconds = float(rospy.get_param("~buffer_seconds", 5.0))
+        self.repair_ratio_warn = float(rospy.get_param("~repair_ratio_warn", 0.30))
+        self.severe_ratio_warn = float(rospy.get_param("~severe_ratio_warn", 0.10))
+        self.interp_tol = float(rospy.get_param("~interp_tol_normalized", 1e-4))
+        self.rotation_sample_beams = int(rospy.get_param("~rotation_check_sample_beams", 20))
+        self.silence_timeout = float(rospy.get_param("~silence_timeout_seconds", 3.0))
+        self.max_frames_written = int(rospy.get_param("~max_frames_written", 20000))
+        self.enable_stabilize_recheck = bool(rospy.get_param("~enable_stabilize_recheck", True))
+        self.pass_rate = float(rospy.get_param("~anomaly_rate_pass", 0.005))
+        self.acceptable_rate = float(rospy.get_param("~anomaly_rate_acceptable", 0.05))
+
+        # ---------- 报告文件 ----------
+        if not os.path.isdir(self.report_dir):
+            try:
+                os.makedirs(self.report_dir)
+            except OSError:
+                pass
+        ts = time.strftime("%Y%m%d_%H%M%S")
+        self.report_path = os.path.join(
+            self.report_dir, "pipeline_report_%s.txt" % ts)
+        self.frames_tmp_path = self.report_path + ".frames_tmp"
+        try:
+            self.frames_file = open(self.frames_tmp_path, "w")
+        except IOError as e:
+            rospy.logerr("[verifier] cannot open frames tmp file %s: %s",
+                         self.frames_tmp_path, e)
+            raise
+
+        # ---------- 状态 ----------
+        self.lock = threading.RLock()
+        self.start_wall = time.time()
+        self.start_ros = None   # first-message time
+
+        # 话题接收计数与最后接收时间
+        self.topic_msg_count = defaultdict(int)
+        self.topic_last_recv = {}
+        self.topic_first_stamp = {}
+        self.topic_last_stamp = {}
+
+        # Stage 1/2 frame 字典(stamp_key -> frame)
+        self.s1_frames = {}
+        self.s2_frames = {}
+
+        # Stage 1 FIFO 队列(invmask/invstats 无 header,用 FIFO 配对)
+        self.s1_invmask_q = deque()
+        self.s1_invstats_q = deque()
+
+        # Stage 2 FIFO(除 stamp 外 4 路无 header)
+        self.s2_l181_q = deque()
+        self.s2_srcmap_q = deque()
+        self.s2_rmask_q = deque()
+        self.s2_fstats_q = deque()
+        # stamp 独立,来时直接建 Stage2Frame 骨架
+        self.s2_pending_stamps = deque()
+
+        # Stage 3 FIFO(全 4 路同 callback 发布)
+        self.s3_l543_q = deque()
+        self.s3_ids_q = deque()
+        self.s3_idsvis_q = deque()
+        self.s3_stamps_q = deque()
+
+        # Stage 3 锚点计数
+        self.s3_local_counter = 0
+        self.s3_anchored_count = 0
+        self.s3_frames_written = 0
+        # v1.2: 将 stage 3 帧按状态分桶,避免 warmup 与启动瞬态污染 pass/fail 统计
+        self.s3_warmup_frames = 0              # stage 3 状态机自身的 1st/2nd 帧
+        self.s3_incomplete_trace_frames = 0    # 反查 s2 frame 缺失(启动瞬态居多)
+
+        # 异常累计
+        self.anomaly_counts = defaultdict(int)
+
+        # 上一帧 stage3 ids(用于连续性判定)
+        self.last_s3_ids = None
+        self.last_s3_stamps = None
+
+        # v1.1 启动同步屏障:rospy 订阅的 TCP 握手完成时间不同,
+        #   各路伴随 topic 的订阅可能比主"锚"(stamp / l543)先就绪,
+        #   从而抢到了锚之前就已发布过的旧消息,堆在 fallback queue 里。
+        #   如果不丢弃,第 1 帧的配对会错位,并永久保持错位。
+        #   因此:
+        #     - stage 1 收到第一条 /scan_aligned 时清 invmask/invstats 队列
+        #     - stage 2 收到第一条 lidar_181_stamp 时清 4 条伴随队列
+        #     - stage 3 收到第一条 lidar_543 时清 3 条伴随队列
+        self._s1_sync_armed = False
+        self._s2_sync_armed = False
+        self._s3_sync_armed = False
+        self._s1_sync_dropped = None   # (invmask, invstats)
+        self._s2_sync_dropped = None   # (srcmap, rmask, l181, fstats)
+        self._s3_sync_dropped = None   # (ids, ids_vis, stamps)
+
+        # 三级通过计数
+        self.s1_validated_pass = 0; self.s1_validated_fail = 0
+        self.s2_validated_pass = 0; self.s2_validated_fail = 0
+        self.s3_validated_pass = 0; self.s3_validated_fail = 0
+
+        # 覆盖率:543 帧中能反向链接到 stage2/stage1/scan 的数量
+        self.trace_full_s2 = 0   # 三个 stage 2 frame 全找到
+        self.trace_miss_s2 = 0
+        self.trace_full_s1 = 0
+        self.trace_miss_s1 = 0
+        self.trace_full_scan = 0
+        self.trace_miss_scan = 0
+
+        # ---------- 订阅 ----------
+        # v1.4: 关机竞态保护。shutdown hook 注销订阅者时可能还有 callback
+        # 在 rospy 线程池里排队;callback 必须在首行读取此标志,若已进入
+        # 关机流程则 early-return,避免写到已关闭的 frames_file。
+        self.shutting_down = False
+
+        queue_s = 50
+        self.subs = []
+        def mksub(topic, msg_type, cb):
+            s = rospy.Subscriber(topic, msg_type, cb,
+                                 queue_size=queue_s, tcp_nodelay=True)
+            self.subs.append(s)
+            self.topic_msg_count[topic] = 0
+        mksub(T_SCAN,          LaserScan,          self.cb_scan)
+        mksub(T_SCAN_ALIGNED,  LaserScan,          self.cb_scan_aligned)
+        mksub(T_SCAN_INVMASK,  Float32MultiArray,  self.cb_scan_invmask)
+        mksub(T_SCAN_INVSTATS, Float32MultiArray,  self.cb_scan_invstats)
+        mksub(T_L181,          Float32MultiArray,  self.cb_l181)
+        mksub(T_L181_STAMP,    Header,             self.cb_l181_stamp)
+        mksub(T_L181_SRCMAP,   Float32MultiArray,  self.cb_l181_srcmap)
+        mksub(T_L181_RMASK,    Float32MultiArray,  self.cb_l181_rmask)
+        mksub(T_L181_FSTATS,   Float32MultiArray,  self.cb_l181_fstats)
+        mksub(T_L543,          Float32MultiArray,  self.cb_l543)
+        mksub(T_L543_IDS,      Float32MultiArray,  self.cb_l543_ids)
+        mksub(T_L543_IDSVIS,   Float32MultiArray,  self.cb_l543_idsvis)
+        mksub(T_L543_STAMPS,   Float64MultiArray,  self.cb_l543_stamps)
+
+        # 静默检查定时器(每秒跑一次)
+        self.silence_timer = rospy.Timer(
+            rospy.Duration(1.0), self._on_silence_check)
+
+        # shutdown hook
+        rospy.on_shutdown(self._on_shutdown)
+
+        rospy.logwarn("======================================")
+        rospy.logwarn("[pipeline_verifier] started")
+        rospy.logwarn("  report_dir         = %s", self.report_dir)
+        rospy.logwarn("  report_path        = %s", self.report_path)
+        rospy.logwarn("  buffer_seconds     = %.1f", self.buffer_seconds)
+        rospy.logwarn("  repair_ratio_warn  = %.3f", self.repair_ratio_warn)
+        rospy.logwarn("  interp_tol_norm    = %.1e", self.interp_tol)
+        rospy.logwarn("  silence_timeout    = %.1fs", self.silence_timeout)
+        rospy.logwarn("  subscribed topics  = %d", len(ALL_TOPICS))
+        rospy.logwarn("======================================")
+
+    # ==========================================================
+    # 话题统计帮助
+    # ==========================================================
+    def _note_recv(self, topic, stamp_sec=None):
+        self.topic_msg_count[topic] += 1
+        now = rospy.get_time()
+        self.topic_last_recv[topic] = now
+        if self.start_ros is None:
+            self.start_ros = now
+        if stamp_sec is not None:
+            if topic not in self.topic_first_stamp:
+                self.topic_first_stamp[topic] = stamp_sec
+            self.topic_last_stamp[topic] = stamp_sec
+
+    # ==========================================================
+    # Stage 1 回调
+    # ==========================================================
+    def cb_scan(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_SCAN, msg.header.stamp.to_sec())
+            key = _stamp_key(msg.header.stamp)
+            f = self.s1_frames.get(key)
+            if f is None:
+                f = Stage1Frame(key, msg.header.stamp.to_sec())
+                self.s1_frames[key] = f
+            f.scan = msg
+            self._maybe_finalize_s1(f)
+            self._trim_buffers()
+
+    def cb_scan_aligned(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_SCAN_ALIGNED, msg.header.stamp.to_sec())
+            # v1.1 sync barrier:首条 scan_aligned 到达时丢弃 fallback
+            # 里沉积的 pre-aligned 伴随消息(订阅时序抢到的旧帧残留)
+            if not self._s1_sync_armed:
+                self._s1_sync_armed = True
+                dropped = (len(self.s1_invmask_q), len(self.s1_invstats_q))
+                self.s1_invmask_q.clear()
+                self.s1_invstats_q.clear()
+                self._s1_sync_dropped = dropped
+                if any(d > 0 for d in dropped):
+                    rospy.logwarn(
+                        "[verifier] S1 sync barrier: dropped pre-aligned "
+                        "leftovers (invmask=%d invstats=%d)",
+                        dropped[0], dropped[1])
+            key = _stamp_key(msg.header.stamp)
+            f = self.s1_frames.get(key)
+            if f is None:
+                f = Stage1Frame(key, msg.header.stamp.to_sec())
+                self.s1_frames[key] = f
+            f.aligned = msg
+            # 此时 scan_aligned 到了,尝试从 invmask/invstats FIFO 中配一对
+            if f.invmask is None and self.s1_invmask_q:
+                f.invmask = self.s1_invmask_q.popleft()
+            if f.invstats is None and self.s1_invstats_q:
+                f.invstats = self.s1_invstats_q.popleft()
+            self._maybe_finalize_s1(f)
+            self._trim_buffers()
+
+    def cb_scan_invmask(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_SCAN_INVMASK)
+            # v1.3 fix: stage 1 每 callback 按 scan_aligned -> invmask -> invstats
+            # 顺序发布;同 topic 保持 FIFO,所以先到的 invmask 属于更老的 aligned。
+            # 原来取"stamp 最新未配对"会导致 aligned[i+1] 已到而 invmask[i]
+            # 还未到时,invmask[i] 被错挂到 frame i+1。
+            # 正确:取 stamp 最早且未配对的 frame。
+            placed = False
+            candidate = None
+            for f in self.s1_frames.values():
+                if f.aligned is not None and f.invmask is None:
+                    if candidate is None or f.stamp_sec < candidate.stamp_sec:
+                        candidate = f
+            if candidate is not None:
+                candidate.invmask = msg
+                placed = True
+                self._maybe_finalize_s1(candidate)
+            if not placed:
+                self.s1_invmask_q.append(msg)
+            self._trim_buffers()
+
+    def cb_scan_invstats(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_SCAN_INVSTATS)
+            placed = False
+            candidate = None
+            for f in self.s1_frames.values():
+                if f.aligned is not None and f.invstats is None:
+                    if candidate is None or f.stamp_sec < candidate.stamp_sec:
+                        candidate = f
+            if candidate is not None:
+                candidate.invstats = msg
+                placed = True
+                self._maybe_finalize_s1(candidate)
+            if not placed:
+                self.s1_invstats_q.append(msg)
+            self._trim_buffers()
+
+    def _maybe_finalize_s1(self, f):
+        if f.validated:
+            return
+        if (f.aligned is not None and f.invmask is not None
+                and f.invstats is not None):
+            self._validate_stage1(f)
+            f.validated = True
+            if not f.anomalies:
+                self.s1_validated_pass += 1
+            else:
+                self.s1_validated_fail += 1
+                for a in f.anomalies:
+                    self.anomaly_counts[a[0]] += 1
+                rospy.logwarn_throttle(
+                    2.0, "[verifier][S1 anomaly] stamp=%.3f: %s",
+                    f.stamp_sec, "; ".join([a[0] for a in f.anomalies[:3]]))
+
+    # ==========================================================
+    # Stage 2 回调
+    # ==========================================================
+    def cb_l181_stamp(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L181_STAMP, msg.stamp.to_sec())
+            # v1.1 sync barrier:首条 lidar_181_stamp 到达时丢弃 fallback
+            # 里沉积的 pre-stamp 伴随消息。这是本 verifier 最关键的一处修正:
+            # 如果不丢,srcmap/rmask/fstats 会永久性错位一两帧,导致
+            # S2/fstats_*_inconsistent、S2/mask0_but_raw_inf、
+            # S3/t*_block_mismatch 等海量虚假异常。
+            if not self._s2_sync_armed:
+                self._s2_sync_armed = True
+                dropped = (len(self.s2_srcmap_q), len(self.s2_rmask_q),
+                           len(self.s2_l181_q),   len(self.s2_fstats_q))
+                self.s2_srcmap_q.clear()
+                self.s2_rmask_q.clear()
+                self.s2_l181_q.clear()
+                self.s2_fstats_q.clear()
+                self._s2_sync_dropped = dropped
+                if any(d > 0 for d in dropped):
+                    rospy.logwarn(
+                        "[verifier] S2 sync barrier: dropped pre-stamp leftovers "
+                        "(srcmap=%d rmask=%d l181=%d fstats=%d) to avoid FIFO skew",
+                        dropped[0], dropped[1], dropped[2], dropped[3])
+            key = _stamp_key(msg.stamp)
+            f = Stage2Frame()
+            f.stamp_key = key
+            f.stamp_sec = msg.stamp.to_sec()
+            f.stamp_msg = msg
+            # 尝试从现有 FIFO 队列拉配对
+            if self.s2_srcmap_q: f.srcmap = self.s2_srcmap_q.popleft()
+            if self.s2_rmask_q:  f.rmask  = self.s2_rmask_q.popleft()
+            if self.s2_l181_q:   f.l181   = self.s2_l181_q.popleft()
+            if self.s2_fstats_q: f.fstats = self.s2_fstats_q.popleft()
+            self.s2_frames[key] = f
+            self.s2_pending_stamps.append(key)
+            self._maybe_finalize_s2(f)
+            self._trim_buffers()
+
+    def _attach_to_latest_pending(self, attr, msg, fallback_q):
+        """把一条 stage 2 伴随消息挂到最早还缺此项的 pending frame 上。"""
+        # 按 pending 队列的顺序找第一个缺该 attr 的 frame
+        for k in self.s2_pending_stamps:
+            f = self.s2_frames.get(k)
+            if f is None: continue
+            if getattr(f, attr) is None:
+                setattr(f, attr, msg)
+                self._maybe_finalize_s2(f)
+                return True
+        fallback_q.append(msg)
+        return False
+
+    def cb_l181_srcmap(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L181_SRCMAP)
+            self._attach_to_latest_pending("srcmap", msg, self.s2_srcmap_q)
+            self._trim_buffers()
+
+    def cb_l181_rmask(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L181_RMASK)
+            self._attach_to_latest_pending("rmask", msg, self.s2_rmask_q)
+            self._trim_buffers()
+
+    def cb_l181(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L181)
+            self._attach_to_latest_pending("l181", msg, self.s2_l181_q)
+            self._trim_buffers()
+
+    def cb_l181_fstats(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L181_FSTATS)
+            self._attach_to_latest_pending("fstats", msg, self.s2_fstats_q)
+            self._trim_buffers()
+
+    def _maybe_finalize_s2(self, f):
+        if f.validated:
+            return
+        if (f.l181 is not None and f.stamp_msg is not None
+                and f.srcmap is not None and f.rmask is not None
+                and f.fstats is not None):
+            # 链接到对应 stage 1 frame(若已有)
+            f.linked_s1 = self.s1_frames.get(f.stamp_key)
+            self._validate_stage2(f)
+            f.validated = True
+            if not f.anomalies:
+                self.s2_validated_pass += 1
+            else:
+                self.s2_validated_fail += 1
+                for a in f.anomalies:
+                    self.anomaly_counts[a[0]] += 1
+                rospy.logwarn_throttle(
+                    2.0, "[verifier][S2 anomaly] stamp=%.3f: %s",
+                    f.stamp_sec, "; ".join([a[0] for a in f.anomalies[:3]]))
+
+    # ==========================================================
+    # Stage 3 回调
+    # ==========================================================
+    def cb_l543(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L543)
+            # v1.1 sync barrier:首条 lidar_543 到达时丢弃 ids/vis/stamps
+            # 里沉积的 pre-l543 伴随消息(防御性;实际 stage 3 锚是 l543
+            # 且 l543 在 stage 3 publish 中排第 1,通常不会累积伴随消息)
+            if not self._s3_sync_armed:
+                self._s3_sync_armed = True
+                dropped = (len(self.s3_ids_q), len(self.s3_idsvis_q),
+                           len(self.s3_stamps_q))
+                self.s3_ids_q.clear()
+                self.s3_idsvis_q.clear()
+                self.s3_stamps_q.clear()
+                self._s3_sync_dropped = dropped
+                if any(d > 0 for d in dropped):
+                    rospy.logwarn(
+                        "[verifier] S3 sync barrier: dropped pre-l543 leftovers "
+                        "(ids=%d ids_vis=%d stamps=%d)",
+                        dropped[0], dropped[1], dropped[2])
+            self.s3_l543_q.append(msg)
+            self._try_anchor_s3()
+            self._trim_buffers()
+
+    def cb_l543_ids(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L543_IDS)
+            self.s3_ids_q.append(msg)
+            self._try_anchor_s3()
+
+    def cb_l543_idsvis(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L543_IDSVIS)
+            self.s3_idsvis_q.append(msg)
+            self._try_anchor_s3()
+
+    def cb_l543_stamps(self, msg):
+        with self.lock:
+            if self.shutting_down: return
+            self._note_recv(T_L543_STAMPS)
+            self.s3_stamps_q.append(msg)
+            self._try_anchor_s3()
+
+    def _try_anchor_s3(self):
+        """当 4 路 stage 3 消息都至少有一条,各 pop 一条组帧并锚定。"""
+        while (self.s3_l543_q and self.s3_ids_q
+               and self.s3_idsvis_q and self.s3_stamps_q):
+            f = Stage3Frame()
+            f.recv_time = rospy.get_time()
+            self.s3_local_counter += 1
+            f.local_idx = self.s3_local_counter
+            f.l543 = self.s3_l543_q.popleft()
+            f.ids = self.s3_ids_q.popleft()
+            f.ids_vis = self.s3_idsvis_q.popleft()
+            f.stamps = self.s3_stamps_q.popleft()
+            # v1.4: 链接到三个 stage 2 frame。关键修正:只链接 validated==True
+            # 的 s2 frame (即 5-tuple 已全部到齐)。否则其内部 .rmask/.l181
+            # 可能为 None,会让 _validate_stage3 的任何 .data 访问 crash。
+            # Stage 2 frame 一收到 stamp 就进 s2_frames dict,但 srcmap/rmask/
+            # l181/fstats 要陆续到齐才会 validated=True。中间状态必须视作"未
+            # 链接",并把细化的缺件原因记成 V3/ 结构化异常。
+            if len(f.stamps.data) >= 3:
+                k0 = _stamp_key(f.stamps.data[0])
+                k1 = _stamp_key(f.stamps.data[1])
+                k2 = _stamp_key(f.stamps.data[2])
+                raw_t0 = self.s2_frames.get(k0)
+                raw_t1 = self.s2_frames.get(k1)
+                raw_t2 = self.s2_frames.get(k2)
+                def _link_or_record(raw, label, stamp_key):
+                    if raw is None:
+                        return None, ("V3/missing_%s_link" % label,
+                                      "stamp=%s not found in s2 cache" % stamp_key)
+                    if not raw.validated:
+                        miss = []
+                        if raw.l181 is None:   miss.append("l181")
+                        if raw.stamp_msg is None: miss.append("stamp_msg")
+                        if raw.srcmap is None: miss.append("srcmap")
+                        if raw.rmask is None:  miss.append("rmask")
+                        if raw.fstats is None: miss.append("fstats")
+                        return None, ("V3/incomplete_%s_dependency" % label,
+                                      "stamp=%s s2_frame exists but missing: %s"
+                                      % (stamp_key, ",".join(miss) if miss
+                                         else "(unknown)"))
+                    return raw, None
+                f.linked_s2_t0, miss0 = _link_or_record(raw_t0, "t0", k0)
+                f.linked_s2_t1, miss1 = _link_or_record(raw_t1, "t1", k1)
+                f.linked_s2_t2, miss2 = _link_or_record(raw_t2, "t2", k2)
+                for m in (miss0, miss1, miss2):
+                    if m is not None:
+                        f.anomalies.append(m)
+
+            # v1.4: 校验 + 追溯 + 写入,全部置于 try/except 安全网内,
+            # 任何意外的 NoneType 或结构异常都不能让 rospy callback 崩溃
+            try:
+                self._validate_stage3(f)
+            except Exception as e:
+                f.anomalies.append(("V3/validator_exception",
+                    "%s: %s" % (type(e).__name__, str(e))[:200]))
+                rospy.logerr_throttle(5.0,
+                    "[verifier] _validate_stage3 exception caught: %s",
+                    e)
+            self.s3_anchored_count += 1
+
+            # v1.2/v1.4: 按状态分桶。Warmup、incomplete-trace、仅有 V3/ 缺件
+            # 异常的帧都不计入 pass/fail 分母。只有既身份完整又有管线级真实
+            # 异常 (S1/S2/S3/*) 的帧才算 validated_fail。
+            pipeline_anoms = [a for a in f.anomalies
+                              if not a[0].startswith(("V3/", "W3/"))]
+            verifier_only_anoms = [a for a in f.anomalies
+                                   if a[0].startswith("V3/")]
+            if f.is_warmup:
+                self.s3_warmup_frames += 1
+            elif f.trace_completeness < 3 or verifier_only_anoms:
+                # 三路 s2 任一缺件(整个 frame 或内部字段),或显式抛出了
+                # V3/validator_exception,都算"无法正式验证",单列一桶。
+                self.s3_incomplete_trace_frames += 1
+            elif not pipeline_anoms:
+                self.s3_validated_pass += 1
+            else:
+                self.s3_validated_fail += 1
+
+            # 异常计数无论分桶都累计,保留可见性
+            for a in f.anomalies:
+                self.anomaly_counts[a[0]] += 1
+
+            # 实时告警
+            if f.anomalies:
+                rospy.logwarn_throttle(
+                    1.0, "[verifier][S3 anomaly] #%d stamp=%.3f: %s",
+                    f.local_idx,
+                    f.stamps.data[0] if len(f.stamps.data) >= 1 else -1.0,
+                    "; ".join([a[0] for a in f.anomalies[:3]]))
+            # 覆盖率统计
+            n_s2 = f.trace_completeness
+            if n_s2 == 3: self.trace_full_s2 += 1
+            else:         self.trace_miss_s2 += 1
+            n_s1 = 0; n_scan = 0
+            for s2 in [f.linked_s2_t0, f.linked_s2_t1, f.linked_s2_t2]:
+                if s2 is None: continue
+                s1 = s2.linked_s1
+                if s1 is not None:
+                    n_s1 += 1
+                    if s1.scan is not None: n_scan += 1
+            if n_s1 == 3: self.trace_full_s1 += 1
+            else:         self.trace_miss_s1 += 1
+            if n_scan == 3: self.trace_full_scan += 1
+            else:           self.trace_miss_scan += 1
+            # 写入 frames 文件(带上限保护)
+            if self.s3_frames_written < self.max_frames_written:
+                try:
+                    self._write_frame_entry(f)
+                    self.s3_frames_written += 1
+                except Exception as e:
+                    rospy.logwarn_throttle(5.0,
+                        "[verifier] write frame entry failed: %s", e)
+
+    # ==========================================================
+    # Stage 1 校验
+    # ==========================================================
+    def _validate_stage1(self, f):
+        a = f.aligned
+        N = len(a.ranges)
+        # --- 长度 ---
+        if f.invmask is not None and len(f.invmask.data) != N:
+            f.anomalies.append(("S1/invmask_len_mismatch",
+                "invmask.len=%d vs aligned.ranges_n=%d" % (len(f.invmask.data), N)))
+        if f.invstats is not None and len(f.invstats.data) != 4:
+            f.anomalies.append(("S1/invstats_len_mismatch",
+                "invstats.len=%d vs expected 4" % len(f.invstats.data)))
+        # --- 元数据(vs /scan) ---
+        if f.scan is not None:
+            s = f.scan
+            for key in ["angle_min","angle_max","angle_increment",
+                        "range_min","range_max"]:
+                va = getattr(a, key)
+                vs = getattr(s, key)
+                if not _values_equal(float(va), float(vs), abs_tol=1e-9):
+                    f.anomalies.append(("S1/meta_mismatch",
+                        "%s: scan=%s aligned=%s" % (key, vs, va)))
+                    break
+            if len(s.ranges) != N:
+                f.anomalies.append(("S1/len_mismatch_raw_aligned",
+                    "raw_n=%d aligned_n=%d" % (len(s.ranges), N)))
+        # --- rotation 抽查 ---
+        if f.scan is not None and len(f.scan.ranges) == N and N >= 4:
+            half = N // 2
+            step = max(1, N // max(1, self.rotation_sample_beams))
+            bad = 0
+            first_bad = None
+            for k in range(0, N, step):
+                src_k = (k + half) % N
+                rv = f.scan.ranges[src_k]
+                av = a.ranges[k]
+                if not _values_equal(float(rv), float(av), abs_tol=1e-6):
+                    bad += 1
+                    if first_bad is None:
+                        first_bad = (k, src_k, rv, av)
+            if bad > 0:
+                f.anomalies.append(("S1/rotation_mismatch",
+                    "bad_beams=%d sample_of_%d  first=(k=%d src_k=%d raw=%.3f aligned=%.3f)"
+                    % (bad, len(range(0,N,step)),
+                       first_bad[0], first_bad[1], first_bad[2], first_bad[3])))
+        # --- invalid_mask vs 实际 ranges 的自洽 ---
+        if f.invmask is not None and len(f.invmask.data) == N:
+            rmin = a.range_min; rmax = a.range_max
+            mask_mismatch = 0
+            first_mm = None
+            for k in range(N):
+                actual_invalid = _is_invalid_raw(a.ranges[k], rmin, rmax)
+                declared_invalid = (int(round(f.invmask.data[k])) == 1)
+                if actual_invalid != declared_invalid:
+                    mask_mismatch += 1
+                    if first_mm is None:
+                        first_mm = (k, a.ranges[k], declared_invalid, actual_invalid)
+            if mask_mismatch > 0:
+                f.anomalies.append(("S1/invmask_actual_mismatch",
+                    "mismatched_beams=%d  first=(k=%d r=%.3f decl=%s actual=%s)"
+                    % (mask_mismatch, first_mm[0], first_mm[1],
+                       first_mm[2], first_mm[3])))
+        # --- invalid_stats 自洽 ---
+        if (f.invmask is not None and f.invstats is not None
+                and len(f.invmask.data) == N and len(f.invstats.data) == 4):
+            m_count = sum(1 for v in f.invmask.data if int(round(v)) == 1)
+            declared_count = int(round(f.invstats.data[0]))
+            declared_ratio = float(f.invstats.data[1])
+            if declared_count != m_count:
+                f.anomalies.append(("S1/invstats_count_inconsistent",
+                    "declared=%d mask_derived=%d" % (declared_count, m_count)))
+            expected_ratio = _safe_div(m_count, N)
+            if not _values_equal(declared_ratio, expected_ratio, abs_tol=1e-3):
+                f.anomalies.append(("S1/invstats_ratio_inconsistent",
+                    "declared=%.4f expected=%.4f" % (declared_ratio, expected_ratio)))
+
+    # ==========================================================
+    # Stage 2 校验
+    # ==========================================================
+    def _validate_stage2(self, f):
+        # --- 长度 ---
+        if len(f.l181.data) != NUM_BEAMS:
+            f.anomalies.append(("S2/l181_len_mismatch",
+                "got=%d expected=%d" % (len(f.l181.data), NUM_BEAMS)))
+            return
+        if len(f.srcmap.data) != 3 * NUM_BEAMS:
+            f.anomalies.append(("S2/srcmap_len_mismatch",
+                "got=%d expected=%d" % (len(f.srcmap.data), 3 * NUM_BEAMS)))
+        if len(f.rmask.data) != NUM_BEAMS:
+            f.anomalies.append(("S2/rmask_len_mismatch",
+                "got=%d expected=%d" % (len(f.rmask.data), NUM_BEAMS)))
+        if len(f.fstats.data) < 4:
+            f.anomalies.append(("S2/fstats_len_mismatch",
+                "got=%d expected>=4" % len(f.fstats.data)))
+
+        # --- mask 是否纯 0/1 ---
+        mask_int = []
+        not_binary = 0
+        for v in f.rmask.data:
+            iv = int(round(v))
+            mask_int.append(iv)
+            if iv not in (0, 1) or abs(v - iv) > 1e-3:
+                not_binary += 1
+        if not_binary > 0:
+            f.anomalies.append(("S2/rmask_not_binary",
+                "non_binary_beams=%d" % not_binary))
+
+        # --- 归一化范围 ---
+        out_of_range = 0
+        nan_inf = 0
+        for v in f.l181.data:
+            if v != v or math.isinf(v):
+                nan_inf += 1
+            elif not (-1e-6 <= v <= 1.0 + 1e-6):
+                out_of_range += 1
+        if nan_inf > 0:
+            f.anomalies.append(("S2/l181_nan_inf",
+                "count=%d" % nan_inf))
+        if out_of_range > 0:
+            f.anomalies.append(("S2/l181_out_of_01",
+                "count=%d" % out_of_range))
+
+        # --- fstats 自洽(repair_ratio 应 ≈ sum(mask)/181) ---
+        declared_ratio = float(f.fstats.data[0]) if len(f.fstats.data) >= 1 else 0.0
+        declared_count = float(f.fstats.data[1]) if len(f.fstats.data) >= 2 else 0.0
+        mask_count = sum(mask_int)
+        if not _values_equal(declared_count, float(mask_count), abs_tol=0.5):
+            f.anomalies.append(("S2/fstats_count_inconsistent",
+                "declared=%.1f mask_sum=%d" % (declared_count, mask_count)))
+        expected_ratio = _safe_div(mask_count, NUM_BEAMS)
+        if not _values_equal(declared_ratio, expected_ratio, abs_tol=1e-3):
+            f.anomalies.append(("S2/fstats_ratio_inconsistent",
+                "declared=%.4f expected=%.4f" % (declared_ratio, expected_ratio)))
+
+        # --- 阈值告警(情况,不阻断) ---
+        if declared_ratio > self.repair_ratio_warn:
+            f.anomalies.append(("S2/repair_ratio_high",
+                "ratio=%.3f > %.3f" % (declared_ratio, self.repair_ratio_warn)))
+        if len(f.fstats.data) >= 4:
+            severe_ratio = float(f.fstats.data[3])
+            if severe_ratio > self.severe_ratio_warn:
+                f.anomalies.append(("S2/severe_ratio_high",
+                    "ratio=%.3f > %.3f" % (severe_ratio, self.severe_ratio_warn)))
+
+        # --- 跨级一致性(vs linked_s1) ---
+        if f.linked_s1 is not None and f.linked_s1.aligned is not None:
+            self._cross_check_s1_s2(f)
+
+    def _cross_check_s1_s2(self, s2):
+        """验证 lidar_181[k] = (1-w)*aligned[floor] + w*aligned[ceil]) / MAX,
+        对 repair_mask[k]==0 的 beam。"""
+        s1 = s2.linked_s1
+        a = s1.aligned
+        N = len(a.ranges)
+        interp_mismatch = 0
+        mask0_raw_inf = 0
+        first_mm = None
+        first_mi = None
+        for k in range(NUM_BEAMS):
+            repair = int(round(s2.rmask.data[k]))
+            if repair != 0:
+                continue
+            try:
+                floor_i = int(round(s2.srcmap.data[k]))
+                ceil_i = int(round(s2.srcmap.data[k + NUM_BEAMS]))
+                weight = float(s2.srcmap.data[k + 2 * NUM_BEAMS])
+            except (IndexError, ValueError):
+                continue
+            if floor_i < 0 or floor_i >= N or ceil_i < 0 or ceil_i >= N:
+                continue
+            fv = a.ranges[floor_i]; cv = a.ranges[ceil_i]
+            if (math.isnan(fv) or math.isinf(fv)
+                    or math.isnan(cv) or math.isinf(cv)):
+                mask0_raw_inf += 1
+                if first_mi is None:
+                    first_mi = (k, floor_i, ceil_i, fv, cv)
+                continue
+            expected = ((1.0 - weight) * fv + weight * cv) / LIDAR_MAX_DISTANCE
+            observed = float(s2.l181.data[k])
+            if not _values_equal(observed, expected, abs_tol=self.interp_tol):
+                interp_mismatch += 1
+                if first_mm is None:
+                    first_mm = (k, observed, expected, fv, cv, weight)
+        if mask0_raw_inf > 0:
+            s2.anomalies.append(("S2/mask0_but_raw_inf",
+                "count=%d  first=(k=%d floor=%d ceil=%d fv=%.3f cv=%.3f)"
+                % (mask0_raw_inf, first_mi[0], first_mi[1], first_mi[2],
+                   first_mi[3], first_mi[4])))
+        if interp_mismatch > 0:
+            s2.anomalies.append(("S2/interp_mismatch",
+                "count=%d tol=%.1e first=(k=%d obs=%.6f exp=%.6f fv=%.3f cv=%.3f w=%.3f)"
+                % (interp_mismatch, self.interp_tol,
+                   first_mm[0], first_mm[1], first_mm[2],
+                   first_mm[3], first_mm[4], first_mm[5])))
+
+    # ==========================================================
+    # Stage 3 校验
+    # ==========================================================
+    def _validate_stage3(self, f):
+        """
+        v1.3: 两相式校验
+          Phase 1 (身份确认): 长度 / stamp 方向 / ids 连续 / ids_vis / s2 链接
+          Phase 2 (内容确认): 仅在 identity_ok 时做;block1/2 ↔ l181_t1/t2,
+                              以及 t0 rule(mask==0 走 cur,mask==1 走 median)
+        身份失败时直接 return,避免把一个身份错位膨胀成多个 block mismatch。
+        """
+        # =========================================================
+        # 结构性检查(长度)。任一长度错就整帧弃用,都不是身份 / 内容问题。
+        # =========================================================
+        if len(f.l543.data) != STACKED_DIM:
+            f.anomalies.append(("S3/l543_len_mismatch",
+                "got=%d expected=%d" % (len(f.l543.data), STACKED_DIM)))
+        if len(f.ids.data) != 3:
+            f.anomalies.append(("S3/ids_len_mismatch",
+                "got=%d expected=3" % len(f.ids.data)))
+        if len(f.ids_vis.data) != STACKED_DIM:
+            f.anomalies.append(("S3/ids_vis_len_mismatch",
+                "got=%d expected=%d" % (len(f.ids_vis.data), STACKED_DIM)))
+        if len(f.stamps.data) != 3:
+            f.anomalies.append(("S3/stamps_len_mismatch",
+                "got=%d expected=3" % len(f.stamps.data)))
+        if f.anomalies:
+            f.identity_ok = False
+            return
+
+        # 统一解出 3 段 stamps/ids ------------------------------------
+        s0, s1, s2 = f.stamps.data[0], f.stamps.data[1], f.stamps.data[2]
+        id0 = int(round(f.ids.data[0]))
+        id1 = int(round(f.ids.data[1]))
+        id2 = int(round(f.ids.data[2]))
+
+        # Warmup 分类(stage 3 状态机自身的首/次帧,非 verifier 启动瞬态)-
+        #   stage 3 frame 1:  stamps[0]==stamps[1]==stamps[2] 且 ids 相等
+        #   stage 3 frame 2:  stamps[1]==stamps[2] 且 ids[1]==ids[2]
+        full_warmup    = (s0 == s1 == s2) and (id0 == id1 == id2)
+        partial_warmup = (not full_warmup) and (s1 == s2) and (id1 == id2)
+        f.is_warmup = full_warmup or partial_warmup
+
+        # s2 链接完整度(warmup 下重复 stamp 指向同一 frame,非 None 即算有)
+        f.trace_completeness = sum(
+            1 for x in [f.linked_s2_t0, f.linked_s2_t1, f.linked_s2_t2]
+            if x is not None)
+
+        # =========================================================
+        # Phase 1: 身份确认
+        # =========================================================
+        # 块顺序(固化):  l543[0:181] ↔ t0(最新),[181:362] ↔ t1,[362:543] ↔ t2
+        # 时间方向(固化): s0 >= s1 >= s2(非递增;warmup 允许相等)
+        #
+        # 身份层面的任一错误都会让 identity_ok 置 False,从而跳过 Phase 2,
+        # 避免一个身份问题(如 stamp 反向)膨胀为多个块 mismatch。
+        # =========================================================
+
+        # 1a. Stamp 方向 (非 warmup 才严格要求非递增) ----------------
+        if not f.is_warmup:
+            if not (s0 >= s1 >= s2):
+                f.anomalies.append(("S3/t0_stamp_order_error",
+                    "[%.6f, %.6f, %.6f] violates non-increasing (t0>=t1>=t2); "
+                    "dt01=%+.4f dt12=%+.4f"
+                    % (s0, s1, s2, s0 - s1, s1 - s2)))
+                f.identity_ok = False
+
+        # 1b. IDs 连续 (非 warmup 才要求 id0=id1+1=id2+2) -------------
+        if not f.is_warmup:
+            if not (id0 == id1 + 1 and id1 == id2 + 1):
+                f.anomalies.append(("S3/ids_not_sequential",
+                    "ids=[%d, %d, %d] expected [N, N-1, N-2]"
+                    % (id0, id1, id2)))
+                f.identity_ok = False
+
+        # 1c. ids_vis 与 ids 三段一致 -------------------------------
+        # 这是 stage 3 节点自身的发布自洽性,不计入身份层(身份错不会导致
+        # ids_vis 错),但也不拦截 Phase 2 —— 作为独立内容异常报出。
+        vis_ok = True
+        first_bad_vis = None
+        for seg, idv in enumerate([id0, id1, id2]):
+            for k in range(NUM_BEAMS):
+                idx = seg * NUM_BEAMS + k
+                obs = int(round(f.ids_vis.data[idx]))
+                if obs != idv:
+                    vis_ok = False
+                    if first_bad_vis is None:
+                        first_bad_vis = (seg, k, obs, idv)
+                    break
+            if not vis_ok:
+                break
+        if not vis_ok:
+            f.anomalies.append(("S3/ids_vis_inconsistent",
+                "segment %d beam %d: got id=%d expected=%d"
+                % first_bad_vis))
+
+        # 1d. 反向链接存在性 ----------------------------------------
+        # warmup: 三个 stamp 指向同一 s2 frame,缺则整体失败,单条报告;
+        # steady state: 分别报 t0/t1/t2 link_failure,但都算 identity 层错误。
+        if f.is_warmup:
+            if f.linked_s2_t0 is None:
+                f.anomalies.append(("W3/warmup_missing_s2",
+                    "warmup frame, stamp=%.6f not in s2 cache" % s0))
+                f.identity_ok = False
+        else:
+            if f.linked_s2_t0 is None:
+                f.anomalies.append(("S3/t0_link_failure",
+                    "stamp=%.6f not in s2 cache" % s0))
+                f.identity_ok = False
+            if f.linked_s2_t1 is None and s1 != s0:
+                f.anomalies.append(("S3/t1_link_failure",
+                    "stamp=%.6f not in s2 cache" % s1))
+                f.identity_ok = False
+            if f.linked_s2_t2 is None and s2 != s0 and s2 != s1:
+                f.anomalies.append(("S3/t2_link_failure",
+                    "stamp=%.6f not in s2 cache" % s2))
+                f.identity_ok = False
+
+        # 1e. 跨帧全局单调(独立检查,不拦 Phase 2) ----------------
+        if not f.is_warmup and self.last_s3_stamps is not None:
+            last_t0 = self.last_s3_stamps[0]
+            if s0 < last_t0 - 1e-9:
+                f.anomalies.append(("S3/global_stamp_backward",
+                    "cur_t0=%.6f prev_t0=%.6f  dt=%+.4f"
+                    % (s0, last_t0, s0 - last_t0)))
+        if not f.is_warmup and self.last_s3_ids is not None:
+            prev_id0 = self.last_s3_ids[0]
+            if id0 <= prev_id0:
+                f.anomalies.append(("S3/global_id_not_advancing",
+                    "cur_id0=%d prev_id0=%d" % (id0, prev_id0)))
+            elif id0 - prev_id0 > 1:
+                f.anomalies.append(("S3/global_id_jump",
+                    "cur_id0=%d prev_id0=%d gap=%d"
+                    % (id0, prev_id0, id0 - prev_id0 - 1)))
+        self.last_s3_ids = (id0, id1, id2)
+        self.last_s3_stamps = (s0, s1, s2)
+
+        # =========================================================
+        # Phase 2: 内容确认(仅在身份通过后)
+        # =========================================================
+        if not f.identity_ok:
+            return
+
+        # 2a. block1 ↔ l181_t1 逐 beam 一致 -------------------------
+        # v1.4: 用 _s2_fields_ready 做分层判空,避免 linked_s2_t1 非 None 但
+        # .l181 为 None 时 crash
+        if self._s2_fields_ready(f.linked_s2_t1, "l181"):
+            data_t1 = f.linked_s2_t1.l181.data
+            if len(data_t1) == NUM_BEAMS:
+                bad1 = self._count_block_mismatch(
+                    f.l543.data, NUM_BEAMS, 2 * NUM_BEAMS, data_t1)
+                if bad1 > 0:
+                    tag = ("W3/warmup_block1_mismatch" if f.is_warmup
+                           else "S3/t1_block_mismatch")
+                    f.anomalies.append((tag, "beams=%d/%d" % (bad1, NUM_BEAMS)))
+        elif f.linked_s2_t1 is not None and f.linked_s2_t1.l181 is None:
+            f.anomalies.append(("V3/missing_t1_l181",
+                "linked but l181 not yet received"))
+
+        # 2b. block2 ↔ l181_t2 -------------------------------------
+        if self._s2_fields_ready(f.linked_s2_t2, "l181"):
+            data_t2 = f.linked_s2_t2.l181.data
+            if len(data_t2) == NUM_BEAMS:
+                bad2 = self._count_block_mismatch(
+                    f.l543.data, 2 * NUM_BEAMS, 3 * NUM_BEAMS, data_t2)
+                if bad2 > 0:
+                    tag = ("W3/warmup_block2_mismatch" if f.is_warmup
+                           else "S3/t2_block_mismatch")
+                    f.anomalies.append((tag, "beams=%d/%d" % (bad2, NUM_BEAMS)))
+        elif f.linked_s2_t2 is not None and f.linked_s2_t2.l181 is None:
+            f.anomalies.append(("V3/missing_t2_l181",
+                "linked but l181 not yet received"))
+
+        # 2c. t0 rule(真实 stage 3 节点发布语义)---------------------
+        # mask[k]==0 (未修补):block0[k] 必须 == cur_t0[k]
+        # mask[k]==1 (已修补):
+        #   - 若 ~enable_stabilize_recheck (默认 True) 即 stage 3 启用中位数
+        #     稳态: block0[k] 必须 == median(cur_t0[k], l181_t1[k], l181_t2[k])
+        #   - 若 False (对应 stage 3 关稳态 passthrough 模式):
+        #     block0[k] 必须 == cur_t0[k]
+        # v1.4: 分层判空,缺哪块字段就报对应 V3/missing_* 异常,不继续算。
+        t0_ready = self._s2_fields_ready(f.linked_s2_t0, "l181", "rmask")
+        t1_ready = self._s2_fields_ready(f.linked_s2_t1, "l181")
+        t2_ready = self._s2_fields_ready(f.linked_s2_t2, "l181")
+        if not t0_ready:
+            # 细化缺件原因
+            if f.linked_s2_t0 is None:
+                pass   # 已由 _try_anchor_s3 的 V3/missing_t0_link 覆盖
+            else:
+                if f.linked_s2_t0.l181 is None:
+                    f.anomalies.append(("V3/missing_t0_l181",
+                        "linked but l181 not yet received"))
+                if f.linked_s2_t0.rmask is None:
+                    f.anomalies.append(("V3/missing_t0_rmask",
+                        "linked but rmask not yet received"))
+        if (t0_ready and t1_ready and t2_ready
+                and len(f.linked_s2_t0.l181.data) == NUM_BEAMS
+                and len(f.linked_s2_t0.rmask.data) == NUM_BEAMS
+                and len(f.linked_s2_t1.l181.data) == NUM_BEAMS
+                and len(f.linked_s2_t2.l181.data) == NUM_BEAMS):
+            t0 = f.linked_s2_t0
+            t1 = f.linked_s2_t1
+            t2 = f.linked_s2_t2
+            for k in range(NUM_BEAMS):
+                stacked_v = f.l543.data[k]
+                cur_v = t0.l181.data[k]
+                repair = int(round(t0.rmask.data[k]))
+                if repair == 0:
+                    f.t0_valid_total += 1
+                    if _values_equal(stacked_v, cur_v, abs_tol=1e-6):
+                        f.t0_valid_matched += 1
+                    else:
+                        f.t0_valid_violated += 1
+                else:
+                    f.t0_repair_total += 1
+                    if self.enable_stabilize_recheck:
+                        t1v = t1.l181.data[k]
+                        t2v = t2.l181.data[k]
+                        expected = sorted([cur_v, t1v, t2v])[1]
+                    else:
+                        expected = cur_v
+                    if _values_equal(stacked_v, expected, abs_tol=1e-6):
+                        f.t0_repair_matched += 1
+                    else:
+                        f.t0_repair_violated += 1
+            if f.t0_valid_violated > 0:
+                tag = ("W3/warmup_t0_valid_mismatch" if f.is_warmup
+                       else "S3/t0_valid_beam_mismatch")
+                f.anomalies.append((tag,
+                    "beams=%d/%d" % (f.t0_valid_violated, f.t0_valid_total)))
+            if f.t0_repair_violated > 0:
+                mode = "median" if self.enable_stabilize_recheck else "passthrough"
+                tag = ("W3/warmup_t0_repair_mismatch" if f.is_warmup
+                       else "S3/t0_repair_beam_not_stabilized")
+                f.anomalies.append((tag,
+                    "beams=%d/%d mode=%s"
+                    % (f.t0_repair_violated, f.t0_repair_total, mode)))
+
+    @staticmethod
+    def _count_block_mismatch(stacked, start, end, expected):
+        bad = 0
+        n = end - start
+        for k in range(n):
+            if k >= len(expected):
+                bad += 1; continue
+            if not _values_equal(float(stacked[start + k]),
+                                 float(expected[k]), abs_tol=1e-6):
+                bad += 1
+        return bad
+
+    @staticmethod
+    def _s2_fields_ready(s2, *fields):
+        """v1.4: 分层判空。当 s2 对象本身非 None 且每个 named field 非 None
+        且 field.data 非 None,才返回 True。用于替代 `s2 is not None` 的
+        单层判空,避免 Stage2Frame 刚收到 stamp 但其他 5-tuple 字段尚未
+        到齐时,访问 s2.rmask.data 触发 AttributeError。"""
+        if s2 is None:
+            return False
+        for fname in fields:
+            attr = getattr(s2, fname, None)
+            if attr is None:
+                return False
+            if not hasattr(attr, "data") or attr.data is None:
+                return False
+        return True
+
+    # ==========================================================
+    # 静默告警 + 缓冲清理
+    # ==========================================================
+    def _on_silence_check(self, _event):
+        with self.lock:
+            if self.start_ros is None:
+                return   # 还没收到任何消息
+            now = rospy.get_time()
+            for topic in ALL_TOPICS:
+                last = self.topic_last_recv.get(topic)
+                if last is None:
+                    if now - self.start_ros > self.silence_timeout:
+                        rospy.logwarn_throttle(
+                            5.0, "[verifier][silence] %s 尚未收到任何消息", topic)
+                    continue
+                dt = now - last
+                if dt > self.silence_timeout:
+                    rospy.logwarn_throttle(
+                        5.0, "[verifier][silence] %s 已 %.1fs 无新消息",
+                        topic, dt)
+
+    def _trim_buffers(self):
+        if not self.s1_frames and not self.s2_frames:
+            return
+        if self.start_ros is None:
+            return
+        # 以最新 stage2 stamp 的时间为参考,截掉 buffer_seconds 之前的 frames
+        ref = None
+        for f in self.s2_frames.values():
+            if ref is None or f.stamp_sec > ref: ref = f.stamp_sec
+        if ref is None:
+            for f in self.s1_frames.values():
+                if ref is None or f.stamp_sec > ref: ref = f.stamp_sec
+        if ref is None:
+            return
+        cutoff = ref - self.buffer_seconds
+        dead_s1 = [k for k, f in self.s1_frames.items() if f.stamp_sec < cutoff]
+        for k in dead_s1: del self.s1_frames[k]
+        dead_s2 = [k for k, f in self.s2_frames.items() if f.stamp_sec < cutoff]
+        for k in dead_s2:
+            del self.s2_frames[k]
+            try: self.s2_pending_stamps.remove(k)
+            except ValueError: pass
+        # FIFO 队列也不能无限涨
+        MAX_Q = 100
+        for q in [self.s1_invmask_q, self.s1_invstats_q,
+                  self.s2_l181_q, self.s2_srcmap_q,
+                  self.s2_rmask_q, self.s2_fstats_q,
+                  self.s3_l543_q, self.s3_ids_q,
+                  self.s3_idsvis_q, self.s3_stamps_q]:
+            while len(q) > MAX_Q:
+                q.popleft()
+
+    # ==========================================================
+    # 逐帧写入
+    # ==========================================================
+    def _write_frame_entry(self, f):
+        # v1.4: 二重保险 —— 即便 shutting_down 已置位、callback 仍然进入了
+        # 此函数,也不会写到已关闭的文件句柄。
+        if self.shutting_down:
+            return
+        if self.frames_file is None or self.frames_file.closed:
+            return
+        w = self.frames_file.write
+        stamps = f.stamps.data if f.stamps is not None else [0.0, 0.0, 0.0]
+        ids = f.ids.data if f.ids is not None else [0.0, 0.0, 0.0]
+        w("\n" + "=" * 72 + "\n")
+        w("[Frame #%d]  /rl/lidar_543 recv at %.3f  (wall: %s)\n"
+          % (f.local_idx, f.recv_time,
+             time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(f.recv_time))))
+        w("\n")
+        w("  Stage 3:\n")
+        w("    ids          = [%d, %d, %d]\n"
+          % (int(ids[0]), int(ids[1]), int(ids[2])))
+        w("    stamps       = [%.6f, %.6f, %.6f]\n"
+          % (stamps[0], stamps[1], stamps[2]))
+        if len(f.l543.data) == STACKED_DIM:
+            s = f.l543.data
+            w("    l543 stats   = min=%.4f max=%.4f mean=%.4f\n"
+              % (min(s), max(s), sum(s) / len(s)))
+
+        # v1.3: Block identity 确认区块 ----------------------------
+        # 固化的块 <-> t <-> id <-> stamp <-> l181_t 映射表
+        w("\n  Stage 3 block identity (link_method=stamp_key):\n")
+        for label, idv, stv, linked in [
+                ("block0", int(ids[0]), stamps[0], f.linked_s2_t0),
+                ("block1", int(ids[1]), stamps[1], f.linked_s2_t1),
+                ("block2", int(ids[2]), stamps[2], f.linked_s2_t2)]:
+            w("    %s -> id=%d  stamp=%.6f  s2_linked=%s\n"
+              % (label, idv, stv, "YES" if linked is not None else "NO"))
+        if f.is_warmup:
+            w("    is_warmup      = YES (stage 3 state-machine frame #1 or #2)\n")
+        w("    identity_ok    = %s\n" % ("YES" if f.identity_ok else "NO"))
+        if not f.identity_ok:
+            w("    (identity 失败;Phase 2 内容校验已跳过,不把身份问题\n"
+              "     扩散成多条 block mismatch)\n")
+        for label, s2 in [("t0", f.linked_s2_t0),
+                          ("t1", f.linked_s2_t1),
+                          ("t2", f.linked_s2_t2)]:
+            w("\n  %s frame (stamp=%.6f):\n"
+              % (label, stamps[0] if label == "t0"
+                        else stamps[1] if label == "t1"
+                        else stamps[2]))
+            if s2 is None:
+                w("    [MISSING] 无对应 stage 2 frame(可能 stage 2 丢帧或 buffer 过期)\n")
+                continue
+            # Stage 2 指标
+            if s2.fstats is not None and len(s2.fstats.data) >= 4:
+                fs = s2.fstats.data
+                w("    Stage 2:\n")
+                w("      repair_ratio = %.4f  count=%d  front=%d  severe_ratio=%.4f\n"
+                  % (fs[0], int(fs[1]), int(fs[2]), fs[3]))
+            if s2.l181 is not None and len(s2.l181.data) == NUM_BEAMS:
+                vals = s2.l181.data
+                w("      l181 stats   = min=%.4f max=%.4f mean=%.4f\n"
+                  % (min(vals), max(vals), sum(vals) / NUM_BEAMS))
+            if s2.anomalies:
+                w("      anomalies    = %d\n" % len(s2.anomalies))
+                for a in s2.anomalies[:5]:
+                    w("        - [%s] %s\n" % (a[0], a[1]))
+            else:
+                w("      anomalies    = 0\n")
+            # Stage 1
+            s1 = s2.linked_s1
+            if s1 is None:
+                w("    Stage 1 (scan_aligned): [MISSING]\n")
+                continue
+            if s1.aligned is not None:
+                N = len(s1.aligned.ranges)
+                w("    Stage 1 (scan_aligned):\n")
+                w("      ranges_n     = %d  range=[%.2f, %.2f]\n"
+                  % (N, s1.aligned.range_min, s1.aligned.range_max))
+                if s1.invstats is not None and len(s1.invstats.data) >= 4:
+                    iv = s1.invstats.data
+                    w("      invalid      = count=%d  ratio=%.4f  front=%d  front_ratio=%.4f\n"
+                      % (int(iv[0]), iv[1], int(iv[2]), iv[3]))
+                w("      raw_linked   = %s\n"
+                  % ("YES" if s1.scan is not None else "NO (only /scan_aligned)"))
+                if s1.anomalies:
+                    w("      anomalies    = %d\n" % len(s1.anomalies))
+                    for a in s1.anomalies[:5]:
+                        w("        - [%s] %s\n" % (a[0], a[1]))
+                else:
+                    w("      anomalies    = 0\n")
+        # v1.3: t0 rule summary --------------------------------
+        # 把 t0 块的 mask=0 / mask=1 beam 逐一核验结果按类汇总,便于判断
+        # t0_valid_beam_mismatch 和 t0_repair_beam_not_stabilized 的来源。
+        if f.t0_valid_total + f.t0_repair_total > 0:
+            mode = "median" if self.enable_stabilize_recheck else "passthrough"
+            w("\n  t0 rule summary (stage 3 publish semantics):\n")
+            w("    valid  beams (mask=0, expect == cur):       "
+              "total=%d  matched=%d  violated=%d\n"
+              % (f.t0_valid_total, f.t0_valid_matched, f.t0_valid_violated))
+            w("    repair beams (mask=1, expect == %-10s):  "
+              "total=%d  matched=%d  violated=%d\n"
+              % (mode, f.t0_repair_total,
+                 f.t0_repair_matched, f.t0_repair_violated))
+            overall = (f.t0_valid_violated + f.t0_repair_violated) == 0
+            w("    t0 rule overall: %s\n" % ("PASS" if overall else "FAIL"))
+
+        # Stage 3 自身异常
+        w("\n")
+        if f.anomalies:
+            w("  === frame verdict: FAIL (%d anomalies) ===\n" % len(f.anomalies))
+            for a in f.anomalies:
+                w("    - [%s] %s\n" % (a[0], a[1]))
+        else:
+            w("  === frame verdict: PASS ===\n")
+        self.frames_file.flush()
+
+    # ==========================================================
+    # 报告生成(shutdown hook)
+    # ==========================================================
+    def _on_shutdown(self):
+        """v1.4: 正确的关闭顺序,杜绝 "I/O operation on closed file"。
+        1) 先竖旗 shutting_down=True,让每个 callback 首行 early-return
+        2) 注销 ROS subscribers,让 rospy 停止再给我们投递消息
+        3) 停定时器
+        4) 以 self.lock 排它获取一次 -> 等待任何已在执行中的 callback
+           退出临界区(shutting_down 旗立起后它们不会再写文件,但可能还在
+           执行 before-flag 的代码;这一锁保证内存状态收敛)
+        5) flush + close frames_file
+        6) 写最终报告
+        """
+        self.shutting_down = True
+        # 注销所有订阅者。unregister 本身幂等,异常也忽略。
+        for s in getattr(self, "subs", []):
+            try:
+                s.unregister()
+            except Exception:
+                pass
+        # 停定时器
+        try:
+            self.silence_timer.shutdown()
+        except Exception:
+            pass
+        # 等待 in-flight callbacks 退出 (同时它们看到 shutting_down 也不再写盘)
+        try:
+            with self.lock:
+                pass
+        except Exception:
+            pass
+        # 此后不再有 callback 动 frames_file
+        try:
+            if self.frames_file is not None and not self.frames_file.closed:
+                self.frames_file.flush()
+                self.frames_file.close()
+        except Exception:
+            pass
+        # 写最终报告 (需要读临时 frames 文件,不再写)
+        try:
+            self._write_final_report()
+        except Exception as e:
+            rospy.logerr("[verifier] write_final_report failed: %s", e)
+        rospy.logwarn("[pipeline_verifier] report written -> %s", self.report_path)
+
+    def _write_final_report(self):
+        duration = time.time() - self.start_wall
+        with open(self.report_path, "w") as w:
+            # ------- Header -------
+            w.write("=" * 80 + "\n")
+            w.write(" " * 16 + "LiDAR Pipeline Online Verification Report\n")
+            w.write(" " * 16 + "Generated: %s\n"
+                    % time.strftime("%Y-%m-%d %H:%M:%S"))
+            w.write(" " * 16 + "Duration:  %.1f s\n" % duration)
+            w.write("=" * 80 + "\n\n")
+
+            # ------- 1. 话题接收 -------
+            w.write("1. Topic Reception Summary\n")
+            w.write("-" * 80 + "\n")
+            for topic in ALL_TOPICS:
+                c = self.topic_msg_count.get(topic, 0)
+                hz = _safe_div(c, duration)
+                last = self.topic_last_recv.get(topic)
+                age = (rospy.get_time() - last) if last else -1.0
+                fs = self.topic_first_stamp.get(topic, float("nan"))
+                ls = self.topic_last_stamp.get(topic, float("nan"))
+                w.write("  %-34s  msgs=%-6d  avg=%5.2fHz  last_age=%4.1fs"
+                        % (topic, c, hz, age))
+                if not math.isnan(fs):
+                    w.write("  stamp_range=[%.3f, %.3f]" % (fs, ls))
+                w.write("\n")
+            w.write("\n")
+
+            # ------- 2. 帧数对齐(v1.2: 基于锚的指标,不再做 naive 减法)-------
+            w.write("2. Frame Count Parity\n")
+            w.write("-" * 80 + "\n")
+            n_scan  = self.topic_msg_count.get(T_SCAN, 0)
+            n_align = self.topic_msg_count.get(T_SCAN_ALIGNED, 0)
+            n_l181  = self.topic_msg_count.get(T_L181, 0)
+            n_l181_stamp = self.topic_msg_count.get(T_L181_STAMP, 0)
+            n_l543  = self.topic_msg_count.get(T_L543, 0)
+            n_l543_stamps = self.topic_msg_count.get(T_L543_STAMPS, 0)
+
+            # Stage 1 / Stage 2 内部一致性(主话题 vs 伴随 topic)---
+            # 这些话题都在同一 scan_callback 内发布,理论上 verifier 所见
+            # 数量应相等。若不等,是订阅握手顺序差异造成的启动瞬态,不是丢帧。
+            w.write("  Stage 1 (/scan -> /scan_aligned, paired by header.stamp):\n")
+            w.write("    /scan msgs              = %d\n" % n_scan)
+            w.write("    /scan_aligned msgs      = %d\n" % n_align)
+            w.write("    s1 frames validated     = %d  (5-tuple assembled + checked)\n"
+                    % (self.s1_validated_pass + self.s1_validated_fail))
+            w.write("\n")
+            w.write("  Stage 2 (5-tuple aligned via /rl/lidar_181_stamp):\n")
+            w.write("    /rl/lidar_181 msgs      = %d\n" % n_l181)
+            w.write("    /rl/lidar_181_stamp     = %d\n" % n_l181_stamp)
+            w.write("    s2 frames validated     = %d  (5-tuple assembled + checked)\n"
+                    % (self.s2_validated_pass + self.s2_validated_fail))
+            w.write("\n")
+
+            # Stage 3 的权威指标是基于 /rl/lidar_543 锚点的反向追溯完整率。
+            # Stage 3 节点按设计 1:1 输出(每 lidar_181 一条 lidar_543,含首 2 帧
+            # warmup),所以订阅计数差不具物理意义,不在此做减法。
+            w.write("  Stage 3 (anchored on /rl/lidar_543, traced back via "
+                    "lidar_543_stamps):\n")
+            w.write("    /rl/lidar_543 msgs      = %d\n" % n_l543)
+            w.write("    /rl/lidar_543_stamps    = %d\n" % n_l543_stamps)
+            w.write("    anchored frames         = %d  (4-tuple assembled)\n"
+                    % self.s3_anchored_count)
+            w.write("    - warmup (stage 3's 1st/2nd frame, stamps degenerate)    "
+                    "= %d\n" % self.s3_warmup_frames)
+            w.write("    - incomplete trace (verifier startup, s2 not yet buffered)"
+                    " = %d\n" % self.s3_incomplete_trace_frames)
+            fully_validatable = (self.s3_validated_pass + self.s3_validated_fail)
+            w.write("    - fully validatable (warmup + incomplete excluded)       "
+                    "= %d\n" % fully_validatable)
+            w.write("\n")
+            w.write("  Note on subscriber-ordering:\n")
+            w.write("    topic msg counts above are what THIS verifier actually\n")
+            w.write("    received. rospy 的 TCP 订阅握手不是同时完成的,各路 topic\n")
+            w.write("    的 first-message 时刻不同,因此用 naive 减法(如 n_l181-\n")
+            w.write("    n_l543)衡量「丢帧」会出现负值。正确的 stage 3 健康指标是\n")
+            w.write("    第 3 节的 anchor-based traceability,而不是本节的 msg 数。\n")
+            w.write("\n")
+
+            # ------- 3. 跨级追溯覆盖率 -------
+            w.write("3. Cross-stage Traceability (anchored on /rl/lidar_543)\n")
+            w.write("-" * 80 + "\n")
+            total543 = self.s3_anchored_count
+            w.write("  lidar_543 anchored frames                = %d\n" % total543)
+            w.write("  with full 3x stage2 link                 = %d / %d  (%.1f%%)\n"
+                    % (self.trace_full_s2, total543,
+                       100.0 * _safe_div(self.trace_full_s2, total543)))
+            w.write("  with full 3x stage1 link                 = %d / %d  (%.1f%%)\n"
+                    % (self.trace_full_s1, total543,
+                       100.0 * _safe_div(self.trace_full_s1, total543)))
+            w.write("  with full 3x /scan link (best effort)    = %d / %d  (%.1f%%)\n"
+                    % (self.trace_full_scan, total543,
+                       100.0 * _safe_div(self.trace_full_scan, total543)))
+            w.write("\n")
+
+            # ------- 4. 验证通过率 -------
+            w.write("4. Validation Pass Rates\n")
+            w.write("-" * 80 + "\n")
+            def pr(name, passed, failed):
+                total = passed + failed
+                rate = 100.0 * _safe_div(passed, total)
+                w.write("  %-40s  %d / %d  (%.2f%%)\n"
+                        % (name, passed, total, rate))
+            pr("Stage 1 (rotation + invalid + meta)",
+               self.s1_validated_pass, self.s1_validated_fail)
+            pr("Stage 2 (resample + mask + interp cross)",
+               self.s2_validated_pass, self.s2_validated_fail)
+            pr("Stage 3 (stack + stamp mono + ids)",
+               self.s3_validated_pass, self.s3_validated_fail)
+            # v1.2: Stage 3 细分(warmup 与 incomplete-trace 不计入失败率分母)
+            w.write("    - stage 3 warmup frames (excluded)            = %d\n"
+                    % self.s3_warmup_frames)
+            w.write("    - stage 3 incomplete-trace frames (excluded)  = %d\n"
+                    % self.s3_incomplete_trace_frames)
+            w.write("    - stage 3 fully validatable                   = %d\n"
+                    % (self.s3_validated_pass + self.s3_validated_fail))
+            w.write("    - stage 3 anchored (total)                    = %d\n"
+                    % self.s3_anchored_count)
+            w.write("\n")
+
+            # ------- 5. 异常明细 (v1.4: 分三类展示) -------
+            w.write("5. Anomaly Counts (by category)\n")
+            w.write("-" * 80 + "\n")
+            if not self.anomaly_counts:
+                w.write("  (no anomalies detected)\n\n")
+            else:
+                # 按前缀分桶:
+                #   S1/ S2/ S3/  = 管线真实异常
+                #   W3/          = Stage 3 warmup 期特有异常(预期行为)
+                #   V3/          = 校验器自身缺件(如 s2 frame 尚未到齐)
+                pipeline_items = []
+                warmup_items = []
+                verifier_items = []
+                for name, cnt in self.anomaly_counts.items():
+                    if name.startswith("V3/"):
+                        verifier_items.append((name, cnt))
+                    elif name.startswith("W3/"):
+                        warmup_items.append((name, cnt))
+                    else:
+                        pipeline_items.append((name, cnt))
+                pipeline_items.sort(key=lambda x: -x[1])
+                warmup_items.sort(key=lambda x: -x[1])
+                verifier_items.sort(key=lambda x: -x[1])
+
+                w.write("  5.1 Pipeline anomalies (real issues to investigate):\n")
+                if pipeline_items:
+                    for name, cnt in pipeline_items:
+                        w.write("    %-42s  %d\n" % (name, cnt))
+                else:
+                    w.write("    (none)\n")
+                w.write("\n")
+
+                w.write("  5.2 Warmup-period anomalies (Stage 3 state-machine\n")
+                w.write("      startup; expected behavior, not a real issue):\n")
+                if warmup_items:
+                    for name, cnt in warmup_items:
+                        w.write("    %-42s  %d\n" % (name, cnt))
+                else:
+                    w.write("    (none)\n")
+                w.write("\n")
+
+                w.write("  5.3 Verifier-completeness anomalies (V3/* : this\n")
+                w.write("      verifier's own dependency was missing when\n")
+                w.write("      the check fired; NOT a pipeline fault):\n")
+                if verifier_items:
+                    for name, cnt in verifier_items:
+                        w.write("    %-42s  %d\n" % (name, cnt))
+                else:
+                    w.write("    (none)\n")
+                w.write("\n")
+
+                # v1.4: 对几条已知"定义敏感"的 pipeline 异常,附说明
+                defn_sensitive = {
+                    "S1/invmask_actual_mismatch":
+                        "verifier 用 aligned.range_min/range_max 判定 invalid;\n"
+                        "      若 laser_switch 节点使用的 invalid 判据不同(例如\n"
+                        "      0.0 特值、不同的 range 边界),会出现此类 false-\n"
+                        "      positive。排查:对照 laser_switch v3_1 中的\n"
+                        "      _compute_invalid_mask 定义。",
+                    "S2/fstats_count_inconsistent":
+                        "verifier 计算 sum(repair_mask) 与 fstats[1] 比较。\n"
+                        "      若 stage 2 节点的 fstats[1] 只计 d_space+d_time\n"
+                        "      实际成功修复的 beam,而 repair_mask 标记所有被\n"
+                        "      尝试修复的 beam,两者就会不等。排查:对照\n"
+                        "      lidar_obs_single_frame v3_2 中 fstats 字段的\n"
+                        "      语义定义。",
+                    "S2/fstats_ratio_inconsistent":
+                        "通常由 S2/fstats_count_inconsistent 派生。",
+                    "S2/mask0_but_raw_inf":
+                        "verifier 假设 repair_mask==0 ⇒ 该 beam 的 srcmap 两\n"
+                        "      端点 aligned 值都是有限值。若 stage 2 只用\n"
+                        "      repair_mask 标记 d_time/d_frame 修复,而对\n"
+                        "      d_space (空间 fill 后插值) 不标,两端点可能仍\n"
+                        "      是 inf。排查:stage 2 repair_mask 是否涵盖所有\n"
+                        "      fill 分支。",
+                }
+                hit = [k for k, _ in pipeline_items if k in defn_sensitive]
+                if hit:
+                    w.write("  Definition-sensitive checks hit this run:\n")
+                    for k in hit:
+                        w.write("    [%s]\n      %s\n"
+                                % (k, defn_sensitive[k]))
+                    w.write("\n")
+
+            # ------- 6. 总体结论(v1.2: 基于锚的指标)-------
+            w.write("6. Overall Verdict\n")
+            w.write("-" * 80 + "\n")
+            s1_fail_rate = _safe_div(
+                self.s1_validated_fail,
+                self.s1_validated_pass + self.s1_validated_fail)
+            s2_fail_rate = _safe_div(
+                self.s2_validated_fail,
+                self.s2_validated_pass + self.s2_validated_fail)
+            # Stage 3 fail rate 只按 fully-validatable 帧算分母 (排除 warmup 和
+            # incomplete trace),否则启动瞬态会把分母拉大、误报失败率
+            s3_denom = self.s3_validated_pass + self.s3_validated_fail
+            s3_fail_rate = _safe_div(self.s3_validated_fail, s3_denom)
+            worst = max(s1_fail_rate, s2_fail_rate, s3_fail_rate)
+
+            all_topics_ok = all(self.topic_msg_count.get(t, 0) > 0
+                                for t in ALL_TOPICS)
+
+            # Stage 2 drop:scan_aligned -> lidar_181 的差值;订阅时序导致的
+            # 负差值取 0(因为不会真的"多产生"帧)
+            s2_drop_est = max(0, n_align - n_l181)
+            # Stage 3 trace rate(post-warmup):分子分母统一口径
+            #   分母:anchored 中扣除 stage 3 自身 warmup 的帧数
+            #   分子:其中能找到完整 3x stage 2 链接的帧数
+            #         = s3_validated_pass + s3_validated_fail
+            #         = post_warmup_total - s3_incomplete_trace_frames
+            s3_post_warmup_total = self.s3_anchored_count - self.s3_warmup_frames
+            s3_post_warmup_full  = self.s3_validated_pass + self.s3_validated_fail
+            s3_trace_rate = _safe_div(
+                s3_post_warmup_full, s3_post_warmup_total, default=1.0)
+
+            w.write("  topic reception: %s\n" %
+                    ("all 13 topics received" if all_topics_ok
+                     else "WARNING - some topics silent"))
+            w.write("  stage 2 drop estimate (scan_aligned->l181)   : %d\n"
+                    % s2_drop_est)
+            w.write("  stage 3 anchor-based traceability (post-warmup) "
+                    ": %d/%d (%.2f%%)\n"
+                    % (s3_post_warmup_full, s3_post_warmup_total,
+                       100.0 * s3_trace_rate))
+            w.write("  stage 3 incomplete-trace startup frames      : %d\n"
+                    % self.s3_incomplete_trace_frames)
+            w.write("  worst-stage failure rate (excl. warmup/startup): %.2f%%\n"
+                    % (100.0 * worst))
+
+            # verdict 判定:综合失败率 + 追溯完整率
+            if (worst <= self.pass_rate and all_topics_ok
+                    and s2_drop_est <= 1 and s3_trace_rate >= 0.99):
+                verdict = "PASS"
+            elif (worst <= self.acceptable_rate and all_topics_ok
+                    and s3_trace_rate >= 0.95):
+                verdict = "ACCEPTABLE"
+            else:
+                verdict = "FAIL"
+            w.write("\n  VERDICT: %s\n" % verdict)
+            if verdict == "PASS":
+                w.write("  整条链路数据格式、变换、时序、一致性均通过核验。\n")
+            elif verdict == "ACCEPTABLE":
+                w.write("  链路基本可用,存在若干非致命异常,建议检查上方\n")
+                w.write("  异常明细中计数最高的几类并定位原因。\n")
+            else:
+                w.write("  链路存在严重异常,建议先解决 anomaly 分类里计数最高\n")
+                w.write("  的 3 项后再进入下游 RL 推理测试。\n")
+            w.write("\n")
+
+            # ------- 7. 启动同步屏障(v1.1)-------
+            w.write("7. Startup Sync Barriers (v1.1)\n")
+            w.write("-" * 80 + "\n")
+            w.write("  rospy 订阅的各路 TCP 握手不是同时完成的,先就绪的伴随 topic\n"
+                    "  会抢到锚之前已发布的旧消息。首条锚到达时必须丢弃这些残留,\n"
+                    "  否则 FIFO 配对会永久错位。本次丢弃计数如下:\n\n")
+            def _fmt_sync(label, pairs):
+                if pairs is None:
+                    return "  %-18s [not triggered yet]" % label
+                parts = ", ".join("%s=%d" % p for p in pairs)
+                total = sum(n for _, n in pairs)
+                tag = "OK" if total == 0 else "dropped %d pre-anchor msgs" % total
+                return "  %-18s %-52s [%s]" % (label, parts, tag)
+            s1d = self._s1_sync_dropped
+            s2d = self._s2_sync_dropped
+            s3d = self._s3_sync_dropped
+            w.write(_fmt_sync("Stage 1", [
+                ("invmask",  s1d[0] if s1d else 0),
+                ("invstats", s1d[1] if s1d else 0),
+            ]) + "\n")
+            w.write(_fmt_sync("Stage 2", [
+                ("srcmap", s2d[0] if s2d else 0),
+                ("rmask",  s2d[1] if s2d else 0),
+                ("l181",   s2d[2] if s2d else 0),
+                ("fstats", s2d[3] if s2d else 0),
+            ]) + "\n")
+            w.write(_fmt_sync("Stage 3", [
+                ("ids",     s3d[0] if s3d else 0),
+                ("ids_vis", s3d[1] if s3d else 0),
+                ("stamps",  s3d[2] if s3d else 0),
+            ]) + "\n")
+            w.write("\n")
+
+            # ------- Part 2: 逐帧追溯 -------
+            w.write("=" * 80 + "\n")
+            w.write(" " * 22 + "Part 2: Per-lidar_543-frame Traceability\n")
+            w.write(" " * 22 + "(共 %d 帧,Part 2 实际记录 %d 帧,上限 %d)\n"
+                    % (self.s3_anchored_count, self.s3_frames_written,
+                       self.max_frames_written))
+            w.write("=" * 80 + "\n")
+
+            # 把 frames 文件的内容接进来
+            if os.path.exists(self.frames_tmp_path):
+                try:
+                    with open(self.frames_tmp_path, "r") as fin:
+                        while True:
+                            chunk = fin.read(65536)
+                            if not chunk: break
+                            w.write(chunk)
+                except Exception as e:
+                    w.write("\n[ERROR] failed to include frames detail: %s\n" % e)
+
+            w.write("\n\n" + "=" * 80 + "\n")
+            w.write(" " * 26 + "End of Report\n")
+            w.write("=" * 80 + "\n")
+
+        # 清理临时文件
+        try:
+            os.remove(self.frames_tmp_path)
+        except OSError:
+            pass
+
+
+# ============================================================
+# main
+# ============================================================
+def main():
+    rospy.init_node("pipeline_verifier", anonymous=False)
+    try:
+        PipelineVerifierNode()
+    except Exception as e:
+        rospy.logerr("[pipeline_verifier] init failed: %s", e)
+        sys.exit(1)
+    rospy.spin()
+
+
+if __name__ == "__main__":
+    main()

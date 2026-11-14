@@ -1,0 +1,14 @@
+<launch>
+  <arg name="move_base_name" default="move_base" /> <!-- Name of the move_base node namespace that receives the plugin params. -->
+  <arg name="start_move_base" default="false" /> <!-- If true, this file starts move_base directly; otherwise it only loads params into an existing move_base namespace. -->
+
+  <group if="$(arg start_move_base)">
+    <node pkg="move_base" type="move_base" name="$(arg move_base_name)" output="screen"> <!-- Example move_base startup; the robot's full navigation launch should also load costmap/global planner params. -->
+      <rosparam file="$(find rl_planner)/config/rl_local_planner_params.yaml" command="load" /> <!-- Loads RLLocalPlannerROS params and sets base_local_planner. -->
+    </node>
+  </group>
+
+  <group unless="$(arg start_move_base)">
+    <rosparam ns="$(arg move_base_name)" file="$(find rl_planner)/config/rl_local_planner_params.yaml" command="load" /> <!-- Loads plugin params into an already-running move_base namespace. -->
+  </group>
+</launch>

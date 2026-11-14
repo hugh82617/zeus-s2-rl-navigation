@@ -1,0 +1,14 @@
+========== 当前roslaunch进程 ==========
+ros       4361  0.0  0.0  57596  6196 pts/2    Ss+  16:05   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch zeus_s2_bringup all_start.launch; exec bash
+ros       4412  0.2  0.8 408648 65916 pts/2    Sl+  16:05   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch zeus_s2_bringup all_start.launch
+ros       4489  0.0  0.0  57592  6304 pts/3    Ss+  16:05   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch rplidar_ros rplidar_a3.launch; exec bash
+ros       4540  0.2  0.8 408136 65696 pts/3    Sl+  16:05   0:02 /usr/bin/python /opt/ros/melodic/bin/roslaunch rplidar_ros rplidar_a3.launch
+ros       4570  0.0  0.0  57592  6200 pts/4    Ss+  16:05   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch tf_pub tf_pub_2d.launch; exec bash
+ros       4621  0.2  0.8 408648 65576 pts/4    Sl+  16:05   0:02 /usr/bin/python /opt/ros/melodic/bin/roslaunch tf_pub tf_pub_2d.launch
+ros       4678  0.0  0.0  57596  6368 pts/5    Ss+  16:06   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch relocalization relocalization.launch; exec bash
+ros       4729  0.2  0.8 408392 65580 pts/5    Sl+  16:06   0:02 /usr/bin/python /opt/ros/melodic/bin/roslaunch relocalization relocalization.launch
+ros       4756  0.0  0.0  57592  6296 pts/6    Ss+  16:06   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch tf_pub move_base.launch; exec bash
+ros       4807  0.2  0.8 408388 65648 pts/6    Sl+  16:06   0:02 /usr/bin/python /opt/ros/melodic/bin/roslaunch tf_pub move_base.launch
+ros       4934  0.0  0.0  57596  6364 pts/8    Ss+  16:06   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch zeus_s2_description display.launch; exec bash
+ros       4984  0.2  0.8 408388 65584 pts/8    Sl+  16:06   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch zeus_s2_description display.launch
+ros       6111  0.0  0.0  56288  3760 pts/9    S+   16:23   0:00 grep --color=auto roslaunch

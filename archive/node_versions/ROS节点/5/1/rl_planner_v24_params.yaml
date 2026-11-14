@@ -1,0 +1,133 @@
+# ========================================
+# RL推理节点 v24 参数配置
+# 功能：近目标收束 + 障碍绕行 综合版
+# ========================================
+
+# ===== 基础参数 =====
+goal_tolerance: 0.50
+use_goal_angle_gate: true
+goal_angle_slowdown_thresh: 0.5
+goal_angle_turninplace_thresh: 0.8
+goal_angle_slowdown_v_max: 0.10
+
+cmd_w_filter_alpha: 0.3
+action_bias_w: 0.0
+
+linear_min: -0.2
+linear_max: 0.5
+angular_min: -0.5
+angular_max: 0.5
+
+# ===== v22功能：近目标收束控制 =====
+enable_near_goal_controller: true
+
+# 三级距离阈值
+near_goal_dist_1: 1.0
+near_goal_dist_2: 0.7
+near_goal_dist_3: 0.6
+
+# 速度上限
+near_goal_v_cap_1: 0.20
+near_goal_v_cap_2: 0.10
+
+# 角速度缩放
+near_goal_w_scale_1: 0.5
+near_goal_w_scale_2: 0.3
+
+# 精确对准参数
+near_goal_align_yaw_thresh: 0.25
+near_goal_align_k: 1.2
+near_goal_align_w_cap: 0.20
+
+# 防大弧线
+near_goal_no_arc_dist: 1.0
+near_goal_no_arc_w_thresh: 0.25
+near_goal_no_arc_v_cap: 0.12
+
+# 绕圈保护器
+enable_orbit_guard: true
+orbit_guard_dist: 1.2
+orbit_guard_window: 12
+orbit_guard_same_sign_ratio: 0.9
+orbit_guard_abs_w_thresh: 0.35
+orbit_guard_progress_thresh: 0.05
+
+# ===== v23功能：前向障碍绕行增强 =====
+enable_obstacle_turn_assist: true
+
+# 前向扇区检测
+front_sector_half_width: 20
+
+# 障碍距离阈值
+front_obstacle_dist_thresh: 0.60
+front_obstacle_dist_hard: 0.40
+
+# 遇障速度限制
+obstacle_turn_v_cap: 0.08
+obstacle_turn_v_cap_hard: 0.00
+
+# 遇障最小转向
+obstacle_turn_w_min: 0.45
+obstacle_turn_w_hard: 0.65
+
+# 左右通道检测
+side_sector_width: 50
+
+# ========================================
+# v24控制链顺序：
+#
+# 1. 目标角门控（原有）
+#    - 大角度限速/原地转
+#
+# 2. 近目标收束控制（v22）
+#    - dist < 1.0m: 三级减速
+#    - dist < 0.6m: 精确对准
+#    - 绕圈检测: 强制纠偏
+#
+# 3. 前向障碍绕行（v23）
+#    - front < 0.60m: 低速转向
+#    - front < 0.40m: 停止强转
+#
+# 4. 最终clip保险
+# ========================================
+
+# ========================================
+# 功能协同说明：
+#
+# 场景A：空旷直行
+# → 所有增强均不触发，保持网络原始控制
+#
+# 场景B：远处遇障碍
+# → 只触发障碍绕行(v23)
+# → 日志: obs=soft_turn, near=none
+#
+# 场景C：近目标无障碍
+# → 只触发近目标收束(v22)
+# → 日志: obs=none, near=stage_1/2/align
+#
+# 场景D：近目标且遇障碍
+# → 两者叠加生效
+# → 日志: obs=soft_turn, near=stage_2
+# → 结果: 低速+小角度转向
+#
+# 场景E：近目标绕圈
+# → 绕圈保护器触发
+# → 日志: orbit=orbit_guard_align
+# → 结果: 停止前进，P控制对准
+# ========================================
+
+# ========================================
+# 调试建议：
+#
+# 如果近目标仍绕圈：
+# - 调整v22参数（near_goal_*）
+# - 参考v22_README.md
+#
+# 如果障碍前仍蹲步：
+# - 调整v23参数（obstacle_*）
+# - 参考v23_README.md
+#
+# 如果两种问题都有：
+# - v24已包含两套机制
+# - 分别调试，互不干扰
+# ========================================

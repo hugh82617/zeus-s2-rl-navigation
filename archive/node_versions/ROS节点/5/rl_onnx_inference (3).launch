@@ -1,0 +1,29 @@
+<launch>
+  <node pkg="rl_planner"
+        type="rl_onnx_inference_node.py"
+        name="rl_onnx_inference_node"
+        output="screen">
+
+    <param name="model_path" value="/mnt/data/model_1200_actor.onnx" />
+    <param name="input_name" value="obs" />
+    <param name="output_name" value="action" />
+
+    <param name="cmd_vel_in_topic" value="/raw_cmd_vel" />
+    <param name="goal_topic" value="/rl_local_goal_body" />
+    <param name="lidar_topic" value="/rl/lidar_543" />
+    <param name="cmd_vel_out_topic" value="/rl_cmd_vel" />
+    <param name="obs_pub_topic" value="/rl/obs_556" />
+
+    <param name="gravity_g" value="9.81" />
+    <param name="publish_obs" value="true" />
+    <param name="publish_debug_log" value="true" />
+    <param name="require_fresh_ms" value="500.0" />
+    <param name="zero_on_stale" value="true" />
+    <param name="run_on_any_update" value="true" />
+
+    <param name="clip_v_min" value="nan" />
+    <param name="clip_v_max" value="nan" />
+    <param name="clip_w_min" value="nan" />
+    <param name="clip_w_max" value="nan" />
+  </node>
+</launch>

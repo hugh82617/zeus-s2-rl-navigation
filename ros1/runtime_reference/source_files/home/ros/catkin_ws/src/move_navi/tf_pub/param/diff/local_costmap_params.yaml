@@ -1,0 +1,17 @@
+local_costmap:
+   global_frame: odom                                                                    #在本地代价地图中的全局坐标系;
+   robot_base_frame: base_footprint                                      #机器人本体的基坐标系;
+   update_frequency: 10.0                                                                 #局部代价地图的更新频率;
+   publish_frequency: 10.0                                                                #局部代价地图的发布频率;
+   # static_map: false                                      被废弃使用                                          #局部代价地图一般不设置为静态地图，因为需要检测是否在机器人附近有新增的动态障碍物
+   rolling_window: true                                                                     #使用滚动窗口，始终保持机器人在当前局部地图的中心位置
+   width: 5.0                                                                                            #滚动窗口的宽度，单位是米;
+   height: 5.0                                                                                           #滚动窗口的高度，单位是米;
+   resolution: 0.05                                                                                 #地图的分辨率，该分辨率可以从加载的地图相对应的配置文件中获取到;
+   transform_tolerance: 1.2                                                              #局部代价地图中的坐标系之间转换的最大可忍受延时;
+   # map_type: costmap                             被废弃使用
+
+   plugins:
+   - {name: static_layer,        type: "costmap_2d::StaticLayer"}
+   - {name: obstacle_layer,      type: "costmap_2d::VoxelLayer"}
+   - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}

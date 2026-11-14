@@ -1,0 +1,31 @@
+<launch>
+  <!-- RL Local Goal Provider (TF版本) 启动文件 -->
+  
+  <node pkg="rl_planner"
+        type="rl_local_goal_provider.py"
+        name="rl_local_goal_provider_tf"
+        output="screen"
+        required="true">
+
+    <!-- 话题参数 -->
+    <param name="goal_topic" value="/move_base_simple/goal" />
+    <param name="clear_goal_topic" value="/rl_local_goal_clear" />
+    <param name="publish_array_topic" value="/rl_local_goal_body" />
+    <param name="publish_pose_topic" value="/rl_local_goal_body_pose" />
+    <param name="publish_status_topic" value="/rl_local_goal_status" />
+
+    <!-- 坐标系参数 -->
+    <param name="global_frame" value="map" />
+    <param name="base_frame" value="base_footprint" />
+
+    <!-- 运行参数 -->
+    <param name="publish_rate" value="20.0" />
+    <param name="tf_timeout" value="0.1" />
+    <param name="debug_log" value="true" />
+
+    <!-- 到达判定参数：统一为 0.5m（与推理节点一致） -->
+    <param name="goal_reached_dist_thresh" value="0.5" />
+    <param name="goal_reached_clear" value="true" />
+
+  </node>
+</launch>

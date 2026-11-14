@@ -1,0 +1,27 @@
+========== 15. 相关功能包路径 ==========
+
+---------- package: zeus_s2_driver ----------
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_driver
+
+---------- package: zeus_s2_odom ----------
+
+---------- package: zeus_s2_bringup ----------
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup
+
+---------- package: fdilink ----------
+/home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink
+
+---------- package: relocalization ----------
+/home/ros/localization_ws/src/2dlocal/relocalization
+
+---------- package: tf_pub ----------
+/home/ros/catkin_ws/src/move_navi/tf_pub
+
+---------- package: cartographer_ros ----------
+/home/ros/google_ws/install_isolated/share/cartographer_ros
+
+---------- package: move_base ----------
+/opt/ros/melodic/share/move_base
+
+---------- package: robot_state_publisher ----------
+/opt/ros/melodic/share/robot_state_publisher

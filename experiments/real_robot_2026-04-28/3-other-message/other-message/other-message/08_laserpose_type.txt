@@ -1,0 +1,2 @@
+========== /laserpose type ==========
+geometry_msgs/PoseWithCovarianceStamped

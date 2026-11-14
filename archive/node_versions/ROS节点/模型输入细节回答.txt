@@ -1,0 +1,44 @@
+问题1：训练时"目标信息"到底是什么，精确定义
+从 obs_stage3.py 的注释可以直接确认，观测向量的 [9:13] 是：
+pose_commands = [dx_b, dy_b, dz_b, dyaw_b]
+这四个量是目标点在机器人车体坐标系(base_footprint)下的相对位姿，共4维。具体含义是目标点相对于机器人当前位置的 x/y/z 偏移量，以及相对偏航角误差。
+问题2：是车体坐标系还是世界坐标系
+确认是车体坐标系下的相对量，后缀 _b 表示 body frame。这和 ROS 节点输出的 [x_b, y_b, hdg] 坐标系一致，都是车体系相对量。
+问题3：训练时目标是最终终点还是局部路径点
+训练时目标是固定随机采样的终点，不是局部前瞻点。每个 episode 开始时，在房间右侧区域随机采样一个目标点，整个 episode 内这个目标点不变。这和 ROS 部署端用 lookahead 局部点的做法语义上有差异，但由于训练场景是 8×8m 的封闭小房间，目标距离通常在 3~6m 之间，这个量级和 ROS 的 lookahead 距离属于同一量级，实际影响取决于 lookahead 距离的设置。
+问题4：包含朝向项吗，是几维
+确认是4维：[dx_b, dy_b, dz_b, dyaw_b]，包含朝向项 dyaw_b。注意是4维不是3维，有 dz_b 这个高度差分量（差速车在平地上 dz 接近0，但维度存在）。ROS 节点如果只输出3维 [x_b, y_b, hdg]，需要补一个 dz=0 占位，否则维度不对。
+问题5：顺序是什么
+严格顺序是 [dx_b, dy_b, dz_b, dyaw_b]，从代码注释直接确认。
+问题6：角度定义
+dyaw_b 是目标点方向相对于机器人当前朝向的偏航角误差，单位是弧度，范围在 [-π, π]。这是目标位置方向（从机器人指向目标的向量的角度）与机器人当前朝向的差值，不是目标自身的绝对朝向。
+问题7：有没有归一化
+从 UniformPose2dCommand 的 Isaac Lab 基类来看，这些量是原始物理量，单位为米和弧度，没有归一化到 [-1,1]。距离直接是米，角度直接是弧度。部署时也应该直接传原始物理量。
+问题8：完整 observation 拼接顺序
+从 obs_stage3.py 的文档注释直接确认：
+[0:3]    base_lin_vel      线速度 [vx, vy, vz]，单位 m/s
+[3:6]    base_ang_vel      角速度 [wx, wy, wz]，单位 rad/s  
+[6:9]    projected_gravity 重力投影向量
+[9:13]   pose_commands     [dx_b, dy_b, dz_b, dyaw_b]
+[13:194] lidar_t0          当前帧 LiDAR，181维，归一化到[0,1]
+[194:375] lidar_t1         上一帧 LiDAR
+[375:556] lidar_t2         上上帧 LiDAR
+总计 556 维。
+问题9：LiDAR 的关键参数
+LiDAR 是 181 条射线，距离归一化到 [0,1]（除以 max_distance=12.0m），无命中射线替换为最大值1.0。射线的角度分布和扫描方向需要从传感器配置确认，但归一化方式已明确。
+问题10：动作输出定义
+动作是 [v, ω] 两维，action[0] 是线速度，action[1] 是角速度。需要确认是否有归一化，这个在 env cfg 的 action space 配置里定义，需要你在线上查：
+bashgrep -n "action_space\|ActionSpace\|lin_vel\|ang_vel\|scale\|clip" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py | head -20
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -n "action_space\|ActionSpace\|lin_vel\|ang_vel\|scale\|clip" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py | head -20
+270:    本体状态（lin_vel/ang_vel/gravity/pose_cmd）只保留当前帧，
+277:        base_lin_vel      = ObsTerm(func=mdp.base_lin_vel)
+278:        base_ang_vel      = ObsTerm(func=mdp.base_ang_vel)
+386:        params={"command_name": "pose_command", "clip": 0.2, "deadzone": 1e-4},
+401:        params={"command_name": "pose_command", "clip": 0.5},
+422:            "phi_scale":            1.0,
+475:            "v_scale":         0.30,    # m/s，OU 障碍物典型逼近速率
+542:            "delta_clip": 0.05,   # gap 变化量限幅（m/step）
+最需要告警给队友的不一致风险
+最高风险是 goal 维度：训练是4维 [dx_b, dy_b, dz_b, dyaw_b]，如果 ROS 只传3维 [x_b, y_b, hdg] 少了 dz_b，整个 observation 从第13维开始全部错位，LiDAR 数据会被策略网络错误地当成目标信息读取，输出会完全混乱。这是最隐蔽也最致命的问题，务必优先核对。

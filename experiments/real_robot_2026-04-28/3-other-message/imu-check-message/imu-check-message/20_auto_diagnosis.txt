@@ -1,0 +1,9 @@
+========== 15. 初步判断 ==========
+[OK] 检测到 /dev/imu，说明 IMU 串口映射存在。
+[OK] 检测到 /imu/data 话题。
+Publishers: 
+ * /launch_imu_node (http://192.168.1.102:44729/)
+
+Subscribers: 
+ * /cartographer_node (http://192.168.1.102:45559/)
+[OK] /imu/data 存在 publisher，说明 IMU 驱动可能已启动。

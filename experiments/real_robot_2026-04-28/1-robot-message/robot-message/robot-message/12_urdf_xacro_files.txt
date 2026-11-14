@@ -1,0 +1,18 @@
+========== URDF/XACRO文件路径 ==========
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.urdf
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_baffle.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_body.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_tower.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/d435.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.urdf
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_bracket.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/wheel_12.0.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/ls_c16.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/laser_a2.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/radar_s.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/car_roof.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2-gps_c16_d435.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/stop_key.xacro
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/fd_beidou.xacro

@@ -1,0 +1,10 @@
+---- info ----
+Type: sensor_msgs/Imu
+
+Publishers: 
+ * /launch_imu_node (http://192.168.1.102:44729/)
+
+Subscribers: 
+ * /cartographer_node (http://192.168.1.102:45559/)
+
+

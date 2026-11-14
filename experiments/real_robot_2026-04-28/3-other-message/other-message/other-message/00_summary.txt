@@ -1,0 +1,15 @@
+========== IMU / ODOM / LOCALIZATION 信息采集 ==========
+采集时间: 2026年 04月 28日 星期二 16:31:45 CST
+保存路径: /home/ros/other-message
+
+未发现话题: /imu
+发现话题: /imu/data
+发现话题: /odom
+发现话题: /laserpose
+未发现话题: /amcl_pose
+发现话题: /map
+发现话题: /tf
+发现话题: /tf_static
+
+========== 采集完成 ==========
+所有文件已保存到: /home/ros/other-message

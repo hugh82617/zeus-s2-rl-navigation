@@ -1,0 +1,88 @@
+<launch>
+    <node pkg="rl_planner"
+          type="rl_planner_node.py"
+          name="rl_onnx_inference_node"
+          output="screen">
+
+        <!-- 模型参数 -->
+        <param name="model_path" value="/home/ros/catkin_ws/src/rl_planner/models/model_1200_actor.onnx" />
+        <param name="input_name" value="obs" />
+        <param name="output_name" value="action" />
+
+        <!-- 输入输出话题 -->
+        <param name="speed_topic" value="/zeus_speed" />
+        <param name="goal_topic" value="/rl_local_goal_body" />
+        <param name="goal_status_topic" value="/rl_local_goal_status" />
+        <param name="lidar_topic" value="/rl/lidar_543" />
+        <param name="out_cmd_topic" value="/rl_cmd_vel" />
+        <param name="obs_topic" value="/rl/obs_556" />
+
+        <!-- debug 话题 -->
+        <param name="debug_lin_topic" value="/rl/debug/lin_vel3" />
+        <param name="debug_ang_topic" value="/rl/debug/ang_vel3" />
+        <param name="debug_goal_recv_topic" value="/rl/debug/goal4_received" />
+        <param name="debug_goal_used_topic" value="/rl/debug/goal4_used" />
+        <param name="debug_goal_status_echo_topic" value="/rl/debug/goal_status_echo" />
+        <param name="debug_obs0_topic" value="/rl/debug/obs0_181" />
+        <param name="debug_obs1_topic" value="/rl/debug/obs1_181" />
+        <param name="debug_obs2_topic" value="/rl/debug/obs2_181" />
+        <param name="debug_speed_age_topic" value="/rl/debug/speed_age_ms" />
+        <param name="debug_goal_age_topic" value="/rl/debug/goal_age_ms" />
+        <param name="debug_age_pair_topic" value="/rl/debug/sync_age_pair_ms" />
+        <param name="debug_obs_meta_topic" value="/rl/debug/obs_meta" />
+
+        <!-- 目标有效性参数 -->
+        <param name="goal_nonzero_eps" value="0.0001" />
+        <param name="goal_pos_eps_enter" value="0.05" />
+        <param name="goal_pos_eps_exit" value="0.02" />
+        <param name="goal_yaw_eps_enter" value="0.05" />
+        <param name="goal_yaw_eps_exit" value="0.02" />
+        <param name="goal_small_value_eps" value="0.000001" />
+        <param name="use_split_goal_gate" value="true" />
+
+        <!-- 到达目标阈值：50 cm -->
+        <param name="goal_tolerance" value="0.5" />
+
+        <!-- 目标清除/到达后的行为 -->
+        <param name="zero_goal_on_status_clear" value="true" />
+        <param name="zero_cmd_on_goal_cleared" value="true" />
+        <param name="zero_cmd_on_goal_reached" value="true" />
+        <param name="publish_zero_when_goal_reached" value="true" />
+        <param name="publish_obs_when_goal_invalid" value="false" />
+        <param name="zero_cmd_when_goal_invalid" value="true" />
+
+        <!-- 动作映射参数 -->
+        <param name="use_action_clip" value="true" />
+        <param name="action_clip_low" value="-1.0" />
+        <param name="action_clip_hi" value="1.0" />
+        <param name="linear_min" value="-0.2" />
+        <param name="linear_max" value="0.5" />
+        <param name="angular_min" value="-0.5" />
+        <param name="angular_max" value="0.8" />
+        <param name="action_bias_w" value="-0.13" />
+        <param name="cmd_w_filter_alpha" value="0.6" />
+
+        <!-- 调试与日志 -->
+        <param name="publish_obs" value="true" />
+        <param name="debug_publish_inputs" value="true" />
+        <param name="debug_log" value="true" />
+        <param name="debug_obs_log" value="false" />
+        <param name="debug_age_log" value="true" />
+
+        <!-- 时延告警 -->
+        <param name="warn_speed_age_ms" value="60.0" />
+        <param name="warn_goal_age_ms" value="80.0" />
+        <param name="drop_if_speed_too_old" value="false" />
+        <param name="drop_if_goal_too_old" value="false" />
+
+        <!-- 输入校验 -->
+        <param name="lidar_max_range" value="30.0" />
+        <param name="val_lin_max" value="5.0" />
+        <param name="val_ang_max" value="20.0" />
+        <param name="val_goal_dist_max" value="100.0" />
+
+        <!-- 日志文件 -->
+        <param name="action_log_path" value="/home/ros/4.txt" />
+        <param name="meta_log_path" value="/home/ros/obs_meta.jsonl" />
+    </node>
+</launch>

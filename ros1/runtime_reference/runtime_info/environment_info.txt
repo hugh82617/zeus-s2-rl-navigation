@@ -1,0 +1,11 @@
+Export Time: 2026年 04月 16日 星期四 20:41:52 CST
+Host: ros
+User: ros
+PWD: /home/ros
+
+ROS_PACKAGE_PATH:
+/home/ros/google_ws/install_isolated/share:/home/ros/slamtech_ws/src:/home/ros/localization_ws/src:/home/ros/catkin_ws/src:/opt/ros/melodic/share
+
+ROS_MASTER_URI: http://localhost:11311
+ROS_IP: 192.168.1.102
+ROS_HOSTNAME: 

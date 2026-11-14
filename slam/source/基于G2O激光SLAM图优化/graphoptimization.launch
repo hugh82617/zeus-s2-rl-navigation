@@ -1,0 +1,17 @@
+
+
+<launch>
+    <!-- 启动节点 -->
+    <node name="graphoptimization"
+        pkg="graphoptimization" type="graphoptimization" output="screen">
+	<param name="g2ofile" value="$(find lidarodom)/outputfile/test.g2o"/>
+	<param name="keyscanfile" value="$(find lidarodom)/outputfile/test_p.txt"/>
+	<param name="resultg2o" value="$(find graphoptimization)/outputfile/"/>
+    </node>
+    
+    <!-- launch rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="false"
+        args="-d $(find graphoptimization)/launch/slam_points.rviz" />
+
+
+</launch>

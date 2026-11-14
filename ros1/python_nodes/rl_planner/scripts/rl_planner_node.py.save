@@ -1,0 +1,396 @@
+#!/home/ros/miniconda3/envs/onnx_env/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+RL Planner Node — 基于强化学习的本地路径跟踪控制器
+订阅: /scan, /odom, /move_base/NavfnROS/plan
+发布: /rl_cmd_vel, /rl_planner/active
+"""
+
+import math
+import time
+import threading
+import numpy as np
+import rospy
+import onnxruntime as ort
+import tf.transformations as tft
+from sensor_msgs.msg import LaserScan
+from nav_msgs.msg import Odometry, Path
+from geometry_msgs.msg import Twist
+from std_msgs.msg import Bool
+
+
+# ──────────────────────────────────────────────
+# 辅助函数
+# ──────────────────────────────────────────────
+def normalize_angle(angle: float) -> float:
+    """将任意角度归一化到 (-π, π]。"""
+    return math.atan2(math.sin(angle), math.cos(angle))
+
+
+class RLPlannerNode:
+    """
+    改进要点
+    --------
+    1. 安全层：最小障碍距离检测，触发紧急停止并自动恢复。
+    2. 鲁棒性：消息超时检测；scan/odom/plan 均设超时门限。
+    3. 性能：ONNX Session 使用多线程推理；lidar 预处理向量化。
+    4. 功能扩展：
+       - 到达终点自动停止（goal_tolerance 判断）。
+       - 路径锁：plan 频繁更新时只在控制周期起点切换，避免竞态。
+       - 发布 /rl_planner/active 状态话题，便于上层监控。
+    5. 代码规范：类型注解、详细注释、统一异常处理。
+    """
+
+    def __init__(self):
+        rospy.init_node("rl_planner_node")
+
+        # ---------- 话题参数 ----------
+        self.model_path   = rospy.get_param("~model_path",   "/home/ros/catkin_ws/src/rl_planner/models/zeus_stage1_model_1999.onnx")
+        self.scan_topic   = rospy.get_param("~scan_topic",   "/scan")
+        self.odom_topic   = rospy.get_param("~odom_topic",   "/odom")
+        self.plan_topic   = rospy.get_param("~plan_topic",   "/move_base/NavfnROS/plan")
+        self.cmd_topic    = rospy.get_param("~cmd_topic",    "/rl_cmd_vel")
+        self.active_topic = rospy.get_param("~active_topic", "/rl_planner/active")
+
+        # ---------- 控制参数 ----------
+        self.control_rate   = rospy.get_param("~control_rate",   10.0)
+        self.lookahead_dist = rospy.get_param("~lookahead_dist",  0.6)
+        self.goal_tolerance = rospy.get_param("~goal_tolerance",  0.25)  # 到终点距离阈值(m)
+
+        # ---------- 激光雷达参数 ----------
+        self.max_lidar_dist = rospy.get_param("~max_lidar_dist", 12.0)
+        self.lidar_dim      = rospy.get_param("~lidar_dim",      181)
+
+        # ---------- 训练域速度范围 ----------
+        self.train_min_v = rospy.get_param("~train_min_v", -0.2)
+        self.train_max_v = rospy.get_param("~train_max_v",  1.5)
+        self.train_max_w = rospy.get_param("~train_max_w",  3.0)
+
+        # ---------- 实车安全速度限制 ----------
+        self.safe_min_v = rospy.get_param("~safe_min_v",  0.0)
+        self.safe_max_v = rospy.get_param("~safe_max_v",  0.12)
+        self.safe_max_w = rospy.get_param("~safe_max_w",  0.35)
+
+        # ---------- 死区（消除低速抖动）----------
+        self.deadband_v = rospy.get_param("~deadband_v", 0.02)
+        self.deadband_w = rospy.get_param("~deadband_w", 0.05)
+
+        # ---------- 安全层：紧急停止 ----------
+        self.emergency_fov_deg  = rospy.get_param("~emergency_fov_deg",  60.0)  # 前方扇区半角(度)
+        self.emergency_dist     = rospy.get_param("~emergency_dist",      0.35)  # 最小安全距离(m)
+        self.emergency_cooldown = rospy.get_param("~emergency_cooldown",   1.5)  # 冷却时间(s)
+
+        # ---------- 消息超时门限 ----------
+        self.scan_timeout = rospy.get_param("~scan_timeout", 1.0)
+        self.odom_timeout = rospy.get_param("~odom_timeout", 1.0)
+        self.plan_timeout = rospy.get_param("~plan_timeout", 5.0)
+
+        # ── 内部状态 ──────────────────────────
+        self._lock = threading.Lock()           # 保护 _pending_plan 的并发访问
+
+        self.scan_msg = None
+        self.odom_msg = None
+        self.plan_msg = None
+        self._pending_plan = None               # 回调暂存，控制周期起点切换
+
+        self.scan_stamp = 0.0
+        self.odom_stamp = 0.0
+        self.plan_stamp = 0.0
+
+        self._emergency_until = 0.0             # 紧急停止到期时间
+        self._goal_reached = False
+
+        # ── ONNX 推理会话 ─────────────────────
+        sess_opts = ort.SessionOptions()
+        sess_opts.intra_op_num_threads = 2
+        sess_opts.inter_op_num_threads = 1
+        sess_opts.execution_mode = ort.ExecutionMode.ORT_SEQUENTIAL
+        self.session = ort.InferenceSession(self.model_path, sess_options=sess_opts)
+        self._input_name = self.session.get_inputs()[0].name  # 兼容不同导出名
+
+        # ── ROS 通信 ──────────────────────────
+        rospy.Subscriber(self.scan_topic, LaserScan, self._scan_cb, queue_size=1, buff_size=2**20)
+        rospy.Subscriber(self.odom_topic, Odometry,  self._odom_cb, queue_size=1)
+        rospy.Subscriber(self.plan_topic, Path,      self._plan_cb, queue_size=1)
+
+        self.cmd_pub    = rospy.Publisher(self.cmd_topic,    Twist, queue_size=1)
+        self.active_pub = rospy.Publisher(self.active_topic, Bool,  queue_size=1, latch=True)
+        self._publish_active(False)
+
+        rospy.loginfo("[RLPlanner] 节点已启动")
+        rospy.loginfo("[RLPlanner] 模型: %s  输入名: %s", self.model_path, self._input_name)
+        rospy.loginfo("[RLPlanner] 订阅: %s | %s | %s", self.scan_topic, self.odom_topic, self.plan_topic)
+        rospy.loginfo("[RLPlanner] 发布: %s | %s", self.cmd_topic, self.active_topic)
+
+    # ── 回调 ──────────────────────────────────
+    def _scan_cb(self, msg: LaserScan):
+        self.scan_msg = msg
+        self.scan_stamp = time.time()
+
+    def _odom_cb(self, msg: Odometry):
+        self.odom_msg = msg
+        self.odom_stamp = time.time()
+
+    def _plan_cb(self, msg: Path):
+        """路径回调：暂存新路径，由控制循环在周期起点安全切换，避免竞态。"""
+        with self._lock:
+            self._pending_plan = msg
+        self.plan_stamp = time.time()
+        self._goal_reached = False  # 新路径到来，重置到达标志
+
+    # ── 数据就绪检查 ──────────────────────────
+    def _ready(self) -> bool:
+        """所有传感器数据均存在且未超时时返回 True。"""
+        now = time.time()
+        if self.scan_msg is None or (now - self.scan_stamp) > self.scan_timeout:
+            rospy.logwarn_throttle(3.0, "[RLPlanner] 等待激光雷达数据（或已超时）")
+            return False
+        if self.odom_msg is None or (now - self.odom_stamp) > self.odom_timeout:
+            rospy.logwarn_throttle(3.0, "[RLPlanner] 等待里程计数据（或已超时）")
+            return False
+        if self.plan_msg is None or (now - self.plan_stamp) > self.plan_timeout:
+            rospy.logwarn_throttle(3.0, "[RLPlanner] 等待全局路径数据（或已超时）")
+            return False
+        if len(self.plan_msg.poses) == 0:
+            rospy.logwarn_throttle(3.0, "[RLPlanner] 全局路径为空")
+            return False
+        return True
+
+    # ── 机器人位姿 ────────────────────────────
+    def _get_robot_pose(self) -> tuple:
+        """返回 (x, y, yaw)，基于里程计。"""
+        p = self.odom_msg.pose.pose.position
+        q = self.odom_msg.pose.pose.orientation
+        _, _, yaw = tft.euler_from_quaternion([q.x, q.y, q.z, q.w])
+        return p.x, p.y, yaw
+
+    # ── 到达终点判断 ──────────────────────────
+    def _check_goal_reached(self) -> bool:
+        if not self.plan_msg or len(self.plan_msg.poses) == 0:
+            return False
+        xr, yr, _ = self._get_robot_pose()
+        last = self.plan_msg.poses[-1].pose.position
+        return math.hypot(last.x - xr, last.y - yr) < self.goal_tolerance
+
+    # ── 本地目标点选取（前瞻纯追踪）─────────
+    def _select_local_goal(self):
+        """
+        找路径上距机器人最近的点，然后沿路径累积弧长直到超过
+        lookahead_dist，返回该点 Pose；不足则返回路径终点。
+        """
+        poses = self.plan_msg.poses
+        xr, yr, _ = self._get_robot_pose()
+
+        # 向量化计算距离，找最近点索引
+        pts = np.array([[p.pose.position.x, p.pose.position.y] for p in poses])
+        dists = np.hypot(pts[:, 0] - xr, pts[:, 1] - yr)
+        nearest_idx = int(np.argmin(dists))
+
+        # 沿路径累积弧长
+        acc = 0.0
+        lx, ly = pts[nearest_idx]
+        for i in range(nearest_idx + 1, len(poses)):
+            px, py = pts[i]
+            acc += math.hypot(px - lx, py - ly)
+            lx, ly = px, py
+            if acc >= self.lookahead_dist:
+                return poses[i].pose
+
+        return poses[-1].pose
+
+    # ── 位姿指令构建 ──────────────────────────
+    def _build_pose_command(self) -> np.ndarray:
+        """目标点转换到机器人坐标系，返回 [x_b, y_b, z_b, heading_b]。"""
+        local_goal = self._select_local_goal()
+        xr, yr, yaw = self._get_robot_pose()
+
+        dx = local_goal.position.x - xr
+        dy = local_goal.position.y - yr
+
+        cos_y, sin_y = math.cos(yaw), math.sin(yaw)
+        x_b =  cos_y * dx + sin_y * dy
+        y_b = -sin_y * dx + cos_y * dy
+        heading_b = normalize_angle(math.atan2(dy, dx) - yaw)
+
+        return np.array([x_b, y_b, 0.0, heading_b], dtype=np.float32)
+
+    # ── 激光雷达预处理 ────────────────────────
+    def _build_lidar_scan(self) -> np.ndarray:
+        """
+        原始 LaserScan → 固定 lidar_dim 维 float32。
+        无效值（inf/nan）替换为 max_lidar_dist，向量化处理。
+        """
+        ranges = np.array(self.scan_msg.ranges, dtype=np.float32)
+        np.copyto(ranges, self.max_lidar_dist, where=~np.isfinite(ranges))
+        np.clip(ranges, 0.0, self.max_lidar_dist, out=ranges)
+
+        n = len(ranges)
+        if n != self.lidar_dim:
+            src = np.arange(n, dtype=np.float32)
+            dst = np.linspace(0, n - 1, self.lidar_dim, dtype=np.float32)
+            ranges = np.interp(dst, src, ranges).astype(np.float32)
+
+        return ranges
+
+    # ── 安全层：紧急停止检测 ──────────────────
+    def _check_emergency(self) -> bool:
+        """
+        检查前方 ±emergency_fov_deg 扇区内是否有障碍物距离
+        小于 emergency_dist。触发则设置冷却期并返回 True。
+        """
+        msg = self.scan_msg
+        angle_min = msg.angle_min
+        angle_inc = msg.angle_increment
+        ranges    = np.array(msg.ranges, dtype=np.float32)
+        n         = len(ranges)
+
+        fov_rad    = math.radians(self.emergency_fov_deg)
+        idx_center = int(round(-angle_min / angle_inc))
+        half_span  = int(round(fov_rad / angle_inc))
+
+        lo = max(0, idx_center - half_span)
+        hi = min(n - 1, idx_center + half_span)
+
+        sector = ranges[lo:hi + 1]
+        valid  = sector[np.isfinite(sector) & (sector > 0)]
+
+        if len(valid) > 0 and float(np.min(valid)) < self.emergency_dist:
+            self._emergency_until = time.time() + self.emergency_cooldown
+            rospy.logwarn_throttle(
+                1.0,
+                "[RLPlanner] ⚠ 紧急停止！前方最近障碍 %.3f m（阈值 %.3f m）",
+                float(np.min(valid)), self.emergency_dist
+            )
+            return True
+
+        return False
+
+    # ── 观测向量构建 ──────────────────────────
+    def _build_observation(self) -> np.ndarray:
+        """
+        构建形状 (1, 194) 的观测向量：
+          [0:3]    线速度 (vx, vy, vz)
+          [3:6]    角速度 (wx, wy, wz)
+          [6:9]    重力方向 (训练约定 [0, 0, -1])
+          [9:13]   位姿指令 (x_b, y_b, 0, heading_b)
+          [13:194] 激光雷达 (181 维)
+        """
+        obs = np.zeros(194, dtype=np.float32)
+
+        twist  = self.odom_msg.twist.twist
+        obs[0] = twist.linear.x
+        obs[1] = twist.linear.y
+        obs[2] = twist.linear.z
+        obs[3] = twist.angular.x
+        obs[4] = twist.angular.y
+        obs[5] = twist.angular.z
+
+        obs[6:9]   = [0.0, 0.0, -1.0]
+        obs[9:13]  = self._build_pose_command()
+        obs[13:194] = self._build_lidar_scan()
+
+        return obs.reshape(1, -1)
+
+    # ── 速度限幅 ──────────────────────────────
+    def _clip_train(self, v: float, w: float) -> tuple:
+        v = float(np.clip(v, self.train_min_v, self.train_max_v))
+        w = float(np.clip(w, -self.train_max_w, self.train_max_w))
+        return v, w
+
+    def _clip_safe(self, v: float, w: float) -> tuple:
+        v = float(np.clip(v, self.safe_min_v, self.safe_max_v))
+        w = float(np.clip(w, -self.safe_max_w, self.safe_max_w))
+        if abs(v) < self.deadband_v:
+            v = 0.0
+        if abs(w) < self.deadband_w:
+            w = 0.0
+        return v, w
+
+    # ── 发布工具 ──────────────────────────────
+    def _publish_cmd(self, v: float, w: float):
+        cmd = Twist()
+        cmd.linear.x  = v
+        cmd.angular.z = w
+        self.cmd_pub.publish(cmd)
+
+    def _publish_stop(self):
+        self._publish_cmd(0.0, 0.0)
+
+    def _publish_active(self, active: bool):
+        self.active_pub.publish(Bool(data=active))
+
+    # ── 主控制循环 ────────────────────────────
+    def run(self):
+        rate = rospy.Rate(self.control_rate)
+        rospy.loginfo("[RLPlanner] 控制循环启动，频率 %.1f Hz", self.control_rate)
+
+        while not rospy.is_shutdown():
+
+            # ① 周期起点安全切换新路径（避免回调竞态）
+            with self._lock:
+                if self._pending_plan is not None:
+                    self.plan_msg      = self._pending_plan
+                    self._pending_plan = None
+
+            # ② 数据就绪检查
+            if not self._ready():
+                self._publish_stop()
+                self._publish_active(False)
+                rate.sleep()
+                continue
+
+            # ③ 到达终点检查
+            if self._goal_reached or self._check_goal_reached():
+                if not self._goal_reached:
+                    rospy.loginfo("[RLPlanner] 已到达目标点，停止输出速度指令。")
+                    self._goal_reached = True
+                self._publish_stop()
+                self._publish_active(False)
+                rate.sleep()
+                continue
+
+            # ④ 紧急停止检查（含冷却期）
+            if time.time() < self._emergency_until or self._check_emergency():
+                self._publish_stop()
+                self._publish_active(True)
+                rate.sleep()
+                continue
+
+            # ⑤ 推理 → 限幅 → 发布
+            try:
+                obs    = self._build_observation()
+                output = self.session.run(None, {self._input_name: obs})
+                action = output[0][0]
+
+                raw_v, raw_w = float(action[0]), float(action[1])
+                v, w = self._clip_train(raw_v, raw_w)
+                v, w = self._clip_safe(v, w)
+
+                self._publish_cmd(v, w)
+                self._publish_active(True)
+
+                rospy.logdebug(
+                    "[RLPlanner] raw(%.3f, %.3f) → safe(%.3f, %.3f)",
+                    raw_v, raw_w, v, w
+                )
+
+            except Exception as exc:
+                rospy.logerr_throttle(1.0, "[RLPlanner] 推理异常: %s", exc)
+                self._publish_stop()
+
+            rate.sleep()
+
+        # 退出前发布停止指令
+        self._publish_stop()
+        self._publish_active(False)
+        rospy.loginfo("[RLPlanner] 节点已关闭。")
+
+
+# ──────────────────────────────────────────────
+if __name__ == "__main__":
+    try:
+        node = RLPlannerNode()
+        node.run()
+    except rospy.ROSInterruptException:
+        pass

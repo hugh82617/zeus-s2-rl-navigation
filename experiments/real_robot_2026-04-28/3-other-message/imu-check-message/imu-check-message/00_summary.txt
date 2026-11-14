@@ -1,0 +1,7 @@
+========== IMU 检测开始 ==========
+检测时间: 2026年 04月 28日 星期二 17:10:00 CST
+保存目录: /home/ros/imu-check-message
+
+
+========== IMU 检测完成 ==========
+结果保存到: /home/ros/imu-check-message

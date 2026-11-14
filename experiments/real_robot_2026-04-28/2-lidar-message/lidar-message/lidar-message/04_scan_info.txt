@@ -1,0 +1,11 @@
+========== 4. /scan 话题详细信息 ==========
+Type: sensor_msgs/LaserScan
+
+Publishers: 
+ * /rplidarNode (http://192.168.1.102:34921/)
+
+Subscribers: 
+ * /relocalization (http://192.168.1.102:37767/)
+ * /move_base (http://192.168.1.102:44171/)
+
+

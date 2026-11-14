@@ -1,0 +1,17 @@
+<launch>
+  <!-- 可直接修改的参数文件 -->
+  <rosparam command="load" file="$(find rl_planner)/config/lidar_obs_single_frame.yaml" />
+
+  <node pkg="rl_planner"
+        type="lidar_obs_single_frame(2).py"
+        name="lidar_obs_single_frame"
+        output="screen">
+
+    <!-- 如果你不想用上面的 yaml，也可以直接在这里覆盖参数 -->
+    <!--
+    <param name="scan_topic" value="/scan_aligned" />
+    <param name="output_topic" value="/rl/lidar_181" />
+    <param name="max_distance" value="12.0" />
+    -->
+  </node>
+</launch>

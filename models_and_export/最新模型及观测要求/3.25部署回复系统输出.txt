@@ -1,0 +1,625 @@
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -n "action\|ActionTerm\|DifferentialDrive\|scale\|clip\|v_max\|w_max\|lin_vel\|ang_vel" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py | head -40
+270:    本体状态（lin_vel/ang_vel/gravity/pose_cmd）只保留当前帧，
+277:        base_lin_vel      = ObsTerm(func=mdp.base_lin_vel)
+278:        base_ang_vel      = ObsTerm(func=mdp.base_ang_vel)
+345:            "v_max":                 1.5,
+386:        params={"command_name": "pose_command", "clip": 0.2, "deadzone": 1e-4},
+401:        params={"command_name": "pose_command", "clip": 0.5},
+406:    action_smoothness = RewTerm(func=mdp.action_rate_l2, weight=-0.002)
+422:            "phi_scale":            1.0,
+475:            "v_scale":         0.30,    # m/s，OU 障碍物典型逼近速率
+542:            "delta_clip": 0.05,   # gap 变化量限幅（m/step）
+602:    actions:      ZeusS3ActionsCfgStage3      = ZeusS3ActionsCfgStage3()
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -n "decimation\|sim_dt\|dt\|control_freq\|policy_dt\|episode_length" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py | head -20
+346:            "dt":                    0.2,
+462:        params={"dt": 0.1, "smooth_alpha": 0.4},
+611:        self.sim.dt            = 0.005
+612:        self.decimation        = 20
+613:        self.episode_length_s  = 60.0
+614:        self.sim.render_interval = self.decimation
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -rn "lidar\|RayCaster\|ray_cast\|angle_min\|angle_max\|horizontal_fov\|num_rays\|mesh_ids_expr" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/ \
+  --include="*.py" | grep -v "__pycache__" | head -30
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:17:  [Change] 观测：lidar_scan（单帧 181 维）→ lidar_stack（3 帧 543 维，共 556 维）
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:48:from isaaclab.sensors import ContactSensorCfg, RayCasterCfg
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:49:from isaaclab.sensors.ray_caster import MultiMeshRayCasterCfg
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:50:from isaaclab.sensors.ray_caster.patterns import LidarPatternCfg
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:91:    MultiMeshRayCaster 的动态追踪功能兼容（track_mesh_transforms=True）。
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:172:    lidar = MultiMeshRayCasterCfg(
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:175:        offset=RayCasterCfg.OffsetCfg(
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:183:            horizontal_fov_range=(-135.0, 135.0),
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:194:            MultiMeshRayCasterCfg.RaycastTargetCfg(
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:220:        lidar_sensor_name="lidar",
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:222:        lidar_max_distance=12.0,
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:285:        # 替换 Stage 2A 的单帧 lidar_scan，不修改原函数
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:286:        lidar_stack = ObsTerm(
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:287:            func=obs_s3.lidar_stack_obs,
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:289:                "sensor_cfg":   SceneEntityCfg("lidar"),
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:414:            "sensor_cfg":           SceneEntityCfg("lidar"),
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:429:            "sensor_cfg":           SceneEntityCfg("lidar"),
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:445:            "sensor_cfg":           SceneEntityCfg("lidar"),
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:528:            "sensor_cfg":   SceneEntityCfg("lidar"),
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:24:              LiDAR 监控指标 near_wall_ratio/lidar_min_range_m 保留
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:101:       [F2] lidar update_period: 0→0.078s，对齐真机 12.85Hz 刷新
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:102:       [F3] lidar history_length: 3→1（低频下不需要堆帧，保留最新1帧即可）
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:103:       [F4] observation delay: 引入 78ms lidar 延迟（delay_steps=1 policy步，policy_dt=0.1s）
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:107:       [Fix1] lidar_obs_with_delay reset 首步：先清缓冲再读取，消除跨 episode 旧帧
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:207:from isaaclab.sensors import ContactSensorCfg, RayCasterCfg
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:208:from isaaclab.sensors.ray_caster import MultiMeshRayCasterCfg
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:209:from isaaclab.sensors.ray_caster.patterns import LidarPatternCfg
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:290:    lidar = MultiMeshRayCasterCfg(
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:293:        offset=RayCasterCfg.OffsetCfg(
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:301:            horizontal_fov_range=(-135.0, 135.0),
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -rn "class ActorCritic\|class Actor\|class Policy\|EmpiricalNormalization\|activation\|elu\|tanh\|trunk\|actor_hidden\|critic_hidden" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/ \
+  --include="*.py" 2>/dev/null | grep -v "__pycache__" | head -20
+
+# rsl_rl 的 actor_critic 定义
+find ~/work/IsaacLab -name "actor_critic.py" -o -name "ppo.py" 2>/dev/null | grep -v "__pycache__"
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/anymal_c/agents/rsl_rl_ppo_cfg.py:21:        actor_hidden_dims=[128, 128],
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/anymal_c/agents/rsl_rl_ppo_cfg.py:22:        critic_hidden_dims=[128, 128],
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/anymal_c/agents/rsl_rl_ppo_cfg.py:23:        activation="elu",
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/anymal_c/navigation_env_cfg.py:63:    class PolicyCfg(ObsGroup):
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/anymal_c/navigation_env_cfg.py:81:        func=mdp.position_command_error_tanh,
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/anymal_c/navigation_env_cfg.py:86:        func=mdp.position_command_error_tanh,
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py:276:    class PolicyCfg(ObsGroup):
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:70:            公式：relu(1-dist/d_near)^3，到点梯度最大
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:160:       [逻辑] need_turn=relu(heading_err-0.3rad) 门控，只在真正需要纠偏时激活：
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage1.py:376:    class PolicyCfg(ObsGroup):
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py:42:        actor_hidden_dims=[256, 256, 128],
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py:43:        critic_hidden_dims=[256, 256, 128],
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py:44:        activation="elu",
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py:107:        actor_hidden_dims=[512, 256, 128],
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py:108:        critic_hidden_dims=[512, 256, 128],
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py:109:        activation="elu",
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage2a.py:234:    class PolicyCfg(ObsGroup):
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg.py:228:    class PolicyCfg(ObsGroup):
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg.py:277:        func=nav_mdp.position_command_error_tanh,
+/home/gu/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/mdp/rewards_stage1.py:17:  position_tracking       tanh 核连续距离奖励，宏观引导    weight=+0.5
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -n "deterministic\|mean_action\|act_inference\|sample\|std\|noise\|eval_mode\|inference" \
+  ~/work/IsaacLab/scripts/reinforcement_learning/rsl_rl/play.py | head -20
+150:    # obtain the trained policy for inference
+151:    policy = runner.get_inference_policy(device=env.unwrapped.device)
+183:        # run everything in inference mode
+184:        with torch.inference_mode():
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ python3 -c "
+import torch
+ckpt = torch.load(
+  '/home/gu/work/IsaacLab/logs/rsl_rl/zeus_s3_navigation/2026-03-24_11-16-20/model_1200.pt',
+  map_location='cpu')
+if isinstance(ckpt, dict):
+    print('keys:', list(ckpt.keys()))
+    for k,v in ckpt.items():
+        if hasattr(v, 'keys'):
+            print(f'  {k}: {list(v.keys())[:8]}')
+        elif hasattr(v, 'shape'):
+            print(f'  {k}: shape={v.shape}')
+        else:
+            print(f'  {k}: {type(v)}')
+else:
+    print(type(ckpt))
+"
+keys: ['model_state_dict', 'optimizer_state_dict', 'iter', 'infos']
+  model_state_dict: ['std', 'actor.0.weight', 'actor.0.bias', 'actor.2.weight', 'actor.2.bias', 'actor.4.weight', 'actor.4.bias', 'actor.6.weight']
+  optimizer_state_dict: ['state', 'param_groups']
+  iter: <class 'int'>
+  infos: <class 'NoneType'>
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -n "normaliz\|obs_norm\|EmpiricalNorm\|running_mean\|Normaliz" \
+  ~/work/IsaacLab/scripts/reinforcement_learning/rsl_rl/play.py | head -20
+
+grep -rn "normaliz\|obs_norm" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py | head -10
+162:    # extract the normalizer
+163:    if hasattr(policy_nn, "actor_obs_normalizer"):
+164:        normalizer = policy_nn.actor_obs_normalizer
+165:    elif hasattr(policy_nn, "student_obs_normalizer"):
+166:        normalizer = policy_nn.student_obs_normalizer
+168:        normalizer = None
+172:    export_policy_as_jit(policy_nn, normalizer=normalizer, path=export_model_dir, filename="policy.pt")
+173:    export_policy_as_onnx(policy_nn, normalizer=normalizer, path=export_model_dir, filename="policy.onnx")
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ cat ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers.
+# SPDX-License-Identifier: BSD-3-Clause
+
+"""
+rsl_rl_ppo_cfg.py  --  Zeus S2/S3 PPO agent 配置
+==================================================
+部署文件名：rsl_rl_ppo_cfg.py
+
+版本历史：
+  V1    初始稳定版本
+  V20   新增 ZeusS2NavigationPPORunnerWithSymmetryCfg（左右镜像数据增强）
+  V23   新增 ZeusS3NavigationPPORunnerCfg / WithSymmetryCfg
+        Stage 3 关键变化：第一层 256->512，学习率 1e-3->2e-4，entropy 0.008->0.01
+"""
+
+from isaaclab.utils import configclass
+from isaaclab_rl.rsl_rl import (
+    RslRlOnPolicyRunnerCfg,
+    RslRlPpoActorCriticCfg,
+    RslRlPpoAlgorithmCfg,
+    RslRlSymmetryCfg,
+)
+
+from isaaclab_tasks.manager_based.navigation.mdp.symmetry.navigation import (
+    compute_symmetric_states,
+)
+
+
+@configclass
+class ZeusS2NavigationPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    """Stage 1/2 基础 PPO 配置（obs=194，网络 256/256/128）。"""
+
+    num_steps_per_env = 16
+    max_iterations    = 8000
+    save_interval     = 100
+    experiment_name   = "zeus_s2_navigation"
+
+    policy = RslRlPpoActorCriticCfg(
+        init_noise_std=0.5,
+        actor_obs_normalization=True,
+        critic_obs_normalization=True,
+        actor_hidden_dims=[256, 256, 128],
+        critic_hidden_dims=[256, 256, 128],
+        activation="elu",
+    )
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.008,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=1.0e-3,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+    )
+
+
+@configclass
+class ZeusS2NavigationPPORunnerWithSymmetryCfg(ZeusS2NavigationPPORunnerCfg):
+    """Stage 2A 左右镜像数据增强版（obs=194）。"""
+
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.008,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=1.0e-3,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+        symmetry_cfg=RslRlSymmetryCfg(
+            use_data_augmentation=True,
+            use_mirror_loss=False,
+            data_augmentation_func=compute_symmetric_states,
+        ),
+    )
+
+
+@configclass
+class ZeusS3NavigationPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    """Stage 3 基础 PPO 配置（obs=556，网络 512/256/128）。
+
+    第一层从 256 扩展到 512：obs 从 194 维涨到 556 维（约 2.87 倍），
+    若保持 256 会形成严重信息瓶颈，策略无法有效提取 3 帧 LiDAR 的时序模式。
+    后两层保持 256/128 不变，与 Stage 2A 拓扑一致，便于 load_stage3_from_stage2a 迁移。
+    学习率降低 5 倍（2e-4），防止 fine-tuning 过快覆盖 Stage 2A 已学到的知识。
+    experiment_name 改为 zeus_s3_navigation，日志在独立目录，不污染 Stage 2A。
+    """
+
+    num_steps_per_env = 16
+    max_iterations    = 8000
+    save_interval     = 100
+    experiment_name   = "zeus_s3_navigation"
+
+    policy = RslRlPpoActorCriticCfg(
+        init_noise_std=0.5,
+        actor_obs_normalization=True,
+        critic_obs_normalization=True,
+        actor_hidden_dims=[512, 256, 128],
+        critic_hidden_dims=[512, 256, 128],
+        activation="elu",
+    )
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.01,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=2.0e-4,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+    )
+
+
+@configclass
+class ZeusS3NavigationPPORunnerWithSymmetryCfg(ZeusS3NavigationPPORunnerCfg):
+    """Stage 3 左右镜像数据增强版（obs=556）。
+
+    镜像函数通过 obs 维度自动判断，对三帧 LiDAR 各自独立 flip，时间顺序不变。
+    """
+
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.01,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=2.0e-4,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+        symmetry_cfg=RslRlSymmetryCfg(
+            use_data_augmentation=True,
+            use_mirror_loss=False,
+            data_augmentation_func=compute_symmetric_states,
+        ),
+    )
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ grep -n "ZeusS3ActionsCfgStage3\|ZeusS2ActionsCfg\|class.*ActionsCfg\|DifferentialDrive\|scale\|v_range\|w_range\|clip_actions" \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py | head -30
+182:            vertical_fov_range=(0.0, 0.0),
+183:            horizontal_fov_range=(-135.0, 135.0),
+246:class ZeusS3ActionsCfgStage3:
+422:            "phi_scale":            1.0,
+475:            "v_scale":         0.30,    # m/s，OU 障碍物典型逼近速率
+602:    actions:      ZeusS3ActionsCfgStage3      = ZeusS3ActionsCfgStage3()
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ sed -n '170,210p' \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py
+    # LiDAR：动态障碍使用 RaycastTargetCfg + track_mesh_transforms=True
+    # 静态物体（墙壁、地面）使用字符串路径，自动转换为 track_mesh_transforms=False
+    lidar = MultiMeshRayCasterCfg(
+        update_period=0.078,
+        prim_path="{ENV_REGEX_NS}/Robot/base_footprint",
+        offset=RayCasterCfg.OffsetCfg(
+            pos=(0.35391, 0.0, 0.29331),
+            rot=(1.0, 0.0, 0.0, 0.0),
+        ),
+        ray_alignment="yaw",
+        pattern_cfg=LidarPatternCfg(
+            channels=1,
+            vertical_fov_range=(0.0, 0.0),
+            horizontal_fov_range=(-135.0, 135.0),
+            horizontal_res=1.5,
+        ),
+        max_distance=12.0,
+        mesh_prim_paths=[
+            "/World/ground",
+            "{ENV_REGEX_NS}/WallNorth",
+            "{ENV_REGEX_NS}/WallSouth",
+            "{ENV_REGEX_NS}/WallEast",
+            "{ENV_REGEX_NS}/WallWest",
+            # 动态障碍：启用位姿追踪，障碍物运动后 LiDAR 命中点自动更新
+            MultiMeshRayCasterCfg.RaycastTargetCfg(
+                prim_expr="{ENV_REGEX_NS}/MovingObstacle",
+                is_shared=False,
+                track_mesh_transforms=True,
+                merge_prim_meshes=True,
+            ),
+        ],
+        debug_vis=False,
+    )
+
+
+# ==============================================================================
+# 命令
+# ==============================================================================
+
+@configclass
+class ZeusS3CommandsCfgStage3:
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ python3 -c "
+import torch
+ckpt = torch.load(
+  '/home/gu/work/IsaacLab/logs/rsl_rl/zeus_s3_navigation/2026-03-24_11-16-20/model_1200.pt',
+  map_location='cpu')
+sd = ckpt['model_state_dict']
+for k,v in sd.items():
+    if hasattr(v,'shape'):
+        print(f'{k}: {list(v.shape)}')
+"
+std: [2]
+actor.0.weight: [512, 556]
+actor.0.bias: [512]
+actor.2.weight: [256, 512]
+actor.2.bias: [256]
+actor.4.weight: [128, 256]
+actor.4.bias: [128]
+actor.6.weight: [2, 128]
+actor.6.bias: [2]
+actor_obs_normalizer._mean: [1, 556]
+actor_obs_normalizer._var: [1, 556]
+actor_obs_normalizer._std: [1, 556]
+actor_obs_normalizer.count: []
+critic.0.weight: [512, 556]
+critic.0.bias: [512]
+critic.2.weight: [256, 512]
+critic.2.bias: [256]
+critic.4.weight: [128, 256]
+critic.4.bias: [128]
+critic.6.weight: [1, 128]
+critic.6.bias: [1]
+critic_obs_normalizer._mean: [1, 556]
+critic_obs_normalizer._var: [1, 556]
+critic_obs_normalizer._std: [1, 556]
+critic_obs_normalizer.count: []
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ sed -n '246,270p' \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py
+class ZeusS3ActionsCfgStage3:
+    diff_drive: DiffDriveActionCfg = DiffDriveActionCfg(
+        asset_name="robot",
+        wheel_fl_joint="wheel_fl_joint",
+        wheel_fr_joint="wheel_fr_joint",
+        wheel_rl_joint="wheel_rl_joint",
+        wheel_rr_joint="wheel_rr_joint",
+        wheel_radius=0.1525,
+        wheel_separation=0.482,
+        min_linear_speed=-0.2,
+        max_linear_speed=1.5,
+        max_angular_speed=3.0,
+        max_wheel_omega=20.0,
+    )
+
+
+# ==============================================================================
+# 观测（3 帧 LiDAR stack，共 556 维）
+# ==============================================================================
+
+@configclass
+class ZeusS3ObservationsCfgStage3:
+    """Stage 3 观测：本体状态 13 维（单帧）+ LiDAR 3 帧 543 维 = 556 维。
+
+    本体状态（lin_vel/ang_vel/gravity/pose_cmd）只保留当前帧，
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ cat ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/agents/rsl_rl_ppo_cfg.py
+# Copyright (c) 2022-2026, The Isaac Lab Project Developers.
+# SPDX-License-Identifier: BSD-3-Clause
+
+"""
+rsl_rl_ppo_cfg.py  --  Zeus S2/S3 PPO agent 配置
+==================================================
+部署文件名：rsl_rl_ppo_cfg.py
+
+版本历史：
+  V1    初始稳定版本
+  V20   新增 ZeusS2NavigationPPORunnerWithSymmetryCfg（左右镜像数据增强）
+  V23   新增 ZeusS3NavigationPPORunnerCfg / WithSymmetryCfg
+        Stage 3 关键变化：第一层 256->512，学习率 1e-3->2e-4，entropy 0.008->0.01
+"""
+
+from isaaclab.utils import configclass
+from isaaclab_rl.rsl_rl import (
+    RslRlOnPolicyRunnerCfg,
+    RslRlPpoActorCriticCfg,
+    RslRlPpoAlgorithmCfg,
+    RslRlSymmetryCfg,
+)
+
+from isaaclab_tasks.manager_based.navigation.mdp.symmetry.navigation import (
+    compute_symmetric_states,
+)
+
+
+@configclass
+class ZeusS2NavigationPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    """Stage 1/2 基础 PPO 配置（obs=194，网络 256/256/128）。"""
+
+    num_steps_per_env = 16
+    max_iterations    = 8000
+    save_interval     = 100
+    experiment_name   = "zeus_s2_navigation"
+
+    policy = RslRlPpoActorCriticCfg(
+        init_noise_std=0.5,
+        actor_obs_normalization=True,
+        critic_obs_normalization=True,
+        actor_hidden_dims=[256, 256, 128],
+        critic_hidden_dims=[256, 256, 128],
+        activation="elu",
+    )
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.008,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=1.0e-3,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+    )
+
+
+@configclass
+class ZeusS2NavigationPPORunnerWithSymmetryCfg(ZeusS2NavigationPPORunnerCfg):
+    """Stage 2A 左右镜像数据增强版（obs=194）。"""
+
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.008,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=1.0e-3,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+        symmetry_cfg=RslRlSymmetryCfg(
+            use_data_augmentation=True,
+            use_mirror_loss=False,
+            data_augmentation_func=compute_symmetric_states,
+        ),
+    )
+
+
+@configclass
+class ZeusS3NavigationPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    """Stage 3 基础 PPO 配置（obs=556，网络 512/256/128）。
+
+    第一层从 256 扩展到 512：obs 从 194 维涨到 556 维（约 2.87 倍），
+    若保持 256 会形成严重信息瓶颈，策略无法有效提取 3 帧 LiDAR 的时序模式。
+    后两层保持 256/128 不变，与 Stage 2A 拓扑一致，便于 load_stage3_from_stage2a 迁移。
+    学习率降低 5 倍（2e-4），防止 fine-tuning 过快覆盖 Stage 2A 已学到的知识。
+    experiment_name 改为 zeus_s3_navigation，日志在独立目录，不污染 Stage 2A。
+    """
+
+    num_steps_per_env = 16
+    max_iterations    = 8000
+    save_interval     = 100
+    experiment_name   = "zeus_s3_navigation"
+
+    policy = RslRlPpoActorCriticCfg(
+        init_noise_std=0.5,
+        actor_obs_normalization=True,
+        critic_obs_normalization=True,
+        actor_hidden_dims=[512, 256, 128],
+        critic_hidden_dims=[512, 256, 128],
+        activation="elu",
+    )
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.01,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=2.0e-4,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+    )
+
+
+@configclass
+class ZeusS3NavigationPPORunnerWithSymmetryCfg(ZeusS3NavigationPPORunnerCfg):
+    """Stage 3 左右镜像数据增强版（obs=556）。
+
+    镜像函数通过 obs 维度自动判断，对三帧 LiDAR 各自独立 flip，时间顺序不变。
+    """
+
+    algorithm = RslRlPpoAlgorithmCfg(
+        value_loss_coef=1.0,
+        use_clipped_value_loss=True,
+        clip_param=0.2,
+        entropy_coef=0.01,
+        num_learning_epochs=5,
+        num_mini_batches=4,
+        learning_rate=2.0e-4,
+        schedule="adaptive",
+        gamma=0.99,
+        lam=0.95,
+        desired_kl=0.01,
+        max_grad_norm=1.0,
+        symmetry_cfg=RslRlSymmetryCfg(
+            use_data_augmentation=True,
+            use_mirror_loss=False,
+            data_augmentation_func=compute_symmetric_states,
+        ),
+    )
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ sed -n '170,215p' \
+  ~/work/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/manager_based/navigation/config/zeus_s2/zeus_s2_env_cfg_stage3.py
+    # LiDAR：动态障碍使用 RaycastTargetCfg + track_mesh_transforms=True
+    # 静态物体（墙壁、地面）使用字符串路径，自动转换为 track_mesh_transforms=False
+    lidar = MultiMeshRayCasterCfg(
+        update_period=0.078,
+        prim_path="{ENV_REGEX_NS}/Robot/base_footprint",
+        offset=RayCasterCfg.OffsetCfg(
+            pos=(0.35391, 0.0, 0.29331),
+            rot=(1.0, 0.0, 0.0, 0.0),
+        ),
+        ray_alignment="yaw",
+        pattern_cfg=LidarPatternCfg(
+            channels=1,
+            vertical_fov_range=(0.0, 0.0),
+            horizontal_fov_range=(-135.0, 135.0),
+            horizontal_res=1.5,
+        ),
+        max_distance=12.0,
+        mesh_prim_paths=[
+            "/World/ground",
+            "{ENV_REGEX_NS}/WallNorth",
+            "{ENV_REGEX_NS}/WallSouth",
+            "{ENV_REGEX_NS}/WallEast",
+            "{ENV_REGEX_NS}/WallWest",
+            # 动态障碍：启用位姿追踪，障碍物运动后 LiDAR 命中点自动更新
+            MultiMeshRayCasterCfg.RaycastTargetCfg(
+                prim_expr="{ENV_REGEX_NS}/MovingObstacle",
+                is_shared=False,
+                track_mesh_transforms=True,
+                merge_prim_meshes=True,
+            ),
+        ],
+        debug_vis=False,
+    )
+
+
+# ==============================================================================
+# 命令
+# ==============================================================================
+
+@configclass
+class ZeusS3CommandsCfgStage3:
+    pose_command: Stage2ACommandCfg = Stage2ACommandCfg(
+        class_type=Stage2ACommand,
+        asset_name="robot",
+        simple_heading=True,
+        resampling_time_range=(999.0, 999.0),
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ python3 -c "
+import torch
+ckpt = torch.load(
+  '/home/gu/work/IsaacLab/logs/rsl_rl/zeus_s3_navigation/2026-03-24_11-16-20/model_1200.pt',
+  map_location='cpu')
+for k,v in ckpt['model_state_dict'].items():
+    if hasattr(v,'shape'):
+        print(f'{k}: {list(v.shape)}')
+"
+std: [2]
+actor.0.weight: [512, 556]
+actor.0.bias: [512]
+actor.2.weight: [256, 512]
+actor.2.bias: [256]
+actor.4.weight: [128, 256]
+actor.4.bias: [128]
+actor.6.weight: [2, 128]
+actor.6.bias: [2]
+actor_obs_normalizer._mean: [1, 556]
+actor_obs_normalizer._var: [1, 556]
+actor_obs_normalizer._std: [1, 556]
+actor_obs_normalizer.count: []
+critic.0.weight: [512, 556]
+critic.0.bias: [512]
+critic.2.weight: [256, 512]
+critic.2.bias: [256]
+critic.4.weight: [128, 256]
+critic.4.bias: [128]
+critic.6.weight: [1, 128]
+critic.6.bias: [1]
+critic_obs_normalizer._mean: [1, 556]
+critic_obs_normalizer._var: [1, 556]
+critic_obs_normalizer._std: [1, 556]
+critic_obs_normalizer.count: []
+(isaaclab) gu@gu-Z590:~/work/IsaacLab$ 
+
+

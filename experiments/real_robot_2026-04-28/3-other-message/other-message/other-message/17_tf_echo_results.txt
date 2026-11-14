@@ -1,0 +1,551 @@
+========== 12. TF 查询结果 ==========
+---------- base_footprint -> laser_link ----------
+At time 0.000
+- Translation: [0.354, 0.000, 0.425]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+At time 0.000
+- Translation: [0.370, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, 0.001]
+            in RPY (radian) [0.000, -0.000, 3.140]
+            in RPY (degree) [0.000, -0.000, 179.909]
+---------- base_link -> laser_link ----------
+Failure at 1777365305.620231583
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365305.620373524
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365306.605271438
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365307.605220014
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365308.605274800
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365309.606922485
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365310.605251378
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365311.605219247
+Exception thrown:"base_link" passed to lookupTransform argument target_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+---------- odom -> base_footprint ----------
+At time 1777365312.778
+- Translation: [1.042, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.112]
+            in RPY (degree) [0.000, 0.000, -178.305]
+At time 1777365313.483
+- Translation: [1.045, 0.001, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.014]
+            in RPY (radian) [0.000, 0.000, -3.113]
+            in RPY (degree) [0.000, 0.000, -178.353]
+At time 1777365314.478
+- Translation: [1.042, 0.002, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.016]
+            in RPY (radian) [0.000, 0.000, -3.110]
+            in RPY (degree) [0.000, 0.000, -178.178]
+At time 1777365315.473
+- Translation: [1.044, 0.001, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.112]
+            in RPY (degree) [0.000, 0.000, -178.330]
+At time 1777365316.462
+- Translation: [1.043, 0.003, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.016]
+            in RPY (radian) [0.000, 0.000, -3.110]
+            in RPY (degree) [0.000, 0.000, -178.200]
+At time 1777365317.456
+- Translation: [1.043, 0.002, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.111]
+            in RPY (degree) [0.000, 0.000, -178.233]
+At time 1777365318.451
+- Translation: [1.041, 0.001, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.112]
+            in RPY (degree) [0.000, 0.000, -178.314]
+At time 1777365319.514
+- Translation: [1.044, 0.002, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.112]
+            in RPY (degree) [0.000, 0.000, -178.291]
+---------- odom -> base_link ----------
+Failure at 1777365321.676310026
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365321.676524232
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365322.660173836
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365323.660324700
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365324.660201559
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365325.661460867
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365326.660150079
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+Failure at 1777365327.660098371
+Exception thrown:"base_link" passed to lookupTransform argument source_frame does not exist. 
+The current list of frames is:
+Frame car_base_link exists with parent base_footprint.
+Frame base_footprint exists with parent odom.
+Frame bracket_fl_link exists with parent car_base_link.
+Frame bracket_fr_link exists with parent car_base_link.
+Frame bracket_rl_link exists with parent car_base_link.
+Frame bracket_rr_link exists with parent car_base_link.
+Frame car_baffle_link exists with parent car_base_link.
+Frame car_roof_link exists with parent car_base_link.
+Frame car_stop_link exists with parent car_base_link.
+Frame imu_link exists with parent car_base_link.
+Frame laser_link exists with parent base_footprint.
+Frame radar_fl_link exists with parent car_base_link.
+Frame radar_fr_link exists with parent car_base_link.
+Frame radar_rl_link exists with parent car_base_link.
+Frame radar_rr_link exists with parent car_base_link.
+Frame odom exists with parent map.
+Frame wheel_fl_link exists with parent car_base_link.
+Frame wheel_fr_link exists with parent car_base_link.
+Frame wheel_rl_link exists with parent car_base_link.
+Frame wheel_rr_link exists with parent car_base_link.
+
+---------- map -> odom ----------
+At time 1777365328.877
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365329.635
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365330.639
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365331.641
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365332.643
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365333.634
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365334.636
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+At time 1777365335.638
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY (radian) [0.000, -0.000, 0.000]
+            in RPY (degree) [0.000, -0.000, 0.000]
+---------- map -> base_footprint ----------
+At time 1777365336.953
+- Translation: [1.047, -0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.111]
+            in RPY (degree) [0.000, 0.000, -178.251]
+At time 1777365337.525
+- Translation: [1.045, -0.001, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.112]
+            in RPY (degree) [0.000, 0.000, -178.284]
+At time 1777365338.513
+- Translation: [1.043, 0.002, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.111]
+            in RPY (degree) [0.000, 0.000, -178.227]
+At time 1777365339.508
+- Translation: [1.043, 0.001, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.111]
+            in RPY (degree) [0.000, 0.000, -178.268]
+At time 1777365340.503
+- Translation: [1.041, -0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.111]
+            in RPY (degree) [0.000, 0.000, -178.274]
+At time 1777365341.492
+- Translation: [1.042, 0.002, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.113]
+            in RPY (degree) [0.000, 0.000, -178.338]
+At time 1777365342.487
+- Translation: [1.043, 0.002, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.111]
+            in RPY (degree) [0.000, 0.000, -178.229]
+At time 1777365343.549
+- Translation: [1.043, 0.001, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.015]
+            in RPY (radian) [0.000, 0.000, -3.112]
+            in RPY (degree) [0.000, 0.000, -178.303]

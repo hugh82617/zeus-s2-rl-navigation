@@ -1,0 +1,1010 @@
+======================================================================
+端到端时延链路完整文字记录
+======================================================================
+
+试验编号：trial_001
+本文件按照传感延迟、观测组装延迟、推理延迟、控制发布延迟、执行响应延迟和端到端总响应事件进行总结。
+
+
+======================================================================
+一、传感延迟
+======================================================================
+
+话题：/diagnostics，样本数：11，平均ms：23.5406485471，中位数ms：4.40144538879，P95ms：166.442394257
+话题：/joint_states，样本数：106，平均ms：18.4643088647，中位数ms：8.05711746216，P95ms：48.4731197357
+话题：/laserpose，样本数：151，平均ms：136.881450944，中位数ms：125.971078873，P95ms：188.994169235
+话题：/move_base/DWAPlannerROS/cost_cloud，样本数：54，平均ms：1461.6041625，中位数ms：1104.42733765，P95ms：3627.14838982
+话题：/move_base/DWAPlannerROS/global_plan，样本数：98，平均ms：2150.42896173，中位数ms：2310.80389023，P95ms：4229.19344902
+话题：/move_base/DWAPlannerROS/local_plan，样本数：98，平均ms：35.3711673192，中位数ms：15.2966976166，P95ms：110.012531281
+话题：/move_base/DWAPlannerROS/trajectory_cloud，样本数：99，平均ms：115.920346193，中位数ms：33.5230827332，P95ms：410.727739334
+话题：/move_base/NavfnROS/plan，样本数：44，平均ms：192.685744979，中位数ms：45.7649230957，P95ms：741.781711578
+话题：/move_base/current_goal，样本数：1，平均ms：10.7574462891，中位数ms：10.7574462891，P95ms：10.7574462891
+话题：/move_base/feedback，样本数：100，平均ms：17.5107526779，中位数ms：13.0741596222，P95ms：43.9310073853
+话题：/move_base/global_costmap/costmap_updates，样本数：32，平均ms：34.2798084021，中位数ms：24.1053104401，P95ms：109.122037888
+话题：/move_base/global_costmap/footprint，样本数：32，平均ms：17.100147903，中位数ms：7.76791572571，P95ms：34.6450805664
+话题：/move_base/local_costmap/costmap，样本数：12，平均ms：29.3889045715，中位数ms：18.5213088989，P95ms：89.7953510284
+话题：/move_base/local_costmap/costmap_updates，样本数：5，平均ms：42.6237106323，中位数ms：40.9798622131，P95ms：89.9085998535
+话题：/move_base/local_costmap/footprint，样本数：52，平均ms：25.4374146461，中位数ms：16.2348747253，P95ms：63.2519721985
+话题：/move_base/status，样本数：54，平均ms：18.4927560665，中位数ms：8.76832008362，P95ms：31.0909748077
+话题：/move_base_simple/goal，样本数：1，平均ms：3.3004283905，中位数ms：3.3004283905，P95ms：3.3004283905
+话题：/odom，样本数：151，平均ms：138.236241625，中位数ms：128.544330597，P95ms：198.10795784
+话题：/rl/debug/obs0_181_scan_vis，样本数：105，平均ms：141.012300764，中位数ms：125.419616699，P95ms：238.209009171
+话题：/rl_local_goal_body_pose，样本数：148，平均ms：34.5160252339，中位数ms：12.7649307251，P95ms：182.473897934
+话题：/scan，样本数：151，平均ms：106.532360544，中位数ms：83.2633972168，P95ms：295.350313187
+话题：/scan_aligned，样本数：151，平均ms：103.376642758，中位数ms：86.1203670502，P95ms：195.029497147
+话题：/tf，样本数：2595，平均ms：301.549637341，中位数ms：133.608341217，P95ms：1147.07779884
+
+======================================================================
+二、观测组装延迟
+======================================================================
+
+链路：goal_body_to_obs556，样本数：105，平均ms：32.3463871366，中位数ms：30.4729938507，P95ms：93.0049419403
+链路：lidar181_to_lidar543，样本数：151，平均ms：34.9677430083，中位数ms：25.6550312042，P95ms：97.5289344788
+链路：lidar543_to_obs556，样本数：105，平均ms：34.0646721068，中位数ms：21.4459896088，P95ms：110.30292511
+链路：scan_aligned_to_lidar181，样本数：151，平均ms：49.1511142807，中位数ms：34.4829559326，P95ms：135.950803757
+链路：scan_to_scan_aligned，样本数：151，平均ms：35.7520690817，中位数ms：11.5749835968，P95ms：169.863939285
+链路：speed_feedback_to_obs556，样本数：105，平均ms：31.2413737887，中位数ms：31.3148498535，P95ms：80.4889202118
+
+======================================================================
+三、推理延迟
+======================================================================
+
+链路：lidar543_to_rl_cmd_vel，样本数：106，平均ms：35.3435705293，中位数ms：20.308971405，P95ms：107.206106186
+链路：obs556_to_rl_cmd_vel，样本数：105，平均ms：36.1031668527，中位数ms：25.5498886108，P95ms：97.9030132294
+
+======================================================================
+四、控制发布延迟
+======================================================================
+
+链路：rl_cmd_vel_to_raw_cmd_vel，样本数：210，平均ms：514.787893068，中位数ms：60.3969097137，P95ms：2648.55504036
+
+======================================================================
+五、执行响应延迟
+======================================================================
+
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：22.9630470276
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：21.0049152374
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：21.0540294647
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：69.4551467896
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：37.5101566315
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：6.19506835938
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：27.9130935669
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：1.51801109314
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：46.3199615479
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：36.7150306702
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：9.32717323303
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：0.401973724365
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：65.8810138702
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：2.50196456909
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：7.96699523926
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：8.25309753418
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：126.014947891
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：65.3350353241
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：40.7450199127
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：94.6841239929
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：21.094083786
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：33.9660644531
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：33.7040424347
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：13.1380558014
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：24.7280597687
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：20.4041004181
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：35.7010364532
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：18.5539722443
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：1.15203857422
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：24.8279571533
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：7.00283050537
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：3.42583656311
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：6.33406639099
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：51.7609119415
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：51.5930652618
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：19.553899765
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：58.5298538208
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：44.8307991028
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：0.882863998413
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：3.38912010193
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：65.2668476105
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：40.7629013062
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：37.1599197388
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：9.71007347107
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：8.46099853516
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：32.6941013336
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：1.14297866821
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：15.6099796295
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：18.1648731232
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：16.6318416595
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：66.6971206665
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：44.1689491272
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：16.489982605
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：3.40700149536
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：9.47117805481
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：34.2330932617
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：28.8550853729
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：28.557062149
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：48.2490062714
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：43.8289642334
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：11.0931396484
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：8.8632106781
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：54.4369220734
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：1.18494033813
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：45.5420017242
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：17.4181461334
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：1.44791603088
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：65.3100013733
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：47.7509498596
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：32.4079990387
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：8.21805000305
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：0.420093536377
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：41.0940647125
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：18.9199447632
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：7.85088539124
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：43.065071106
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：11.4440917969
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：49.674987793
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：102.900028229
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：58.6001873016
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：14.662027359
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：41.2781238556
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：41.0029888153
+控制话题：/rl_cmd_vel，状态：responded，响应延迟ms：4.44102287292
+控制话题：/raw_cmd_vel，状态：responded，响应延迟ms：43.879032135
+
+======================================================================
+六、端到端总响应事件
+======================================================================
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：80.6229114532
+  from_scan_aligned_to_response_ms：68.1419372559
+  from_lidar181_to_response_ms：52.9160499573
+  from_lidar543_to_response_ms：30.8430194855
+  from_obs556_to_response_ms：未记录
+  from_rl_cmd_to_response_ms：22.9630470276
+  from_raw_cmd_to_response_ms：67.4250125885
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：80.6229114532
+  from_scan_aligned_to_response_ms：68.1419372559
+  from_lidar181_to_response_ms：52.9160499573
+  from_lidar543_to_response_ms：30.8430194855
+  from_obs556_to_response_ms：21.5828418732
+  from_rl_cmd_to_response_ms：22.9630470276
+  from_raw_cmd_to_response_ms：21.0049152374
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：87.5849723816
+  from_scan_aligned_to_response_ms：22.6788520813
+  from_lidar181_to_response_ms：70.1410770416
+  from_lidar543_to_response_ms：70.8348751068
+  from_obs556_to_response_ms：37.4050140381
+  from_rl_cmd_to_response_ms：84.9449634552
+  from_raw_cmd_to_response_ms：21.0540294647
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：49.2191314697
+  from_scan_aligned_to_response_ms：71.5899467468
+  from_lidar181_to_response_ms：119.052171707
+  from_lidar543_to_response_ms：119.745969772
+  from_obs556_to_response_ms：86.3161087036
+  from_rl_cmd_to_response_ms：69.4551467896
+  from_raw_cmd_to_response_ms：69.9651241302
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：49.2191314697
+  from_scan_aligned_to_response_ms：71.5899467468
+  from_lidar181_to_response_ms：119.052171707
+  from_lidar543_to_response_ms：119.745969772
+  from_obs556_to_response_ms：86.3161087036
+  from_rl_cmd_to_response_ms：37.5101566315
+  from_raw_cmd_to_response_ms：69.9651241302
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：6.37912750244
+  from_scan_aligned_to_response_ms：71.5899467468
+  from_lidar181_to_response_ms：34.924030304
+  from_lidar543_to_response_ms：119.745969772
+  from_obs556_to_response_ms：33.7390899658
+  from_rl_cmd_to_response_ms：37.5101566315
+  from_raw_cmd_to_response_ms：6.19506835938
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：58.9990615845
+  from_scan_aligned_to_response_ms：37.1830463409
+  from_lidar181_to_response_ms：52.8171062469
+  from_lidar543_to_response_ms：51.6939163208
+  from_obs556_to_response_ms：39.2799377441
+  from_rl_cmd_to_response_ms：90.1300907135
+  from_raw_cmd_to_response_ms：27.9130935669
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：27.5030136108
+  from_scan_aligned_to_response_ms：37.1830463409
+  from_lidar181_to_response_ms：52.8171062469
+  from_lidar543_to_response_ms：51.6939163208
+  from_obs556_to_response_ms：39.2799377441
+  from_rl_cmd_to_response_ms：1.51801109314
+  from_raw_cmd_to_response_ms：27.9130935669
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：68.7639713287
+  from_scan_aligned_to_response_ms：79.7700881958
+  from_lidar181_to_response_ms：47.1169948578
+  from_lidar543_to_response_ms：46.9610691071
+  from_obs556_to_response_ms：46.8039512634
+  from_rl_cmd_to_response_ms：46.3199615479
+  from_raw_cmd_to_response_ms：69.8220729828
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：68.7639713287
+  from_scan_aligned_to_response_ms：79.7700881958
+  from_lidar181_to_response_ms：47.1169948578
+  from_lidar543_to_response_ms：46.9610691071
+  from_obs556_to_response_ms：46.8039512634
+  from_rl_cmd_to_response_ms：46.3199615479
+  from_raw_cmd_to_response_ms：36.7150306702
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：28.7370681763
+  from_scan_aligned_to_response_ms：49.9551296234
+  from_lidar181_to_response_ms：71.6800689697
+  from_lidar543_to_response_ms：71.524143219
+  from_obs556_to_response_ms：71.3670253754
+  from_rl_cmd_to_response_ms：9.32717323303
+  from_raw_cmd_to_response_ms：61.2781047821
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：38.0189418793
+  from_scan_aligned_to_response_ms：27.4789333344
+  from_lidar181_to_response_ms：1.42383575439
+  from_lidar543_to_response_ms：0.521898269653
+  from_obs556_to_response_ms：1.13797187805
+  from_rl_cmd_to_response_ms：0.401973724365
+  from_raw_cmd_to_response_ms：71.3768005371
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：104.875087738
+  from_scan_aligned_to_response_ms：94.3350791931
+  from_lidar181_to_response_ms：68.2799816132
+  from_lidar543_to_response_ms：67.3780441284
+  from_obs556_to_response_ms：67.9941177368
+  from_rl_cmd_to_response_ms：67.2581195831
+  from_raw_cmd_to_response_ms：65.8810138702
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：104.875087738
+  from_scan_aligned_to_response_ms：94.3350791931
+  from_lidar181_to_response_ms：68.2799816132
+  from_lidar543_to_response_ms：67.3780441284
+  from_obs556_to_response_ms：67.9941177368
+  from_rl_cmd_to_response_ms：67.2581195831
+  from_raw_cmd_to_response_ms：2.50196456909
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：66.174030304
+  from_scan_aligned_to_response_ms：60.8770847321
+  from_lidar181_to_response_ms：93.8560962677
+  from_lidar543_to_response_ms：9.29188728333
+  from_obs556_to_response_ms：8.14700126648
+  from_rl_cmd_to_response_ms：7.96699523926
+  from_raw_cmd_to_response_ms：15.9978866577
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：93.227148056
+  from_scan_aligned_to_response_ms：87.9302024841
+  from_lidar181_to_response_ms：34.8072052002
+  from_lidar543_to_response_ms：36.3450050354
+  from_obs556_to_response_ms：35.2001190186
+  from_rl_cmd_to_response_ms：35.0201129913
+  from_raw_cmd_to_response_ms：8.25309753418
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：137.429952621
+  from_scan_aligned_to_response_ms：227.499008179
+  from_lidar181_to_response_ms：254.666090012
+  from_lidar543_to_response_ms：256.203889847
+  from_obs556_to_response_ms：255.05900383
+  from_rl_cmd_to_response_ms：126.014947891
+  from_raw_cmd_to_response_ms：182.905912399
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：137.429952621
+  from_scan_aligned_to_response_ms：68.5551166534
+  from_lidar181_to_response_ms：67.9271221161
+  from_lidar543_to_response_ms：106.698989868
+  from_obs556_to_response_ms：122.935056686
+  from_rl_cmd_to_response_ms：126.014947891
+  from_raw_cmd_to_response_ms：65.3350353241
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：137.429952621
+  from_scan_aligned_to_response_ms：68.5551166534
+  from_lidar181_to_response_ms：67.9271221161
+  from_lidar543_to_response_ms：106.698989868
+  from_obs556_to_response_ms：46.3008880615
+  from_rl_cmd_to_response_ms：40.7450199127
+  from_raw_cmd_to_response_ms：65.3350353241
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：239.243030548
+  from_scan_aligned_to_response_ms：170.36819458
+  from_lidar181_to_response_ms：169.740200043
+  from_lidar543_to_response_ms：141.723155975
+  from_obs556_to_response_ms：148.113965988
+  from_rl_cmd_to_response_ms：142.558097839
+  from_raw_cmd_to_response_ms：94.6841239929
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：239.243030548
+  from_scan_aligned_to_response_ms：69.5021152496
+  from_lidar181_to_response_ms：37.1630191803
+  from_lidar543_to_response_ms：48.956155777
+  from_obs556_to_response_ms：67.96002388
+  from_rl_cmd_to_response_ms：70.1580047607
+  from_raw_cmd_to_response_ms：21.094083786
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：276.360988617
+  from_scan_aligned_to_response_ms：57.6751232147
+  from_lidar181_to_response_ms：74.2809772491
+  from_lidar543_to_response_ms：86.0741138458
+  from_obs556_to_response_ms：105.077981949
+  from_rl_cmd_to_response_ms：33.9660644531
+  from_raw_cmd_to_response_ms：58.2120418549
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：276.360988617
+  from_scan_aligned_to_response_ms：57.6751232147
+  from_lidar181_to_response_ms：74.2809772491
+  from_lidar543_to_response_ms：86.0741138458
+  from_obs556_to_response_ms：105.077981949
+  from_rl_cmd_to_response_ms：33.7040424347
+  from_raw_cmd_to_response_ms：58.2120418549
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：14.9490833282
+  from_scan_aligned_to_response_ms：14.2021179199
+  from_lidar181_to_response_ms：74.2809772491
+  from_lidar543_to_response_ms：21.8060016632
+  from_obs556_to_response_ms：105.077981949
+  from_rl_cmd_to_response_ms：33.7040424347
+  from_raw_cmd_to_response_ms：13.1380558014
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：76.9510269165
+  from_scan_aligned_to_response_ms：76.2741565704
+  from_lidar181_to_response_ms：74.9900341034
+  from_lidar543_to_response_ms：83.8780403137
+  from_obs556_to_response_ms：61.4051818848
+  from_rl_cmd_to_response_ms：24.7280597687
+  from_raw_cmd_to_response_ms：75.2100944519
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：105.201005936
+  from_scan_aligned_to_response_ms：104.52413559
+  from_lidar181_to_response_ms：28.4280776978
+  from_lidar543_to_response_ms：20.7431316376
+  from_obs556_to_response_ms：33.0719947815
+  from_rl_cmd_to_response_ms：52.9780387878
+  from_raw_cmd_to_response_ms：20.4041004181
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：87.5699520111
+  from_scan_aligned_to_response_ms：86.4119529724
+  from_lidar181_to_response_ms：18.385887146
+  from_lidar543_to_response_ms：15.1889324188
+  from_obs556_to_response_ms：34.8699092865
+  from_rl_cmd_to_response_ms：35.7010364532
+  from_raw_cmd_to_response_ms：127.687931061
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：120.090961456
+  from_scan_aligned_to_response_ms：44.615983963
+  from_lidar181_to_response_ms：50.9068965912
+  from_lidar543_to_response_ms：47.709941864
+  from_obs556_to_response_ms：67.3909187317
+  from_rl_cmd_to_response_ms：68.2220458984
+  from_raw_cmd_to_response_ms：18.5539722443
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：120.090961456
+  from_scan_aligned_to_response_ms：44.615983963
+  from_lidar181_to_response_ms：18.0778503418
+  from_lidar543_to_response_ms：17.8508758545
+  from_obs556_to_response_ms：4.7619342804
+  from_rl_cmd_to_response_ms：1.15203857422
+  from_raw_cmd_to_response_ms：1.57690048218
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：46.0269451141
+  from_scan_aligned_to_response_ms：60.350894928
+  from_lidar181_to_response_ms：90.0738239288
+  from_lidar543_to_response_ms：25.9668827057
+  from_obs556_to_response_ms：25.7799625397
+  from_rl_cmd_to_response_ms：73.1480121613
+  from_raw_cmd_to_response_ms：24.8279571533
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：46.0269451141
+  from_scan_aligned_to_response_ms：60.350894928
+  from_lidar181_to_response_ms：90.0738239288
+  from_lidar543_to_response_ms：25.9668827057
+  from_obs556_to_response_ms：25.7799625397
+  from_rl_cmd_to_response_ms：7.00283050537
+  from_raw_cmd_to_response_ms：24.8279571533
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：80.1649093628
+  from_scan_aligned_to_response_ms：94.4888591766
+  from_lidar181_to_response_ms：30.7869911194
+  from_lidar543_to_response_ms：60.1048469543
+  from_obs556_to_response_ms：59.9179267883
+  from_rl_cmd_to_response_ms：41.140794754
+  from_raw_cmd_to_response_ms：3.42583656311
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：51.5561103821
+  from_scan_aligned_to_response_ms：51.7890453339
+  from_lidar181_to_response_ms：34.4159603119
+  from_lidar543_to_response_ms：35.4800224304
+  from_obs556_to_response_ms：31.5091609955
+  from_rl_cmd_to_response_ms：6.33406639099
+  from_raw_cmd_to_response_ms：22.2580432892
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：97.1169471741
+  from_scan_aligned_to_response_ms：149.302005768
+  from_lidar181_to_response_ms：131.928920746
+  from_lidar543_to_response_ms：55.6070804596
+  from_obs556_to_response_ms：56.2810897827
+  from_rl_cmd_to_response_ms：103.847026825
+  from_raw_cmd_to_response_ms：51.7609119415
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：97.1169471741
+  from_scan_aligned_to_response_ms：149.302005768
+  from_lidar181_to_response_ms：131.928920746
+  from_lidar543_to_response_ms：55.6070804596
+  from_obs556_to_response_ms：56.2810897827
+  from_rl_cmd_to_response_ms：51.5930652618
+  from_raw_cmd_to_response_ms：51.7609119415
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：30.8909416199
+  from_scan_aligned_to_response_ms：35.4709625244
+  from_lidar181_to_response_ms：50.6069660187
+  from_lidar543_to_response_ms：19.7479724884
+  from_obs556_to_response_ms：56.2810897827
+  from_rl_cmd_to_response_ms：51.5930652618
+  from_raw_cmd_to_response_ms：19.553899765
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：107.695817947
+  from_scan_aligned_to_response_ms：112.275838852
+  from_lidar181_to_response_ms：94.9528217316
+  from_lidar543_to_response_ms：96.5528488159
+  from_obs556_to_response_ms：94.7527885437
+  from_rl_cmd_to_response_ms：58.5298538208
+  from_raw_cmd_to_response_ms：96.3587760925
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：45.0429916382
+  from_scan_aligned_to_response_ms：112.275838852
+  from_lidar181_to_response_ms：94.9528217316
+  from_lidar543_to_response_ms：96.5528488159
+  from_obs556_to_response_ms：94.7527885437
+  from_rl_cmd_to_response_ms：58.5298538208
+  from_raw_cmd_to_response_ms：44.8307991028
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：61.5880489349
+  from_scan_aligned_to_response_ms：58.1798553467
+  from_lidar181_to_response_ms：14.2090320587
+  from_lidar543_to_response_ms：42.9730415344
+  from_obs556_to_response_ms：20.0510025024
+  from_rl_cmd_to_response_ms：0.882863998413
+  from_raw_cmd_to_response_ms：3.55005264282
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：44.3279743195
+  from_scan_aligned_to_response_ms：105.468988419
+  from_lidar181_to_response_ms：4.41098213196
+  from_lidar543_to_response_ms：3.89313697815
+  from_obs556_to_response_ms：3.52001190186
+  from_rl_cmd_to_response_ms：48.1719970703
+  from_raw_cmd_to_response_ms：3.38912010193
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：109.784841537
+  from_scan_aligned_to_response_ms：170.925855637
+  from_lidar181_to_response_ms：69.86784935
+  from_lidar543_to_response_ms：69.3500041962
+  from_obs556_to_response_ms：68.9768791199
+  from_rl_cmd_to_response_ms：65.2668476105
+  from_raw_cmd_to_response_ms：68.8459873199
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：42.585849762
+  from_scan_aligned_to_response_ms：108.919858932
+  from_lidar181_to_response_ms：42.1578884125
+  from_lidar543_to_response_ms：47.5878715515
+  from_obs556_to_response_ms：59.180021286
+  from_rl_cmd_to_response_ms：40.7629013062
+  from_raw_cmd_to_response_ms：111.012935638
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：42.585849762
+  from_scan_aligned_to_response_ms：108.919858932
+  from_lidar181_to_response_ms：42.1578884125
+  from_lidar543_to_response_ms：47.5878715515
+  from_obs556_to_response_ms：59.180021286
+  from_rl_cmd_to_response_ms：40.7629013062
+  from_raw_cmd_to_response_ms：37.1599197388
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：42.585849762
+  from_scan_aligned_to_response_ms：108.919858932
+  from_lidar181_to_response_ms：17.657995224
+  from_lidar543_to_response_ms：16.8380737305
+  from_obs556_to_response_ms：59.180021286
+  from_rl_cmd_to_response_ms：9.71007347107
+  from_raw_cmd_to_response_ms：37.1599197388
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：42.585849762
+  from_scan_aligned_to_response_ms：108.919858932
+  from_lidar181_to_response_ms：17.657995224
+  from_lidar543_to_response_ms：16.8380737305
+  from_obs556_to_response_ms：59.180021286
+  from_rl_cmd_to_response_ms：9.71007347107
+  from_raw_cmd_to_response_ms：8.46099853516
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：62.0059967041
+  from_scan_aligned_to_response_ms：57.0759773254
+  from_lidar181_to_response_ms：71.7060565948
+  from_lidar543_to_response_ms：70.8861351013
+  from_obs556_to_response_ms：61.2509250641
+  from_rl_cmd_to_response_ms：32.6941013336
+  from_raw_cmd_to_response_ms：62.509059906
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：1.28293037415
+  from_scan_aligned_to_response_ms：57.0759773254
+  from_lidar181_to_response_ms：71.7060565948
+  from_lidar543_to_response_ms：70.8861351013
+  from_obs556_to_response_ms：21.2979316711
+  from_rl_cmd_to_response_ms：32.6941013336
+  from_raw_cmd_to_response_ms：1.14297866821
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：52.8569221497
+  from_scan_aligned_to_response_ms：47.0719337463
+  from_lidar181_to_response_ms：16.6039466858
+  from_lidar543_to_response_ms：22.1419334412
+  from_obs556_to_response_ms：17.5960063934
+  from_rl_cmd_to_response_ms：15.6099796295
+  from_raw_cmd_to_response_ms：40.0569438934
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：20.9980010986
+  from_scan_aligned_to_response_ms：19.819021225
+  from_lidar181_to_response_ms：43.1249141693
+  from_lidar543_to_response_ms：48.6629009247
+  from_obs556_to_response_ms：44.116973877
+  from_rl_cmd_to_response_ms：42.130947113
+  from_raw_cmd_to_response_ms：18.1648731232
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：76.0519504547
+  from_scan_aligned_to_response_ms：74.8729705811
+  from_lidar181_to_response_ms：98.1788635254
+  from_lidar543_to_response_ms：103.716850281
+  from_obs556_to_response_ms：99.170923233
+  from_rl_cmd_to_response_ms：16.6318416595
+  from_raw_cmd_to_response_ms：18.1939601898
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：124.555110931
+  from_scan_aligned_to_response_ms：123.376131058
+  from_lidar181_to_response_ms：58.0539703369
+  from_lidar543_to_response_ms：152.220010757
+  from_obs556_to_response_ms：147.67408371
+  from_rl_cmd_to_response_ms：65.1350021362
+  from_raw_cmd_to_response_ms：66.6971206665
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：169.239997864
+  from_scan_aligned_to_response_ms：168.06101799
+  from_lidar181_to_response_ms：44.2960262299
+  from_lidar543_to_response_ms：45.3028678894
+  from_obs556_to_response_ms：56.0209751129
+  from_rl_cmd_to_response_ms：44.1689491272
+  from_raw_cmd_to_response_ms：59.8220825195
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：37.3730659485
+  from_scan_aligned_to_response_ms：20.4010009766
+  from_lidar181_to_response_ms：44.2960262299
+  from_lidar543_to_response_ms：45.3028678894
+  from_obs556_to_response_ms：56.0209751129
+  from_rl_cmd_to_response_ms：44.1689491272
+  from_raw_cmd_to_response_ms：16.489982605
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：37.3730659485
+  from_scan_aligned_to_response_ms：20.4010009766
+  from_lidar181_to_response_ms：44.2960262299
+  from_lidar543_to_response_ms：4.86397743225
+  from_obs556_to_response_ms：56.0209751129
+  from_rl_cmd_to_response_ms：3.40700149536
+  from_raw_cmd_to_response_ms：16.489982605
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：82.4861526489
+  from_scan_aligned_to_response_ms：65.514087677
+  from_lidar181_to_response_ms：46.1690425873
+  from_lidar543_to_response_ms：49.9770641327
+  from_obs556_to_response_ms：45.4959869385
+  from_rl_cmd_to_response_ms：48.5200881958
+  from_raw_cmd_to_response_ms：9.47117805481
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：70.3270435333
+  from_scan_aligned_to_response_ms：54.2371273041
+  from_lidar181_to_response_ms：78.8569450378
+  from_lidar543_to_response_ms：81.5010070801
+  from_obs556_to_response_ms：82.7150344849
+  from_rl_cmd_to_response_ms：34.2330932617
+  from_raw_cmd_to_response_ms：82.9110145569
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：112.31303215
+  from_scan_aligned_to_response_ms：39.7019386292
+  from_lidar181_to_response_ms：74.6269226074
+  from_lidar543_to_response_ms：42.5519943237
+  from_obs556_to_response_ms：124.701023102
+  from_rl_cmd_to_response_ms：28.8550853729
+  from_raw_cmd_to_response_ms：124.897003174
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：112.31303215
+  from_scan_aligned_to_response_ms：39.7019386292
+  from_lidar181_to_response_ms：74.6269226074
+  from_lidar543_to_response_ms：42.5519943237
+  from_obs556_to_response_ms：124.701023102
+  from_rl_cmd_to_response_ms：28.8550853729
+  from_raw_cmd_to_response_ms：28.557062149
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：94.7639942169
+  from_scan_aligned_to_response_ms：106.346845627
+  from_lidar181_to_response_ms：71.8629360199
+  from_lidar543_to_response_ms：75.5150318146
+  from_obs556_to_response_ms：70.4870223999
+  from_rl_cmd_to_response_ms：48.2490062714
+  from_raw_cmd_to_response_ms：95.2019691467
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：94.7639942169
+  from_scan_aligned_to_response_ms：106.346845627
+  from_lidar181_to_response_ms：71.8629360199
+  from_lidar543_to_response_ms：75.5150318146
+  from_obs556_to_response_ms：70.4870223999
+  from_rl_cmd_to_response_ms：48.2490062714
+  from_raw_cmd_to_response_ms：43.8289642334
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：48.4430789948
+  from_scan_aligned_to_response_ms：139.467954636
+  from_lidar181_to_response_ms：104.984045029
+  from_lidar543_to_response_ms：31.2061309814
+  from_obs556_to_response_ms：103.608131409
+  from_rl_cmd_to_response_ms：11.0931396484
+  from_raw_cmd_to_response_ms：76.9500732422
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：28.9740562439
+  from_scan_aligned_to_response_ms：17.3990726471
+  from_lidar181_to_response_ms：33.2581996918
+  from_lidar543_to_response_ms：60.9471797943
+  from_obs556_to_response_ms：33.4911346436
+  from_rl_cmd_to_response_ms：40.8341884613
+  from_raw_cmd_to_response_ms：8.8632106781
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：109.255075455
+  from_scan_aligned_to_response_ms：131.270885468
+  from_lidar181_to_response_ms：60.9540939331
+  from_lidar543_to_response_ms：59.7801208496
+  from_obs556_to_response_ms：109.078884125
+  from_rl_cmd_to_response_ms：54.4369220734
+  from_raw_cmd_to_response_ms：59.464931488
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：50.4939556122
+  from_scan_aligned_to_response_ms：53.1599521637
+  from_lidar181_to_response_ms：60.9540939331
+  from_lidar543_to_response_ms：7.25507736206
+  from_obs556_to_response_ms：50.2519607544
+  from_rl_cmd_to_response_ms：54.4369220734
+  from_raw_cmd_to_response_ms：1.18494033813
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：98.9680290222
+  from_scan_aligned_to_response_ms：101.634025574
+  from_lidar181_to_response_ms：45.6800460815
+  from_lidar543_to_response_ms：55.7291507721
+  from_obs556_to_response_ms：46.7700958252
+  from_rl_cmd_to_response_ms：45.5420017242
+  from_raw_cmd_to_response_ms：49.6590137482
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：27.948141098
+  from_scan_aligned_to_response_ms：24.0731239319
+  from_lidar181_to_response_ms：45.6800460815
+  from_lidar543_to_response_ms：55.7291507721
+  from_obs556_to_response_ms：46.7700958252
+  from_rl_cmd_to_response_ms：45.5420017242
+  from_raw_cmd_to_response_ms：17.4181461334
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：3.65900993347
+  from_scan_aligned_to_response_ms：20.6398963928
+  from_lidar181_to_response_ms：15.3059959412
+  from_lidar543_to_response_ms：47.6229190826
+  from_obs556_to_response_ms：38.5670661926
+  from_rl_cmd_to_response_ms：1.44791603088
+  from_raw_cmd_to_response_ms：29.8550128937
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：123.521089554
+  from_scan_aligned_to_response_ms：119.132995605
+  from_lidar181_to_response_ms：135.168075562
+  from_lidar543_to_response_ms：167.484998703
+  from_obs556_to_response_ms：87.5461101532
+  from_rl_cmd_to_response_ms：121.309995651
+  from_raw_cmd_to_response_ms：65.3100013733
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：123.521089554
+  from_scan_aligned_to_response_ms：119.132995605
+  from_lidar181_to_response_ms：135.168075562
+  from_lidar543_to_response_ms：76.1799812317
+  from_obs556_to_response_ms：87.5461101532
+  from_rl_cmd_to_response_ms：121.309995651
+  from_raw_cmd_to_response_ms：47.7509498596
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：46.0350513458
+  from_scan_aligned_to_response_ms：45.0539588928
+  from_lidar181_to_response_ms：42.5820350647
+  from_lidar543_to_response_ms：34.0061187744
+  from_obs556_to_response_ms：87.5461101532
+  from_rl_cmd_to_response_ms：32.4079990387
+  from_raw_cmd_to_response_ms：47.7509498596
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：46.0350513458
+  from_scan_aligned_to_response_ms：45.0539588928
+  from_lidar181_to_response_ms：8.90302658081
+  from_lidar543_to_response_ms：34.0061187744
+  from_obs556_to_response_ms：12.5601291656
+  from_rl_cmd_to_response_ms：8.21805000305
+  from_raw_cmd_to_response_ms：47.7509498596
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：46.0350513458
+  from_scan_aligned_to_response_ms：45.0539588928
+  from_lidar181_to_response_ms：8.90302658081
+  from_lidar543_to_response_ms：34.0061187744
+  from_obs556_to_response_ms：12.5601291656
+  from_rl_cmd_to_response_ms：8.21805000305
+  from_raw_cmd_to_response_ms：0.420093536377
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：102.120876312
+  from_scan_aligned_to_response_ms：100.492954254
+  from_lidar181_to_response_ms：70.4870223999
+  from_lidar543_to_response_ms：67.5699710846
+  from_obs556_to_response_ms：129.996061325
+  from_rl_cmd_to_response_ms：41.0940647125
+  from_raw_cmd_to_response_ms：41.8338775635
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：40.0230884552
+  from_scan_aligned_to_response_ms：39.5309925079
+  from_lidar181_to_response_ms：70.4870223999
+  from_lidar543_to_response_ms：67.5699710846
+  from_obs556_to_response_ms：40.6019687653
+  from_rl_cmd_to_response_ms：41.0940647125
+  from_raw_cmd_to_response_ms：18.9199447632
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：83.6040973663
+  from_scan_aligned_to_response_ms：83.1120014191
+  from_lidar181_to_response_ms：52.1199703217
+  from_lidar543_to_response_ms：60.0180625916
+  from_obs556_to_response_ms：47.1708774567
+  from_rl_cmd_to_response_ms：84.6750736237
+  from_raw_cmd_to_response_ms：7.85088539124
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：46.3800430298
+  from_scan_aligned_to_response_ms：45.7739830017
+  from_lidar181_to_response_ms：48.0530261993
+  from_lidar543_to_response_ms：44.3561077118
+  from_obs556_to_response_ms：80.7900428772
+  from_rl_cmd_to_response_ms：43.065071106
+  from_raw_cmd_to_response_ms：46.8130111694
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：65.062046051
+  from_scan_aligned_to_response_ms：31.3229560852
+  from_lidar181_to_response_ms：96.626996994
+  from_lidar543_to_response_ms：113.64197731
+  from_obs556_to_response_ms：14.1961574554
+  from_rl_cmd_to_response_ms：11.4440917969
+  from_raw_cmd_to_response_ms：64.6760463715
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：64.2101764679
+  from_scan_aligned_to_response_ms：114.506959915
+  from_lidar181_to_response_ms：64.9151802063
+  from_lidar543_to_response_ms：63.8251304626
+  from_obs556_to_response_ms：97.3801612854
+  from_rl_cmd_to_response_ms：94.6280956268
+  from_raw_cmd_to_response_ms：49.674987793
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：152.93598175
+  from_scan_aligned_to_response_ms：129.240989685
+  from_lidar181_to_response_ms：124.809026718
+  from_lidar543_to_response_ms：105.695009232
+  from_obs556_to_response_ms：107.465028763
+  from_rl_cmd_to_response_ms：102.900028229
+  from_raw_cmd_to_response_ms：108.738183975
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：88.6762142181
+  from_scan_aligned_to_response_ms：87.8431797028
+  from_lidar181_to_response_ms：124.809026718
+  from_lidar543_to_response_ms：105.695009232
+  from_obs556_to_response_ms：107.465028763
+  from_rl_cmd_to_response_ms：102.900028229
+  from_raw_cmd_to_response_ms：58.6001873016
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：41.4588451385
+  from_scan_aligned_to_response_ms：40.0679111481
+  from_lidar181_to_response_ms：22.1288204193
+  from_lidar543_to_response_ms：16.7520046234
+  from_obs556_to_response_ms：15.7079696655
+  from_rl_cmd_to_response_ms：131.630897522
+  from_raw_cmd_to_response_ms：14.662027359
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：85.5770111084
+  from_scan_aligned_to_response_ms：84.1860771179
+  from_lidar181_to_response_ms：66.2469863892
+  from_lidar543_to_response_ms：60.8701705933
+  from_obs556_to_response_ms：59.8261356354
+  from_rl_cmd_to_response_ms：41.2781238556
+  from_raw_cmd_to_response_ms：58.7801933289
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：85.5770111084
+  from_scan_aligned_to_response_ms：84.1860771179
+  from_lidar181_to_response_ms：66.2469863892
+  from_lidar543_to_response_ms：60.8701705933
+  from_obs556_to_response_ms：59.8261356354
+  from_rl_cmd_to_response_ms：41.0029888153
+  from_raw_cmd_to_response_ms：58.7801933289
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/rl_cmd_vel，状态：responded
+  from_scan_to_response_ms：10.7371807098
+  from_scan_aligned_to_response_ms：11.4140510559
+  from_lidar181_to_response_ms：66.2469863892
+  from_lidar543_to_response_ms：60.8701705933
+  from_obs556_to_response_ms：59.8261356354
+  from_rl_cmd_to_response_ms：4.44102287292
+  from_raw_cmd_to_response_ms：10.5650424957
+  from_cmd_vel_to_response_ms：未记录
+
+控制话题：/raw_cmd_vel，状态：responded
+  from_scan_to_response_ms：94.6161746979
+  from_scan_aligned_to_response_ms：95.2930450439
+  from_lidar181_to_response_ms：62.8900527954
+  from_lidar543_to_response_ms：61.7079734802
+  from_obs556_to_response_ms：143.705129623
+  from_rl_cmd_to_response_ms：88.320016861
+  from_raw_cmd_to_response_ms：43.879032135
+  from_cmd_vel_to_response_ms：未记录
+
+
+======================================================================
+七、端到端时延结论
+======================================================================
+
+端到端时延链路由传感、观测组装、策略推理、控制发布和底盘执行响应共同构成。该文件已经将每个环节记录到的内容转化为文字说明。如果某一环节缺少样本，应解释为该环节在本次 trial 中未形成可配对消息，不能强行作为有效延迟证据。

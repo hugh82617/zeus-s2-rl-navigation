@@ -1,0 +1,30 @@
+========== /tf hz ==========
+subscribed to [/tf]
+average rate: 222.868
+	min: 0.000s max: 0.011s std dev: 0.00180s window: 210
+average rate: 222.046
+	min: 0.000s max: 0.011s std dev: 0.00199s window: 432
+average rate: 222.112
+	min: 0.000s max: 0.011s std dev: 0.00248s window: 653
+average rate: 221.924
+	min: 0.000s max: 0.011s std dev: 0.00283s window: 875
+average rate: 221.861
+	min: 0.000s max: 0.011s std dev: 0.00298s window: 1097
+average rate: 221.518
+	min: 0.000s max: 0.012s std dev: 0.00322s window: 1318
+average rate: 221.563
+	min: 0.000s max: 0.014s std dev: 0.00324s window: 1539
+average rate: 221.541
+	min: 0.000s max: 0.014s std dev: 0.00310s window: 1761
+average rate: 221.590
+	min: 0.000s max: 0.014s std dev: 0.00295s window: 1983
+average rate: 221.685
+	min: 0.000s max: 0.014s std dev: 0.00284s window: 2206
+average rate: 221.704
+	min: 0.000s max: 0.014s std dev: 0.00276s window: 2428
+average rate: 221.687
+	min: 0.000s max: 0.014s std dev: 0.00268s window: 2650
+average rate: 221.659
+	min: 0.000s max: 0.014s std dev: 0.00263s window: 2871
+average rate: 221.455
+	min: 0.000s max: 0.016s std dev: 0.00273s window: 3087

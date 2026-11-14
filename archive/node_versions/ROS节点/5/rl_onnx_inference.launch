@@ -1,0 +1,41 @@
+<launch>
+  <!--
+    注意：这是 Python3 / Miniconda 推理节点。
+    若直接 roslaunch 启动，请确保脚本 shebang 指向的 python3 环境里已安装：
+      rospy, onnxruntime, numpy
+
+    你也可以不用 roslaunch，而是直接：
+      /home/ros/miniconda3/envs/onnx_env/bin/python \
+        ~/catkin_ws/src/rl_planner/scripts/rl_onnx_inference_node.py
+  -->
+
+  <node pkg="rl_planner"
+        type="rl_onnx_inference_node.py"
+        name="rl_onnx_inference_node"
+        output="screen">
+
+    <param name="model_path" value="/mnt/data/model_1200_actor.onnx" />
+
+    <param name="input_name" value="obs" />
+    <param name="output_name" value="action" />
+
+    <param name="cmd_vel_in_topic" value="/raw_cmd_vel" />
+    <param name="goal_topic" value="/rl_local_goal_body" />
+    <param name="lidar_topic" value="/rl/lidar_543" />
+    <param name="cmd_vel_out_topic" value="/rl_cmd_vel" />
+    <param name="obs_pub_topic" value="/rl/obs_556" />
+
+    <param name="gravity_g" value="9.81" />
+    <param name="publish_obs" value="true" />
+    <param name="publish_debug_log" value="true" />
+    <param name="require_fresh_ms" value="500.0" />
+    <param name="zero_on_stale" value="true" />
+    <param name="run_on_any_update" value="true" />
+
+    <!-- 默认不裁剪动作；若后续需要可改成具体值 -->
+    <param name="clip_v_min" value="nan" />
+    <param name="clip_v_max" value="nan" />
+    <param name="clip_w_min" value="nan" />
+    <param name="clip_w_max" value="nan" />
+  </node>
+</launch>

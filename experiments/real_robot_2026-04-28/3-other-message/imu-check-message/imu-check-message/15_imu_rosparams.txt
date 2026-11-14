@@ -1,0 +1,22 @@
+========== 10. IMU 相关 ROS 参数 ==========
+
+---------- /launch_imu_node/imu_serial_port ----------
+/dev/imu
+
+---------- /rplidarNode/frame_id ----------
+laser_link
+
+---------- /rplidarNode/serial_baudrate ----------
+256000
+
+---------- /rplidarNode/serial_port ----------
+/dev/laser
+
+---------- /zeus_s2_driver/base_frame ----------
+base_footprint
+
+---------- /zeus_s2_driver/baud_rate ----------
+115200
+
+---------- /zeus_s2_driver/port_name ----------
+/dev/odom

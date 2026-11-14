@@ -1,0 +1,37 @@
+<launch>
+  <node pkg="rl_planner"
+        type="experiment_logger_with_obs556.py"
+        name="experiment_logger_with_obs556"
+        output="screen">
+
+    <!-- 模式与主控制链路 -->
+    <param name="active_mode_topic" value="/cmd_vel_switch/active_mode" />
+    <param name="goal_topic" value="/move_base/current_goal" />
+    <param name="pose_topic" value="/laserpose" />
+    <param name="speed_topic" value="/zeus_speed" />
+    <param name="imu_topic" value="/imu/data" />
+    <param name="dwa_status_topic" value="/move_base/status" />
+    <param name="rl_status_topic" value="/rl_local_goal_status" />
+    <param name="path_topic" value="/trajectory" />
+
+    <!-- 新增：记录推理节点真正输入模型的 556 维观测 -->
+    <param name="obs_topic" value="/rl/obs_556" />
+
+    <!-- 坐标系 -->
+    <param name="map_frame" value="map" />
+    <param name="robot_frame" value="base_footprint" />
+    <param name="tf_lookup_timeout" value="0.1" />
+
+    <!-- 保存路径与记录参数 -->
+    <param name="save_dir" value="/home/ros/save_dir" />
+    <param name="record_rate_hz" value="10.0" />
+    <param name="min_traj_dist" value="0.02" />
+    <param name="max_path_points" value="5000" />
+    <param name="path_clear_delay_sec" value="5.0" />
+    <param name="goal_reach_tol" value="0.25" />
+    <param name="goal_stamp_tol_sec" value="0.5" />
+
+    <!-- 合法模式 -->
+    <rosparam param="valid_modes">[rl, dwa]</rosparam>
+  </node>
+</launch>

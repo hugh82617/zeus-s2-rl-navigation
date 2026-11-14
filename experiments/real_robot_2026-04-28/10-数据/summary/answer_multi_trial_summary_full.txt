@@ -1,0 +1,577 @@
+======================================================================
+多次实验综合完整文字记录
+======================================================================
+
+当前完成 trial 数量：8
+每次 trial 从收到目标点信息开始，到车辆已经运动并稳定停止后结束。
+以下内容汇总所有 trial 的关键指标，用于回答多次实验后的频率、延迟和稳定性问题。
+
+
+======================================================================
+一、所有 trial 摘要
+======================================================================
+
+trial_001：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：29.7505911659
+  delay_cmd_response_median_ms：24.7280597687
+  delay_cmd_response_p95_ms：66.6971206665
+  delay_lidar181_to_lidar543_mean_ms：34.9677430083
+  delay_lidar543_to_obs556_mean_ms：34.0646721068
+  delay_obs556_to_rl_cmd_mean_ms：36.1031668527
+  delay_obs556_to_rl_cmd_median_ms：25.5498886108
+  delay_obs556_to_rl_cmd_p95_ms：97.9030132294
+  delay_raw_cmd_to_zeus_mean_ms：25.1645850685
+  delay_rl_cmd_to_raw_cmd_mean_ms：514.787893068
+  delay_rl_cmd_to_raw_cmd_median_ms：60.3969097137
+  delay_rl_cmd_to_raw_cmd_p95_ms：2648.55504036
+  delay_scan_to_scan_aligned_mean_ms：35.7520690817
+  duration_sec：10.5922608376
+  goal_reached_status_seen：True
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.333582841
+  hz_obs556：14.3430196567
+  hz_odom：14.2779661562
+  hz_raw_cmd_vel：20.0060263251
+  hz_rl_cmd_vel：14.3684468716
+  hz_scan：14.2846082389
+  hz_zeus_speed：19.9992552578
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：1
+
+trial_002：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：48.6125560368
+  delay_cmd_response_median_ms：32.3469638824
+  delay_cmd_response_p95_ms：181.519031525
+  delay_lidar181_to_lidar543_mean_ms：41.6969295898
+  delay_lidar543_to_obs556_mean_ms：48.2036484231
+  delay_obs556_to_rl_cmd_mean_ms：38.5176802194
+  delay_obs556_to_rl_cmd_median_ms：24.5399475098
+  delay_obs556_to_rl_cmd_p95_ms：122.510910034
+  delay_raw_cmd_to_zeus_mean_ms：29.6527501864
+  delay_rl_cmd_to_raw_cmd_mean_ms：41.831162411
+  delay_rl_cmd_to_raw_cmd_median_ms：38.9838218689
+  delay_rl_cmd_to_raw_cmd_p95_ms：97.8429317474
+  delay_scan_to_scan_aligned_mean_ms：85.7419300079
+  duration_sec：19.5977089405
+  goal_reached_status_seen：False
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.2872222542
+  hz_obs556：14.2811554457
+  hz_odom：14.2857470934
+  hz_raw_cmd_vel：19.995829645
+  hz_rl_cmd_vel：14.2967337269
+  hz_scan：14.2789879035
+  hz_zeus_speed：19.9890070018
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：2
+
+trial_003：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：64.2436217554
+  delay_cmd_response_median_ms：33.0679416656
+  delay_cmd_response_p95_ms：207.388162613
+  delay_lidar181_to_lidar543_mean_ms：54.9124077309
+  delay_lidar543_to_obs556_mean_ms：50.1263245126
+  delay_obs556_to_rl_cmd_mean_ms：86.373988545
+  delay_obs556_to_rl_cmd_median_ms：35.710811615
+  delay_obs556_to_rl_cmd_p95_ms：232.21206665
+  delay_raw_cmd_to_zeus_mean_ms：38.9692649071
+  delay_rl_cmd_to_raw_cmd_mean_ms：247.202221867
+  delay_rl_cmd_to_raw_cmd_median_ms：34.9509716034
+  delay_rl_cmd_to_raw_cmd_p95_ms：2049.96800423
+  delay_scan_to_scan_aligned_mean_ms：80.4897644366
+  duration_sec：48.1411209106
+  goal_reached_status_seen：True
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.3220208584
+  hz_obs556：12.9568336154
+  hz_odom：14.2602629166
+  hz_raw_cmd_vel：20.0125404301
+  hz_rl_cmd_vel：12.9933652236
+  hz_scan：14.2873450331
+  hz_zeus_speed：19.7302772503
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：3
+
+trial_004：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：82.4098143696
+  delay_cmd_response_median_ms：41.1281585693
+  delay_cmd_response_p95_ms：314.751148224
+  delay_lidar181_to_lidar543_mean_ms：51.6525351868
+  delay_lidar543_to_obs556_mean_ms：71.355970214
+  delay_obs556_to_rl_cmd_mean_ms：62.1410375056
+  delay_obs556_to_rl_cmd_median_ms：34.7249507904
+  delay_obs556_to_rl_cmd_p95_ms：185.294151306
+  delay_raw_cmd_to_zeus_mean_ms：24.6783186856
+  delay_rl_cmd_to_raw_cmd_mean_ms：270.166977317
+  delay_rl_cmd_to_raw_cmd_median_ms：40.12799263
+  delay_rl_cmd_to_raw_cmd_p95_ms：2225.95191002
+  delay_scan_to_scan_aligned_mean_ms：100.773747563
+  duration_sec：56.4781520367
+  goal_reached_status_seen：True
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.2741148072
+  hz_obs556：13.0142042355
+  hz_odom：14.2572963583
+  hz_raw_cmd_vel：20.002929096
+  hz_rl_cmd_vel：13.0299952836
+  hz_scan：14.1187718858
+  hz_zeus_speed：19.4577633694
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：4
+
+trial_005：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：112.873295794
+  delay_cmd_response_median_ms：46.8218326569
+  delay_cmd_response_p95_ms：421.913862228
+  delay_lidar181_to_lidar543_mean_ms：50.0138716751
+  delay_lidar543_to_obs556_mean_ms：56.6797159552
+  delay_obs556_to_rl_cmd_mean_ms：66.0998325057
+  delay_obs556_to_rl_cmd_median_ms：42.7961349487
+  delay_obs556_to_rl_cmd_p95_ms：218.593120575
+  delay_raw_cmd_to_zeus_mean_ms：23.1497809241
+  delay_rl_cmd_to_raw_cmd_mean_ms：279.51800879
+  delay_rl_cmd_to_raw_cmd_median_ms：38.8760566711
+  delay_rl_cmd_to_raw_cmd_p95_ms：2038.22088242
+  delay_scan_to_scan_aligned_mean_ms：86.1602083782
+  duration_sec：74.8526690006
+  goal_reached_status_seen：True
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.2777625917
+  hz_obs556：13.1452534108
+  hz_odom：14.2751667784
+  hz_raw_cmd_vel：20.0019523032
+  hz_rl_cmd_vel：13.1789959974
+  hz_scan：14.280460961
+  hz_zeus_speed：19.9809114159
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：5
+
+trial_006：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：63.7053110054
+  delay_cmd_response_median_ms：35.7201099396
+  delay_cmd_response_p95_ms：216.339826584
+  delay_lidar181_to_lidar543_mean_ms：55.5213863199
+  delay_lidar543_to_obs556_mean_ms：48.8875055236
+  delay_obs556_to_rl_cmd_mean_ms：49.5562526444
+  delay_obs556_to_rl_cmd_median_ms：30.5969715118
+  delay_obs556_to_rl_cmd_p95_ms：163.521051407
+  delay_raw_cmd_to_zeus_mean_ms：18.090151368
+  delay_rl_cmd_to_raw_cmd_mean_ms：631.948944365
+  delay_rl_cmd_to_raw_cmd_median_ms：44.6219444275
+  delay_rl_cmd_to_raw_cmd_p95_ms：4629.26411629
+  delay_scan_to_scan_aligned_mean_ms：57.0456339882
+  duration_sec：53.9083869457
+  goal_reached_status_seen：True
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.2811484754
+  hz_obs556：12.1878701078
+  hz_odom：14.3198302496
+  hz_raw_cmd_vel：20.0029426908
+  hz_rl_cmd_vel：12.2190931406
+  hz_scan：14.3319522795
+  hz_zeus_speed：20.0042614389
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：6
+
+trial_007：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：61.2278052352
+  delay_cmd_response_median_ms：31.1839580536
+  delay_cmd_response_p95_ms：202.60310173
+  delay_lidar181_to_lidar543_mean_ms：54.2998988595
+  delay_lidar543_to_obs556_mean_ms：55.9491069693
+  delay_obs556_to_rl_cmd_mean_ms：50.7968703836
+  delay_obs556_to_rl_cmd_median_ms：31.9578647614
+  delay_obs556_to_rl_cmd_p95_ms：187.587976456
+  delay_raw_cmd_to_zeus_mean_ms：35.8832189825
+  delay_rl_cmd_to_raw_cmd_mean_ms：48.0247292097
+  delay_rl_cmd_to_raw_cmd_median_ms：31.7029953003
+  delay_rl_cmd_to_raw_cmd_p95_ms：178.015947342
+  delay_scan_to_scan_aligned_mean_ms：64.7610284726
+  duration_sec：40.2298059464
+  goal_reached_status_seen：False
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.4068276275
+  hz_obs556：14.2673940201
+  hz_odom：14.4071343573
+  hz_raw_cmd_vel：20.0857504754
+  hz_rl_cmd_vel：14.2730474533
+  hz_scan：14.3737042624
+  hz_zeus_speed：19.9741507077
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：7
+
+trial_008：
+  auto_detected_mode：rl
+  delay_cmd_response_mean_ms：88.6491669549
+  delay_cmd_response_median_ms：43.6298847198
+  delay_cmd_response_p95_ms：349.426031113
+  delay_lidar181_to_lidar543_mean_ms：50.6935337021
+  delay_lidar543_to_obs556_mean_ms：67.113501685
+  delay_obs556_to_rl_cmd_mean_ms：83.8093216603
+  delay_obs556_to_rl_cmd_median_ms：47.7201938629
+  delay_obs556_to_rl_cmd_p95_ms：317.569971085
+  delay_raw_cmd_to_zeus_mean_ms：26.4946871263
+  delay_rl_cmd_to_raw_cmd_mean_ms：1202.32892291
+  delay_rl_cmd_to_raw_cmd_median_ms：64.0728473663
+  delay_rl_cmd_to_raw_cmd_p95_ms：7960.02197266
+  delay_scan_to_scan_aligned_mean_ms：105.356626941
+  duration_sec：46.9170980453
+  goal_reached_status_seen：True
+  goal_seen：True
+  hz_cmd_vel：未记录
+  hz_lidar543：14.2821761075
+  hz_obs556：14.2362599467
+  hz_odom：14.2197531676
+  hz_raw_cmd_vel：20.0053929265
+  hz_rl_cmd_vel：14.2411414561
+  hz_scan：14.3030750397
+  hz_zeus_speed：19.9521886374
+  max_abs_v_feedback：0.5
+  max_abs_w_feedback：0.5
+  robot_moved：True
+  stop_reason：auto_stop_by_vehicle_stable_zero_speed
+  trial_id：8
+
+
+======================================================================
+二、多次实验统计结果
+======================================================================
+
+指标：delay_cmd_response_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：68.9340202896
+  标准差：25.5174225716
+  中位数：64.2436217554
+  P90：88.6491669549
+  P95：112.873295794
+  最小值：29.7505911659
+  最大值：112.873295794
+
+指标：delay_cmd_response_median_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：36.078363657
+  标准差：7.30798936886
+  中位数：35.7201099396
+  P90：43.6298847198
+  P95：46.8218326569
+  最小值：24.7280597687
+  最大值：46.8218326569
+
+指标：delay_cmd_response_p95_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：245.079785585
+  标准差：111.43466077
+  中位数：216.339826584
+  P90：349.426031113
+  P95：421.913862228
+  最小值：66.6971206665
+  最大值：421.913862228
+
+指标：delay_lidar181_to_lidar543_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：49.2197882591
+  标准差：7.23442688408
+  中位数：51.6525351868
+  P90：54.9124077309
+  P95：55.5213863199
+  最小值：34.9677430083
+  最大值：55.5213863199
+
+指标：delay_lidar543_to_obs556_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：54.0475556737
+  标准差：11.6882931854
+  中位数：55.9491069693
+  P90：67.113501685
+  P95：71.355970214
+  最小值：34.0646721068
+  最大值：71.355970214
+
+指标：delay_obs556_to_rl_cmd_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：59.1747687896
+  标准差：18.9929805329
+  中位数：62.1410375056
+  P90：83.8093216603
+  P95：86.373988545
+  最小值：36.1031668527
+  最大值：86.373988545
+
+指标：delay_obs556_to_rl_cmd_median_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：34.1995954514
+  标准差：7.97672800608
+  中位数：34.7249507904
+  P90：42.7961349487
+  P95：47.7201938629
+  最小值：24.5399475098
+  最大值：47.7201938629
+
+指标：delay_obs556_to_rl_cmd_p95_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：190.649032593
+  标准差：68.2808093892
+  中位数：187.587976456
+  P90：232.21206665
+  P95：317.569971085
+  最小值：97.9030132294
+  最大值：317.569971085
+
+指标：delay_raw_cmd_to_zeus_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：27.7603446561
+  标准差：6.84325378191
+  中位数：26.4946871263
+  P90：35.8832189825
+  P95：38.9692649071
+  最小值：18.090151368
+  最大值：38.9692649071
+
+指标：delay_rl_cmd_to_raw_cmd_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：404.476107492
+  标准差：381.245923983
+  中位数：279.51800879
+  P90：631.948944365
+  P95：1202.32892291
+  最小值：41.831162411
+  最大值：1202.32892291
+
+指标：delay_rl_cmd_to_raw_cmd_median_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：44.2166924477
+  标准差：11.7795193835
+  中位数：40.12799263
+  P90：60.3969097137
+  P95：64.0728473663
+  最小值：31.7029953003
+  最大值：64.0728473663
+
+指标：delay_rl_cmd_to_raw_cmd_p95_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：2728.48010063
+  标准差：2552.39071671
+  中位数：2225.95191002
+  P90：4629.26411629
+  P95：7960.02197266
+  最小值：97.8429317474
+  最大值：7960.02197266
+
+指标：delay_scan_to_scan_aligned_mean_ms
+  trial 总数：8
+  有效样本数：8
+  平均值：77.0101261087
+  标准差：23.2721744027
+  中位数：85.7419300079
+  P90：100.773747563
+  P95：105.356626941
+  最小值：35.7520690817
+  最大值：105.356626941
+
+指标：duration_sec
+  trial 总数：8
+  有效样本数：8
+  平均值：43.8396503329
+  标准差：20.5530096856
+  中位数：48.1411209106
+  P90：56.4781520367
+  P95：74.8526690006
+  最小值：10.5922608376
+  最大值：74.8526690006
+
+指标：goal_reached_status_seen
+  trial 总数：8
+  有效样本数：8
+  平均值：0.75
+  标准差：0.462910049886
+  中位数：1.0
+  P90：1.0
+  P95：1.0
+  最小值：0.0
+  最大值：1.0
+
+指标：goal_seen
+  trial 总数：8
+  有效样本数：8
+  平均值：1.0
+  标准差：0.0
+  中位数：1.0
+  P90：1.0
+  P95：1.0
+  最小值：1.0
+  最大值：1.0
+
+指标：hz_lidar543
+  trial 总数：8
+  有效样本数：8
+  平均值：14.3081069454
+  标准差：0.0455129092383
+  中位数：14.2872222542
+  P90：14.333582841
+  P95：14.4068276275
+  最小值：14.2741148072
+  最大值：14.4068276275
+
+指标：hz_obs556
+  trial 总数：8
+  有效样本数：8
+  平均值：13.5539988048
+  标准差：0.828689890161
+  中位数：14.2362599467
+  P90：14.2811554457
+  P95：14.3430196567
+  最小值：12.1878701078
+  最大值：14.3430196567
+
+指标：hz_odom
+  trial 总数：8
+  有效样本数：8
+  平均值：14.2878946347
+  标准差：0.0558648954229
+  中位数：14.2779661562
+  P90：14.3198302496
+  P95：14.4071343573
+  最小值：14.2197531676
+  最大值：14.4071343573
+
+指标：hz_raw_cmd_vel
+  trial 总数：8
+  有效样本数：8
+  平均值：20.0141704865
+  标准差：0.0292960932123
+  中位数：20.0053929265
+  P90：20.0125404301
+  P95：20.0857504754
+  最小值：19.995829645
+  最大值：20.0857504754
+
+指标：hz_rl_cmd_vel
+  trial 总数：8
+  有效样本数：8
+  平均值：13.5751023941
+  标准差：0.820461877647
+  中位数：14.2411414561
+  P90：14.2967337269
+  P95：14.3684468716
+  最小值：12.2190931406
+  最大值：14.3684468716
+
+指标：hz_scan
+  trial 总数：8
+  有效样本数：8
+  平均值：14.2823632005
+  标准差：0.0737158975536
+  中位数：14.2873450331
+  P90：14.3319522795
+  P95：14.3737042624
+  最小值：14.1187718858
+  最大值：14.3737042624
+
+指标：hz_zeus_speed
+  trial 总数：8
+  有效样本数：8
+  平均值：19.8859768849
+  标准差：0.195016045479
+  中位数：19.9809114159
+  P90：19.9992552578
+  P95：20.0042614389
+  最小值：19.4577633694
+  最大值：20.0042614389
+
+指标：max_abs_v_feedback
+  trial 总数：8
+  有效样本数：8
+  平均值：0.5
+  标准差：0.0
+  中位数：0.5
+  P90：0.5
+  P95：0.5
+  最小值：0.5
+  最大值：0.5
+
+指标：max_abs_w_feedback
+  trial 总数：8
+  有效样本数：8
+  平均值：0.5
+  标准差：0.0
+  中位数：0.5
+  P90：0.5
+  P95：0.5
+  最小值：0.5
+  最大值：0.5
+
+指标：robot_moved
+  trial 总数：8
+  有效样本数：8
+  平均值：1.0
+  标准差：0.0
+  中位数：1.0
+  P90：1.0
+  P95：1.0
+  最小值：1.0
+  最大值：1.0
+
+指标：trial_id
+  trial 总数：8
+  有效样本数：8
+  平均值：4.5
+  标准差：2.44948974278
+  中位数：5.0
+  P90：7.0
+  P95：8.0
+  最小值：1.0
+  最大值：8.0
+
+
+======================================================================
+三、多次实验结论
+======================================================================
+
+多次实验结果用于降低单次运行中 ROS 调度、系统负载、目标点差异、障碍物状态或底盘响应波动造成的偶然误差。论文中建议优先使用多次实验的平均值、中位数和 P95 结果进行说明。平均值反映整体运行水平，中位数反映典型运行状态，P95 反映较不利情况下的系统表现。如果某些 trial 没有检测到目标点、车辆没有实际运动或控制模式不符合预期，应在论文分析时单独说明或剔除。

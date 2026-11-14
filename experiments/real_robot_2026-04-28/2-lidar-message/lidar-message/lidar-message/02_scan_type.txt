@@ -1,0 +1,2 @@
+========== 2. /scan 话题类型 ==========
+sensor_msgs/LaserScan

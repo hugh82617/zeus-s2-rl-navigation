@@ -1,0 +1,256 @@
+============================================================
+硬件与工控机运行状态快照
+============================================================
+
+[date]
+2026-04-28 21:30:11
+
+
+[hostname]
+ros
+
+
+[uname]
+Linux ros 5.4.0-150-generic #167~18.04.1-Ubuntu SMP Wed May 24 00:51:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+
+
+[ROS env]
+ROS_DISTRO=melodic
+ROS_MASTER_URI=http://localhost:11311
+
+[CPU / Memory]
+ 21:30:11 up  5:51,  1 user,  load average: 13.01, 15.76, 12.94
+
+              总计         已用        空闲      共享    缓冲/缓存    可用
+内存：        7.7G        2.8G        2.1G        637M        2.7G        4.0G
+交换：        2.0G          0B        2.0G
+
+
+[Disk]
+文件系统        容量  已用  可用 已用% 挂载点
+udev            3.9G     0  3.9G    0% /dev
+tmpfs           788M  1.8M  787M    1% /run
+/dev/sda2       117G   23G   89G   20% /
+tmpfs           3.9G     0  3.9G    0% /dev/shm
+tmpfs           5.0M  4.0K  5.0M    1% /run/lock
+tmpfs           3.9G     0  3.9G    0% /sys/fs/cgroup
+/dev/loop0       15M   15M     0  100% /snap/gnome-characters/399
+/dev/loop2      2.2M  2.2M     0  100% /snap/gnome-calculator/972
+/dev/loop4      395M  395M     0  100% /snap/mesa-2404/1165
+/dev/loop5      128K  128K     0  100% /snap/bare/5
+/dev/loop1       67M   67M     0  100% /snap/core24/1587
+/dev/loop3       67M   67M     0  100% /snap/core24/1499
+/dev/loop6       56M   56M     0  100% /snap/core18/2887
+/dev/loop7      1.8M  1.8M     0  100% /snap/gnome-system-monitor/193
+/dev/loop8      896K  896K     0  100% /snap/gnome-logs/129
+/dev/loop9      161M  161M     0  100% /snap/gnome-3-28-1804/116
+/dev/loop10     590M  590M     0  100% /snap/gnome-46-2404/117
+/dev/loop12      92M   92M     0  100% /snap/gtk-common-themes/1535
+/dev/loop13      45M   45M     0  100% /snap/gtk-common-themes/1440
+/dev/loop11     3.8M  3.8M     0  100% /snap/gnome-system-monitor/127
+/dev/loop14     9.5M  9.5M     0  100% /snap/gnome-characters/805
+/dev/loop15     165M  165M     0  100% /snap/gnome-3-28-1804/198
+/dev/loop16     1.0M  1.0M     0  100% /snap/gnome-logs/81
+/dev/loop17     4.3M  4.3M     0  100% /snap/gnome-calculator/544
+/dev/loop18     106M  106M     0  100% /snap/core/17292
+/dev/loop19     106M  106M     0  100% /snap/core/17284
+/dev/loop20     291M  291M     0  100% /snap/mesa-2404/887
+/dev/loop21     607M  607M     0  100% /snap/gnome-46-2404/153
+/dev/loop22      56M   56M     0  100% /snap/core18/2999
+/dev/sda1       511M  5.4M  506M    2% /boot/efi
+tmpfs           788M   64K  788M    1% /run/user/1000
+/dev/sdb1        57G   24K   54G    1% /media/ros/CLONE_BACKUP3
+
+
+[USB]
+Bus 001 Device 002: ID 8087:8000 Intel Corp. 
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 002: ID 0951:1666 Kingston Technology DataTraveler G4
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 009: ID 0573:1573 Zoran Co. Personal Media Division (Nogatech) 
+Bus 002 Device 022: ID 04d8:0053 Microchip Technology, Inc. 
+Bus 002 Device 007: ID 0403:6001 Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC
+Bus 002 Device 006: ID 05e3:0610 Genesys Logic, Inc. 4-port hub
+Bus 002 Device 005: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x UART Bridge / myAVR mySmartUSB light
+Bus 002 Device 003: ID 045e:028e Microsoft Corp. Xbox360 Controller
+Bus 002 Device 002: ID 1a86:55d4 QinHeng Electronics 
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+
+[Device files]
+crwxrwxrwx 1 root dialout 166, 0 4月  28 15:38 /dev/ttyACM0
+crwxrwxrwx 1 root dialout 188, 0 4月  28 21:15 /dev/ttyUSB0
+crwxrwxrwx 1 root dialout 188, 1 4月  28 15:38 /dev/ttyUSB1
+
+
+[Network]
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp2s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 88:03:8f:28:b4:25 brd ff:ff:ff:ff:ff:ff
+3: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 88:03:8f:28:b4:26 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.102/24 brd 192.168.1.255 scope global dynamic noprefixroute enp3s0
+       valid_lft 42939sec preferred_lft 42939sec
+    inet6 fe80::bbf6:bbab:567c:f15a/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+4: wlp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:22:fa:a6:42:12 brd ff:ff:ff:ff:ff:ff
+    inet 10.41.54.22/24 brd 10.41.54.255 scope global dynamic noprefixroute wlp4s0
+       valid_lft 2876sec preferred_lft 2876sec
+    inet6 2409:8907:537d:7a6:dc0e:64c3:6ba3:2754/64 scope global temporary dynamic 
+       valid_lft 6804sec preferred_lft 6804sec
+    inet6 2409:8907:537d:7a6:254c:53af:5b6f:be31/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 6804sec preferred_lft 6804sec
+    inet6 fe80::4566:88c9:f3d5:e717/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+
+[Related processes]
+root       102  0.0  0.0      0     0 ?        S    15:38   0:00 [ecryptfs-kthrea]
+avahi      760  0.0  0.0  47280  3664 ?        Ss   15:38   0:01 avahi-daemon: running [ros.local]
+message+   795  0.0  0.0  51648  6148 ?        Ss   15:38   0:10 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root       816  0.0  0.1 434328 10564 ?        Ssl  15:38   0:04 /usr/sbin/ModemManager --filter-policy=strict
+ros        911  0.0  0.1  77080  8244 ?        Ss   15:38   0:00 /lib/systemd/systemd --user
+ros        912  0.0  0.0 114036  2644 ?        S    15:38   0:00 (sd-pam)
+ros        932  0.0  0.0 283300  7048 ?        SLl  15:38   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+ros        936  0.0  0.0 206896  5920 tty1     Ssl+ 15:38   0:00 /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+ros        938 16.0  1.9 1018088 158472 tty1   Rl+  15:38  56:33 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+ros        982  0.0  0.0  52220  6764 ?        Ss   15:38   0:02 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ros        986  0.0  0.1 563068 14932 tty1     Sl+  15:38   0:00 /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
+ros       1120  0.0  0.0  11316   320 ?        Ss   15:38   0:00 /usr/bin/ssh-agent /usr/bin/im-launch env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+ros       1127  0.0  0.0 349304  6208 ?        Ssl  15:38   0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+ros       1132  0.0  0.0  50060  4228 ?        S    15:38   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+ros       1134  0.0  0.0 220788  6828 ?        Sl   15:38   0:02 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+ros       1158  6.2  4.0 3987832 326012 tty1   Sl+  15:38  22:00 /usr/bin/gnome-shell
+ros       1223  0.0  0.0 360484  6944 ?        Ssl  15:38   0:00 /usr/lib/gvfs/gvfsd
+ros       1228  0.0  0.0 416116  5328 ?        Sl   15:38   0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+ros       1239  2.1  0.2 1711780 21076 ?       S<l  15:38   7:38 /usr/bin/pulseaudio --start --log-target=syslog
+ros       1259  0.0  0.1 393704 11880 tty1     Sl   15:38   0:09 ibus-daemon --xim --panel disable
+ros       1263  0.0  0.1 311584  9004 tty1     Sl   15:38   0:00 /usr/lib/ibus/ibus-dconf
+ros       1265  0.0  0.2 358316 23448 tty1     Sl   15:38   0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ros       1267  0.0  0.0 273440  6096 ?        Sl   15:38   0:00 /usr/lib/ibus/ibus-portal
+ros       1275  0.0  0.0 266444  5384 ?        Ssl  15:38   0:00 /usr/libexec/xdg-permission-store
+ros       1282  0.0  0.2 689940 21356 ?        Sl   15:38   0:00 /usr/lib/gnome-shell/gnome-shell-calendar-server
+ros       1288  0.0  0.3 1367172 26444 ?       Ssl  15:38   0:00 /usr/lib/evolution/evolution-source-registry
+ros       1295  0.0  0.0 188040  5192 ?        Sl   15:38   0:00 /usr/lib/dconf/dconf-service
+ros       1303  0.0  0.4 785888 34256 ?        Sl   15:38   0:00 /usr/lib/gnome-online-accounts/goa-daemon
+ros       1307  0.0  0.1 375248  9220 ?        Ssl  15:38   0:01 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+ros       1313  0.0  0.0 283544  6768 ?        Ssl  15:38   0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ros       1317  0.0  0.0 373608  7620 ?        Ssl  15:38   0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ros       1322  0.0  0.0 270620  6052 ?        Ssl  15:38   0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+ros       1326  0.0  0.0 268824  5924 ?        Ssl  15:38   0:00 /usr/lib/gvfs/gvfs-goa-volume-monitor
+ros       1337  0.0  0.0 298260  7776 ?        Sl   15:38   0:00 /usr/lib/gnome-online-accounts/goa-identity-service
+ros       1343  0.0  0.2 586804 24164 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-power
+ros       1345  0.0  0.1 344132 10300 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+ros       1346  0.0  0.0 418136  6056 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ros       1348  0.0  0.0 270528  4936 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+ros       1352  0.0  0.1 447784  9920 tty1     Sl+  15:38   0:04 /usr/lib/gnome-settings-daemon/gsd-sharing
+ros       1364  0.0  0.3 490000 24376 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-xsettings
+ros       1369  0.0  0.1 446736  8296 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-smartcard
+ros       1372  0.0  0.1 329920  8416 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-sound
+ros       1376  0.0  0.2 424448 22120 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-wacom
+ros       1383  0.0  0.2 339748 21504 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-clipboard
+ros       1388  0.0  0.0 273092  6068 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+ros       1391  0.0  0.1 464684 13812 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-datetime
+ros       1395  0.0  0.3 663948 24752 tty1     Sl+  15:38   0:02 /usr/lib/gnome-settings-daemon/gsd-color
+ros       1397  0.0  0.2 502676 23696 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-keyboard
+ros       1398  0.0  0.0 359516  7588 tty1     Sl+  15:38   0:01 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+ros       1401  0.0  0.0 273096  5976 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-mouse
+ros       1408  0.0  0.3 791032 24384 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-media-keys
+ros       1427  0.0  0.1 503572 13064 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-printer
+ros       1453  0.0  0.0 271940  6524 tty1     Sl+  15:38   0:00 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+ros       1484  0.0  0.8 887416 68016 ?        Ssl  15:38   0:00 /usr/lib/evolution/evolution-calendar-factory
+ros       1547  0.0  0.1 235716  8944 tty1     Sl   15:38   0:01 /usr/lib/ibus/ibus-engine-simple
+ros       1554  0.0  0.7 1131076 63296 ?       Sl   15:38   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx1484x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/1484/2
+ros       1569  0.0  0.3 727692 24976 ?        Ssl  15:38   0:00 /usr/lib/evolution/evolution-addressbook-factory
+ros       1587  0.0  0.3 1014504 31304 ?       Sl   15:38   0:00 /usr/lib/evolution/evolution-addressbook-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx1569x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/1569/2
+root      1816  0.0  0.0   4516   748 ?        S    15:39   0:00 bpfilter_umh
+root      1867  0.0  0.0  73980  5360 ?        S<   15:39   0:00 /usr/NX/bin/nxexec --node --user ros --priority realtime --mode 0 --pid 47
+ros       1870 11.0  2.4 3027612 194876 ?      S<l  15:39  38:54 /usr/NX/bin/nxnode.bin
+ros       1888  0.0  0.4 1451744 35396 ?       Sl   15:39   0:05 /usr/NX/bin/nxrunner.bin --monitor --pid 986
+ros       2098  0.0  0.1 328324 11724 tty1     Sl   15:39   0:00 /usr/lib/ibus/ibus-engine-libpinyin --ibus
+ros       2200  0.0  0.3 613252 31772 tty1     Sl+  15:39   0:00 update-notifier
+ros       2202  0.0  2.0 1374792 167884 tty1   SLl+ 15:39   0:05 /usr/bin/gnome-software --gapplication-service
+ros       2462  0.0  0.4 799244 34880 tty1     Sl+  15:40   0:00 /usr/lib/deja-dup/deja-dup-monitor
+ros       3330  0.0  0.1 591448  9380 ?        Ssl  16:04   0:00 /usr/libexec/xdg-desktop-portal
+ros       3334  0.0  0.0 490276  6128 ?        Ssl  16:04   0:00 /usr/libexec/xdg-document-portal
+ros       3347  0.0  0.2 558256 19472 ?        Ssl  16:04   0:00 /usr/libexec/xdg-desktop-portal-gtk
+ros       3723  1.6  4.4 3509504 360060 tty1   Sl+  16:04   5:28 /usr/lib/firefox/firefox -new-window
+ros       3794  0.0  0.5 395260 45672 tty1     Sl+  16:04   0:00 /usr/lib/firefox/firefox -contentproc -parentBuildID 20230522134052 -prefsLen 27474 -prefMapSize 233348 -appDir /usr/lib/firefox/browser {d122518e-cc67-4f3b-a313-f2d049159c45} 3723 true socket
+ros       3812  0.0  1.6 2697556 132424 tty1   Sl+  16:04   0:02 /usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 27615 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {9586f480-812a-4161-8312-d0599a036bf2} 3723 true tab
+ros       3857  0.0  1.2 2634584 103008 tty1   Sl+  16:04   0:01 /usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 33001 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {8405a1d4-c47c-4d15-9194-cb714cf61307} 3723 true tab
+ros       3918  0.2  1.7 2657568 144276 tty1   Sl+  16:04   0:56 /usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 28570 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {d1a32bd1-9e1f-4e4b-bec3-9c0e502772e5} 3723 true tab
+ros       4059  5.2  0.8 858740 70272 ?        Ssl  16:04  16:59 /usr/lib/gnome-terminal/gnome-terminal-server
+ros       4068  0.0  0.1  67636  8376 pts/0    Ss+  16:04   0:00 bash
+ros       4169  0.0  0.1  67692  8528 pts/16   Ss   20:48   0:00 bash
+ros       4317  0.0  1.0 2589892 85632 tty1    Sl+  20:49   0:00 /usr/lib/firefox/firefox -contentproc -childID 285 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {4e2a5cc7-83d1-4bac-adfe-711f88233265} 3723 true tab
+ros       4604  0.0  0.9 2584208 76112 tty1    Sl+  20:53   0:00 /usr/lib/firefox/firefox -contentproc -childID 286 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {38aec79e-582d-469f-a00e-0d25527e3f11} 3723 true tab
+root      4716  0.0  0.0  73980  5420 ?        S<   20:58   0:00 /usr/NX/bin/nxexec --node --user ros --priority realtime --mode 0 --pid 24 -H 8
+ros       4719  2.1  1.1 2380580 94040 ?       S<l  20:58   0:40 /usr/NX/bin/nxnode.bin -H 8
+ros       4772 29.5  1.0 187476 86732 ?        S<l  20:58   9:25 /usr/NX/bin/nxcodec.bin
+ros       5221  0.0  0.0 200236  6620 ?        Ssl  16:07   0:00 /usr/lib/gvfs/gvfsd-metadata
+ros       5225  0.1  1.4 948556 120236 tty1    Sl+  16:07   0:25 gedit /home/ros/下载/12(12).txt
+ros       5724  0.3  1.1 1537052 93276 ?       Sl   16:07   1:08 /usr/bin/nautilus --gapplication-service
+ros       5727  0.0  0.0 363152  7712 ?        Sl   16:07   0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.22 /org/gtk/gvfs/exec_spaw/0
+ros       9681  0.0  0.9 2584208 76608 tty1    Sl+  21:09   0:00 /usr/lib/firefox/firefox -contentproc -childID 287 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {547eed8a-ff2d-4ded-b398-505b7e36caed} 3723 true tab
+ros      11663  0.0  0.1  67756  8436 pts/11   Ss   16:51   0:00 bash
+ros      12501  0.0  0.9 2584208 77800 tty1    Sl+  21:14   0:00 /usr/lib/firefox/firefox -contentproc -childID 288 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {96505df7-75d4-4138-90e8-b4706f7ee45d} 3723 true tab
+ros      13034  0.0  0.0  57596  6452 pts/1    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; roscore; exec bash
+ros      13061  0.3  0.8 409692 64828 pts/1    Sl+  21:15   0:02 /usr/bin/python /opt/ros/melodic/bin/roscore
+ros      13071  2.3  0.8 2467304 69164 ?       Ssl  21:15   0:21 /usr/bin/python /opt/ros/melodic/bin/rosmaster --core -p 11311 -w 3 __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/master.log
+ros      13089  0.4  0.1 366256 11560 ?        Ssl  21:15   0:03 /opt/ros/melodic/lib/rosout/rosout __name:=rosout __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/rosout-1.log
+ros      13130  0.0  0.0  57596  6448 pts/2    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch zeus_s2_bringup all_start.launch; exec bash
+ros      13181  0.3  0.8 408644 66088 pts/2    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch zeus_s2_bringup all_start.launch
+ros      13196  6.8  0.1 521200 13724 ?        Ssl  21:15   1:01 /home/ros/catkin_ws/devel/lib/zeus_s2_driver/zeus_s2_driver __name:=zeus_s2_driver __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/zeus_s2_driver-1.log
+ros      13197  0.1  0.1 433976 12476 ?        Ssl  21:15   0:01 /opt/ros/melodic/lib/joy/joy_node __name:=joy_node __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/joy_node-2.log
+ros      13204  0.1  0.1 368544 12480 ?        Ssl  21:15   0:01 /home/ros/catkin_ws/devel/lib/teleop_joy/teleop_joy /cmd_vel:=/teleop_cmd_vel __name:=teleop_joy __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/teleop_joy-3.log
+ros      13209  3.2  0.7 1213604 62376 ?       Ssl  21:15   0:29 python /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/scripts/cmd_vel_switch.py __name:=cmd_vel_switch __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/cmd_vel_switch-4.log
+ros      13215  1.6  0.2 879800 22104 ?        Ssl  21:15   0:14 /opt/ros/melodic/lib/nodelet/nodelet manager __name:=nodelet_manager __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/nodelet_manager-5.log
+ros      13217  0.2  0.1 613520 15892 ?        Ssl  21:15   0:02 /opt/ros/melodic/lib/nodelet/nodelet load yocs_velocity_smoother/VelocitySmootherNodelet nodelet_manager velocity_smoother/raw_cmd_vel:=raw_cmd_vel velocity_smoother/smooth_cmd_vel:=zeus_speed velocity_smoother/robot_cmd_vel:=robot_cmd_vel velocity_smoother/odometry:=odom __name:=velocity_smoother __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/velocity_smoother-6.log
+ros      13294  0.0  0.0  57592  6436 pts/3    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch rplidar_ros rplidar_a3.launch; exec bash
+ros      13345  0.3  0.8 408136 65588 pts/3    Sl+  21:15   0:02 /usr/bin/python /opt/ros/melodic/bin/roslaunch rplidar_ros rplidar_a3.launch
+ros      13361  5.5  0.1 442504 12660 ?        Rsl  21:15   0:49 /home/ros/catkin_ws/devel/lib/rplidar_ros/rplidarNode __name:=rplidarNode __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/rplidarNode-1.log
+ros      13410  0.0  0.0  57592  6448 pts/4    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch tf_pub tf_pub_2d.launch; exec bash
+ros      13461  0.3  0.8 408644 65872 pts/4    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch tf_pub tf_pub_2d.launch
+ros      13476  5.0  0.1 601272 13544 ?        Ssl  21:15   0:44 /home/ros/catkin_ws/devel/lib/tf_pub/tf_pub_node __name:=tf_pub_node __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/tf_pub_node-1.log
+ros      13477  0.1  0.2 519412 16700 ?        Ssl  21:15   0:01 /opt/ros/melodic/lib/map_server/map_server /home/ros/localization_ws/src/2dlocal/relocalization/data/map4.20.yaml __name:=map_server __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/map_server-2.log
+ros      13482  4.8  0.1 377756 13328 ?        Ssl  21:15   0:43 /opt/ros/melodic/lib/tf/static_transform_publisher 0.37 0.0 0 3.14 0.0 0.0 base_footprint laser_link 10 __name:=base_link_to_localizer __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/base_link_to_localizer-3.log
+ros      13484  4.8  0.1 377756 13248 ?        Ssl  21:15   0:43 /opt/ros/melodic/lib/tf/static_transform_publisher 0 0 0 0 0 0 map odom 10 __name:=map_to_odom __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/map_to_odom-4.log
+ros      13509  0.0  0.0  57596  6324 pts/5    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch relocalization relocalization.launch; exec bash
+ros      13560  0.3  0.8 408388 65744 pts/5    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch relocalization relocalization.launch
+ros      13592 22.1  0.2 379228 18908 ?        Ssl  21:15   3:17 /home/ros/localization_ws/devel/lib/relocalization/relocalization __name:=relocalization __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/relocalization-1.log
+ros      13623  0.0  0.0  57592  6504 pts/6    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch tf_pub move_base.launch; exec bash
+ros      13674  0.3  0.8 408388 65592 pts/6    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch tf_pub move_base.launch
+ros      13689 20.7  0.4 964560 40044 ?        Ssl  21:15   3:04 /opt/ros/melodic/lib/move_base/move_base cmd_vel:=/raw_cmd_vel_dwa odom:=odom __name:=move_base __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/move_base-1.log
+ros      13738  0.0  0.0  57596  6392 pts/7    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; rviz; exec bash
+ros      13789 49.2  2.6 2889576 214360 pts/7  Rl+  21:15   7:15 rviz
+ros      13820  0.0  0.0  57596  6500 pts/8    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch zeus_s2_description display.launch; exec bash
+ros      13870  0.3  0.8 408392 65820 pts/8    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch zeus_s2_description display.launch
+ros      13888  1.4  1.6 1841904 135392 ?      Ssl  21:15   0:12 python /opt/ros/melodic/lib/joint_state_publisher_gui/joint_state_publisher_gui __name:=joint_state_publisher_gui __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/joint_state_publisher_gui-1.log
+ros      13889  0.6  0.2 496912 17544 ?        Ssl  21:15   0:05 /opt/ros/melodic/lib/robot_state_publisher/robot_state_publisher __name:=robot_state_publisher __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/robot_state_publisher-2.log
+ros      13890 17.7  2.2 2445912 184348 ?      Ssl  21:15   2:35 /opt/ros/melodic/lib/rviz/rviz -d /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz __name:=rviz __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/rviz-3.log
+ros      13988  0.4  0.8 408392 65856 pts/16   Sl+  21:17   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch rl_planner experiment_logger_with_obs556.launch
+ros      14003 15.3  1.0 2553188 88696 ?       Ssl  21:17   1:56 python /home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py __name:=experiment_logger_with_obs556 __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/experiment_logger_with_obs556-1.log
+ros      14058  8.6  0.7 845484 63212 pts/10   Sl+  21:17   1:03 python /home/ros/catkin_ws/src/rl_planner/scripts/laser_switch.py
+ros      14070 28.1  0.8 1428080 64828 pts/12  Sl+  21:17   3:27 python /home/ros/catkin_ws/src/rl_planner/scripts/lidar_obs_single_frame.py
+ros      14106  3.6  0.7 1139444 61820 pts/13  Sl+  21:17   0:26 python /home/ros/catkin_ws/src/rl_planner/scripts/lidar_stack_543_node.py
+ros      16019 12.0  1.0 1627372 87884 pts/9   Sl+  21:22   0:55 python2 /home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py
+ros      16104 14.5  0.8 2171628 67484 pts/14  Sl+  21:22   1:05 /home/ros/miniconda3/envs/onnx_env/bin/python /home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py
+ros      16412  0.0  0.1 428460  9148 ?        Ssl  16:59   0:00 /usr/bin/zeitgeist-daemon
+ros      16420  0.0  0.1 326740 16012 ?        Ssl  16:59   0:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts
+ros      18892  0.0  0.1  67692  8540 pts/9    Ss   17:26   0:00 bash
+ros      19086  0.0  0.1  67692  8392 pts/10   Ss   17:26   0:00 bash
+ros      19107 31.3  0.7 553760 63616 pts/11   Sl+  21:30   0:00 python /home/ros/catkin_ws/src/rl_planner/scripts/multi_trial_four_folder_recorder_node.py
+ros      19146  0.0  0.0  79448  5888 pts/11   R+   21:30   0:00 ps aux
+ros      19234  0.0  0.1  67692  8400 pts/12   Ss   17:26   0:00 bash
+ros      19382  0.0  0.1  67692  8376 pts/13   Ss   17:26   0:00 bash
+ros      19541  0.0  0.1  67848  8484 pts/14   Ss   17:27   0:00 bash
+ros      19913  0.0  0.0 439040  7832 ?        Sl   17:27   0:00 /usr/lib/gvfs/gvfsd-network --spawner :1.22 /org/gtk/gvfs/exec_spaw/2
+ros      19933  0.0  0.0 449800  7392 ?        Sl   17:27   0:00 /usr/lib/gvfs/gvfsd-dnssd --spawner :1.22 /org/gtk/gvfs/exec_spaw/5
+ros      32757  0.0  0.1  67692  8956 pts/15   Ss+  20:26   0:00 bash
+

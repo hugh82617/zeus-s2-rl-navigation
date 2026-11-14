@@ -1,0 +1,37 @@
+base_local_planner: "rl_planner/RLLocalPlannerROS"
+
+RLLocalPlannerROS:
+  scan_topic: "/scan"
+  speed_topic: "/zeus_speed"
+  model_path: "/home/ros/catkin_ws/src/rl_planner/models/model_1200_actor.onnx"
+  input_name: "obs"
+  output_name: "action"
+  out_cmd_topic: "/rl_cmd_vel"
+  debug_goal_topic: "/rl_local_goal_body"
+  debug_goal_status_topic: "/rl_local_goal_status"
+  debug_lidar_topic: "/rl/lidar_543"
+  debug_obs_topic: "/rl/obs_556"
+
+  # 与 zeus_s2 DWA 对齐的目标容差（原值 0.5 太大）
+  lookahead_dist: 0.8
+  goal_tolerance: 0.1          # 原 0.5，改为与 DWA xy_goal_tolerance 对齐
+  yaw_goal_tolerance: 0.1      # 原 0.35(20度)，改为与 DWA yaw_goal_tolerance 对齐
+  tf_timeout: 0.1
+
+  max_distance: 12.0
+  range_min: 0.05
+  fov_min_deg: -135.0
+  fov_max_deg: 135.0
+  rotate_half_turn: true
+
+  # 速度限制与机器人实测对齐
+  use_action_clip: true
+  action_clip_low: -1.0
+  action_clip_hi: 1.0
+  linear_min: -0.2
+  linear_max: 0.3              # 原 0.5，改为与 DWA max_vel_x 对齐
+  angular_min: -0.5
+  angular_max: 0.8
+  action_bias_w: -0.13
+
+  publish_debug_topics: true

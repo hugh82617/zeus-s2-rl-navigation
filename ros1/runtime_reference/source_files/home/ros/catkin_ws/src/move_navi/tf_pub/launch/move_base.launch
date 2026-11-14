@@ -1,0 +1,38 @@
+<!-- 
+    ROS navigation stack with velocity smoother and safety (reactive) controller
+-->
+<launch>
+ 
+<!--
+  <node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find bringup)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/base_global_planner_param.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find bringup)/param/move_base_params.yaml" command="load" />
+  </node>
+-->
+
+
+  <arg name="cmd_vel_topic" default="/raw_cmd_vel_dwa" />
+  <arg name="odom_topic" default="odom" />
+  <arg name="move_forward_only" default="false"/>
+
+  <!-- move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find tf_pub)/param/nav/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find tf_pub)/param/nav/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find tf_pub)/param/nav/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tf_pub)/param/nav/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tf_pub)/param/nav/move_base_params.yaml" command="load" />
+    <rosparam file="$(find tf_pub)/param/nav/dwa_local_planner_params_burger.yaml" command="load" />
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
+  </node>
+
+
+</launch>

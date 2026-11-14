@@ -1,0 +1,20 @@
+<launch>
+  <node pkg="rl_planner"
+        type="rl_obs0_truth_validator.py"
+        name="rl_obs0_truth_validator"
+        output="screen">
+    <param name="obs0_topic" value="/rl/debug/obs0_181"/>
+    <param name="lidar543_topic" value="/rl/lidar_543"/>
+    <param name="stamps_topic" value="/rl/lidar_543_stamps"/>
+    <param name="header_topic" value="/rl/lidar_181_stamp"/>
+    <param name="obs_dim" value="181"/>
+    <param name="stack_dim" value="543"/>
+    <param name="sync_tolerance_sec" value="0.20"/>
+    <param name="source_stamp_tolerance_sec" value="0.20"/>
+    <param name="cache_size" value="50"/>
+    <param name="equal_eps" value="1e-6"/>
+    <param name="warn_eps" value="1e-4"/>
+    <param name="log_every" value="10"/>
+    <param name="out_path" value="$(env HOME)/rl_obs0_truth_check.txt"/>
+  </node>
+</launch>

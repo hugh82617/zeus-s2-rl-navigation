@@ -1,0 +1,41 @@
+<launch>
+  <!-- 方向校正后的逻辑雷达坐标系：在原始 laser_link 基础上绕 Z 轴旋转 180° -->
+  <node pkg="tf"
+        type="static_transform_publisher"
+        name="laser_link_aligned_tf"
+        args="0 0 0 3.1415926 0 0 laser_link laser_link_aligned 100" />
+
+  <!-- RL 当前真正吃进去的当前 181 维可视化节点 -->
+  <node pkg="rl_planner"
+        type="rl_obs0_181_rviz_node.py"
+        name="rl_obs0_181_rviz_node"
+        output="screen">
+    <param name="input_topic" value="/rl/debug/obs0_181" />
+    <param name="stamp_topic" value="/rl/lidar_181_stamp" />
+    <param name="repair_mask_topic" value="/rl/lidar_181_repair_mask" />
+    <param name="fill_stats_topic" value="/rl/lidar_181_fill_stats" />
+
+    <param name="output_scan_topic" value="/rl/debug/obs0_181_scan_vis" />
+    <param name="output_marker_topic" value="/rl/debug/obs0_181_markers_vis" />
+
+    <param name="output_frame_id" value="laser_link_aligned" />
+    <param name="num_beams" value="181" />
+    <param name="fov_min_deg" value="-135.0" />
+    <param name="fov_max_deg" value="135.0" />
+    <param name="max_distance" value="16.0" />
+    <param name="range_min" value="0.05" />
+    <param name="reverse_output" value="false" />
+    <param name="front_fov_deg" value="20.0" />
+
+    <param name="publish_scan" value="true" />
+    <param name="publish_markers" value="true" />
+    <param name="use_stamp_time" value="true" />
+    <param name="header_timeout_sec" value="0.5" />
+
+    <param name="points_scale" value="0.05" />
+    <param name="highlight_scale" value="0.10" />
+    <param name="text_scale" value="0.18" />
+    <param name="text_z" value="0.35" />
+    <param name="show_text" value="true" />
+  </node>
+</launch>

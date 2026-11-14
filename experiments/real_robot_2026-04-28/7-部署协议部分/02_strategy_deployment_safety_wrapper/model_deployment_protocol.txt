@@ -1,0 +1,50 @@
+============================================================
+策略部署协议与安全包裹：运行证据
+============================================================
+
+[training / finetune processes]
+
+[inference / deployment processes]
+message+   795  0.0  0.0  51648  6148 ?        Ss   15:38   0:10 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root       816  0.0  0.1 434328 10564 ?        Ssl  15:38   0:04 /usr/sbin/ModemManager --filter-policy=strict
+root       838  0.0  0.1 298248 10112 ?        Ssl  15:38   0:01 /usr/lib/policykit-1/polkitd --no-debug
+ros        982  0.0  0.0  52220  6764 ?        Ss   15:38   0:02 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ros       1132  0.0  0.0  50060  4228 ?        S    15:38   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+ros       1265  0.0  0.2 358316 23448 tty1     Sl   15:38   0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ros       1346  0.0  0.0 418136  6056 tty1     Sl+  15:38   0:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ros       1453  0.0  0.0 271940  6524 tty1     Sl+  15:38   0:00 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+ros       1484  0.0  0.8 887416 68016 ?        Ssl  15:38   0:00 /usr/lib/evolution/evolution-calendar-factory
+ros       1554  0.0  0.7 1131076 63296 ?       Sl   15:38   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx1484x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/1484/2
+ros       1569  0.0  0.3 727692 24976 ?        Ssl  15:38   0:00 /usr/lib/evolution/evolution-addressbook-factory
+ros       1587  0.0  0.3 1014504 31304 ?       Sl   15:38   0:00 /usr/lib/evolution/evolution-addressbook-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx1569x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/1569/2
+root      1816  0.0  0.0   4516   748 ?        S    15:39   0:00 bpfilter_umh
+ros       3794  0.0  0.5 395260 45672 tty1     Sl+  16:04   0:00 /usr/lib/firefox/firefox -contentproc -parentBuildID 20230522134052 -prefsLen 27474 -prefMapSize 233348 -appDir /usr/lib/firefox/browser {d122518e-cc67-4f3b-a313-f2d049159c45} 3723 true socket
+ros       3812  0.0  1.6 2697556 132424 tty1   Sl+  16:04   0:02 /usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 27615 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {9586f480-812a-4161-8312-d0599a036bf2} 3723 true tab
+ros       3857  0.0  1.2 2634584 103008 tty1   Sl+  16:04   0:01 /usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 33001 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {8405a1d4-c47c-4d15-9194-cb714cf61307} 3723 true tab
+ros       3918  0.2  1.7 2657568 144276 tty1   Sl+  16:04   0:56 /usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 28570 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {d1a32bd1-9e1f-4e4b-bec3-9c0e502772e5} 3723 true tab
+ros       4317  0.0  1.0 2589892 85632 tty1    Sl+  20:49   0:00 /usr/lib/firefox/firefox -contentproc -childID 285 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {4e2a5cc7-83d1-4bac-adfe-711f88233265} 3723 true tab
+ros       4604  0.0  0.9 2584208 76112 tty1    Sl+  20:53   0:00 /usr/lib/firefox/firefox -contentproc -childID 286 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {38aec79e-582d-469f-a00e-0d25527e3f11} 3723 true tab
+ros       5724  0.3  1.1 1537052 93276 ?       Sl   16:07   1:08 /usr/bin/nautilus --gapplication-service
+ros       9681  0.0  0.9 2584208 76608 tty1    Sl+  21:09   0:00 /usr/lib/firefox/firefox -contentproc -childID 287 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {547eed8a-ff2d-4ded-b398-505b7e36caed} 3723 true tab
+ros      12501  0.0  0.9 2584208 77800 tty1    Sl+  21:14   0:00 /usr/lib/firefox/firefox -contentproc -childID 288 -isForBrowser -prefsLen 28866 -prefMapSize 233348 -jsInitLen 238780 -parentBuildID 20230522134052 -appDir /usr/lib/firefox/browser {96505df7-75d4-4138-90e8-b4706f7ee45d} 3723 true tab
+ros      13204  0.1  0.1 368544 12480 ?        Ssl  21:15   0:01 /home/ros/catkin_ws/devel/lib/teleop_joy/teleop_joy /cmd_vel:=/teleop_cmd_vel __name:=teleop_joy __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/teleop_joy-3.log
+ros      13209  3.2  0.7 1213604 62376 ?       Ssl  21:15   0:29 python /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/scripts/cmd_vel_switch.py __name:=cmd_vel_switch __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/cmd_vel_switch-4.log
+ros      13217  0.2  0.1 613520 15892 ?        Ssl  21:15   0:02 /opt/ros/melodic/lib/nodelet/nodelet load yocs_velocity_smoother/VelocitySmootherNodelet nodelet_manager velocity_smoother/raw_cmd_vel:=raw_cmd_vel velocity_smoother/smooth_cmd_vel:=zeus_speed velocity_smoother/robot_cmd_vel:=robot_cmd_vel velocity_smoother/odometry:=odom __name:=velocity_smoother __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/velocity_smoother-6.log
+ros      13623  0.0  0.0  57592  6504 pts/6    Ss+  21:15   0:00 bash -c source ~/.bashrc; source /opt/ros/melodic/setup.bash; source /home/ros/catkin_ws/devel/setup.bash; roslaunch tf_pub move_base.launch; exec bash
+ros      13674  0.3  0.8 408388 65592 pts/6    Sl+  21:15   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch tf_pub move_base.launch
+ros      13689 20.7  0.4 964560 40044 ?        Ssl  21:15   3:04 /opt/ros/melodic/lib/move_base/move_base cmd_vel:=/raw_cmd_vel_dwa odom:=odom __name:=move_base __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/move_base-1.log
+ros      13890 17.7  2.2 2445912 184348 ?      Ssl  21:15   2:35 /opt/ros/melodic/lib/rviz/rviz -d /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz __name:=rviz __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/rviz-3.log
+ros      13988  0.4  0.8 408392 65856 pts/16   Sl+  21:17   0:03 /usr/bin/python /opt/ros/melodic/bin/roslaunch rl_planner experiment_logger_with_obs556.launch
+ros      14003 15.3  1.0 2553188 88696 ?       Ssl  21:17   1:57 python /home/ros/catkin_ws/src/rl_planner/scripts/experiment_logger_with_obs556.py __name:=experiment_logger_with_obs556 __log:=/home/ros/.ros/log/4617c84a-4304-11f1-b20d-c9d2db399832/experiment_logger_with_obs556-1.log
+ros      14058  8.5  0.7 845484 63212 pts/10   Sl+  21:17   1:03 python /home/ros/catkin_ws/src/rl_planner/scripts/laser_switch.py
+ros      14070 28.1  0.8 1428080 64828 pts/12  Sl+  21:17   3:27 python /home/ros/catkin_ws/src/rl_planner/scripts/lidar_obs_single_frame.py
+ros      14106  3.6  0.7 1139444 61820 pts/13  Sl+  21:17   0:26 python /home/ros/catkin_ws/src/rl_planner/scripts/lidar_stack_543_node.py
+ros      16019 12.0  1.0 1627372 87884 pts/9   Sl+  21:22   0:55 python2 /home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py
+ros      16104 14.4  0.8 2171628 67484 pts/14  Sl+  21:22   1:05 /home/ros/miniconda3/envs/onnx_env/bin/python /home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py
+ros      19107 27.5  0.7 554016 63700 pts/11   Sl+  21:30   0:01 python /home/ros/catkin_ws/src/rl_planner/scripts/multi_trial_four_folder_recorder_node.py
+
+[model files]
+-rw-rw-r-- 1 ros ros 14K 3月  27 14:27 /home/ros/catkin_ws/src/rl_planner/models/model_1200_actor.onnx
+
+[model md5]
+496e2beaadf2b6514d34589d46be6881  /home/ros/catkin_ws/src/rl_planner/models/model_1200_actor.onnx

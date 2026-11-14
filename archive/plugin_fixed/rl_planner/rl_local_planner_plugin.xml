@@ -1,0 +1,12 @@
+<library path="lib/librl_local_planner">
+  <class name="rl_planner/RLLocalPlannerROS"
+         type="rl_planner::RLLocalPlannerROS"
+         base_class_type="nav_core::BaseLocalPlanner">
+    <description>
+      RL local planner plugin for move_base. It consumes the global plan through
+      nav_core::BaseLocalPlanner::setPlan(), builds the RL local goal and LiDAR
+      observation inside the plugin, runs the ONNX actor policy in C++, and
+      returns cmd_vel directly from computeVelocityCommands().
+    </description>
+  </class>
+</library>

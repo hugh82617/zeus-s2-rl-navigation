@@ -1,0 +1,17 @@
+========== /tf info ==========
+Type: tf2_msgs/TFMessage
+
+Publishers: 
+ * /zeus_s2_driver (http://192.168.1.102:35407/)
+ * /tf_pub_node (http://192.168.1.102:45143/)
+ * /base_link_to_localizer (http://192.168.1.102:44879/)
+ * /map_to_odom (http://192.168.1.102:41077/)
+ * /robot_state_publisher (http://192.168.1.102:37275/)
+
+Subscribers: 
+ * /tf_pub_node (http://192.168.1.102:45143/)
+ * /move_base (http://192.168.1.102:44171/)
+ * /rviz_1777363569473012009 (http://192.168.1.102:44173/)
+ * /rviz (http://192.168.1.102:36677/)
+
+

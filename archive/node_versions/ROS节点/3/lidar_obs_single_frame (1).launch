@@ -1,0 +1,19 @@
+<launch>
+  <node pkg="rl_planner"
+        type="lidar_obs_adapter_single_frame.py"
+        name="lidar_obs_single_frame"
+        output="screen">
+
+    <param name="scan_topic" value="/scan_aligned" />
+    <param name="output_topic" value="/rl/lidar_181" />
+
+    <param name="fov_min_deg" value="-135.0" />
+    <param name="fov_max_deg" value="135.0" />
+    <param name="num_beams" value="181" />
+    <param name="max_distance" value="16.0" />
+
+    <param name="use_linear_interpolation" value="true" />
+    <param name="reverse_output" value="false" />
+    <param name="publish_debug_info" value="true" />
+  </node>
+</launch>

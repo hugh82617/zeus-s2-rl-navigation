@@ -1,0 +1,788 @@
+========== 11. IMU / odom / localization 相关 ROS 参数 ==========
+
+---------- /laser_pose ----------
+1
+
+---------- /move_base/DWAPlannerROS/acc_lim_theta ----------
+5.0
+
+---------- /move_base/DWAPlannerROS/acc_lim_trans ----------
+0.1
+
+---------- /move_base/DWAPlannerROS/acc_lim_x ----------
+2.5
+
+---------- /move_base/DWAPlannerROS/acc_lim_y ----------
+0.0
+
+---------- /move_base/DWAPlannerROS/angular_sim_granularity ----------
+0.1
+
+---------- /move_base/DWAPlannerROS/controller_frequency ----------
+10.0
+
+---------- /move_base/DWAPlannerROS/forward_point_distance ----------
+0.352
+
+---------- /move_base/DWAPlannerROS/goal_distance_bias ----------
+20.0
+
+---------- /move_base/DWAPlannerROS/latch_xy_goal_tolerance ----------
+false
+
+---------- /move_base/DWAPlannerROS/max_scaling_factor ----------
+0.2
+
+---------- /move_base/DWAPlannerROS/max_vel_theta ----------
+0.9
+
+---------- /move_base/DWAPlannerROS/max_vel_trans ----------
+0.6
+
+---------- /move_base/DWAPlannerROS/max_vel_x ----------
+0.3
+
+---------- /move_base/DWAPlannerROS/max_vel_y ----------
+0.0
+
+---------- /move_base/DWAPlannerROS/min_vel_theta ----------
+0.5
+
+---------- /move_base/DWAPlannerROS/min_vel_trans ----------
+0.0
+
+---------- /move_base/DWAPlannerROS/min_vel_x ----------
+0.0
+
+---------- /move_base/DWAPlannerROS/min_vel_y ----------
+0.0
+
+---------- /move_base/DWAPlannerROS/occdist_scale ----------
+0.01
+
+---------- /move_base/DWAPlannerROS/oscillation_reset_angle ----------
+0.2
+
+---------- /move_base/DWAPlannerROS/oscillation_reset_dist ----------
+0.05
+
+---------- /move_base/DWAPlannerROS/path_distance_bias ----------
+50.0
+
+---------- /move_base/DWAPlannerROS/prune_plan ----------
+false
+
+---------- /move_base/DWAPlannerROS/publish_cost_grid_pc ----------
+true
+
+---------- /move_base/DWAPlannerROS/publish_traj_pc ----------
+true
+
+---------- /move_base/DWAPlannerROS/restore_defaults ----------
+false
+
+---------- /move_base/DWAPlannerROS/scaling_speed ----------
+0.25
+
+---------- /move_base/DWAPlannerROS/sim_granularity ----------
+0.025
+
+---------- /move_base/DWAPlannerROS/sim_time ----------
+1.5
+
+---------- /move_base/DWAPlannerROS/stop_time_buffer ----------
+0.2
+
+---------- /move_base/DWAPlannerROS/theta_stopped_vel ----------
+0.1
+
+---------- /move_base/DWAPlannerROS/trans_stopped_vel ----------
+0.1
+
+---------- /move_base/DWAPlannerROS/twirling_scale ----------
+0.0
+
+---------- /move_base/DWAPlannerROS/use_dwa ----------
+true
+
+---------- /move_base/DWAPlannerROS/vth_samples ----------
+40
+
+---------- /move_base/DWAPlannerROS/vx_samples ----------
+20
+
+---------- /move_base/DWAPlannerROS/vy_samples ----------
+1
+
+---------- /move_base/DWAPlannerROS/xy_goal_tolerance ----------
+0.1
+
+---------- /move_base/DWAPlannerROS/yaw_goal_tolerance ----------
+0.1
+
+---------- /move_base/aggressive_reset/layer_names ----------
+[obstacle_layer]
+
+
+---------- /move_base/aggressive_reset/reset_distance ----------
+3.0
+
+---------- /move_base/base_global_planner ----------
+navfn/NavfnROS
+
+---------- /move_base/base_local_planner ----------
+dwa_local_planner/DWAPlannerROS
+
+---------- /move_base/clearing_rotation_allowed ----------
+false
+
+---------- /move_base/conservative_reset/layer_names ----------
+[obstacle_layer]
+
+
+---------- /move_base/conservative_reset/reset_distance ----------
+1.0
+
+---------- /move_base/conservative_reset_dist ----------
+3.0
+
+---------- /move_base/controller_frequency ----------
+10.0
+
+---------- /move_base/controller_patience ----------
+15.0
+
+---------- /move_base/global_costmap/footprint ----------
+'[[-0.47,-0.38],[-0.47,0.38],[0.47,0.38],[0.47,-0.38]]'
+
+
+---------- /move_base/global_costmap/footprint_padding ----------
+0.01
+
+---------- /move_base/global_costmap/global_frame ----------
+map
+
+---------- /move_base/global_costmap/height ----------
+30
+
+---------- /move_base/global_costmap/inflation_layer/cost_scaling_factor ----------
+10.0
+
+---------- /move_base/global_costmap/inflation_layer/enabled ----------
+true
+
+---------- /move_base/global_costmap/inflation_layer/inflate_unknown ----------
+false
+
+---------- /move_base/global_costmap/inflation_layer/inflation_radius ----------
+0.9
+
+---------- /move_base/global_costmap/map_type ----------
+costmap
+
+---------- /move_base/global_costmap/obstacle_layer/combination_method ----------
+1
+
+---------- /move_base/global_costmap/obstacle_layer/enabled ----------
+true
+
+---------- /move_base/global_costmap/obstacle_layer/footprint_clearing_enabled ----------
+true
+
+---------- /move_base/global_costmap/obstacle_layer/max_obstacle_height ----------
+2.0
+
+---------- /move_base/global_costmap/obstacle_layer/min_obstacle_height ----------
+0.0
+
+---------- /move_base/global_costmap/obstacle_layer/observation_sources ----------
+scan point_cloud
+
+---------- /move_base/global_costmap/obstacle_layer/obstacle_range ----------
+5.0
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/clearing ----------
+true
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/data_type ----------
+PointCloud2
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/marking ----------
+true
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/max_obstacle_height ----------
+0.3
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/min_obstacle_height ----------
+0.1
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/observation_persistence ----------
+0.0
+
+---------- /move_base/global_costmap/obstacle_layer/point_cloud/topic ----------
+/velodyne_points
+
+---------- /move_base/global_costmap/obstacle_layer/publish_voxel_map ----------
+false
+
+---------- /move_base/global_costmap/obstacle_layer/raytrace_range ----------
+5.0
+
+---------- /move_base/global_costmap/obstacle_layer/scan/clearing ----------
+true
+
+---------- /move_base/global_costmap/obstacle_layer/scan/data_type ----------
+LaserScan
+
+---------- /move_base/global_costmap/obstacle_layer/scan/expected_update_rate ----------
+0
+
+---------- /move_base/global_costmap/obstacle_layer/scan/marking ----------
+true
+
+---------- /move_base/global_costmap/obstacle_layer/scan/topic ----------
+/scan
+
+---------- /move_base/global_costmap/obstacle_layer/track_unknown_space ----------
+true
+
+---------- /move_base/global_costmap/origin_x ----------
+0.0
+
+---------- /move_base/global_costmap/origin_y ----------
+0.0
+
+---------- /move_base/global_costmap/plugins ----------
+- {name: static_layer, type: 'costmap_2d::StaticLayer'}
+- {name: obstacle_layer, type: 'costmap_2d::ObstacleLayer'}
+- {name: inflation_layer, type: 'costmap_2d::InflationLayer'}
+
+
+---------- /move_base/global_costmap/publish_frequency ----------
+3.5
+
+---------- /move_base/global_costmap/resolution ----------
+0.05
+
+---------- /move_base/global_costmap/robot_base_frame ----------
+base_footprint
+
+---------- /move_base/global_costmap/robot_radius ----------
+0.46
+
+---------- /move_base/global_costmap/static_layer/enabled ----------
+true
+
+---------- /move_base/global_costmap/static_layer/map_topic ----------
+/map
+
+---------- /move_base/global_costmap/static_map ----------
+true
+
+---------- /move_base/global_costmap/transform_tolerance ----------
+1.0
+
+---------- /move_base/global_costmap/update_frequency ----------
+3.0
+
+---------- /move_base/global_costmap/width ----------
+30
+
+---------- /move_base/local_costmap/footprint ----------
+'[[-0.47,-0.38],[-0.47,0.38],[0.47,0.38],[0.47,-0.38]]'
+
+
+---------- /move_base/local_costmap/footprint_padding ----------
+0.01
+
+---------- /move_base/local_costmap/global_frame ----------
+odom
+
+---------- /move_base/local_costmap/height ----------
+10
+
+---------- /move_base/local_costmap/inflation_layer/cost_scaling_factor ----------
+10.0
+
+---------- /move_base/local_costmap/inflation_layer/enabled ----------
+true
+
+---------- /move_base/local_costmap/inflation_layer/inflate_unknown ----------
+false
+
+---------- /move_base/local_costmap/inflation_layer/inflation_radius ----------
+0.55
+
+---------- /move_base/local_costmap/map_type ----------
+costmap
+
+---------- /move_base/local_costmap/obstacle_layer/combination_method ----------
+1
+
+---------- /move_base/local_costmap/obstacle_layer/enabled ----------
+true
+
+---------- /move_base/local_costmap/obstacle_layer/footprint_clearing_enabled ----------
+true
+
+---------- /move_base/local_costmap/obstacle_layer/max_obstacle_height ----------
+2.0
+
+---------- /move_base/local_costmap/obstacle_layer/min_obstacle_height ----------
+0.0
+
+---------- /move_base/local_costmap/obstacle_layer/observation_sources ----------
+scan point_cloud
+
+---------- /move_base/local_costmap/obstacle_layer/obstacle_range ----------
+5.0
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/clearing ----------
+true
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/data_type ----------
+PointCloud2
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/marking ----------
+true
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/max_obstacle_height ----------
+0.3
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/min_obstacle_height ----------
+0.1
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/observation_persistence ----------
+0.0
+
+---------- /move_base/local_costmap/obstacle_layer/point_cloud/topic ----------
+/velodyne_points
+
+---------- /move_base/local_costmap/obstacle_layer/publish_voxel_map ----------
+false
+
+---------- /move_base/local_costmap/obstacle_layer/raytrace_range ----------
+5.0
+
+---------- /move_base/local_costmap/obstacle_layer/scan/clearing ----------
+true
+
+---------- /move_base/local_costmap/obstacle_layer/scan/data_type ----------
+LaserScan
+
+---------- /move_base/local_costmap/obstacle_layer/scan/expected_update_rate ----------
+0
+
+---------- /move_base/local_costmap/obstacle_layer/scan/marking ----------
+true
+
+---------- /move_base/local_costmap/obstacle_layer/scan/topic ----------
+/scan
+
+---------- /move_base/local_costmap/obstacle_layer/track_unknown_space ----------
+true
+
+---------- /move_base/local_costmap/origin_x ----------
+0.0
+
+---------- /move_base/local_costmap/origin_y ----------
+0.0
+
+---------- /move_base/local_costmap/plugins ----------
+- {name: obstacle_layer, type: 'costmap_2d::ObstacleLayer'}
+- {name: inflation_layer, type: 'costmap_2d::InflationLayer'}
+
+
+---------- /move_base/local_costmap/publish_frequency ----------
+2.0
+
+---------- /move_base/local_costmap/resolution ----------
+0.05
+
+---------- /move_base/local_costmap/robot_base_frame ----------
+base_footprint
+
+---------- /move_base/local_costmap/robot_radius ----------
+0.46
+
+---------- /move_base/local_costmap/rolling_window ----------
+true
+
+---------- /move_base/local_costmap/static_layer/enabled ----------
+true
+
+---------- /move_base/local_costmap/static_layer/map_topic ----------
+/map
+
+---------- /move_base/local_costmap/static_map ----------
+false
+
+---------- /move_base/local_costmap/transform_tolerance ----------
+1.0
+
+---------- /move_base/local_costmap/update_frequency ----------
+5.0
+
+---------- /move_base/local_costmap/width ----------
+10
+
+---------- /move_base/make_plan_add_unreachable_goal ----------
+true
+
+---------- /move_base/make_plan_clear_costmap ----------
+true
+
+---------- /move_base/max_planning_retries ----------
+-1
+
+---------- /move_base/oscillation_distance ----------
+0.3
+
+---------- /move_base/oscillation_timeout ----------
+10.0
+
+---------- /move_base/planner_frequency ----------
+2.0
+
+---------- /move_base/planner_patience ----------
+5.0
+
+---------- /move_base/recovery_behavior_enabled ----------
+true
+
+---------- /move_base/recovery_behaviors ----------
+- {name: conservative_reset, type: clear_costmap_recovery/ClearCostmapRecovery}
+
+
+---------- /move_base/restore_defaults ----------
+false
+
+---------- /move_base/shutdown_costmaps ----------
+false
+
+---------- /move_base/super_reset/layer_names ----------
+[obstacle_layer]
+
+
+---------- /move_base/super_reset/reset_distance ----------
+5.0
+
+---------- /relocalization/curt_position_file_path ----------
+/home/ros/localization_ws/src/2dlocal/relocalization/data/
+
+---------- /relocalization/match_ratio_threshold ----------
+0.45
+
+---------- /relocalization/occupy_file_path ----------
+/home/ros/localization_ws/src/2dlocal/relocalization/data/occupy_grid_index.txt
+
+---------- /relocalization/pgm_file_path ----------
+/home/ros/localization_ws/src/2dlocal/relocalization/data/map_imu.pgm
+
+---------- /relocalization/yaml_file_path ----------
+/home/ros/localization_ws/src/2dlocal/relocalization/data/map_imu.yaml
+
+---------- /robot_description ----------
+"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- ===================================================================================\
+  \ -->\n<!-- |    This document was autogenerated by xacro from /home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/urdf/zeus_s2.xacro\
+  \ | -->\n<!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                \
+  \                 | -->\n<!-- ===================================================================================\
+  \ -->\n<robot name=\"zeus_s2\">\n  <link name=\"base_footprint\"/>\n  <link name=\"\
+  car_base_link\">\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"-0.0023862 0.097926\
+  \ 1.4208E-05\"/>\n      <mass value=\"20.065\"/>\n      <inertia ixx=\"0.16771\"\
+  \ ixy=\"-0.00022998\" ixz=\"2.6569E-06\" iyy=\"0.71146\" iyz=\"2.0003E-05\" izz=\"\
+  0.70568\"/>\n    </inertial>\n    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0\
+  \ 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_body.STL\"\
+  />\n      </geometry>\n      <material name=\"0\">\n        <color rgba=\"0.203\
+  \ 0.210 0.239 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_body.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"base_footprint_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0.132\"/>\n    <parent link=\"\
+  base_footprint\"/>\n    <child link=\"car_base_link\"/>\n  </joint>\n  <gazebo reference=\"\
+  car_base_link\">\n    <material>Gazebo/Black</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \  </gazebo>\n  <link name=\"car_baffle_link\">\n    <inertial>\n      <origin rpy=\"\
+  0 0 0\" xyz=\"0.0013696 -0.026522 -6.6796E-05\"/>\n      <mass value=\"0.78308\"\
+  />\n      <inertia ixx=\"0.028465\" ixy=\"2.672E-05\" ixz=\"9.3781E-06\" iyy=\"\
+  0.034391\" iyz=\"-5.8875E-06\" izz=\"0.0064766\"/>\n    </inertial>\n    <visual>\n\
+  \      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"\
+  package://zeus_s2_description/meshes/car_baffle.STL\"/>\n      </geometry>\n   \
+  \   <material name=\"1\">\n        <color rgba=\"1 0 0 1\"/>\n      </material>\n\
+  \    </visual>\n    <collision>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n \
+  \     <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_baffle.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"car_baffle_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n    <parent link=\"\
+  car_base_link\"/>\n    <child link=\"car_baffle_link\"/>\n  </joint>\n  <gazebo\
+  \ reference=\"car_baffle_link\">\n    <material>Gazebo/Red</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \  </gazebo>\n  <link name=\"car_roof_link\">\n    <inertial>\n      <origin rpy=\"\
+  0 0 0\" xyz=\"0.019848 0.046199 -6.4433E-05\"/>\n      <mass value=\"8.8072\"/>\n\
+  \      <inertia ixx=\"0.12149\" ixy=\"0.00057785\" ixz=\"0.00025158\" iyy=\"0.53097\"\
+  \ iyz=\"-0.00010942\" izz=\"0.41107\"/>\n    </inertial>\n    <visual>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_roof.STL\"\
+  />\n      </geometry>\n      <material name=\"2\">\n        <color rgba=\"0.866\
+  \ 0.866 0.866 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_roof.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"car_roof_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n    <parent link=\"\
+  car_base_link\"/>\n    <child link=\"car_roof_link\"/>\n  </joint>\n  <gazebo reference=\"\
+  car_roof_link\">\n    <material>Gazebo/White</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \  </gazebo>\n  <link name=\"car_stop_link\">\n    <inertial>\n      <origin rpy=\"\
+  0 0 0\" xyz=\"-1.0678E-07 -9.70489999997765E-08 0.0036502\"/>\n      <mass value=\"\
+  0.016182\"/>\n      <inertia ixx=\"2.4996E-06\" ixy=\"2.2865E-12\" ixz=\"2.8017E-11\"\
+  \ iyy=\"2.4998E-06\" iyz=\"-2.1208E-11\" izz=\"1.1558E-06\"/>\n    </inertial>\n\
+  \    <visual>\n      <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n     \
+  \ <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/stop_key.STL\"\
+  />\n      </geometry>\n      <material name=\"\">\n        <color rgba=\"0.75294\
+  \ 0.75294 0.75294 1\"/>\n      </material>\n    </visual>\n    <collision>\n   \
+  \   <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n    \
+  \    <mesh filename=\"package://zeus_s2_description/meshes/stop_key.STL\"/>\n  \
+  \    </geometry>\n    </collision>\n  </link>\n  <joint name=\"car_stop_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"1.5708 0 0\" xyz=\"0.04 -0.22 0.18\"/>\n  \
+  \  <parent link=\"car_base_link\"/>\n    <child link=\"car_stop_link\"/>\n  </joint>\n\
+  \  <gazebo reference=\"car_stop_link\">\n    <material>Gazebo/Red</material>\n \
+  \   <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <link name=\"bracket_fl_link\"\
+  >\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0.069863 -0.00085105 -8.3821E-05\"\
+  />\n      <mass value=\"1.883\"/>\n      <inertia ixx=\"0.0015501\" ixy=\"0.00026317\"\
+  \ ixz=\"2.3168E-06\" iyy=\"0.0015497\" iyz=\"-5.626E-07\" izz=\"0.0014234\"/>\n\
+  \    </inertial>\n    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n  \
+  \    <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n      <material name=\"3\">\n        <color rgba=\"0.255\
+  \ 0.255 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"bracket_fl_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 1.5708\" xyz=\"0.25 0.14 0.045\"/>\n  \
+  \  <parent link=\"car_base_link\"/>\n    <child link=\"bracket_fl_link\"/>\n  </joint>\n\
+  \  <gazebo reference=\"bracket_fl_link\">\n    <material>Gazebo/Black</material>\n\
+  \    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <link name=\"bracket_fr_link\"\
+  >\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0.069863 -0.00085105 -8.3821E-05\"\
+  />\n      <mass value=\"1.883\"/>\n      <inertia ixx=\"0.0015501\" ixy=\"0.00026317\"\
+  \ ixz=\"2.3168E-06\" iyy=\"0.0015497\" iyz=\"-5.626E-07\" izz=\"0.0014234\"/>\n\
+  \    </inertial>\n    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n  \
+  \    <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n      <material name=\"3\">\n        <color rgba=\"0.255\
+  \ 0.255 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"bracket_fr_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 -1.5708\" xyz=\"0.25 -0.14 0.045\"/>\n\
+  \    <parent link=\"car_base_link\"/>\n    <child link=\"bracket_fr_link\"/>\n \
+  \ </joint>\n  <gazebo reference=\"bracket_fr_link\">\n    <material>Gazebo/Black</material>\n\
+  \    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <link name=\"bracket_rl_link\"\
+  >\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0.069863 -0.00085105 -8.3821E-05\"\
+  />\n      <mass value=\"1.883\"/>\n      <inertia ixx=\"0.0015501\" ixy=\"0.00026317\"\
+  \ ixz=\"2.3168E-06\" iyy=\"0.0015497\" iyz=\"-5.626E-07\" izz=\"0.0014234\"/>\n\
+  \    </inertial>\n    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n  \
+  \    <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n      <material name=\"3\">\n        <color rgba=\"0.255\
+  \ 0.255 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"bracket_rl_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 1.5708\" xyz=\"-0.25 0.14 0.045\"/>\n \
+  \   <parent link=\"car_base_link\"/>\n    <child link=\"bracket_rl_link\"/>\n  </joint>\n\
+  \  <gazebo reference=\"bracket_rl_link\">\n    <material>Gazebo/Black</material>\n\
+  \    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <link name=\"bracket_rr_link\"\
+  >\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0.069863 -0.00085105 -8.3821E-05\"\
+  />\n      <mass value=\"1.883\"/>\n      <inertia ixx=\"0.0015501\" ixy=\"0.00026317\"\
+  \ ixz=\"2.3168E-06\" iyy=\"0.0015497\" iyz=\"-5.626E-07\" izz=\"0.0014234\"/>\n\
+  \    </inertial>\n    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n  \
+  \    <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n      <material name=\"3\">\n        <color rgba=\"0.255\
+  \ 0.255 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/car_bracket.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"bracket_rr_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 -1.5708\" xyz=\"-0.25 -0.14 0.045\"/>\n\
+  \    <parent link=\"car_base_link\"/>\n    <child link=\"bracket_rr_link\"/>\n \
+  \ </joint>\n  <gazebo reference=\"bracket_rr_link\">\n    <material>Gazebo/Black</material>\n\
+  \    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <link name=\"wheel_fl_link\"\
+  >\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"-1.8829E-16 0.055 1.9375E-16\"\
+  />\n      <mass value=\"7.7372\"/>\n      <inertia ixx=\"0.058767\" ixy=\"-1.4481E-16\"\
+  \ ixz=\"-1.3668E-18\" iyy=\"0.099878\" iyz=\"1.4508E-16\" izz=\"0.058767\"/>\n \
+  \   </inertial>\n    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n   \
+  \   <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"\
+  />\n      </geometry>\n      <material name=\"4\">\n        <color rgba=\"0.255\
+  \ 0.255 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"wheel_fl_joint\"\
+  \ type=\"continuous\">\n    <origin rpy=\"1.5708 0 0\" xyz=\"0.25 0.297 0.02\"/>\n\
+  \    <parent link=\"car_base_link\"/>\n    <child link=\"wheel_fl_link\"/>\n   \
+  \ <axis xyz=\"0 0 -1\"/>\n  </joint>\n  <gazebo reference=\"wheel_fl_link\">\n \
+  \   <material>Gazebo/Black</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \    <!--\n        <mu1>0.1</mu1>\n\t\t    <mu2>0.5</mu2>\n\t\t    <kp>10</kp>\n\
+  \t\t    <kd>1</kd>\n-->\n  </gazebo>\n  <transmission name=\"wheel_fl_wheel_trans\"\
+  \ type=\"SimpleTransmission\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <actuator name=\"wheel_fl_wheel_motor\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n    <joint name=\"wheel_fl_wheel_joint\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n  </transmission>\n  <link name=\"wheel_fr_link\">\n    <inertial>\n\
+  \      <origin rpy=\"0 0 0\" xyz=\"-1.8829E-16 0.055 1.9375E-16\"/>\n      <mass\
+  \ value=\"7.7372\"/>\n      <inertia ixx=\"0.058767\" ixy=\"-1.4481E-16\" ixz=\"\
+  -1.3668E-18\" iyy=\"0.099878\" iyz=\"1.4508E-16\" izz=\"0.058767\"/>\n    </inertial>\n\
+  \    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n \
+  \       <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"/>\n\
+  \      </geometry>\n      <material name=\"4\">\n        <color rgba=\"0.255 0.255\
+  \ 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"wheel_fr_joint\"\
+  \ type=\"continuous\">\n    <origin rpy=\"1.5708 0 0\" xyz=\"0.25 -0.297 0.02\"\
+  />\n    <parent link=\"car_base_link\"/>\n    <child link=\"wheel_fr_link\"/>\n\
+  \    <axis xyz=\"0 0 -1\"/>\n  </joint>\n  <gazebo reference=\"wheel_fr_link\">\n\
+  \    <material>Gazebo/Black</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \    <!--\n        <mu1>0.1</mu1>\n\t\t    <mu2>0.5</mu2>\n\t\t    <kp>10</kp>\n\
+  \t\t    <kd>1</kd>\n-->\n  </gazebo>\n  <transmission name=\"wheel_fr_wheel_trans\"\
+  \ type=\"SimpleTransmission\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <actuator name=\"wheel_fr_wheel_motor\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n    <joint name=\"wheel_fr_wheel_joint\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n  </transmission>\n  <link name=\"wheel_rl_link\">\n    <inertial>\n\
+  \      <origin rpy=\"0 0 0\" xyz=\"-1.8829E-16 0.055 1.9375E-16\"/>\n      <mass\
+  \ value=\"7.7372\"/>\n      <inertia ixx=\"0.058767\" ixy=\"-1.4481E-16\" ixz=\"\
+  -1.3668E-18\" iyy=\"0.099878\" iyz=\"1.4508E-16\" izz=\"0.058767\"/>\n    </inertial>\n\
+  \    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n \
+  \       <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"/>\n\
+  \      </geometry>\n      <material name=\"4\">\n        <color rgba=\"0.255 0.255\
+  \ 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"wheel_rl_joint\"\
+  \ type=\"continuous\">\n    <origin rpy=\"1.5708 0 0\" xyz=\"-0.25 0.297 0.02\"\
+  />\n    <parent link=\"car_base_link\"/>\n    <child link=\"wheel_rl_link\"/>\n\
+  \    <axis xyz=\"0 0 -1\"/>\n  </joint>\n  <gazebo reference=\"wheel_rl_link\">\n\
+  \    <material>Gazebo/Black</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \    <!--\n        <mu1>0.1</mu1>\n\t\t    <mu2>0.5</mu2>\n\t\t    <kp>10</kp>\n\
+  \t\t    <kd>1</kd>\n-->\n  </gazebo>\n  <transmission name=\"wheel_rl_wheel_trans\"\
+  \ type=\"SimpleTransmission\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <actuator name=\"wheel_rl_wheel_motor\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n    <joint name=\"wheel_rl_wheel_joint\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n  </transmission>\n  <link name=\"wheel_rr_link\">\n    <inertial>\n\
+  \      <origin rpy=\"0 0 0\" xyz=\"-1.8829E-16 0.055 1.9375E-16\"/>\n      <mass\
+  \ value=\"7.7372\"/>\n      <inertia ixx=\"0.058767\" ixy=\"-1.4481E-16\" ixz=\"\
+  -1.3668E-18\" iyy=\"0.099878\" iyz=\"1.4508E-16\" izz=\"0.058767\"/>\n    </inertial>\n\
+  \    <visual>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n \
+  \       <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"/>\n\
+  \      </geometry>\n      <material name=\"4\">\n        <color rgba=\"0.255 0.255\
+  \ 0.255 1\"/>\n      </material>\n    </visual>\n    <collision>\n      <origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/wheel_12.0.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"wheel_rr_joint\"\
+  \ type=\"continuous\">\n    <origin rpy=\"1.5708 0 0\" xyz=\"-0.25 -0.297 0.02\"\
+  />\n    <parent link=\"car_base_link\"/>\n    <child link=\"wheel_rr_link\"/>\n\
+  \    <axis xyz=\"0 0 -1\"/>\n  </joint>\n  <gazebo reference=\"wheel_rr_link\">\n\
+  \    <material>Gazebo/Black</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \    <!--\n        <mu1>0.1</mu1>\n\t\t    <mu2>0.5</mu2>\n\t\t    <kp>10</kp>\n\
+  \t\t    <kd>1</kd>\n-->\n  </gazebo>\n  <transmission name=\"wheel_rr_wheel_trans\"\
+  \ type=\"SimpleTransmission\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <actuator name=\"wheel_rr_wheel_motor\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n    <joint name=\"wheel_rr_wheel_joint\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n  </transmission>\n  <link name=\"radar_fl_link\">\n    <inertial>\n\
+  \      <origin rpy=\"0 0 0\" xyz=\"-0.0098766 4.8495E-19 4.0731E-19\"/>\n      <mass\
+  \ value=\"0.0074751\"/>\n      <inertia ixx=\"4.1755E-07\" ixy=\"5.282E-24\" ixz=\"\
+  1.7927E-23\" iyy=\"4.8289E-07\" iyz=\"3.1732E-23\" izz=\"4.8289E-07\"/>\n    </inertial>\n\
+  \    <visual>\n      <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n     \
+  \ <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"\
+  />\n      </geometry>\n      <material name=\"\">\n        <color rgba=\"0.50196\
+  \ 0.50196 0.50196 1\"/>\n      </material>\n    </visual>\n    <collision>\n   \
+  \   <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n    \
+  \    <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"/>\n   \
+  \   </geometry>\n    </collision>\n  </link>\n  <joint name=\"radar_fl_joint\" type=\"\
+  fixed\">\n    <origin rpy=\"0 0 0.19\" xyz=\"0.447 0.156 0.055\"/>\n    <parent\
+  \ link=\"car_base_link\"/>\n    <child link=\"radar_fl_link\"/>\n  </joint>\n  <link\
+  \ name=\"radar_fr_link\">\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"-0.0098766\
+  \ 4.8495E-19 4.0731E-19\"/>\n      <mass value=\"0.0074751\"/>\n      <inertia ixx=\"\
+  4.1755E-07\" ixy=\"5.282E-24\" ixz=\"1.7927E-23\" iyy=\"4.8289E-07\" iyz=\"3.1732E-23\"\
+  \ izz=\"4.8289E-07\"/>\n    </inertial>\n    <visual>\n      <origin rpy=\"1.5707963267949\
+  \ 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"\
+  />\n      </geometry>\n      <material name=\"\">\n        <color rgba=\"0.50196\
+  \ 0.50196 0.50196 1\"/>\n      </material>\n    </visual>\n    <collision>\n   \
+  \   <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n    \
+  \    <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"/>\n   \
+  \   </geometry>\n    </collision>\n  </link>\n  <joint name=\"radar_fr_joint\" type=\"\
+  fixed\">\n    <origin rpy=\"0 0 -0.19\" xyz=\"0.447 -0.156 0.055\"/>\n    <parent\
+  \ link=\"car_base_link\"/>\n    <child link=\"radar_fr_link\"/>\n  </joint>\n  <link\
+  \ name=\"radar_rl_link\">\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"-0.0098766\
+  \ 4.8495E-19 4.0731E-19\"/>\n      <mass value=\"0.0074751\"/>\n      <inertia ixx=\"\
+  4.1755E-07\" ixy=\"5.282E-24\" ixz=\"1.7927E-23\" iyy=\"4.8289E-07\" iyz=\"3.1732E-23\"\
+  \ izz=\"4.8289E-07\"/>\n    </inertial>\n    <visual>\n      <origin rpy=\"1.5707963267949\
+  \ 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"\
+  />\n      </geometry>\n      <material name=\"\">\n        <color rgba=\"0.50196\
+  \ 0.50196 0.50196 1\"/>\n      </material>\n    </visual>\n    <collision>\n   \
+  \   <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n    \
+  \    <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"/>\n   \
+  \   </geometry>\n    </collision>\n  </link>\n  <joint name=\"radar_rl_joint\" type=\"\
+  fixed\">\n    <origin rpy=\"0 0 2.95\" xyz=\"-0.447 0.156 0.055\"/>\n    <parent\
+  \ link=\"car_base_link\"/>\n    <child link=\"radar_rl_link\"/>\n  </joint>\n  <link\
+  \ name=\"radar_rr_link\">\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"-0.0098766\
+  \ 4.8495E-19 4.0731E-19\"/>\n      <mass value=\"0.0074751\"/>\n      <inertia ixx=\"\
+  4.1755E-07\" ixy=\"5.282E-24\" ixz=\"1.7927E-23\" iyy=\"4.8289E-07\" iyz=\"3.1732E-23\"\
+  \ izz=\"4.8289E-07\"/>\n    </inertial>\n    <visual>\n      <origin rpy=\"1.5707963267949\
+  \ 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"\
+  />\n      </geometry>\n      <material name=\"\">\n        <color rgba=\"0.50196\
+  \ 0.50196 0.50196 1\"/>\n      </material>\n    </visual>\n    <collision>\n   \
+  \   <origin rpy=\"1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n    \
+  \    <mesh filename=\"package://zeus_s2_description/meshes/radar_s.STL\"/>\n   \
+  \   </geometry>\n    </collision>\n  </link>\n  <joint name=\"radar_rr_joint\" type=\"\
+  fixed\">\n    <origin rpy=\"0 0 -2.95\" xyz=\"-0.447 -0.156 0.055\"/>\n    <parent\
+  \ link=\"car_base_link\"/>\n    <child link=\"radar_rr_link\"/>\n  </joint>\n  <link\
+  \ name=\"laser_link\">\n    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"-4.0269E-19\
+  \ -4.01177639288801E-19 -0.011361\"/>\n      <mass value=\"0.16762\"/>\n      <inertia\
+  \ ixx=\"7.692E-05\" ixy=\"9.9286E-22\" ixz=\"-5.1257E-22\" iyy=\"7.692E-05\" iyz=\"\
+  5.635E-21\" izz=\"0.0001\"/>\n    </inertial>\n    <visual>\n      <origin rpy=\"\
+  1.5707963267949 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n        <mesh filename=\"\
+  package://zeus_s2_description/meshes/laser_a2.STL\"/>\n      </geometry>\n     \
+  \ <material name=\"\">\n        <color rgba=\"0.15294 0 0.015686 1\"/>\n      </material>\n\
+  \    </visual>\n    <collision>\n      <origin rpy=\"1.5707963267949 0 0\" xyz=\"\
+  0 0 0\"/>\n      <geometry>\n        <mesh filename=\"package://zeus_s2_description/meshes/laser_a2.STL\"\
+  />\n      </geometry>\n    </collision>\n  </link>\n  <joint name=\"laser_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0.35391 0 0.29331\"/>\n    <parent\
+  \ link=\"car_base_link\"/>\n    <child link=\"laser_link\"/>\n  </joint>\n  <gazebo\
+  \ reference=\"laser_link\">\n    <material>Gazebo/FlatBlack</material>\n    <sensor\
+  \ name=\"head_hokuyo_sensor\" type=\"ray\">\n      <pose>0 0 0 0 0 0</pose>\n  \
+  \    <visualize>false</visualize>\n      <update_rate>10</update_rate>\n      <ray>\n\
+  \        <scan>\n          <horizontal>\n            <samples>8000</samples>\n \
+  \           <resolution>1</resolution>\n            <min_angle>-2.355</min_angle>\n\
+  \            <max_angle>2.355</max_angle>\n          </horizontal>\n        </scan>\n\
+  \        <range>\n          <min>0.10</min>\n          <max>30.0</max>\n       \
+  \   <resolution>0.01</resolution>\n        </range>\n        <noise>\n         \
+  \ <type>gaussian</type>\n          <!-- Noise parameters based on published spec\
+  \ for Hokuyo laser\n                 achieving \"+-30mm\" accuracy at range < 10m.\
+  \  A mean of 0.0m and\n                 stddev of 0.01m will put 99.7% of samples\
+  \ within 0.03m of the true\n                 reading. -->\n          <mean>0.0</mean>\n\
+  \          <stddev>0.01</stddev>\n        </noise>\n      </ray>\n      <plugin\
+  \ filename=\"libgazebo_ros_laser.so\" name=\"gazebo_ros_head_hokuyo_controller\"\
+  >\n        <topicName>/scan</topicName>\n        <frameName>laser_link</frameName>\n\
+  \      </plugin>\n    </sensor>\n  </gazebo>\n  <link name=\"imu_link\"/>\n  <joint\
+  \ name=\"imu_joint\" type=\"fixed\">\n    <parent link=\"car_base_link\"/>\n   \
+  \ <child link=\"imu_link\"/>\n    <origin rpy=\"0 0 0\" xyz=\"0 0 -0.132\"/>\n \
+  \ </joint>\n  <gazebo reference=\"imu_link\">\n    <gravity>true</gravity>\n   \
+  \ <sensor name=\"imu_sensor\" type=\"imu\">\n      <always_on>true</always_on>\n\
+  \      <update_rate>100</update_rate>\n      <visualize>true</visualize>\n     \
+  \ <topic>__default_topic__</topic>\n      <plugin filename=\"libgazebo_ros_imu_sensor.so\"\
+  \ name=\"imu_plugin\">\n        <topicName>imu</topicName>\n        <bodyName>imu_link</bodyName>\n\
+  \        <updateRateHZ>10.0</updateRateHZ>\n        <gaussianNoise>0.0</gaussianNoise>\n\
+  \        <xyzOffset>0 0 0</xyzOffset>\n        <rpyOffset>0 0 0</rpyOffset>\n  \
+  \      <frameName>imu_link</frameName>\n        <initialOrientationAsReference>false</initialOrientationAsReference>\n\
+  \      </plugin>\n      <pose>0 0 0 0 0 0</pose>\n    </sensor>\n  </gazebo>\n \
+  \ <gazebo>\n    <plugin filename=\"libgazebo_ros_skid_steer_drive.so\" name=\"skid_steer_drive_controller\"\
+  >\n      <rosDebugLevel>Debug</rosDebugLevel>\n      <publishWheelTF>true</publishWheelTF>\n\
+  \      <robotNamespace>/</robotNamespace>\n      <publishTf>1</publishTf>\n    \
+  \  <publishWheelJointState>true</publishWheelJointState>\n      <updateRate>100.0</updateRate>\n\
+  \      <leftFrontJoint>wheel_fl_joint</leftFrontJoint>\n      <leftRearJoint>wheel_rl_joint</leftRearJoint>\n\
+  \      <rightFrontJoint>wheel_fr_joint</rightFrontJoint>\n      <rightRearJoint>wheel_rr_joint</rightRearJoint>\n\
+  \      <wheelSeparation>0.482</wheelSeparation>\n      <wheelDiameter>0.305</wheelDiameter>\n\
+  \      <broadcastTF>1</broadcastTF>\n      <torque>320</torque>\n      <commandTopic>cmd_vel</commandTopic>\n\
+  \      <odometryFrame>odom</odometryFrame>\n      <odometryTopic>odom</odometryTopic>\n\
+  \      <robotBaseFrame>base_footprint</robotBaseFrame>\n      <covariance_x>0.000100</covariance_x>\n\
+  \      <covariance_y>0.000100</covariance_y>\n      <covariance_yaw>0.010000</covariance_yaw>\n\
+  \    </plugin>\n  </gazebo>\n</robot>\n\n"
+
+
+---------- /rplidarNode/frame_id ----------
+laser_link
+
+---------- /tf_pub_node/theta ----------
+3.14
+
+---------- /tf_pub_node/x ----------
+0.37
+
+---------- /tf_pub_node/y ----------
+0.0
+
+---------- /velocity_smoother/robot_feedback ----------
+0
+
+---------- /zeus_s2_driver/base_frame ----------
+base_footprint

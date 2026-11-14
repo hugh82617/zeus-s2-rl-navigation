@@ -1,0 +1,339 @@
+======================================================================
+全类别传感器与硬件工况完整文字记录
+======================================================================
+
+试验编号：trial_008
+本文件汇总该 trial 中所有传感器、状态反馈、硬件工况、坐标系和无 Header 话题信息。
+
+
+======================================================================
+一、传感/状态/硬件工况话题清单
+======================================================================
+
+话题：/basepose
+  类别：Localization_Pose
+  类型：geometry_msgs/Pose2D
+  消息数量：667
+  Header 样本数：0
+  无 Header 样本数：667
+
+话题：/diagnostics
+  类别：Diagnostics
+  类型：diagnostic_msgs/DiagnosticArray
+  消息数量：47
+  Header 样本数：47
+  无 Header 样本数：0
+
+话题：/joint_states
+  类别：JointState_Encoder
+  类型：sensor_msgs/JointState
+  消息数量：468
+  Header 样本数：468
+  无 Header 样本数：0
+
+话题：/laserpose
+  类别：LiDAR_LaserScan
+  类型：geometry_msgs/PoseWithCovarianceStamped
+  消息数量：667
+  Header 样本数：667
+  无 Header 样本数：0
+
+话题：/move_base/DWAPlannerROS/cost_cloud
+  类别：PointCloud
+  类型：sensor_msgs/PointCloud2
+  消息数量：111
+  Header 样本数：111
+  无 Header 样本数：0
+
+话题：/move_base/DWAPlannerROS/trajectory_cloud
+  类别：PointCloud
+  类型：sensor_msgs/PointCloud2
+  消息数量：405
+  Header 样本数：405
+  无 Header 样本数：0
+
+话题：/move_base/current_goal
+  类别：Localization_Pose
+  类型：geometry_msgs/PoseStamped
+  消息数量：1
+  Header 样本数：1
+  无 Header 样本数：0
+
+话题：/move_base/global_costmap/costmap_updates
+  类别：Map
+  类型：map_msgs/OccupancyGridUpdate
+  消息数量：135
+  Header 样本数：135
+  无 Header 样本数：0
+
+话题：/move_base/global_costmap/footprint
+  类别：Map
+  类型：geometry_msgs/PolygonStamped
+  消息数量：140
+  Header 样本数：140
+  无 Header 样本数：0
+
+话题：/move_base/local_costmap/costmap
+  类别：Map
+  类型：nav_msgs/OccupancyGrid
+  消息数量：58
+  Header 样本数：58
+  无 Header 样本数：0
+
+话题：/move_base/local_costmap/costmap_updates
+  类别：Map
+  类型：map_msgs/OccupancyGridUpdate
+  消息数量：18
+  Header 样本数：18
+  无 Header 样本数：0
+
+话题：/move_base/local_costmap/footprint
+  类别：Map
+  类型：geometry_msgs/PolygonStamped
+  消息数量：229
+  Header 样本数：229
+  无 Header 样本数：0
+
+话题：/move_base_simple/goal
+  类别：Localization_Pose
+  类型：geometry_msgs/PoseStamped
+  消息数量：1
+  Header 样本数：1
+  无 Header 样本数：0
+
+话题：/odom
+  类别：Odometry_BaseFeedback
+  类型：nav_msgs/Odometry
+  消息数量：667
+  Header 样本数：667
+  无 Header 样本数：0
+
+话题：/rl/debug/obs0_181_scan_vis
+  类别：LiDAR_LaserScan
+  类型：sensor_msgs/LaserScan
+  消息数量：521
+  Header 样本数：521
+  无 Header 样本数：0
+
+话题：/rl/debug/speed_age_ms
+  类别：Velocity_Feedback
+  类型：std_msgs/Float32
+  消息数量：521
+  Header 样本数：0
+  无 Header 样本数：521
+
+话题：/rl/lidar_181
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：670
+  Header 样本数：0
+  无 Header 样本数：670
+
+话题：/rl/lidar_181_fill_stats
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：669
+  Header 样本数：0
+  无 Header 样本数：669
+
+话题：/rl/lidar_181_repair_mask
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：669
+  Header 样本数：0
+  无 Header 样本数：669
+
+话题：/rl/lidar_181_src_map
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：669
+  Header 样本数：0
+  无 Header 样本数：669
+
+话题：/rl/lidar_181_stamp
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Header
+  消息数量：669
+  Header 样本数：0
+  无 Header 样本数：669
+
+话题：/rl/lidar_543
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：669
+  Header 样本数：0
+  无 Header 样本数：669
+
+话题：/rl/lidar_543_ids
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：670
+  Header 样本数：0
+  无 Header 样本数：670
+
+话题：/rl/lidar_543_ids_vis
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：670
+  Header 样本数：0
+  无 Header 样本数：670
+
+话题：/rl/lidar_543_stamps
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float64MultiArray
+  消息数量：669
+  Header 样本数：0
+  无 Header 样本数：669
+
+话题：/rl_local_goal_body_pose
+  类别：Localization_Pose
+  类型：geometry_msgs/PoseStamped
+  消息数量：732
+  Header 样本数：732
+  无 Header 样本数：0
+
+话题：/scan
+  类别：LiDAR_LaserScan
+  类型：sensor_msgs/LaserScan
+  消息数量：670
+  Header 样本数：670
+  无 Header 样本数：0
+
+话题：/scan_aligned
+  类别：LiDAR_LaserScan
+  类型：sensor_msgs/LaserScan
+  消息数量：667
+  Header 样本数：667
+  无 Header 样本数：0
+
+话题：/scan_aligned_invalid_mask
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：670
+  Header 样本数：0
+  无 Header 样本数：670
+
+话题：/scan_aligned_invalid_stats
+  类别：LiDAR_LaserScan
+  类型：std_msgs/Float32MultiArray
+  消息数量：670
+  Header 样本数：0
+  无 Header 样本数：670
+
+话题：/tf
+  类别：TF
+  类型：tf2_msgs/TFMessage
+  消息数量：7435
+  Header 样本数：7444
+  无 Header 样本数：0
+
+话题：/zeus_speed
+  类别：Velocity_Feedback
+  类型：geometry_msgs/Twist
+  消息数量：935
+  Header 样本数：0
+  无 Header 样本数：935
+
+
+======================================================================
+二、按类别统计的传感延迟
+======================================================================
+
+类别：Diagnostics，样本数：47，平均ms：27.9698067523，中位数ms：19.0176963806，P95ms：90.9578800201
+类别：JointState_Encoder，样本数：468，平均ms：64.6449847099，中位数ms：18.6460018158，P95ms：295.929908752
+类别：LiDAR_LaserScan，样本数：2525，平均ms：245.847819772，中位数ms：157.999992371，P95ms：693.364858627
+类别：Localization_Pose，样本数：734，平均ms：100.948507844，中位数ms：39.8151874542，P95ms：441.983938217
+类别：Map，样本数：580，平均ms：44.776404315，中位数ms：20.651102066，P95ms：192.834615707
+类别：Odometry_BaseFeedback，样本数：667，平均ms：190.119858803，中位数ms：149.766683578，P95ms：423.258781433
+类别：PointCloud，样本数：516，平均ms：1074.56198312，中位数ms：333.286046982，P95ms：5090.85917473
+类别：TF，样本数：8855，平均ms：876.612525091，中位数ms：621.248245239，P95ms：2336.80510521
+
+======================================================================
+三、无 Header 传感/状态类话题
+======================================================================
+
+话题：/basepose，类别：Localization_Pose，类型：geometry_msgs/Pose2D，消息数量：667
+话题：/rl/debug/speed_age_ms，类别：Velocity_Feedback，类型：std_msgs/Float32，消息数量：521
+话题：/rl/lidar_181，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：670
+话题：/rl/lidar_181_fill_stats，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：669
+话题：/rl/lidar_181_repair_mask，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：669
+话题：/rl/lidar_181_src_map，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：669
+话题：/rl/lidar_181_stamp，类别：LiDAR_LaserScan，类型：std_msgs/Header，消息数量：669
+话题：/rl/lidar_543，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：669
+话题：/rl/lidar_543_ids，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：670
+话题：/rl/lidar_543_ids_vis，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：670
+话题：/rl/lidar_543_stamps，类别：LiDAR_LaserScan，类型：std_msgs/Float64MultiArray，消息数量：669
+话题：/scan_aligned_invalid_mask，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：670
+话题：/scan_aligned_invalid_stats，类别：LiDAR_LaserScan，类型：std_msgs/Float32MultiArray，消息数量：670
+话题：/zeus_speed，类别：Velocity_Feedback，类型：geometry_msgs/Twist，消息数量：935
+
+======================================================================
+四、frame_id 坐标系信息
+======================================================================
+
+话题：/laserpose
+  frame_id：map，数量：667
+
+话题：/move_base/DWAPlannerROS/cost_cloud
+  frame_id：odom，数量：111
+
+话题：/move_base/DWAPlannerROS/global_plan
+  frame_id：odom，数量：118
+
+话题：/move_base/DWAPlannerROS/local_plan
+  frame_id：odom，数量：407
+
+话题：/move_base/DWAPlannerROS/trajectory_cloud
+  frame_id：odom，数量：405
+
+话题：/move_base/NavfnROS/plan
+  frame_id：map，数量：169
+
+话题：/move_base/current_goal
+  frame_id：map，数量：1
+
+话题：/move_base/global_costmap/costmap_updates
+  frame_id：map，数量：135
+
+话题：/move_base/global_costmap/footprint
+  frame_id：map，数量：140
+
+话题：/move_base/local_costmap/costmap
+  frame_id：odom，数量：58
+
+话题：/move_base/local_costmap/costmap_updates
+  frame_id：odom，数量：18
+
+话题：/move_base/local_costmap/footprint
+  frame_id：odom，数量：229
+
+话题：/move_base_simple/goal
+  frame_id：map，数量：1
+
+话题：/odom
+  frame_id：odom，数量：667
+
+话题：/rl/debug/obs0_181_scan_vis
+  frame_id：laser_link_aligned，数量：521
+
+话题：/rl_local_goal_body_pose
+  frame_id：base_footprint，数量：732
+
+话题：/scan
+  frame_id：laser_link，数量：670
+
+话题：/scan_aligned
+  frame_id：laser_link_aligned，数量：667
+
+话题：/tf
+  frame_id：base_footprint，数量：3252
+  frame_id：map，数量：3060
+  frame_id：car_base_link，数量：1876
+  frame_id：odom，数量：667
+
+
+======================================================================
+五、传感器与硬件工况结论
+======================================================================
+
+该 trial 的传感与硬件工况记录用于说明真实机器人系统由多类传感器、状态反馈、坐标变换和底盘硬件共同支撑。带 Header 的话题可以用于计算时间戳延迟；无 Header 的话题只能用于说明运行状态、消息存在性和频率。论文中应根据实际记录到的传感器类别进行说明，不能虚构未参与运行的传感器链路。

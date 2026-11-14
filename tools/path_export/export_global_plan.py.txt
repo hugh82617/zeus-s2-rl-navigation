@@ -1,0 +1,13 @@
+from bagpy import bagreader
+
+bag = bagreader('navigation_research_20260622_181156.bag')
+
+print("Bag中的所有Topic：")
+print(bag.topics)
+
+csv_file = bag.message_by_topic(
+    '/move_base/NavfnROS/plan'
+)
+
+print("导出完成：")
+print(csv_file)

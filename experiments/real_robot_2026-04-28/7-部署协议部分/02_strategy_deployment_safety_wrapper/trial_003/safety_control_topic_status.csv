@@ -1,0 +1,12 @@
+topic,msg_type,count,status
+/rl_cmd_vel,geometry_msgs/Twist,625,has_message
+/il_cmd_vel,,0,no_message
+/raw_cmd_vel,geometry_msgs/Twist,961,has_message
+/cmd_vel,,0,no_message
+/cmd_vel_switch/active_mode,std_msgs/String,0,no_message
+/cmd_vel_switch/selected_cmd_vel,,0,no_message
+/emergency_stop,,0,no_message
+/e_stop,,0,no_message
+/safety_stop,,0,no_message
+/collision_warning,,0,no_message
+/rl_local_goal_status,std_msgs/String,5,has_message

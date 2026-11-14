@@ -1,0 +1,15 @@
+topic,sensor_category,msg_type,count,description
+/basepose,Localization_Pose,geometry_msgs/Pose2D,685,sensor/status topic but no Header timestamp
+/rl/debug/speed_age_ms,Velocity_Feedback,std_msgs/Float32,623,sensor/status topic but no Header timestamp
+/rl/lidar_181,LiDAR_LaserScan,std_msgs/Float32MultiArray,686,sensor/status topic but no Header timestamp
+/rl/lidar_181_fill_stats,LiDAR_LaserScan,std_msgs/Float32MultiArray,687,sensor/status topic but no Header timestamp
+/rl/lidar_181_repair_mask,LiDAR_LaserScan,std_msgs/Float32MultiArray,685,sensor/status topic but no Header timestamp
+/rl/lidar_181_src_map,LiDAR_LaserScan,std_msgs/Float32MultiArray,684,sensor/status topic but no Header timestamp
+/rl/lidar_181_stamp,LiDAR_LaserScan,std_msgs/Header,688,sensor/status topic but no Header timestamp
+/rl/lidar_543,LiDAR_LaserScan,std_msgs/Float32MultiArray,688,sensor/status topic but no Header timestamp
+/rl/lidar_543_ids,LiDAR_LaserScan,std_msgs/Float32MultiArray,689,sensor/status topic but no Header timestamp
+/rl/lidar_543_ids_vis,LiDAR_LaserScan,std_msgs/Float32MultiArray,687,sensor/status topic but no Header timestamp
+/rl/lidar_543_stamps,LiDAR_LaserScan,std_msgs/Float64MultiArray,686,sensor/status topic but no Header timestamp
+/scan_aligned_invalid_mask,LiDAR_LaserScan,std_msgs/Float32MultiArray,687,sensor/status topic but no Header timestamp
+/scan_aligned_invalid_stats,LiDAR_LaserScan,std_msgs/Float32MultiArray,687,sensor/status topic but no Header timestamp
+/zeus_speed,Velocity_Feedback,geometry_msgs/Twist,942,sensor/status topic but no Header timestamp

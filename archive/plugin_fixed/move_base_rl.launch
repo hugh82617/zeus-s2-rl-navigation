@@ -1,0 +1,15 @@
+<launch>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+
+    <!-- costmap 参数（与原 DWA 完全相同，不动） -->
+    <rosparam file="$(find zeus_s2_navi)/config/zeus/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find zeus_s2_navi)/config/zeus/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find zeus_s2_navi)/config/zeus/local_costmap_params.yaml"  command="load" />
+    <rosparam file="$(find zeus_s2_navi)/config/zeus/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find zeus_s2_navi)/config/zeus/move_base_params.yaml"      command="load" />
+
+    <!-- RL 插件参数（替换原 dwa_local_planner_params_burger.yaml） -->
+    <rosparam file="$(find rl_planner)/config/rl_local_planner_params.yaml" command="load" />
+
+  </node>
+</launch>

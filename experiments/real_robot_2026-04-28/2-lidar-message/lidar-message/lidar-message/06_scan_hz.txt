@@ -1,0 +1,30 @@
+========== 6. /scan 频率统计 ==========
+subscribed to [/scan]
+average rate: 13.286
+	min: 0.070s max: 0.080s std dev: 0.00292s window: 13
+average rate: 13.303
+	min: 0.070s max: 0.081s std dev: 0.00285s window: 26
+average rate: 13.309
+	min: 0.070s max: 0.081s std dev: 0.00276s window: 39
+average rate: 13.315
+	min: 0.070s max: 0.081s std dev: 0.00271s window: 53
+average rate: 13.315
+	min: 0.070s max: 0.081s std dev: 0.00274s window: 66
+average rate: 13.316
+	min: 0.070s max: 0.081s std dev: 0.00273s window: 79
+average rate: 13.305
+	min: 0.070s max: 0.082s std dev: 0.00285s window: 93
+average rate: 13.315
+	min: 0.070s max: 0.082s std dev: 0.00278s window: 106
+average rate: 13.315
+	min: 0.070s max: 0.082s std dev: 0.00279s window: 119
+average rate: 13.309
+	min: 0.068s max: 0.087s std dev: 0.00312s window: 133
+average rate: 13.310
+	min: 0.068s max: 0.087s std dev: 0.00309s window: 146
+average rate: 13.316
+	min: 0.068s max: 0.087s std dev: 0.00308s window: 159
+average rate: 13.310
+	min: 0.068s max: 0.087s std dev: 0.00306s window: 173
+average rate: 13.315
+	min: 0.068s max: 0.087s std dev: 0.00306s window: 185

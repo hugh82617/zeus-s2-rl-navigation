@@ -1,0 +1,61 @@
+# ========================================
+# RL推理节点 v22 参数配置
+# 功能：近目标收束控制 + 绕圈保护
+# ========================================
+
+# ===== 原有参数保持不变 =====
+goal_tolerance: 0.50
+use_goal_angle_gate: true
+goal_angle_slowdown_thresh: 0.5
+goal_angle_turninplace_thresh: 0.8
+goal_angle_slowdown_v_max: 0.10
+
+cmd_w_filter_alpha: 0.3
+action_bias_w: 0.0
+
+linear_min: -0.2
+linear_max: 0.5
+angular_min: -0.5
+angular_max: 0.5
+
+# ===== v22新增：近目标收束控制 =====
+enable_near_goal_controller: true
+
+# 三级距离阈值（从远到近）
+near_goal_dist_1: 1.0   # 一级收束区：开始减速减角
+near_goal_dist_2: 0.7   # 二级收束区：进一步压速度和角速度
+near_goal_dist_3: 0.6   # 三级收束区：精确对准模式
+
+# 各级速度上限
+near_goal_v_cap_1: 0.20   # 一级区最大线速度
+near_goal_v_cap_2: 0.10   # 二级区最大线速度
+
+# 角速度缩放因子
+near_goal_w_scale_1: 0.5  # 一级区角速度缩放
+near_goal_w_scale_2: 0.3  # 二级区角速度缩放
+
+# 精确对准参数
+near_goal_align_yaw_thresh: 0.25  # 需要对准的角度阈值（rad）
+near_goal_align_k: 1.2            # P控制增益
+near_goal_align_w_cap: 0.20       # 对准时最大角速度
+
+# 防止大弧线绕圈
+near_goal_no_arc_dist: 1.0        # 在此距离内...
+near_goal_no_arc_w_thresh: 0.25   # 如果角速度超过此值...
+near_goal_no_arc_v_cap: 0.12      # 就限制线速度到此值
+
+# ===== v22新增：绕圈保护器 =====
+enable_orbit_guard: true
+
+orbit_guard_dist: 1.2             # 在此距离内启用绕圈检测
+orbit_guard_window: 12            # 检测窗口长度（帧数）
+orbit_guard_same_sign_ratio: 0.9  # 单侧转向比例阈值
+orbit_guard_abs_w_thresh: 0.35    # 角速度均值阈值
+orbit_guard_progress_thresh: 0.05 # 距离进展阈值（m）
+
+# ========================================
+# 使用说明：
+# 1. 将此文件内容添加到你的launch文件<node>标签内
+# 2. 或保存为yaml文件，用rosparam load加载
+# 3. 建议先用默认值测试，确认效果后再调优
+# ========================================

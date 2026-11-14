@@ -1,0 +1,14 @@
+========== 7. ROS 节点列表 ==========
+/cartographer_node
+/cartographer_occupancy_grid_node
+/cmd_vel_switch
+/joy_node
+/launch_imu_node
+/nodelet_manager
+/robot_state_publisher
+/rosout
+/rplidarNode
+/rviz
+/teleop_joy
+/velocity_smoother
+/zeus_s2_driver

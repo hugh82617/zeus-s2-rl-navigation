@@ -1,0 +1,44 @@
+<launch>
+  <!-- LocalGoalProvider 调试启动文件 -->
+
+  <arg name="plan_topic" default="/move_base/NavfnROS/plan" />
+  <arg name="goal_topic" default="/move_base_simple/goal" />
+  <arg name="global_frame" default="map" />
+  <arg name="base_frame" default="base_footprint" />
+
+  <arg name="lookahead_dist" default="1.0" />
+  <arg name="direct_goal_dist" default="1.0" />
+  <arg name="far_goal_min_for_path_tracking" default="3.0" />
+  <arg name="approach_hysteresis" default="0.15" />
+  <arg name="xy_goal_tolerance" default="0.18" />
+  <arg name="control_rate" default="10.0" />
+  <arg name="tf_timeout" default="0.2" />
+  <arg name="use_direct_goal_when_no_plan" default="true" />
+
+  <!--
+    说明：
+    1. output="screen" 让日志直接打印到终端；
+    2. required="true" 便于调试时节点异常退出能立刻发现；
+    3. 真正让 rospy.logdebug 生效，建议节点内 init_node 使用 log_level=rospy.DEBUG。
+  -->
+  <node pkg="rl_planner"
+        type="local_goal_provider.py"
+        name="rl_local_goal_provider"
+        output="screen"
+        required="true">
+
+    <param name="plan_topic" value="$(arg plan_topic)" />
+    <param name="goal_topic" value="$(arg goal_topic)" />
+    <param name="global_frame" value="$(arg global_frame)" />
+    <param name="base_frame" value="$(arg base_frame)" />
+
+    <param name="lookahead_dist" value="$(arg lookahead_dist)" />
+    <param name="direct_goal_dist" value="$(arg direct_goal_dist)" />
+    <param name="far_goal_min_for_path_tracking" value="$(arg far_goal_min_for_path_tracking)" />
+    <param name="approach_hysteresis" value="$(arg approach_hysteresis)" />
+    <param name="xy_goal_tolerance" value="$(arg xy_goal_tolerance)" />
+    <param name="control_rate" value="$(arg control_rate)" />
+    <param name="tf_timeout" value="$(arg tf_timeout)" />
+    <param name="use_direct_goal_when_no_plan" value="$(arg use_direct_goal_when_no_plan)" />
+  </node>
+</launch>

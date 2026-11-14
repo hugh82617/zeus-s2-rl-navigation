@@ -1,0 +1,20 @@
+==== rospack find move_base ====
+/opt/ros/melodic/share/move_base
+
+==== rospack find dwa_local_planner ====
+/opt/ros/melodic/share/dwa_local_planner
+
+==== rospack find global_planner ====
+/opt/ros/melodic/share/global_planner
+
+==== rospack find navfn ====
+/opt/ros/melodic/share/navfn
+
+==== rospack plugins --attrib=plugin nav_core ====
+navfn /opt/ros/melodic/share/navfn/bgp_plugin.xml
+clear_costmap_recovery /opt/ros/melodic/share/clear_costmap_recovery/ccr_plugin.xml
+global_planner /opt/ros/melodic/share/global_planner/bgp_plugin.xml
+dwa_local_planner /opt/ros/melodic/share/dwa_local_planner/blp_plugin.xml
+base_local_planner /opt/ros/melodic/share/base_local_planner/blp_plugin.xml
+rotate_recovery /opt/ros/melodic/share/rotate_recovery/rotate_plugin.xml
+teb_local_planner /opt/ros/melodic/share/teb_local_planner/teb_local_planner_plugin.xml

@@ -1,0 +1,2 @@
+---- type ----
+sensor_msgs/Imu

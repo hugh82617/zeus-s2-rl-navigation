@@ -1,0 +1,384 @@
+======================================================================
+系统运行频率完整文字记录
+======================================================================
+
+试验编号：trial_003
+本文件汇总该次试验中所有与系统运行频率相关的信息。频率结果来自真实机器人运行期间的 ROS 话题记录，而不是单纯配置参数。
+
+
+======================================================================
+一、实验条件
+======================================================================
+
+trial_id：003
+开始时间：2026-04-28 21:31:14
+结束时间：2026-04-28 21:32:02
+持续时间：48.1411209106
+停止原因：auto_stop_by_vehicle_stable_zero_speed
+自动检测控制模式：rl
+是否检测到目标点：True
+是否检测到目标到达状态：True
+车辆是否实际运动：True
+最大反馈线速度绝对值：0.5
+最大反馈角速度绝对值：0.5
+最新目标状态：goal_tracking
+最新控制模式：未记录
+
+======================================================================
+二、话题频率记录
+======================================================================
+
+话题：/basepose
+  消息类型：geometry_msgs/Pose2D
+  消息数量：685
+  实际频率：14.2452031917
+  平均周期ms：70.1990688753
+
+话题：/diagnostics
+  消息类型：diagnostic_msgs/DiagnosticArray
+  消息数量：48
+  实际频率：1.00069241548
+  平均周期ms：999.308063629
+
+话题：/joint_states
+  消息类型：sensor_msgs/JointState
+  消息数量：481
+  实际频率：10.0022836276
+  平均周期ms：99.9771689375
+
+话题：/laserpose
+  消息类型：geometry_msgs/PoseWithCovarianceStamped
+  消息数量：686
+  实际频率：14.2664668688
+  平均周期ms：70.0944395831
+
+话题：/move_base/DWAPlannerROS/cost_cloud
+  消息类型：sensor_msgs/PointCloud2
+  消息数量：127
+  实际频率：2.66774951141
+  平均周期ms：374.847786767
+
+话题：/move_base/DWAPlannerROS/global_plan
+  消息类型：nav_msgs/Path
+  消息数量：285
+  实际频率：6.30365891814
+  平均周期ms：158.638024834
+
+话题：/move_base/DWAPlannerROS/local_plan
+  消息类型：nav_msgs/Path
+  消息数量：437
+  实际频率：9.0680642437
+  平均周期ms：110.277119033
+
+话题：/move_base/DWAPlannerROS/trajectory_cloud
+  消息类型：sensor_msgs/PointCloud2
+  消息数量：436
+  实际频率：9.14329644528
+  平均周期ms：109.369744926
+
+话题：/move_base/NavfnROS/plan
+  消息类型：nav_msgs/Path
+  消息数量：193
+  实际频率：4.04789468516
+  平均周期ms：247.042000294
+
+话题：/move_base/current_goal
+  消息类型：geometry_msgs/PoseStamped
+  消息数量：2
+  实际频率：0.0618179962195
+  平均周期ms：16176.5191555
+
+话题：/move_base/feedback
+  消息类型：move_base_msgs/MoveBaseActionFeedback
+  消息数量：438
+  实际频率：9.10118848931
+  平均周期ms：109.875759762
+
+话题：/move_base/global_costmap/costmap_updates
+  消息类型：map_msgs/OccupancyGridUpdate
+  消息数量：143
+  实际频率：2.9544242497
+  平均周期ms：338.475423799
+
+话题：/move_base/global_costmap/footprint
+  消息类型：geometry_msgs/PolygonStamped
+  消息数量：145
+  实际频率：2.99605618994
+  平均周期ms：333.77211127
+
+话题：/move_base/goal
+  消息类型：move_base_msgs/MoveBaseActionGoal
+  消息数量：2
+  实际频率：0.0615557232569
+  平均周期ms：16245.4431057
+
+话题：/move_base/local_costmap/costmap
+  消息类型：nav_msgs/OccupancyGrid
+  消息数量：59
+  实际频率：1.22306326656
+  平均周期ms：817.619192189
+
+话题：/move_base/local_costmap/costmap_updates
+  消息类型：map_msgs/OccupancyGridUpdate
+  消息数量：18
+  实际频率：0.379507640573
+  平均周期ms：2634.9930623
+
+话题：/move_base/local_costmap/footprint
+  消息类型：geometry_msgs/PolygonStamped
+  消息数量：238
+  实际频率：4.97394294498
+  平均周期ms：201.047742417
+
+话题：/move_base/result
+  消息类型：move_base_msgs/MoveBaseActionResult
+  消息数量：2
+  实际频率：0.0618122303537
+  平均周期ms：16178.0281067
+
+话题：/move_base/status
+  消息类型：actionlib_msgs/GoalStatusArray
+  消息数量：245
+  实际频率：5.10691312123
+  平均周期ms：195.813004111
+
+话题：/move_base_simple/goal
+  消息类型：geometry_msgs/PoseStamped
+  消息数量：2
+  实际频率：0.0615694967656
+  平均周期ms：16241.8088913
+
+话题：/multi_trial_four_folder_recorder/status
+  消息类型：std_msgs/String
+  消息数量：48
+  实际频率：1.00341854158
+  平均周期ms：996.593105032
+
+话题：/odom
+  消息类型：nav_msgs/Odometry
+  消息数量：685
+  实际频率：14.2602629166
+  平均周期ms：70.1249342913
+
+话题：/raw_cmd_vel
+  消息类型：geometry_msgs/Twist
+  消息数量：961
+  实际频率：20.0125404301
+  平均周期ms：49.9686685701
+
+话题：/raw_cmd_vel_dwa
+  消息类型：geometry_msgs/Twist
+  消息数量：437
+  实际频率：9.07472821963
+  平均周期ms：110.196137647
+
+话题：/rl/debug/ang_vel3
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：962
+  实际频率：19.9990343844
+  平均周期ms：50.0024141556
+
+话题：/rl/debug/goal4_received
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：874
+  实际频率：18.1695799225
+  平均周期ms：55.03704567
+
+话题：/rl/debug/goal4_used
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：625
+  实际频率：12.9755853394
+  平均周期ms：77.0678141942
+
+话题：/rl/debug/goal_age_ms
+  消息类型：std_msgs/Float32
+  消息数量：623
+  实际频率：12.950632295
+  平均周期ms：77.2163070666
+
+话题：/rl/debug/goal_status_echo
+  消息类型：std_msgs/String
+  消息数量：5
+  实际频率：0.193837986273
+  平均周期ms：5158.94752741
+
+话题：/rl/debug/lin_vel3
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：963
+  实际频率：20.0097290758
+  平均周期ms：49.9756891366
+
+话题：/rl/debug/obs0_181
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：623
+  实际频率：12.9556061942
+  平均周期ms：77.1866622845
+
+话题：/rl/debug/obs0_181_markers_vis
+  消息类型：visualization_msgs/MarkerArray
+  消息数量：365
+  实际频率：7.74258688522
+  平均周期ms：129.155799583
+
+话题：/rl/debug/obs0_181_scan_vis
+  消息类型：sensor_msgs/LaserScan
+  消息数量：620
+  实际频率：12.9394613879
+  平均周期ms：77.2829695164
+
+话题：/rl/debug/obs1_181
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：622
+  实际频率：12.9399176389
+  平均周期ms：77.2802445816
+
+话题：/rl/debug/obs2_181
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：623
+  实际频率：12.9463665674
+  平均周期ms：77.2417492422
+
+话题：/rl/debug/obs_meta
+  消息类型：std_msgs/String
+  消息数量：1242
+  实际频率：25.8838031137
+  平均周期ms：38.6341989857
+
+话题：/rl/debug/speed_age_ms
+  消息类型：std_msgs/Float32
+  消息数量：623
+  实际频率：12.9557427201
+  平均周期ms：77.1858489015
+
+话题：/rl/debug/sync_age_pair_ms
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：623
+  实际频率：12.9406876008
+  平均周期ms：77.2756464612
+
+话题：/rl/lidar_181
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：686
+  实际频率：14.3008749845
+  平均周期ms：69.9257913297
+
+话题：/rl/lidar_181_fill_stats
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：687
+  实际频率：14.2780613934
+  平均周期ms：70.0375192715
+
+话题：/rl/lidar_181_repair_mask
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：685
+  实际频率：14.281607343
+  平均周期ms：70.0201298061
+
+话题：/rl/lidar_181_src_map
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：684
+  实际频率：14.2805487138
+  平均周期ms：70.025320458
+
+话题：/rl/lidar_181_stamp
+  消息类型：std_msgs/Header
+  消息数量：688
+  实际频率：14.2875352445
+  平均周期ms：69.9910784392
+
+话题：/rl/lidar_543
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：688
+  实际频率：14.3220208584
+  平均周期ms：69.8225487788
+
+话题：/rl/lidar_543_ids
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：689
+  实际频率：14.3092235218
+  平均周期ms：69.8849940023
+
+话题：/rl/lidar_543_ids_vis
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：687
+  实际频率：14.2890743904
+  平均周期ms：69.9835393589
+
+话题：/rl/lidar_543_stamps
+  消息类型：std_msgs/Float64MultiArray
+  消息数量：686
+  实际频率：14.27637138
+  平均周期ms：70.0458101983
+
+话题：/rl/obs_556
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：623
+  实际频率：12.9568336154
+  平均周期ms：77.1793502703
+
+话题：/rl_cmd_vel
+  消息类型：geometry_msgs/Twist
+  消息数量：625
+  实际频率：12.9933652236
+  平均周期ms：76.9623560019
+
+话题：/rl_local_goal_body
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：875
+  实际频率：18.158871601
+  平均周期ms：55.0695011217
+
+话题：/rl_local_goal_body_pose
+  消息类型：geometry_msgs/PoseStamped
+  消息数量：874
+  实际频率：18.1695156384
+  平均周期ms：55.0372403922
+
+话题：/rl_local_goal_status
+  消息类型：std_msgs/String
+  消息数量：5
+  实际频率：0.193384041018
+  平均周期ms：5171.0575223
+
+话题：/scan
+  消息类型：sensor_msgs/LaserScan
+  消息数量：688
+  实际频率：14.2873450331
+  平均周期ms：69.9920102498
+
+话题：/scan_aligned
+  消息类型：sensor_msgs/LaserScan
+  消息数量：685
+  实际频率：14.2745784566
+  平均周期ms：70.0546081303
+
+话题：/scan_aligned_invalid_mask
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：687
+  实际频率：14.2852853296
+  平均周期ms：70.0021019482
+
+话题：/scan_aligned_invalid_stats
+  消息类型：std_msgs/Float32MultiArray
+  消息数量：687
+  实际频率：14.2809499917
+  平均周期ms：70.0233528287
+
+话题：/tf
+  消息类型：tf2_msgs/TFMessage
+  消息数量：9020
+  实际频率：187.713552398
+  平均周期ms：6.32119326325
+
+话题：/zeus_speed
+  消息类型：geometry_msgs/Twist
+  消息数量：942
+  实际频率：19.7302772503
+  平均周期ms：50.6835249861
+
+
+======================================================================
+三、频率结论
+======================================================================
+
+本次试验的频率信息应结合自动检测到的控制模式、目标点状态和车辆运动状态解释。LiDAR 更新频率主要参考 /scan 及其后续预处理话题；策略推理频率主要参考 /rl/obs_556 与 /rl_cmd_vel；控制指令发布频率主要参考 /rl_cmd_vel、/raw_cmd_vel 或 /cmd_vel；底盘反馈频率主要参考 /zeus_speed 和 /odom。未产生消息的话题不能作为有效频率依据。

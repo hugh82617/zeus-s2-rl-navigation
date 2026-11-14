@@ -1,0 +1,107 @@
+/home/ros/catkin_ws/src/llm_path_planner/scripts/waypoint_executor.py:26:    pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+/home/ros/catkin_ws/src/llm_path_planner/config/dwa_local_planner_params_burger.yaml:1:# DWAPlannerROS:
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_local_goal_provider.py:26:        self.goal_topic = rospy.get_param("~goal_topic", "/move_base_simple/goal")
+/home/ros/catkin_ws/src/rl_planner/scripts/odom_to_path.py:18:        self.goal_topic = rospy.get_param("~goal_topic", "/move_base/current_goal")
+/home/ros/catkin_ws/src/rl_planner/scripts/odom_to_path.py:127:        # 注意：这里默认 /odom 与 /move_base/current_goal 在同一坐标系下可直接比较
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py.save:6:订阅: /scan, /odom, /move_base/NavfnROS/plan
+/home/ros/catkin_ws/src/rl_planner/scripts/rl_planner_node.py.save:52:        self.plan_topic   = rospy.get_param("~plan_topic",   "/move_base/NavfnROS/plan")
+/home/ros/catkin_ws/src/rl_planner/launch/rl_local_goal_provider.launch:4:  <arg name="plan_topic" default="/move_base/NavfnROS/plan" />
+/home/ros/catkin_ws/src/rl_planner/launch/rl_local_goal_provider.launch:5:  <arg name="goal_topic" default="/move_base_simple/goal" />
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:229:      Topic: /move_base/NavfnROS/plan
+/home/ros/catkin_ws/src/rl_planner/Rviz/local_goal_debug.rviz:401:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_bringup/launch/fake_navi.launch:55:  <include file="$(find zeus_s2_navi)/launch/move_base.launch" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2_gazebo.rviz:259:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2.rviz:202:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_description/rviz/zeus_s2-gps_c16_d435-gazebo.rviz:290:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:345:      Topic: /move_base/TrajectoryPlannerROS/global_plan
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/rviz/zeus_s2.rviz:368:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/dwa_local_planner_params_burger.yaml:1:# DWAPlannerROS:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/dwa_local_planner_params_burger.yaml:50:DWAPlannerROS:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/global_costmap_params.yaml:1:global_costmap:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/base_local_planner_params.yaml:1:TrajectoryPlannerROS:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/move_base_params.yaml:9:base_local_planner: "dwa_local_planner/DWAPlannerROS"
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/move_base_params.yaml:11:# ~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/move_base_params.yaml:12:# ~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/zeus/local_costmap_params.yaml:1:local_costmap:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/fake/global_costmap_params.yaml:1:global_costmap:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/fake/base_local_planner_params.yaml:5:TrajectoryPlannerROS:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/config/fake/local_costmap_params.yaml:1:local_costmap:
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:3:  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:4:    <rosparam file="$(find zeus_s2_navi)/config/zeus/costmap_common_params.yaml" command="load" ns="global_costmap" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:5:    <rosparam file="$(find zeus_s2_navi)/config/zeus/costmap_common_params.yaml" command="load" ns="local_costmap" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:6:    <rosparam file="$(find zeus_s2_navi)/config/zeus/local_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:7:    <rosparam file="$(find zeus_s2_navi)/config/zeus/global_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:8:    <rosparam file="$(find zeus_s2_navi)/config/zeus/base_local_planner_params.yaml" command="load" />
+/home/ros/catkin_ws/src/mobile/zeus_s2/zeus_s2_navi/launch/move_base.launch:9:    <rosparam file="$(find zeus_s2_navi)/config/zeus/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink/rviz/fdilink.rviz:117:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/sensor/rplidar_ros/rviz/rplidar.rviz:94:      Topic: /move_base_simple/goal
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:9:#include <move_base_msgs/MoveBaseAction.h>
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:22:using Client =  actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> ;
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:35:void feedbackCb(const move_base_msgs::MoveBaseFeedbackConstPtr& feedback);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:120:void feedbackCb(const move_base_msgs::MoveBaseFeedbackConstPtr& feedback)
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:163:	ROS_INFO("Waiting for move_base action server...");
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:164:	actionClient = new Client("move_base", true);
+/home/ros/catkin_ws/src/scene/navi_scene/src/navi_scene.cpp:180:	move_base_msgs::MoveBaseGoal goal;
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:13:  move_base_msgs
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:78:#   geometry_msgs#   move_base_msgs#   visualization_msgs
+/home/ros/catkin_ws/src/scene/navi_scene/CMakeLists.txt:113:    CATKIN_DEPENDS actionlib geometry_msgs move_base_msgs roscpp rospy tf visualization_msgs
+/home/ros/catkin_ws/src/scene/navi_scene/package.xml:54:  <build_depend>move_base_msgs</build_depend>
+/home/ros/catkin_ws/src/scene/navi_scene/package.xml:61:  <build_export_depend>move_base_msgs</build_export_depend>
+/home/ros/catkin_ws/src/scene/navi_scene/package.xml:68:  <exec_depend>move_base_msgs</exec_depend>
+/home/ros/catkin_ws/src/move_navi/tf_pub/README.md:16:启动自动模式导航功能：roslaunch tf_pub move_base.launch
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/dwa_local_planner_params_burger.yaml:1:# DWAPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/dwa_local_planner_params_burger.yaml:50:DWAPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/global_costmap_params.yaml:1:# global_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/global_costmap_params.yaml:13:global_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/move_base_params.yaml:32:# ~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/move_base_params.yaml:33:# ~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/local_costmap_params.yaml:1:# local_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nav/local_costmap_params.yaml:15:local_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/dwa_local_planner_params_burger.yaml:1:# DWAPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/dwa_local_planner_params_burger.yaml:50:DWAPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/global_costmap_params.yaml:1:# global_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/global_costmap_params.yaml:13:global_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/move_base_params.yaml:10:# ~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/move_base_params.yaml:11:# ~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/local_costmap_params.yaml:1:# local_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/turtlebot3/local_costmap_params.yaml:15:local_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/dwa_local_planner_params_burger.yaml:1:DWAPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/global_costmap_params.yaml:1:global_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:2:  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:3:    <rosparam file="$(find tf_pub)/param/nky/costmap_common_params.yaml" command="load" ns="global_costmap" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:4:    <rosparam file="$(find tf_pub)/param/nky/costmap_common_params.yaml" command="load" ns="local_costmap" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:5:    <rosparam file="$(find tf_pub)/param/nky/local_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:6:    <rosparam file="$(find tf_pub)/param/nky/global_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:7:    <rosparam file="$(find tf_pub)/param/nky/base_local_planner_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base.xml:8:    <rosparam file="$(find tf_pub)/param/nky/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base_params.yaml:1:base_global_planner: global_planner/GlobalPlanner
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/move_base_params.yaml:2:base_local_planner: dwa_local_planner/DWAPlannerROS
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/nky/local_costmap_params.yaml:1:local_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/global_costmap_params.yaml:1:global_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/global_costmap_params.yaml:12:GlobalPlanner:        
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/teb_local_planner_params.yaml:1:TebLocalPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/teb_local_planner_params.yaml:31:# TebLocalPlannerROS:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/move_base_params.yaml:1:shutdown_costmaps: false                #当move_base在不活动状态时,是否关掉costmap.
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/move_base_params.yaml:13:base_global_planner: "global_planner/GlobalPlanner"               #指定用于move_base的局部规划器名称.
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/move_base_params.yaml:14:base_local_planner: "teb_local_planner/TebLocalPlannerROS"      #指定用于move_base的全局规划器插件名称.
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/local_costmap_params.yaml:1:local_costmap:
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/base_global_planner_param.yaml:2:base_global_planner: "global_planner/GlobalPlanner"  
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/base_global_planner_param.yaml:4:base_local_planner: "teb_local_planner/TebLocalPlannerROS"
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/base_global_planner_param.yaml:6:GlobalPlanner:                                  # Also see: http://wiki.ros.org/global_planner
+/home/ros/catkin_ws/src/move_navi/tf_pub/param/diff/base_global_planner_param.yaml:13:                                                #Needs to have track_unknown_space: true in the obstacle / voxel layer (in costmap_commons_param) to work
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:7:  <node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen" clear_params="true">
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:8:    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:9:    <rosparam file="$(find bringup)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:10:    <rosparam file="$(find bringup)/param/local_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:11:    <rosparam file="$(find bringup)/param/global_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:12:    <rosparam file="$(find bringup)/param/base_global_planner_param.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:14:    <rosparam file="$(find bringup)/param/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:23:  <!-- move_base -->
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:24:  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:25:    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:26:    <rosparam file="$(find tf_pub)/param/nav/costmap_common_params.yaml" command="load" ns="global_costmap" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:27:    <rosparam file="$(find tf_pub)/param/nav/costmap_common_params.yaml" command="load" ns="local_costmap" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:28:    <rosparam file="$(find tf_pub)/param/nav/local_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:29:    <rosparam file="$(find tf_pub)/param/nav/global_costmap_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:30:    <rosparam file="$(find tf_pub)/param/nav/move_base_params.yaml" command="load" />
+/home/ros/catkin_ws/src/move_navi/tf_pub/launch/move_base.launch:34:    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />

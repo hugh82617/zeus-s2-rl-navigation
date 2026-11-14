@@ -1,0 +1,16 @@
+.vs/
+out/
+build/
+devel/
+install/
+log/
+logs/
+
+*.pyc
+__pycache__/
+
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json

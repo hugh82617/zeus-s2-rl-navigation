@@ -1,0 +1,16 @@
+<launch>
+  <node pkg="rl_planner"
+        type="laser_switch.py"
+        name="laser_switch"
+        output="screen">
+    <param name="input_scan_topic" value="/scan"/>
+    <param name="output_scan_topic" value="/scan_aligned"/>
+    <param name="output_frame_id" value="laser_link_aligned"/>
+    <param name="verbose" value="true"/>
+  </node>
+
+  <node pkg="tf"
+        type="static_transform_publisher"
+        name="laser_link_aligned_tf"
+        args="0.370 0 0 0 0 0 base_footprint laser_link_aligned 100" />
+</launch>

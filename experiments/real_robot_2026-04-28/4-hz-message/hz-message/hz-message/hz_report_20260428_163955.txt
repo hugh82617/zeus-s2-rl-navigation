@@ -1,0 +1,173 @@
+============================================================
+ROS 系统运行频率采集报告
+生成时间: 2026-04-28 16:39:56
+保存目录: /home/ros/hz-message
+单个话题测量时长: 12s
+============================================================
+
+[1] ROS Master 检查
+ROS Master 正常。
+
+[2] 当前 ROS 话题列表
+已保存: /home/ros/hz-message/topic_list_20260428_163955.txt
+
+[3] 当前 ROS 节点列表
+已保存: /home/ros/hz-message/ros_nodes_20260428_163955.txt
+
+[4] 相关 ROS 参数导出
+已保存: /home/ros/hz-message/ros_params_20260428_163955.txt
+
+[5] 话题频率实际测量 rostopic hz
+说明：以下频率均为 ROS 话题实际测量结果，不是配置参数。
+
+------------------------------------------------------------
+测量对象: 01_lidar_raw_scan_hz
+话题名称: /scan
+话题存在，开始测量 12s ...
+结果文件: /home/ros/hz-message/topic_hz_20260428_163955/01_lidar_raw_scan_hz.txt
+关键结果预览:
+	min: 0.065s max: 0.077s std dev: 0.00337s window: 128
+average rate: 14.164
+	min: 0.065s max: 0.077s std dev: 0.00333s window: 142
+average rate: 14.160
+	min: 0.065s max: 0.077s std dev: 0.00337s window: 155
+
+------------------------------------------------------------
+测量对象: 02_lidar_scan_aligned_hz
+话题名称: /scan_aligned
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 03_lidar_181_hz
+话题名称: /rl/lidar_181
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 04_lidar_543_model_input_hz
+话题名称: /rl/lidar_543
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 05_rl_obs_556_inference_input_hz
+话题名称: /rl/obs_556
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 06_rl_cmd_vel_inference_output_hz
+话题名称: /rl_cmd_vel
+话题存在，开始测量 12s ...
+结果文件: /home/ros/hz-message/topic_hz_20260428_163955/06_rl_cmd_vel_inference_output_hz.txt
+关键结果预览:
+
+------------------------------------------------------------
+测量对象: 07_raw_cmd_vel_after_switch_hz
+话题名称: /raw_cmd_vel
+话题存在，开始测量 12s ...
+结果文件: /home/ros/hz-message/topic_hz_20260428_163955/07_raw_cmd_vel_after_switch_hz.txt
+关键结果预览:
+	min: 0.045s max: 0.056s std dev: 0.00157s window: 179
+average rate: 20.003
+	min: 0.045s max: 0.056s std dev: 0.00154s window: 199
+average rate: 20.003
+	min: 0.045s max: 0.056s std dev: 0.00152s window: 219
+
+------------------------------------------------------------
+测量对象: 08_cmd_vel_standard_hz
+话题名称: /cmd_vel
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 09_base_feedback_zeus_speed_hz
+话题名称: /zeus_speed
+话题存在，开始测量 12s ...
+结果文件: /home/ros/hz-message/topic_hz_20260428_163955/09_base_feedback_zeus_speed_hz.txt
+关键结果预览:
+	min: 0.047s max: 0.053s std dev: 0.00059s window: 199
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00066s window: 219
+average rate: 20.000
+	min: 0.047s max: 0.053s std dev: 0.00066s window: 220
+
+------------------------------------------------------------
+测量对象: 10_base_feedback_odom_hz
+话题名称: /odom
+话题存在，开始测量 12s ...
+结果文件: /home/ros/hz-message/topic_hz_20260428_163955/10_base_feedback_odom_hz.txt
+关键结果预览:
+	min: 0.050s max: 0.088s std dev: 0.00658s window: 126
+average rate: 14.171
+	min: 0.050s max: 0.088s std dev: 0.00684s window: 141
+average rate: 14.169
+	min: 0.050s max: 0.088s std dev: 0.00686s window: 154
+
+------------------------------------------------------------
+测量对象: 11_speed_age_debug_hz
+话题名称: /rl/debug/speed_age_ms
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 12_goal_age_debug_hz
+话题名称: /rl/debug/goal_age_ms
+话题不存在，跳过。
+
+------------------------------------------------------------
+测量对象: 13_sync_age_pair_debug_hz
+话题名称: /rl/debug/sync_age_pair_ms
+话题不存在，跳过。
+
+[6] 根据日志文件估算模型推理/控制输出频率
+日志分析结果已保存: /home/ros/hz-message/inference_log_analysis_20260428_163955.txt
+============================================================
+RL 动作日志 /home/ros/4.txt
+文件: /home/ros/4.txt
+有效时间戳数量不足: 0
+============================================================
+RL 元信息日志 /home/ros/obs_meta.jsonl
+文件: /home/ros/obs_meta.jsonl
+文件不存在
+
+[7] 自动生成结论说明模板
+
+============================================================
+结论填写说明
+============================================================
+
+1. LiDAR 更新频率
+   - 原始激光雷达频率优先查看：
+     ~/hz-message/topic_hz_xxx/01_lidar_raw_scan_hz.txt
+   - 如果论文中讨论的是进入 RL 模型前的激光观测频率，则优先查看：
+     ~/hz-message/topic_hz_xxx/04_lidar_543_model_input_hz.txt
+   - 该频率属于 rostopic hz 实际测量结果，不应简单写成配置参数。
+
+2. 策略模型推理频率
+   - 本系统的 RL 推理节点不是固定 rospy.Rate 周期循环。
+   - 推理由 /rl/lidar_543 的回调触发，因此模型推理频率通常受 /rl/lidar_543 更新频率、CPU 推理耗时和目标有效状态共同影响。
+   - 推荐查看：
+     ~/hz-message/topic_hz_xxx/05_rl_obs_556_inference_input_hz.txt
+     ~/hz-message/topic_hz_xxx/06_rl_cmd_vel_inference_output_hz.txt
+     ~/hz-message/inference_log_analysis_xxx.txt
+   - 该频率属于实际测量结果，不是配置参数。
+
+3. 控制指令发布频率
+   - RL 原始控制输出频率查看 /rl_cmd_vel。
+   - 如果系统中存在速度选择/切换节点，则最终进入底盘前的控制频率还应查看 /raw_cmd_vel 或 /cmd_vel。
+   - 该频率属于实际测量结果。
+
+4. 底盘反馈频率
+   - 当前 RL 节点使用 /zeus_speed 作为速度反馈输入。
+   - 因此底盘反馈频率优先查看：
+     ~/hz-message/topic_hz_xxx/09_base_feedback_zeus_speed_hz.txt
+   - 如果系统同时发布 /odom，可将 /odom 作为里程计反馈频率补充说明。
+   - 该频率属于实际测量结果。
+
+5. 配置参数与实际测量的关系
+   - 配置参数只表示系统期望频率或节点内部设定。
+   - rostopic hz 表示真实 ROS 通信链路中的实际发布/接收频率。
+   - 论文中建议写法：
+     “系统运行频率通过 ROS 话题实际测量获得，而非仅依据配置文件给出。其中 LiDAR 更新频率由 /scan 或 /rl/lidar_543 测得，策略推理频率由 /rl/obs_556 与 /rl_cmd_vel 测得，控制指令发布频率由 /rl_cmd_vel 或 /raw_cmd_vel 测得，底盘反馈频率由 /zeus_speed 测得。”
+
+============================================================
+采集完成。
+总报告文件: /home/ros/hz-message/hz_report_20260428_163955.txt
+话题频率目录: /home/ros/hz-message/topic_hz_20260428_163955
+============================================================

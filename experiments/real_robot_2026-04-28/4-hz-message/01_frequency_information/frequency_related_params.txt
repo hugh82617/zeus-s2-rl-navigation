@@ -1,0 +1,44 @@
+keywords: rate,freq,hz,frequency,controller_frequency,planner_frequency,publish_frequency
+
+----- /cmd_vel_switch/pub_rate -----
+20.0
+
+----- /experiment_logger_with_obs556/record_rate_hz -----
+10.0
+
+----- /move_base/DWAPlannerROS/controller_frequency -----
+10.0
+
+----- /move_base/controller_frequency -----
+10.0
+
+----- /move_base/global_costmap/obstacle_layer/scan/expected_update_rate -----
+0
+
+----- /move_base/global_costmap/publish_frequency -----
+3.5
+
+----- /move_base/global_costmap/update_frequency -----
+3.0
+
+----- /move_base/local_costmap/obstacle_layer/scan/expected_update_rate -----
+0
+
+----- /move_base/local_costmap/publish_frequency -----
+2.0
+
+----- /move_base/local_costmap/update_frequency -----
+5.0
+
+----- /move_base/planner_frequency -----
+2.0
+
+----- /rplidarNode/serial_baudrate -----
+256000
+
+----- /velocity_smoother/frequency -----
+20.0
+
+----- /zeus_s2_driver/baud_rate -----
+115200
+

@@ -1,0 +1,32 @@
+[
+  {
+    "source": "04 Code Notes/D0-ROS-Nodes/ROS节点/rl_planner/rl_planner_fixed (1)/rl_planner/models/model_1200_actor.onnx",
+    "same_as_destination": "ros1/local_planner_plugin/rl_planner/models/model_1200_actor.onnx",
+    "sha256": "f6fce096f3b0f93725ed026d2025b18c31bcdb1e2647759c5e7f25bfd75de210",
+    "size": 13750
+  },
+  {
+    "source": "04 Code Notes/D0-ROS-Nodes/ROS节点/rl_planner/rl_planner_fixed (1)/rl_planner/models/model_1200_actor.onnx.data",
+    "same_as_destination": "ros1/local_planner_plugin/rl_planner/models/model_1200_actor.onnx.data",
+    "sha256": "145d2a12cee1d224239d8c29c85b02fcc29d03c894eddff8aab59c4e5fbf4848",
+    "size": 1859584
+  },
+  {
+    "source": "04 Code Notes/D0-ROS-Nodes/节点备份代码/rl_planner/rl_planner/models/model_1200_actor.onnx",
+    "same_as_destination": "ros1/local_planner_plugin/rl_planner/models/model_1200_actor.onnx",
+    "sha256": "f6fce096f3b0f93725ed026d2025b18c31bcdb1e2647759c5e7f25bfd75de210",
+    "size": 13750
+  },
+  {
+    "source": "04 Code Notes/D0-ROS-Nodes/节点备份代码/rl_planner/rl_planner/models/model_1200_actor.onnx.data",
+    "same_as_destination": "ros1/local_planner_plugin/rl_planner/models/model_1200_actor.onnx.data",
+    "sha256": "145d2a12cee1d224239d8c29c85b02fcc29d03c894eddff8aab59c4e5fbf4848",
+    "size": 1859584
+  },
+  {
+    "source": "02 Projects/D0-Reinforcement-Learning/RL-onnx/model_1200.pt",
+    "same_as_destination": "models_and_export/最新模型及观测要求/model_1200.pt",
+    "sha256": "eb60defd542842edcbeb6c2aa6c5f75bc665a311836a3f8e2efae9c0d0b81dcc",
+    "size": 10827125
+  }
+]

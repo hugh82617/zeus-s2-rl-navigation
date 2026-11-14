@@ -1,0 +1,65 @@
+========== 9. IMU 相关节点详细信息 ==========
+
+---------- node: /cmd_vel_switch ----------
+--------------------------------------------------------------------------------
+Node [/cmd_vel_switch]
+Publications: 
+ * /cmd_vel_switch/active_mode [std_msgs/String]
+ * /raw_cmd_vel [geometry_msgs/Twist]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /cmd_vel_mode [unknown type]
+ * /raw_cmd_vel_dwa [unknown type]
+ * /rl_cmd_vel [unknown type]
+ * /teleop_cmd_vel [geometry_msgs/Twist]
+
+Services: 
+ * /cmd_vel_switch/get_loggers
+ * /cmd_vel_switch/set_logger_level
+
+
+contacting node http://192.168.1.102:44533/ ...
+Pid: 16643
+Connections:
+ * topic: /raw_cmd_vel
+    * to: /nodelet_manager
+    * direction: outbound (41549 - 192.168.1.102:44520) [16]
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (41549 - 192.168.1.102:44518) [8]
+    * transport: TCPROS
+ * topic: /teleop_cmd_vel
+    * to: /teleop_joy (http://192.168.1.102:43325/)
+    * direction: inbound
+    * transport: TCPROS
+
+
+---------- node: /launch_imu_node ----------
+--------------------------------------------------------------------------------
+Node [/launch_imu_node]
+Publications: 
+ * /imu/data [sensor_msgs/Imu]
+ * /mag/mag_calib [sensor_msgs/MagneticField]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /launch_imu_node/get_loggers
+ * /launch_imu_node/set_logger_level
+
+
+contacting node http://192.168.1.102:44729/ ...
+Pid: 16742
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (46289 - 192.168.1.102:45292) [12]
+    * transport: TCPROS
+ * topic: /imu/data
+    * to: /cartographer_node
+    * direction: outbound (46289 - 192.168.1.102:45294) [13]
+    * transport: TCPROS
+

@@ -1,0 +1,28 @@
+========== 14. Python 接收 IMU 关键字段 ==========
+
+---------- checking /imu/data ----------
+received message from /imu/data
+('frame_id:', 'fdi_imu')
+('stamp:', 1777367430.1909482)
+('orientation:', 0.0, 0.0, -0.0, 1.0)
+('angular_velocity:', 0.00567164272069931, 0.003456776961684227, 0.004722668789327145)
+('linear_acceleration:', 0.3699455261230469, -0.16577576100826263, 9.978940963745117)
+('orientation_covariance:', [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+('angular_velocity_covariance:', [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+('linear_acceleration_covariance:', [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+
+---------- checking /imu ----------
+no message received from /imu within timeout
+('reason:', ROSException('timeout exceeded while waiting for message on topic /imu',))
+
+---------- checking /fdi_imu ----------
+no message received from /fdi_imu within timeout
+('reason:', ROSException('timeout exceeded while waiting for message on topic /fdi_imu',))
+
+---------- checking /imu_raw ----------
+no message received from /imu_raw within timeout
+('reason:', ROSException('timeout exceeded while waiting for message on topic /imu_raw',))
+
+---------- checking /imu/data_raw ----------
+no message received from /imu/data_raw within timeout
+('reason:', ROSException('timeout exceeded while waiting for message on topic /imu/data_raw',))

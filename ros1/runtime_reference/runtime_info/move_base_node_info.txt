@@ -1,0 +1,142 @@
+--------------------------------------------------------------------------------
+Node [/move_base]
+Publications: 
+ * /move_base/DWAPlannerROS/cost_cloud [sensor_msgs/PointCloud2]
+ * /move_base/DWAPlannerROS/global_plan [nav_msgs/Path]
+ * /move_base/DWAPlannerROS/local_plan [nav_msgs/Path]
+ * /move_base/DWAPlannerROS/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/DWAPlannerROS/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/DWAPlannerROS/trajectory_cloud [sensor_msgs/PointCloud2]
+ * /move_base/NavfnROS/plan [nav_msgs/Path]
+ * /move_base/current_goal [geometry_msgs/PoseStamped]
+ * /move_base/feedback [move_base_msgs/MoveBaseActionFeedback]
+ * /move_base/global_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/global_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base/global_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/global_costmap/inflation_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/inflation_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/obstacle_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/obstacle_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/static_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/static_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /move_base/local_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/local_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base/local_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/local_costmap/inflation_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/inflation_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/local_costmap/obstacle_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/obstacle_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/local_costmap/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/result [move_base_msgs/MoveBaseActionResult]
+ * /move_base/status [actionlib_msgs/GoalStatusArray]
+ * /raw_cmd_vel_dwa [geometry_msgs/Twist]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /map [nav_msgs/OccupancyGrid]
+ * /move_base/cancel [unknown type]
+ * /move_base/global_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /move_base/local_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base_simple/goal [geometry_msgs/PoseStamped]
+ * /odom [nav_msgs/Odometry]
+ * /scan [sensor_msgs/LaserScan]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+ * /velodyne_points [unknown type]
+
+Services: 
+ * /move_base/DWAPlannerROS/set_parameters
+ * /move_base/NavfnROS/make_plan
+ * /move_base/clear_costmaps
+ * /move_base/get_loggers
+ * /move_base/global_costmap/inflation_layer/set_parameters
+ * /move_base/global_costmap/obstacle_layer/set_parameters
+ * /move_base/global_costmap/set_parameters
+ * /move_base/global_costmap/static_layer/set_parameters
+ * /move_base/local_costmap/inflation_layer/set_parameters
+ * /move_base/local_costmap/obstacle_layer/set_parameters
+ * /move_base/local_costmap/set_parameters
+ * /move_base/make_plan
+ * /move_base/set_logger_level
+ * /move_base/set_parameters
+
+
+contacting node http://192.168.1.102:36121/ ...
+Pid: 4915
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (56675 - 192.168.1.102:46566) [14]
+    * transport: TCPROS
+ * topic: /raw_cmd_vel_dwa
+    * to: /cmd_vel_switch
+    * direction: outbound (56675 - 192.168.1.102:51744) [10]
+    * transport: TCPROS
+ * topic: /move_base/current_goal
+    * to: /odom_to_path
+    * direction: outbound (56675 - 192.168.1.102:42860) [25]
+    * transport: TCPROS
+ * topic: /move_base/goal
+    * to: /move_base
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /move_base/NavfnROS/plan
+    * to: /rviz_1776308722758723879
+    * direction: outbound (56675 - 192.168.1.102:40490) [28]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /zeus_s2_driver (http://192.168.1.102:38815/)
+    * direction: inbound (51410 - 192.168.1.102:43105) [17]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /tf_pub_node (http://192.168.1.102:36505/)
+    * direction: inbound (35782 - 192.168.1.102:58177) [15]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /base_link_to_localizer (http://192.168.1.102:37403/)
+    * direction: inbound (35736 - 192.168.1.102:56213) [18]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /map_to_odom (http://192.168.1.102:37331/)
+    * direction: inbound (49762 - 192.168.1.102:56109) [19]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://192.168.1.102:41329/)
+    * direction: inbound (58362 - 192.168.1.102:55151) [24]
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://192.168.1.102:41329/)
+    * direction: inbound (58350 - 192.168.1.102:55151) [23]
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz (http://192.168.1.102:33243/)
+    * direction: inbound (53470 - 192.168.1.102:51835) [22]
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz_1776308722758723879 (http://192.168.1.102:44211/)
+    * direction: inbound (60994 - 192.168.1.102:33979) [26]
+    * transport: TCPROS
+ * topic: /map
+    * to: /map_server (http://192.168.1.102:35789/)
+    * direction: inbound (51680 - 192.168.1.102:52303) [11]
+    * transport: TCPROS
+ * topic: /scan
+    * to: /rplidarNode (http://192.168.1.102:42177/)
+    * direction: inbound (57738 - 192.168.1.102:40679) [13]
+    * transport: TCPROS
+ * topic: /odom
+    * to: /tf_pub_node (http://192.168.1.102:36505/)
+    * direction: inbound (35798 - 192.168.1.102:58177) [20]
+    * transport: TCPROS
+ * topic: /move_base/goal
+    * to: /move_base (http://192.168.1.102:36121/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+

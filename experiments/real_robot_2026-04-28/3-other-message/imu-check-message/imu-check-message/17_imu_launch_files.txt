@@ -1,0 +1,20 @@
+========== 12. IMU launch 文件内容 ==========
+
+========== package: fdilink, path: /home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink ==========
+
+---------- /home/ros/catkin_ws/src/sensor/fdilink_imu/fdilink/launch/launch_imu.launch ----------
+<?xml version="1.0"?>
+<launch>
+    <arg name="use_rviz" default="true"/>
+    <node pkg="fdilink" type="launch_imu_node" name="launch_imu_node" output="screen">
+        <!--设置imu连接的串口号，下面为默认值-->
+        <param name="imu_serial_port" value="/dev/imu"/>
+        <!--设置imu的话题名，下面为默认值-->
+        <remap from="/fdi_imu" to="/imu/data"/>
+        <!--设置磁力计的话题名，下面为默认值-->
+        <remap from="/fdi_mag" to="/mag/mag_calib"/>
+    </node>
+    <!-- rviz -->
+    <!--<node pkg="rviz" type="rviz" name="odom_rviz" required="true"
+          args="-d $(find fdilink)/rviz/fdilink.rviz" if="$(arg use_rviz)"/>-->
+</launch>
