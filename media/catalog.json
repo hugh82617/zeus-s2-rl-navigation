@@ -150,7 +150,9 @@
         "type": "repository",
         "path": "media/video1.mp4",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/video1.mp4",
-        "status": "published"
+        "status": "published",
+        "homepage_embed_url": "https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4",
+        "homepage_metadata": "media/video1-homepage.json"
       },
       "id": "video-001"
     },

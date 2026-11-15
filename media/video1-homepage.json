@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source_repository_path": "media/video1.mp4",
+  "url": "https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4",
+  "size": 4354146,
+  "sha256": "dcb92dd17ddd17bbed6885ffad4eb41c1d08b761d5e7dfc82ca61e85b644c384",
+  "duration_seconds": 38.88,
+  "remote_bytes_verified": true,
+  "uploaded_at_utc": "2026-11-15T03:36:42.176332+00:00",
+  "purpose": "Inline video player on the repository README homepage",
+  "verified_at_utc": "2026-11-15T03:39:47.025089+00:00",
+  "verification": "Downloaded GitHub-rendered video source; byte size and SHA256 match media/video1.mp4"
+}
