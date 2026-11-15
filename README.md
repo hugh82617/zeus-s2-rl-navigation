@@ -2,7 +2,7 @@
 
 将 PPO 导航策略通过 ONNX Runtime 接入 Zeus S2 智能小车的 ROS1 感知与控制链路，完成激光观测构造、目标坐标变换、策略推理、动作处理及实车实验记录。项目同时包含 MATLAB / Simulink 路径跟踪、激光 SLAM 与传统导航实验，以及后续 `move_base` 局部规划器插件源码。
 
-**平台主线：ROS1、Noetic、Zeus S2、二维激光雷达、PPO、ONNX Runtime。** 早期 MATLAB / Simulink 模型另保存 ROS Melodic 目标配置；不同阶段的配置按原记录保留。
+**平台主线：ROS1、Zeus S2、二维激光雷达、PPO、ONNX Runtime。** 已保存的4月28日实车RL快照运行于Ubuntu 18.04 / ROS Melodic；后续局部规划器插件以ROS Noetic为开发目标，不同阶段分别保留。
 
 ## 项目演示 · 视频1
 
@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4
 
 毕业答辩目录中的“视频1”，时长38.88秒，保持原视频字节。播放器无法显示时，可[打开原始MP4](media/video1.mp4)。
 
-[项目经历与问题解决](docs/project-journey.md) · [训练与部署](docs/training-and-deployment.md) · [系统架构](docs/architecture.md) · [MATLAB实验](docs/matlab-experiments.md) · [实验与数据](experiments/README.md) · [52段视频目录](media/README.md)
+[项目经历与问题解决](docs/project-journey.md) · [硬件配置](docs/hardware-platform.md) · [RViz工具链](docs/rviz-debugging.md) · [系统架构与节点图](docs/architecture.md) · [训练与部署](docs/training-and-deployment.md) · [MATLAB实验](docs/matlab-experiments.md) · [实验与数据](experiments/README.md) · [52段视频目录](media/README.md)
 
 ## 做了哪些工作
 
@@ -18,7 +18,8 @@ https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4
 |---|---|---|
 | PPO训练与ONNX导出 | 保存训练配置、检查点、194 / 556维模型；导出actor及观测normalizer | [训练快照](training/stage1/) · [导出脚本](models_and_export/RL-onnx/export_onnx.py) · [模型说明](models_and_export/README.md) |
 | ROS1实车部署 | Python多节点组织感知、目标、ONNX推理与速度控制，保存实车运行材料 | [推理节点](ros1/python_nodes/rl_planner/scripts/rl_planner_node.py) · [4月28日运行记录](experiments/real_robot_2026-04-28/README.md) |
-| 观测对齐与部署调试 | 已解决雷达与车体前向相反约180°的问题；完成尺度对齐、三帧堆叠、输入真值校验及obs556记录 | [180°修正过程](docs/deployment-problem-cases.md#lidar-frame-alignment) · [三帧节点](ros1/python_nodes/rl_planner/scripts/lidar_stack_543_node.py) · [记录器](ros1/python_nodes/rl_planner/scripts/experiment_logger_with_obs556.py) |
+| 感知与观测对齐 | 修正雷达180°方向偏差、16米→12米归一化失配，构造181束及三帧543维激光观测 | [异常后退排查](docs/deployment-problem-cases.md#normalization-mismatch) · [180°修正](docs/deployment-problem-cases.md#lidar-frame-alignment) · [三帧节点](ros1/python_nodes/rl_planner/scripts/lidar_stack_543_node.py) |
+| RViz诊断与实验记录 | 可视化策略实际181束观测，定位前方空间被低估的问题；建立输入与时序校验、修复统计及obs556日志工具链 | [完整工具链](docs/rviz-debugging.md) · [可视化节点](ros1/python_nodes/rl_planner/scripts/rl_obs0_181_rviz_node.py) · [记录器](ros1/python_nodes/rl_planner/scripts/experiment_logger_with_obs556.py) |
 | MATLAB / Simulink控制 | 已进行Pure Pursuit路径跟踪与远程实车实验，包含到点判定、零速切换与停止仿真逻辑 | [实验说明](docs/matlab-experiments.md) · [MATLAB脚本](matlab/scripts/) · [Simulink模型](matlab/simulink/exp_6_2020b.slx) |
 | 激光SLAM与传统导航 | 保留激光预处理、里程计与闭环代码、地图、导航配置及运行演示 | [SLAM与地图](slam/README.md) · [ROS1运行配置](ros1/runtime_reference/) |
 | 全局路径接入与插件封装 | 实现C++ `nav_core::BaseLocalPlanner`插件、路径前瞻点与配置；该分支的构建和实车验证尚待完成 | [插件源码](ros1/local_planner_plugin/rl_planner/) · [版本与验证状态](docs/version-history.md) |
@@ -31,6 +32,19 @@ https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4
 [更多平台照片与实验记录](experiments/real_robot_2026-04-28/README.md)
 
 </details>
+
+## 实车硬件与系统配置
+
+| 模块 | 型号或配置 |
+|---|---|
+| 四驱移动平台 | **VSAI-FWD-B**，ROS软件平台采用Zeus S2 / `zeus_s2`命名 |
+| 上位主控计算机 | **GK4000 Intel工控机**；CPU具体型号未记录 |
+| 二维激光雷达 | **RPLIDAR A3M12**，通过`rplidar_ros`发布`/scan` |
+| IMU | **N100**，通过`fdilink`接入`/imu/data` |
+| 轮速与里程计 | 电机光电编码器及轮式里程计接口；编码器、底盘下位机具体器件型号未明确 |
+| 实车系统 | 4月28日快照：**Ubuntu 18.04系 / ROS1 Melodic / x86_64** |
+
+型号依据发货设备清单、项目资料和运行记录整理。传感器作用、里程计来源、超声波接口及后续Noetic插件环境见[硬件平台详解](docs/hardware-platform.md)。
 
 ## 强化学习如何接入小车
 
@@ -46,7 +60,7 @@ flowchart TD
     F --> H[Normalizer与PPO Actor ONNX]
     H --> I[动作映射与限幅]
     I --> J[控制源切换 / 速度平滑 / 底盘]
-    F --> K[观测校验与实验记录]
+    F --> K[RViz实际激光观测可视化 / 校验 / 记录]
 ```
 
 上图对应保存了实车运行材料的 **Python部署链路**。其中目标来自RViz最终目标，转换到车体系后进入策略；`/zeus_speed`在部分运行快照中可能是平滑命令，需按当次配置核对速度来源。
@@ -55,19 +69,40 @@ Stage3 观测为 `3线速度 + 3角速度 + 3重力 + 4目标 + 181×3激光 = 5
 
 **后续扩展：** C++插件通过 `move_base → setPlan() → 前瞻子目标 → ONNX → computeVelocityCommands()` 接入全局路径。该实现与上图分属不同阶段，构建与实车验证尚待完成；具体接口差异见[架构说明](docs/architecture.md)。
 
+## RViz观测诊断工具链
+
+围绕“策略实际看到了什么”建立诊断链路：从推理节点收到的激光中提取当前181束，按训练尺度恢复距离，在RViz中与原始扫描、车体和TF对照；结合三帧校验及完整日志追溯异常。
+
+| 工具 | 检查内容 |
+|---|---|
+| RViz LaserScan / MarkerArray | 实际观测的空间分布、前方最近障碍距离及修复统计 |
+| 观测一致性校验器 | 当前帧与543维堆叠的一致性、三帧时间顺序、坐标系和源时间戳 |
+| 实验记录器 | 556维输入、目标、轨迹、动作与到达状态的关联记录 |
+
+这套工具用于排查前方目标触发后退的16米/12米归一化失配。节点、话题、启动入口和RViz配置见[完整工具链说明](docs/rviz-debugging.md)。
+
+<details>
+<summary>查看实际ROS1节点与话题关系图（SVG）</summary>
+
+![ROS1实车节点与话题关系图](docs/assets/rosgraph.svg)
+
+[打开原始SVG并放大查看](docs/assets/rosgraph.svg)。图中展示激光、定位、RL推理、传统导航、控制切换与底盘连接；诊断工具的详细连接另见[RViz工具链](docs/rviz-debugging.md)。
+
+</details>
+
 ## 遇到的问题与处理方法
 
 | 问题 | 处理方法 | 完成情况与说明 |
 |---|---|---|
 | **激光雷达与车体前向相反约180°** | 扫描数组半周循环重排，发布`/scan_aligned`并配置配套TF，使障碍物方向与车体前向一致 | **已解决并用于ROS1实车链路**；[代码、TF与运行依据](docs/deployment-problem-cases.md#lidar-frame-alignment) |
+| **前方设置目标却后退：训练与实车激光归一化失配** | 在RViz中按训练尺度重建策略实际181束观测，发现前方自由空间被低估；将部署端归一化分母由16米修正为12米 | **已定位并完成观测尺度对齐**；[现象、原因与排查过程](docs/deployment-problem-cases.md#normalization-mismatch) |
 | **8×8米训练场景与较大实车实验场景不一致，策略出现绕远** | 分析场景泛化与缺少全局引导的问题，保留PPO/ONNX接口，完成全局路径前瞻子目标和ROS1插件适配源码 | 已形成源码原型；编译、输入等价及大场景效果待验证，见[场景差异处理](docs/deployment-problem-cases.md#scene-gap) |
 | 无效测距与动态障碍观测波动 | 空间/时间修复、三帧堆叠、修复mask及时间戳诊断 | Python和C++滤波细节不同，逐帧等价仍需验证 |
-| 模型输入尺度、维度与归一化接口不一致 | 主线统一12米归一化、保留goal4的dz占位、随actor导出normalizer | 与场景差异分别处理；保留早期16米说明及194 / 556维模型版本 |
 | 目标附近绕行、震荡与动作偏差 | 保存目标门控、限速、bias及近目标规则版本，记录raw/clip/cmd | 规则包裹与模型重新训练应分别说明；并非所有方案都有同等验证 |
 | 难定位异常来自输入还是控制 | 保存obs556、源beam映射、真值验证、轨迹和运行参数 | 话题间隔不能直接作为纯ONNX推理耗时 |
 | MATLAB终点附近持续跟踪 | 保存到点判定、零速切换及停止仿真的模型实现 | 脚本与模型的四元数接口差异需在复跑时核对 |
 
-坐标修正、场景差异和输入接口的具体处理与证据见[关键部署问题详解](docs/deployment-problem-cases.md)。其他工作见[项目经历](docs/project-journey.md)、[MATLAB实验](docs/matlab-experiments.md)及[版本说明](docs/version-history.md)。
+坐标修正、异常后退排查、场景差异和输入接口的具体处理与证据见[关键部署问题详解](docs/deployment-problem-cases.md)。其他工作见[项目经历](docs/project-journey.md)、[MATLAB实验](docs/matlab-experiments.md)及[版本说明](docs/version-history.md)。
 
 ## 实验数据
 
