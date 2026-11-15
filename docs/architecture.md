@@ -27,7 +27,7 @@ flowchart TD
 
 | 层 | 节点或话题 | 作用 |
 |---|---|---|
-| 方向对齐 | `laser_switch.py` → `/scan_aligned` | 半周索引重排，处理雷达安装朝向与模型车头方向的对应 |
+| 方向对齐 | `laser_switch.py` → `/scan_aligned` | 已解决雷达与车体前向相反约180°的问题：半周重排扫描，并配置`laser_link_aligned`的配套TF |
 | 单帧观测 | `lidar_obs_single_frame.py` → `/rl/lidar_181` | 米制空间异常修复、视场裁剪、线性重采样和12m归一化 |
 | 激光历史 | `lidar_stack_543_node.py` → `/rl/lidar_543` | 以[t0,t1,t2]堆叠3帧，保存时间戳和修复信息 |
 | 目标 | `rl_local_goal_provider.py` → `/rl_local_goal_body` | 输出车体系[dx,dy,dz,dyaw] |
@@ -35,11 +35,15 @@ flowchart TD
 | 控制源 | `cmd_vel_switch` | 选择RL、DWA或遥控，接入下游速度平滑与底盘链 |
 | 记录与诊断 | `experiment_logger_with_obs556.py`、truth validator、RViz节点 | 保存目标、状态、速度、轨迹和模型实际输入 |
 
+180°方向修正先于视场裁剪和重采样；扫描数据重排与TF描述需要配套。归档中有两个aligned TF发布入口，部署时按当次TF树选用一个，不能重复发布或重复旋转。代码与实车运行依据见[坐标方向问题详解](deployment-problem-cases.md#lidar-frame-alignment)。
+
 历史说明把 `/zeus_speed` 称作底盘反馈。4月28日保存的运行进程也出现 `velocity_smoother/smooth_cmd_vel:=zeus_speed`，因此不能仅按话题名认定它是独立硬件测量值；控制命令和硬件状态的来源须在目标部署系统中核对。
 
 ## C++局部规划器插件
 
 插件入口为 [`ros1/local_planner_plugin/rl_planner`](../ros1/local_planner_plugin/rl_planner/)，类名 `rl_planner::RLLocalPlannerROS`，pluginlib名称 `rl_planner/RLLocalPlannerROS`。
+
+这一扩展针对8×8米训练场景与较大实验环境不一致、直接追最终目标容易绕远的问题，引入全局路径前瞻子目标。它与12米激光归一化的输入对齐是不同层次的处理；源码已保存，尚未完成真实编译和大场景效果验证，详见[场景差异处理](deployment-problem-cases.md#scene-gap)。
 
 ```mermaid
 flowchart LR
