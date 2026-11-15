@@ -18,7 +18,7 @@ https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4
 |---|---|---|
 | PPO训练与ONNX导出 | 保存训练配置、检查点、194 / 556维模型；导出actor及观测normalizer | [训练快照](training/stage1/) · [导出脚本](models_and_export/RL-onnx/export_onnx.py) · [模型说明](models_and_export/README.md) |
 | ROS1实车部署 | Python多节点组织感知、目标、ONNX推理与速度控制，保存实车运行材料 | [推理节点](ros1/python_nodes/rl_planner/scripts/rl_planner_node.py) · [4月28日运行记录](experiments/real_robot_2026-04-28/README.md) |
-| 观测对齐与部署调试 | 激光方向及尺度对齐、三帧堆叠、输入真值校验、控制源切换、轨迹和obs556记录 | [三帧节点](ros1/python_nodes/rl_planner/scripts/lidar_stack_543_node.py) · [真值校验](ros1/python_nodes/rl_planner/scripts/rl_obs0_truth_validator.py) · [记录器](ros1/python_nodes/rl_planner/scripts/experiment_logger_with_obs556.py) |
+| 观测对齐与部署调试 | 已解决雷达与车体前向相反约180°的问题；完成尺度对齐、三帧堆叠、输入真值校验及obs556记录 | [180°修正过程](docs/deployment-problem-cases.md#lidar-frame-alignment) · [三帧节点](ros1/python_nodes/rl_planner/scripts/lidar_stack_543_node.py) · [记录器](ros1/python_nodes/rl_planner/scripts/experiment_logger_with_obs556.py) |
 | MATLAB / Simulink控制 | 已进行Pure Pursuit路径跟踪与远程实车实验，包含到点判定、零速切换与停止仿真逻辑 | [实验说明](docs/matlab-experiments.md) · [MATLAB脚本](matlab/scripts/) · [Simulink模型](matlab/simulink/exp_6_2020b.slx) |
 | 激光SLAM与传统导航 | 保留激光预处理、里程计与闭环代码、地图、导航配置及运行演示 | [SLAM与地图](slam/README.md) · [ROS1运行配置](ros1/runtime_reference/) |
 | 全局路径接入与插件封装 | 实现C++ `nav_core::BaseLocalPlanner`插件、路径前瞻点与配置；该分支的构建和实车验证尚待完成 | [插件源码](ros1/local_planner_plugin/rl_planner/) · [版本与验证状态](docs/version-history.md) |
@@ -36,8 +36,9 @@ https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4
 
 ```mermaid
 flowchart TD
-    A[原始 LaserScan] --> B[方向对齐与181束重采样]
-    B --> C[三帧543维激光]
+    A[原始 LaserScan] --> B[180°前向修正与aligned坐标系]
+    B --> B2[270°裁剪 / 181束 / 12米归一化]
+    B2 --> C[三帧543维激光]
     D[RViz最终目标] --> E[TF转换与车体系goal4]
     C --> F[556维观测]
     E --> F
@@ -56,17 +57,17 @@ Stage3 观测为 `3线速度 + 3角速度 + 3重力 + 4目标 + 181×3激光 = 5
 
 ## 遇到的问题与处理方法
 
-| 问题 | 已做的处理或形成的方案 | 需要保留的边界 |
+| 问题 | 处理方法 | 完成情况与说明 |
 |---|---|---|
-| 真实雷达安装朝向与模型不同 | 半周索引对齐、270°裁剪、181束重采样，并在RViz核对 | 索引对齐与完整传感器外参不是同一件事 |
+| **激光雷达与车体前向相反约180°** | 扫描数组半周循环重排，发布`/scan_aligned`并配置配套TF，使障碍物方向与车体前向一致 | **已解决并用于ROS1实车链路**；[代码、TF与运行依据](docs/deployment-problem-cases.md#lidar-frame-alignment) |
+| **8×8米训练场景与较大实车实验场景不一致，策略出现绕远** | 分析场景泛化与缺少全局引导的问题，保留PPO/ONNX接口，完成全局路径前瞻子目标和ROS1插件适配源码 | 已形成源码原型；编译、输入等价及大场景效果待验证，见[场景差异处理](docs/deployment-problem-cases.md#scene-gap) |
 | 无效测距与动态障碍观测波动 | 空间/时间修复、三帧堆叠、修复mask及时间戳诊断 | Python和C++滤波细节不同，逐帧等价仍需验证 |
-| 训练与部署输入尺度不一致 | 统一12m归一化、保留goal4的dz占位、随actor导出normalizer | 早期16m说明和194维旧版本仍可在归档中看到 |
-| 小场景策略在大场景绕远 | 引入全局路径前瞻点，保留策略输入结构 | 聊天提出弧长方案；保存的C++按欧氏距离阈值选点 |
+| 模型输入尺度、维度与归一化接口不一致 | 主线统一12米归一化、保留goal4的dz占位、随actor导出normalizer | 与场景差异分别处理；保留早期16米说明及194 / 556维模型版本 |
 | 目标附近绕行、震荡与动作偏差 | 保存目标门控、限速、bias及近目标规则版本，记录raw/clip/cmd | 规则包裹与模型重新训练应分别说明；并非所有方案都有同等验证 |
 | 难定位异常来自输入还是控制 | 保存obs556、源beam映射、真值验证、轨迹和运行参数 | 话题间隔不能直接作为纯ONNX推理耗时 |
 | MATLAB终点附近持续跟踪 | 保存到点判定、零速切换及停止仿真的模型实现 | 脚本与模型的四元数接口差异需在复跑时核对 |
 
-具体代码、参数、历史修订和原始证据见[项目经历](docs/project-journey.md)、[MATLAB实验](docs/matlab-experiments.md)及[版本说明](docs/version-history.md)。
+坐标修正、场景差异和输入接口的具体处理与证据见[关键部署问题详解](docs/deployment-problem-cases.md)。其他工作见[项目经历](docs/project-journey.md)、[MATLAB实验](docs/matlab-experiments.md)及[版本说明](docs/version-history.md)。
 
 ## 实验数据
 
