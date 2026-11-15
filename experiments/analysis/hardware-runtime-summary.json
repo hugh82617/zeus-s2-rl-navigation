@@ -1,0 +1,545 @@
+{
+  "method": "Median and range of saved per-trial avg_hz; no pooling of message streams.",
+  "scope": "ROS publication/receipt rate in saved windows, not device ADC or encoder sampling rate.",
+  "topics": {
+    "/scan": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 14.285976636001347,
+      "min_hz": 14.118771885824312,
+      "max_hz": 14.373704262373332,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.284608238899262,
+          "message_count": 151,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.278987903505044,
+          "message_count": 279,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 14.287345033103431,
+          "message_count": 688,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 14.118771885824312,
+          "message_count": 795,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 14.280460961043934,
+          "message_count": 1069,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 14.331952279546403,
+          "message_count": 771,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.373704262373332,
+          "message_count": 578,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.303075039736168,
+          "message_count": 670,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/scan_aligned": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 14.280234370054906,
+      "min_hz": 14.065616820707973,
+      "max_hz": 14.39795266388936,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.298480916400061,
+          "message_count": 151,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.065616820707973,
+          "message_count": 275,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 14.274578456563484,
+          "message_count": 685,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 14.181937185675324,
+          "message_count": 800,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 14.285890283546328,
+          "message_count": 1069,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 14.29394756118405,
+          "message_count": 770,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.39795266388936,
+          "message_count": 574,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.211127838821255,
+          "message_count": 667,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/imu/data": {
+      "trials_with_valid_rate": 0,
+      "median_hz": null,
+      "min_hz": null,
+      "max_hz": null,
+      "measurements": []
+    },
+    "/odom": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 14.276566467274654,
+      "min_hz": 14.219753167565623,
+      "max_hz": 14.407134357252266,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.277966156161034,
+          "message_count": 151,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.285747093413871,
+          "message_count": 280,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 14.26026291655752,
+          "message_count": 685,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 14.257296358334004,
+          "message_count": 806,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 14.275166778388273,
+          "message_count": 1069,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 14.319830249563323,
+          "message_count": 771,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.407134357252266,
+          "message_count": 576,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.219753167565623,
+          "message_count": 667,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/odom_wheel": {
+      "trials_with_valid_rate": 0,
+      "median_hz": null,
+      "min_hz": null,
+      "max_hz": null,
+      "measurements": []
+    },
+    "/joint_states": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 10.000819583545475,
+      "min_hz": 9.993918044064376,
+      "max_hz": 10.067579783041715,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 10.00175461442473,
+          "message_count": 106,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 9.999884552666222,
+          "message_count": 195,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 10.002283627624033,
+          "message_count": 481,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 9.99587507890019,
+          "message_count": 564,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 10.005327163090177,
+          "message_count": 749,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 9.997770007390258,
+          "message_count": 539,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 10.067579783041715,
+          "message_count": 403,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 9.993918044064376,
+          "message_count": 468,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/motor_driverFeedback": {
+      "trials_with_valid_rate": 0,
+      "median_hz": null,
+      "min_hz": null,
+      "max_hz": null,
+      "measurements": []
+    },
+    "/zeus_speed": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 19.977531061772318,
+      "min_hz": 19.457763369358315,
+      "max_hz": 20.00426143894507,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 19.999255257809583,
+          "message_count": 212,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 19.98900700184085,
+          "message_count": 391,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 19.73027725032293,
+          "message_count": 942,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 19.457763369358315,
+          "message_count": 1095,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 19.98091141586163,
+          "message_count": 1495,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 20.00426143894507,
+          "message_count": 1077,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 19.974150707683002,
+          "message_count": 799,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 19.952188637447694,
+          "message_count": 935,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/rl/lidar_181": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 14.285872765241736,
+      "min_hz": 14.27279416583638,
+      "max_hz": 14.37989962016978,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.304551127708534,
+          "message_count": 151,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.277376052335466,
+          "message_count": 279,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 14.300874984522434,
+          "message_count": 686,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 14.27279416583638,
+          "message_count": 807,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 14.277980169443088,
+          "message_count": 1069,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 14.282266196420748,
+          "message_count": 770,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.37989962016978,
+          "message_count": 578,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.289479334062724,
+          "message_count": 670,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/rl/lidar_543": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 14.284699180870044,
+      "min_hz": 14.274114807210472,
+      "max_hz": 14.40682762749396,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.33358284095353,
+          "message_count": 151,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.287222254236637,
+          "message_count": 279,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 14.322020858444825,
+          "message_count": 688,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 14.274114807210472,
+          "message_count": 807,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 14.277762591675158,
+          "message_count": 1069,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 14.281148475356169,
+          "message_count": 770,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.40682762749396,
+          "message_count": 576,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.282176107503451,
+          "message_count": 669,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/rl/obs_556": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 13.690756678746514,
+      "min_hz": 12.18787010780096,
+      "max_hz": 14.343019656663303,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.343019656663303,
+          "message_count": 105,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.281155445713878,
+          "message_count": 279,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 12.956833615433473,
+          "message_count": 623,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 13.014204235457559,
+          "message_count": 735,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 13.145253410799617,
+          "message_count": 984,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 12.18787010780096,
+          "message_count": 617,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.267394020078239,
+          "message_count": 573,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.236259946693412,
+          "message_count": 519,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    },
+    "/rl_cmd_vel": {
+      "trials_with_valid_rate": 8,
+      "median_hz": 13.710068726748158,
+      "min_hz": 12.219093140649736,
+      "max_hz": 14.368446871626904,
+      "measurements": [
+        {
+          "trial": "trial_001",
+          "avg_hz": 14.368446871626904,
+          "message_count": 106,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_001/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_002",
+          "avg_hz": 14.296733726921172,
+          "message_count": 279,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_002/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_003",
+          "avg_hz": 12.993365223581195,
+          "message_count": 625,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_003/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_004",
+          "avg_hz": 13.029995283557886,
+          "message_count": 736,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_004/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_005",
+          "avg_hz": 13.178995997410755,
+          "message_count": 987,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_005/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_006",
+          "avg_hz": 12.219093140649736,
+          "message_count": 620,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_006/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_007",
+          "avg_hz": 14.273047453267502,
+          "message_count": 573,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_007/frequency_summary.csv"
+        },
+        {
+          "trial": "trial_008",
+          "avg_hz": 14.241141456085561,
+          "message_count": 520,
+          "source": "experiments/real_robot_2026-04-28/4-hz-message/01_frequency_information/trial_008/frequency_summary.csv"
+        }
+      ]
+    }
+  },
+  "dedicated_rostopic_hz": {
+    "/scan": {
+      "final_reported_average_hz": 13.315,
+      "source": "experiments/real_robot_2026-04-28/2-lidar-message/lidar-message/lidar-message/06_scan_hz.txt"
+    },
+    "/imu/data": {
+      "final_reported_average_hz": 100.002,
+      "source": "experiments/real_robot_2026-04-28/3-other-message/imu-check-message/imu-check-message/08_imu_data_hz.txt"
+    },
+    "/odom": {
+      "final_reported_average_hz": 14.07,
+      "source": "experiments/real_robot_2026-04-28/3-other-message/other-message/other-message/07_odom_hz.txt"
+    }
+  }
+}
