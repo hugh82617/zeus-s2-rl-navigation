@@ -2,6 +2,23 @@
 
 项目包含两个主要导航实现阶段：多Python节点的实车部署链，以及接入 `move_base` 的C++局部规划器插件。两者的观测、滤波和到达逻辑有差异，按不同分支保留。
 
+## 实际ROS节点与话题关系图
+
+![ROS1运行节点与话题关系图](assets/rosgraph.svg)
+
+[打开原始SVG放大查看](assets/rosgraph.svg)。本图由项目作者补充，保留原始矢量文件；[来源与SHA256](../provenance/rosgraph-source.json)可供核对。
+
+| 图中链路 | 含义 |
+|---|---|
+| `/rplidarNode → /scan → /laser_switch → /scan_aligned` | 雷达采集及前向修正 |
+| 单帧预处理 → 三帧堆叠 → `/rl_onnx_inference_node` | 181/543维激光观测进入策略推理 |
+| `/move_base_simple/goal → /rl_local_goal_provider_tf` | 最终目标转换为车体系目标后进入策略 |
+| `/move_base`与`/cmd_vel_switch` | 传统导航、RL和遥控控制源的组织与切换 |
+| 速度平滑 → `/zeus_speed → /zeus_s2_driver` | 控制命令进入底盘执行层 |
+| `/imu/data`、`/odom_wheel → /relocalization → /laserpose → /tf_pub_node` | 状态估计、位姿与里程计发布链 |
+
+图反映软件节点与话题连接，硬件型号和实际数据来源见[硬件平台](hardware-platform.md)。RViz实际观测可视化、三帧校验和日志的详细连接见[诊断工具链](rviz-debugging.md)。
+
 ## 多节点实车部署
 
 ```mermaid
@@ -33,9 +50,11 @@ flowchart TD
 | 目标 | `rl_local_goal_provider.py` → `/rl_local_goal_body` | 输出车体系[dx,dy,dz,dyaw] |
 | 推理 | `rl_planner_node.py` → `/rl_cmd_vel` | 组装556维，调用ONNX，执行分支对应的动作处理 |
 | 控制源 | `cmd_vel_switch` | 选择RL、DWA或遥控，接入下游速度平滑与底盘链 |
-| 记录与诊断 | `experiment_logger_with_obs556.py`、truth validator、RViz节点 | 保存目标、状态、速度、轨迹和模型实际输入 |
+| 记录与诊断 | `experiment_logger_with_obs556.py`、truth validator、RViz节点 | 可视化实际181束观测，核对输入链路并保存目标、状态、速度、轨迹和obs556 |
 
 180°方向修正先于视场裁剪和重采样；扫描数据重排与TF描述需要配套。归档中有两个aligned TF发布入口，部署时按当次TF树选用一个，不能重复发布或重复旋转。代码与实车运行依据见[坐标方向问题详解](deployment-problem-cases.md#lidar-frame-alignment)。
+
+RViz诊断链路由推理节点发布`/rl/debug/obs0_181`，可视化节点将该当前帧按12米尺度恢复并重建LaserScan和MarkerArray。初次部署中，正是通过检查这一策略输入，发现16米部署归一化与12米训练尺度不一致、前方自由空间被低估的问题，随后修正预处理参数。完整过程见[前方目标触发后退的排查](deployment-problem-cases.md#normalization-mismatch)。
 
 历史说明把 `/zeus_speed` 称作底盘反馈。4月28日保存的运行进程也出现 `velocity_smoother/smooth_cmd_vel:=zeus_speed`，因此不能仅按话题名认定它是独立硬件测量值；控制命令和硬件状态的来源须在目标部署系统中核对。
 

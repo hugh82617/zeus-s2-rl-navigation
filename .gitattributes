@@ -16,3 +16,5 @@
 *.png binary
 *.jpg binary
 *.pgm binary
+# Preserve the author-provided Qt graph bytes and avoid a geometry-only text diff.
+docs/assets/rosgraph.svg binary
