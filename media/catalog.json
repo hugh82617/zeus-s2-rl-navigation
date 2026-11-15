@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "release_tag": "v1.0.0",
-  "release_upload_status": "pending",
+  "release_upload_status": "published_and_sha256_verified",
   "classification_basis": "source path and file name; no frame-by-frame semantic review",
   "source_video_paths": 67,
   "source_video_bytes": 2228401849,
@@ -33,22 +33,13 @@
   },
   "release_assets": [
     {
-      "asset": "video-rl_deployment-01.zip",
-      "size": 1204021051,
-      "sha256": "48dbc41c7c1e188f3aa3dc06e3bb97b2f451468436f8178501dc8e217e711ca4",
-      "category": "rl_deployment",
-      "videos": 27,
-      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
-      "status": "pending_upload"
-    },
-    {
       "asset": "video-navigation_slam-01.zip",
       "size": 457317700,
       "sha256": "990b2d4f7a8548153a6e82b46eecd98233a002a7a3ba500e1563af1ab51625bd",
       "category": "navigation_slam",
       "videos": 4,
       "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip",
-      "status": "pending_upload"
+      "status": "published_and_sha256_verified"
     },
     {
       "asset": "video-matlab_control-01.zip",
@@ -57,7 +48,7 @@
       "category": "matlab_control",
       "videos": 2,
       "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-matlab_control-01.zip",
-      "status": "pending_upload"
+      "status": "published_and_sha256_verified"
     },
     {
       "asset": "video-defense_demo-01.zip",
@@ -66,7 +57,7 @@
       "category": "defense_demo",
       "videos": 5,
       "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
-      "status": "pending_upload"
+      "status": "published_and_sha256_verified"
     },
     {
       "asset": "video-diagnostics-01.zip",
@@ -75,7 +66,67 @@
       "category": "diagnostics",
       "videos": 13,
       "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
-      "status": "pending_upload"
+      "status": "published_and_sha256_verified"
+    },
+    {
+      "asset": "video-rl_deployment-01.zip.part001",
+      "size": 209715200,
+      "sha256": "f13c4ab2d97f4972d2ae7f152cca74030ecdcdd64344858480b0cf050f50bc2f",
+      "category": "rl_deployment",
+      "logical_archive": "video-rl_deployment-01.zip",
+      "part_index": 1,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part001",
+      "status": "published_and_sha256_verified"
+    },
+    {
+      "asset": "video-rl_deployment-01.zip.part002",
+      "size": 209715200,
+      "sha256": "8a801ac59f222b76af8f0c926935b7d58fa0914f2914579fde83ffcadf633670",
+      "category": "rl_deployment",
+      "logical_archive": "video-rl_deployment-01.zip",
+      "part_index": 2,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part002",
+      "status": "published_and_sha256_verified"
+    },
+    {
+      "asset": "video-rl_deployment-01.zip.part003",
+      "size": 209715200,
+      "sha256": "46a41b5ce3855d0b46a795fcfd6915e7f714de69cd6c620055f4efc2c2ca2ee0",
+      "category": "rl_deployment",
+      "logical_archive": "video-rl_deployment-01.zip",
+      "part_index": 3,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part003",
+      "status": "published_and_sha256_verified"
+    },
+    {
+      "asset": "video-rl_deployment-01.zip.part004",
+      "size": 209715200,
+      "sha256": "656f26c424532b1529ccef8dc49323e859fc90f48099b5407adafe9fdea1416a",
+      "category": "rl_deployment",
+      "logical_archive": "video-rl_deployment-01.zip",
+      "part_index": 4,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part004",
+      "status": "published_and_sha256_verified"
+    },
+    {
+      "asset": "video-rl_deployment-01.zip.part005",
+      "size": 209715200,
+      "sha256": "152e72de325610cae4f3f8fefc7a7d043aeff9588bc1450e9ae8fab1cf82e293",
+      "category": "rl_deployment",
+      "logical_archive": "video-rl_deployment-01.zip",
+      "part_index": 5,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part005",
+      "status": "published_and_sha256_verified"
+    },
+    {
+      "asset": "video-rl_deployment-01.zip.part006",
+      "size": 155445051,
+      "sha256": "2ebadd128a4af3176ab274162e5ebfa3b8563f6842e93f08d4da0b475f7fc154",
+      "category": "rl_deployment",
+      "logical_archive": "video-rl_deployment-01.zip",
+      "part_index": 6,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part006",
+      "status": "published_and_sha256_verified"
     }
   ],
   "videos": [
@@ -99,7 +150,7 @@
         "type": "repository",
         "path": "media/video1.mp4",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/video1.mp4",
-        "status": "prepared_locally"
+        "status": "published"
       },
       "id": "video-001"
     },
@@ -124,7 +175,7 @@
         "asset": "video-defense_demo-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
         "archive_entry": "defense_demo/02 Projects/D0-Graduation-Thesis-SLAM/毕业论文/毕业答辩/5.19/视频2.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-002"
     },
@@ -149,7 +200,7 @@
         "asset": "video-defense_demo-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
         "archive_entry": "defense_demo/02 Projects/D0-Graduation-Thesis-SLAM/毕业论文/毕业答辩/5.19/视频3.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-003"
     },
@@ -172,7 +223,7 @@
         "asset": "video-defense_demo-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
         "archive_entry": "defense_demo/02 Projects/D0-Graduation-Thesis-SLAM/毕业论文/毕业答辩/5.19/15秒加速版/视频1_15s.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-004"
     },
@@ -196,7 +247,7 @@
         "asset": "video-defense_demo-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
         "archive_entry": "defense_demo/02 Projects/D0-Graduation-Thesis-SLAM/毕业论文/毕业答辩/5.19/15秒加速版/视频2_15s.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-005"
     },
@@ -220,7 +271,7 @@
         "asset": "video-defense_demo-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
         "archive_entry": "defense_demo/02 Projects/D0-Graduation-Thesis-SLAM/毕业论文/毕业答辩/5.19/15秒加速版/视频3_15s.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-006"
     },
@@ -243,7 +294,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-2.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-007"
     },
@@ -266,7 +317,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-3.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-008"
     },
@@ -289,7 +340,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-4.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-009"
     },
@@ -313,7 +364,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-2-1.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-010"
     },
@@ -337,7 +388,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-3-1.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-011"
     },
@@ -360,7 +411,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/cut_5_11_2.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-012"
     },
@@ -383,7 +434,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-3-1 (2).mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-013"
     },
@@ -406,7 +457,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/cut_5_11_2_1.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-014"
     },
@@ -429,7 +480,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-3_compressed.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-015"
     },
@@ -452,7 +503,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/cut_5_11_2_1_clear.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-016"
     },
@@ -475,7 +526,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-3_compressed_5s_to_2m04s.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-017"
     },
@@ -499,7 +550,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/ed0cb22756e8fb88b16fb6b182d3da0e.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-018"
     },
@@ -522,7 +573,7 @@
         "asset": "video-diagnostics-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
         "archive_entry": "diagnostics/07 Assets/D0-Experiment-Videos/实验记录视频/5.11/5.11/5.11-3_compressed_5s_to_2m04s_2x_noaudio.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-019"
     },
@@ -546,7 +597,7 @@
         "asset": "video-matlab_control-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-matlab_control-01.zip",
         "archive_entry": "matlab_control/工作总结-2026.1.18/2-演示视频/附件1-MATLAB控制导航/前瞻距离0.3.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-020"
     },
@@ -570,7 +621,7 @@
         "asset": "video-matlab_control-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-matlab_control-01.zip",
         "archive_entry": "matlab_control/工作总结-2026.1.18/2-演示视频/附件1-MATLAB控制导航/附件1（实物运行图 0.3）.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-021"
     },
@@ -594,7 +645,7 @@
         "asset": "video-navigation_slam-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip",
         "archive_entry": "navigation_slam/工作总结-2026.1.18/2-演示视频/附件2-自主导航与避障/自主导航配置讲解.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-022"
     },
@@ -618,7 +669,7 @@
         "asset": "video-navigation_slam-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip",
         "archive_entry": "navigation_slam/工作总结-2026.1.18/2-演示视频/附件2-自主导航与避障/定点导航实物运行视频.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-023"
     },
@@ -642,7 +693,7 @@
         "asset": "video-navigation_slam-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip",
         "archive_entry": "navigation_slam/工作总结-2026.1.18/2-演示视频/附件2-自主导航与避障/自主导航实物运行视频.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-024"
     },
@@ -665,7 +716,7 @@
         "asset": "video-navigation_slam-01.zip",
         "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip",
         "archive_entry": "navigation_slam/02 Projects/D0-Robotics-Experiments/1/工作总结-2026.1.18/工作总结-2026.1.18/2-演示视频/附件2-自主导航与避障/定点导航配置讲解.mp4",
-        "status": "pending_upload"
+        "status": "published"
       },
       "id": "video-025"
     },
@@ -684,11 +735,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/1.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-026"
     },
@@ -707,11 +767,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/2.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-027"
     },
@@ -732,11 +801,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/3.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-028"
     },
@@ -755,11 +833,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/wenti/car_run_005.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-029"
     },
@@ -778,11 +865,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/headon/car_run_021.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-030"
     },
@@ -801,11 +897,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/headon/car_run_022.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-031"
     },
@@ -824,11 +929,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/diagnol/car_run_012.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-032"
     },
@@ -847,11 +961,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/diagnol/car_run_013.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-033"
     },
@@ -870,11 +993,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/diagnol/car_run_018.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-034"
     },
@@ -893,11 +1025,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/diagnol/car_run_020.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-035"
     },
@@ -916,11 +1057,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youhou/car_run_001.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-036"
     },
@@ -939,11 +1089,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youhou/car_run_002.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-037"
     },
@@ -962,11 +1121,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youhou/car_run_014.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-038"
     },
@@ -985,11 +1153,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youhou/car_run_015.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-039"
     },
@@ -1008,11 +1185,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youhou/car_run_016.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-040"
     },
@@ -1031,11 +1217,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuohou/car_run_003.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-041"
     },
@@ -1054,11 +1249,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuohou/car_run_004.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-042"
     },
@@ -1077,11 +1281,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuohou/car_run_006.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-043"
     },
@@ -1100,11 +1313,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuohou/car_run_019.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-044"
     },
@@ -1123,11 +1345,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youqian/car_run_007.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-045"
     },
@@ -1146,11 +1377,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youqian/car_run_008.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-046"
     },
@@ -1169,11 +1409,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youqian/car_run_009.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-047"
     },
@@ -1192,11 +1441,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youqian/car_run_023.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-048"
     },
@@ -1215,11 +1473,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/youqian/car_run_024.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-049"
     },
@@ -1238,11 +1505,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuoqian/car_run_010.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-050"
     },
@@ -1261,11 +1537,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuoqian/car_run_011.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-051"
     },
@@ -1284,11 +1569,20 @@
       "metadata_status": "mvhd_v0",
       "content_review": "not_frame_by_frame_reviewed",
       "delivery": {
-        "type": "release_asset",
+        "type": "multipart_release_archive",
         "asset": "video-rl_deployment-01.zip",
-        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip",
+        "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
         "archive_entry": "rl_deployment/07 Assets/D0-Experiment-Videos/实验记录视频/RL/RL/2026-4-22/cut_output/crossing/zuoqian/car_run_017.mp4",
-        "status": "pending_upload"
+        "status": "published",
+        "parts_manifest": "media/rl-video-parts.json",
+        "parts": [
+          "video-rl_deployment-01.zip.part001",
+          "video-rl_deployment-01.zip.part002",
+          "video-rl_deployment-01.zip.part003",
+          "video-rl_deployment-01.zip.part004",
+          "video-rl_deployment-01.zip.part005",
+          "video-rl_deployment-01.zip.part006"
+        ]
       },
       "id": "video-052"
     }
@@ -2163,6 +2457,98 @@
       "duration_seconds": 387.541,
       "asset": "video-navigation_slam-01.zip",
       "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip"
+    }
+  ],
+  "verified_at_utc": "2026-11-15T03:24:30.052765+00:00",
+  "video_archives": [
+    {
+      "asset": "video-rl_deployment-01.zip",
+      "size": 1204021051,
+      "sha256": "48dbc41c7c1e188f3aa3dc06e3bb97b2f451468436f8178501dc8e217e711ca4",
+      "category": "rl_deployment",
+      "videos": 27,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/blob/main/media/README.md#rl-video-parts",
+      "status": "published",
+      "delivery_type": "multipart_archive",
+      "parts_manifest": "media/rl-video-parts.json",
+      "parts": [
+        {
+          "name": "video-rl_deployment-01.zip.part001",
+          "size": 209715200,
+          "sha256": "f13c4ab2d97f4972d2ae7f152cca74030ecdcdd64344858480b0cf050f50bc2f",
+          "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part001"
+        },
+        {
+          "name": "video-rl_deployment-01.zip.part002",
+          "size": 209715200,
+          "sha256": "8a801ac59f222b76af8f0c926935b7d58fa0914f2914579fde83ffcadf633670",
+          "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part002"
+        },
+        {
+          "name": "video-rl_deployment-01.zip.part003",
+          "size": 209715200,
+          "sha256": "46a41b5ce3855d0b46a795fcfd6915e7f714de69cd6c620055f4efc2c2ca2ee0",
+          "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part003"
+        },
+        {
+          "name": "video-rl_deployment-01.zip.part004",
+          "size": 209715200,
+          "sha256": "656f26c424532b1529ccef8dc49323e859fc90f48099b5407adafe9fdea1416a",
+          "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part004"
+        },
+        {
+          "name": "video-rl_deployment-01.zip.part005",
+          "size": 209715200,
+          "sha256": "152e72de325610cae4f3f8fefc7a7d043aeff9588bc1450e9ae8fab1cf82e293",
+          "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part005"
+        },
+        {
+          "name": "video-rl_deployment-01.zip.part006",
+          "size": 155445051,
+          "sha256": "2ebadd128a4af3176ab274162e5ebfa3b8563f6842e93f08d4da0b475f7fc154",
+          "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part006"
+        }
+      ]
+    },
+    {
+      "asset": "video-navigation_slam-01.zip",
+      "size": 457317700,
+      "sha256": "990b2d4f7a8548153a6e82b46eecd98233a002a7a3ba500e1563af1ab51625bd",
+      "category": "navigation_slam",
+      "videos": 4,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip",
+      "status": "published",
+      "delivery_type": "release_asset"
+    },
+    {
+      "asset": "video-matlab_control-01.zip",
+      "size": 7939793,
+      "sha256": "d3b384a0641886768abcbcdbad5ef42f4761949a7cb549cc583b16bd466adbbb",
+      "category": "matlab_control",
+      "videos": 2,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-matlab_control-01.zip",
+      "status": "published",
+      "delivery_type": "release_asset"
+    },
+    {
+      "asset": "video-defense_demo-01.zip",
+      "size": 36034334,
+      "sha256": "03682828d6d9b25bcc5ebe98c911aa1e999797c085ccec620705b82c1c36ce07",
+      "category": "defense_demo",
+      "videos": 5,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip",
+      "status": "published",
+      "delivery_type": "release_asset"
+    },
+    {
+      "asset": "video-diagnostics-01.zip",
+      "size": 165470540,
+      "sha256": "f2fac6519e550c394cbd79c962754fb61da0581000fb4aa32185bdd09b5def45",
+      "category": "diagnostics",
+      "videos": 13,
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip",
+      "status": "published",
+      "delivery_type": "release_asset"
     }
   ]
 }

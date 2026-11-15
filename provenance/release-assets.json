@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "release_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/tag/v1.0.0",
+  "verified_at_utc": "2026-11-15T03:24:30.052765+00:00",
+  "verification": "GitHub API uploaded state, byte size and server SHA256 matched local upload manifest",
+  "assets_count": 10,
+  "total_asset_bytes": 1870783418,
+  "assets": [
+    {
+      "id": 748073965,
+      "name": "video-navigation_slam-01.zip",
+      "size": 457317700,
+      "state": "uploaded",
+      "digest": "sha256:990b2d4f7a8548153a6e82b46eecd98233a002a7a3ba500e1563af1ab51625bd",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-navigation_slam-01.zip"
+    },
+    {
+      "id": 748073158,
+      "name": "video-matlab_control-01.zip",
+      "size": 7939793,
+      "state": "uploaded",
+      "digest": "sha256:d3b384a0641886768abcbcdbad5ef42f4761949a7cb549cc583b16bd466adbbb",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-matlab_control-01.zip"
+    },
+    {
+      "id": 748073156,
+      "name": "video-defense_demo-01.zip",
+      "size": 36034334,
+      "state": "uploaded",
+      "digest": "sha256:03682828d6d9b25bcc5ebe98c911aa1e999797c085ccec620705b82c1c36ce07",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-defense_demo-01.zip"
+    },
+    {
+      "id": 748073583,
+      "name": "video-diagnostics-01.zip",
+      "size": 165470540,
+      "state": "uploaded",
+      "digest": "sha256:f2fac6519e550c394cbd79c962754fb61da0581000fb4aa32185bdd09b5def45",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-diagnostics-01.zip"
+    },
+    {
+      "id": 749660918,
+      "name": "video-rl_deployment-01.zip.part001",
+      "size": 209715200,
+      "state": "uploaded",
+      "digest": "sha256:f13c4ab2d97f4972d2ae7f152cca74030ecdcdd64344858480b0cf050f50bc2f",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part001"
+    },
+    {
+      "id": 749664302,
+      "name": "video-rl_deployment-01.zip.part002",
+      "size": 209715200,
+      "state": "uploaded",
+      "digest": "sha256:8a801ac59f222b76af8f0c926935b7d58fa0914f2914579fde83ffcadf633670",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part002"
+    },
+    {
+      "id": 749665277,
+      "name": "video-rl_deployment-01.zip.part003",
+      "size": 209715200,
+      "state": "uploaded",
+      "digest": "sha256:46a41b5ce3855d0b46a795fcfd6915e7f714de69cd6c620055f4efc2c2ca2ee0",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part003"
+    },
+    {
+      "id": 749670133,
+      "name": "video-rl_deployment-01.zip.part004",
+      "size": 209715200,
+      "state": "uploaded",
+      "digest": "sha256:656f26c424532b1529ccef8dc49323e859fc90f48099b5407adafe9fdea1416a",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part004"
+    },
+    {
+      "id": 749671241,
+      "name": "video-rl_deployment-01.zip.part005",
+      "size": 209715200,
+      "state": "uploaded",
+      "digest": "sha256:152e72de325610cae4f3f8fefc7a7d043aeff9588bc1450e9ae8fab1cf82e293",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part005"
+    },
+    {
+      "id": 749660901,
+      "name": "video-rl_deployment-01.zip.part006",
+      "size": 155445051,
+      "state": "uploaded",
+      "digest": "sha256:2ebadd128a4af3176ab274162e5ebfa3b8563f6842e93f08d4da0b475f7fc154",
+      "browser_download_url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part006"
+    }
+  ]
+}

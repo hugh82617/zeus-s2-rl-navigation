@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "archive": {
+    "name": "video-rl_deployment-01.zip",
+    "size": 1204021051,
+    "sha256": "48dbc41c7c1e188f3aa3dc06e3bb97b2f451468436f8178501dc8e217e711ca4"
+  },
+  "parts": [
+    {
+      "name": "video-rl_deployment-01.zip.part001",
+      "size": 209715200,
+      "sha256": "f13c4ab2d97f4972d2ae7f152cca74030ecdcdd64344858480b0cf050f50bc2f",
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part001"
+    },
+    {
+      "name": "video-rl_deployment-01.zip.part002",
+      "size": 209715200,
+      "sha256": "8a801ac59f222b76af8f0c926935b7d58fa0914f2914579fde83ffcadf633670",
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part002"
+    },
+    {
+      "name": "video-rl_deployment-01.zip.part003",
+      "size": 209715200,
+      "sha256": "46a41b5ce3855d0b46a795fcfd6915e7f714de69cd6c620055f4efc2c2ca2ee0",
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part003"
+    },
+    {
+      "name": "video-rl_deployment-01.zip.part004",
+      "size": 209715200,
+      "sha256": "656f26c424532b1529ccef8dc49323e859fc90f48099b5407adafe9fdea1416a",
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part004"
+    },
+    {
+      "name": "video-rl_deployment-01.zip.part005",
+      "size": 209715200,
+      "sha256": "152e72de325610cae4f3f8fefc7a7d043aeff9588bc1450e9ae8fab1cf82e293",
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part005"
+    },
+    {
+      "name": "video-rl_deployment-01.zip.part006",
+      "size": 155445051,
+      "sha256": "2ebadd128a4af3176ab274162e5ebfa3b8563f6842e93f08d4da0b475f7fc154",
+      "url": "https://github.com/hugh82617/zeus-s2-rl-navigation/releases/download/v1.0.0/video-rl_deployment-01.zip.part006"
+    }
+  ]
+}

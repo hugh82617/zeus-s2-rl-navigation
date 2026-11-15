@@ -12,7 +12,7 @@
 
 **[观看或下载答辩“视频1”](media/video1.mp4)** · **[分类视频下载](https://github.com/hugh82617/zeus-s2-rl-navigation/releases/tag/v1.0.0)**
 
-视频按强化学习部署、SLAM 与自主导航、MATLAB 控制、答辩演示和诊断分类。相同文件通过 SHA256 去重，原视频保留不转码；大体积视频放在 Release，仓库保留逐视频清单和来源对应关系。
+52段有效视频按强化学习部署、SLAM 与自主导航、MATLAB 控制、答辩演示和诊断分类。相同文件通过 SHA256 去重，原视频保留不转码；大体积视频放在 Release，仓库保留逐视频清单和来源对应关系。强化学习视频包分为6卷，附[校验与合并说明](media/README.md#rl-video-parts)。
 
 | 工作 | 已完成的内容与保存证据 |
 |---|---|
