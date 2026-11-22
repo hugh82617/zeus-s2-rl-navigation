@@ -1,0 +1,3 @@
+[submodule "core"]
+	path = core
+	url = ssh://git@ssh.github.com:443/hugh82617/zeus-s2-rl-navigation-private.git

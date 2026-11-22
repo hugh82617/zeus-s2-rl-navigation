@@ -1,5 +1,7 @@
 # Zeus S2 智能小车强化学习导航与 ROS1 实车部署
 
+> ⚠️ **核心算法代码位于私有子模块 `core/`**（`hugh82617/zeus-s2-rl-navigation-private`，需授权访问）。本公开仓库仅保留文档、数据、媒体与实验记录；克隆后需先 `git submodule update --init --recursive` 并具备私有仓库访问权限，才能获取核心代码。
+
 将 PPO 导航策略通过 ONNX Runtime 接入 Zeus S2 智能小车的 ROS1 感知与控制链路，完成激光观测构造、目标坐标变换、策略推理、动作处理及实车实验记录。项目同时包含 MATLAB / Simulink 路径跟踪、激光 SLAM 与传统导航实验，以及后续 `move_base` 局部规划器插件源码。
 
 **平台主线：ROS1、Zeus S2、二维激光雷达、PPO、ONNX Runtime。** 已保存的4月28日实车RL快照运行于Ubuntu 18.04 / ROS Melodic；后续局部规划器插件以ROS Noetic为开发目标，不同阶段分别保留。
@@ -16,13 +18,13 @@ https://github.com/user-attachments/assets/d4fc51cc-eefa-4091-9987-78dda76b44d4
 
 | 工作 | 实现与完成情况 | 直接查看 |
 |---|---|---|
-| PPO训练与ONNX导出 | 保存训练配置、检查点、194 / 556维模型；导出actor及观测normalizer | [训练快照](training/stage1/) · [导出脚本](models_and_export/RL-onnx/export_onnx.py) · [模型说明](models_and_export/README.md) |
-| ROS1实车部署 | Python多节点组织感知、目标、ONNX推理与速度控制，保存实车运行材料 | [推理节点](ros1/python_nodes/rl_planner/scripts/rl_planner_node.py) · [4月28日运行记录](experiments/real_robot_2026-04-28/README.md) |
-| 感知与观测对齐 | 修正雷达180°方向偏差、16米→12米归一化失配，构造181束及三帧543维激光观测 | [异常后退排查](docs/deployment-problem-cases.md#normalization-mismatch) · [180°修正](docs/deployment-problem-cases.md#lidar-frame-alignment) · [三帧节点](ros1/python_nodes/rl_planner/scripts/lidar_stack_543_node.py) |
-| RViz诊断与实验记录 | 可视化策略实际181束观测，定位前方空间被低估的问题；建立输入与时序校验、修复统计及obs556日志工具链 | [完整工具链](docs/rviz-debugging.md) · [可视化节点](ros1/python_nodes/rl_planner/scripts/rl_obs0_181_rviz_node.py) · [记录器](ros1/python_nodes/rl_planner/scripts/experiment_logger_with_obs556.py) |
-| MATLAB / Simulink控制 | 已进行Pure Pursuit路径跟踪与远程实车实验，包含到点判定、零速切换与停止仿真逻辑 | [实验说明](docs/matlab-experiments.md) · [MATLAB脚本](matlab/scripts/) · [Simulink模型](matlab/simulink/exp_6_2020b.slx) |
-| 激光SLAM与传统导航 | 保留激光预处理、里程计与闭环代码、地图、导航配置及运行演示 | [SLAM与地图](slam/README.md) · [ROS1运行配置](ros1/runtime_reference/) |
-| 全局路径接入与插件封装 | 实现C++ `nav_core::BaseLocalPlanner`插件、路径前瞻点与配置；该分支的构建和实车验证尚待完成 | [插件源码](ros1/local_planner_plugin/rl_planner/) · [版本与验证状态](docs/version-history.md) |
+| PPO训练与ONNX导出 | 保存训练配置、检查点、194 / 556维模型；导出actor及观测normalizer | [训练快照](core/training/stage1/) · [导出脚本](core/models_and_export/RL-onnx/export_onnx.py) · [模型说明](core/models_and_export/README.md) |
+| ROS1实车部署 | Python多节点组织感知、目标、ONNX推理与速度控制，保存实车运行材料 | [推理节点](core/ros1/python_nodes/rl_planner/scripts/rl_planner_node.py) · [4月28日运行记录](experiments/real_robot_2026-04-28/README.md) |
+| 感知与观测对齐 | 修正雷达180°方向偏差、16米→12米归一化失配，构造181束及三帧543维激光观测 | [异常后退排查](docs/deployment-problem-cases.md#normalization-mismatch) · [180°修正](docs/deployment-problem-cases.md#lidar-frame-alignment) · [三帧节点](core/ros1/python_nodes/rl_planner/scripts/lidar_stack_543_node.py) |
+| RViz诊断与实验记录 | 可视化策略实际181束观测，定位前方空间被低估的问题；建立输入与时序校验、修复统计及obs556日志工具链 | [完整工具链](docs/rviz-debugging.md) · [可视化节点](core/ros1/python_nodes/rl_planner/scripts/rl_obs0_181_rviz_node.py) · [记录器](core/ros1/python_nodes/rl_planner/scripts/experiment_logger_with_obs556.py) |
+| MATLAB / Simulink控制 | 已进行Pure Pursuit路径跟踪与远程实车实验，包含到点判定、零速切换与停止仿真逻辑 | [实验说明](docs/matlab-experiments.md) · [MATLAB脚本](core/matlab/scripts/) · [Simulink模型](core/matlab/simulink/exp_6_2020b.slx) |
+| 激光SLAM与传统导航 | 保留激光预处理、里程计与闭环代码、地图、导航配置及运行演示 | [SLAM与地图](core/slam/README.md) · [ROS1运行配置](core/ros1/runtime_reference/) |
+| 全局路径接入与插件封装 | 实现C++ `nav_core::BaseLocalPlanner`插件、路径前瞻点与配置；该分支的构建和实车验证尚待完成 | [插件源码](core/ros1/local_planner_plugin/rl_planner/) · [版本与验证状态](docs/version-history.md) |
 
 <details>
 <summary>查看 Zeus S2 实车平台</summary>
@@ -119,12 +121,12 @@ Stage3 观测为 `3线速度 + 3角速度 + 3重力 + 4目标 + 181×3激光 = 5
 | DWA原版 | 124 | 229 | 547 | 13.78% |
 | 0414对标ESA设置的DWA | 189 | 344 | 367 | 21.00% |
 
-仓库附[统计脚本](experiments/analysis/analyze_episodes.py)、原始 CSV、75份实车 summary 和4月28日8次运行记录。论文初稿中还有另一组到达率，尚未建立数据批次与筛选口径的对应关系；实车 `success` 字段也不等于无碰撞成功。两版DWA分开保存，详细口径见[实验说明](experiments/README.md)。
+仓库附[统计脚本](core/experiments/analysis/analyze_episodes.py)、原始 CSV、75份实车 summary 和4月28日8次运行记录。论文初稿中还有另一组到达率，尚未建立数据批次与筛选口径的对应关系；实车 `success` 字段也不等于无碰撞成功。两版DWA分开保存，详细口径见[实验说明](experiments/README.md)。
 
 在仓库根目录运行以下命令即可复核四组统计，只需Python标准库：
 
 ```bash
-python experiments/analysis/analyze_episodes.py
+python core/experiments/analysis/analyze_episodes.py
 ```
 
 ## 全部实验视频
@@ -145,24 +147,19 @@ python experiments/analysis/analyze_episodes.py
 
 | 目录 | 内容 |
 |---|---|
-| `ros1/python_nodes/rl_planner` | 早期多节点实车部署包 |
-| `ros1/local_planner_plugin/rl_planner` | C++ move_base 局部规划器插件源码 |
-| `ros1/runtime_reference` | 真机导航参数、TF与话题参考快照 |
-| `models_and_export` | 模型、外置权重、导出脚本及观测接口 |
-| `training/stage1` | 训练代码与配置、代表性检查点及训练日志 |
-| `experiments` | 仿真/实车数据、诊断和统计脚本 |
-| `slam`、`matlab` | SLAM基础、地图、MATLAB与Simulink实验 |
+| `core/`（私有子模块） | 全部核心代码：ROS1 节点、move_base 插件、模型与 ONNX 导出、PPO 训练、SLAM、MATLAB、历史版本、工具脚本 |
+| `experiments` | 仿真/实车数据、诊断记录（分析脚本在 `core/experiments`） |
 | `docs`、`documents` | 技术说明、问题处理记录及原始项目文档 |
 | `literature` | 相关论文书目与阅读笔记 |
-| `media` | 首页视频1、分类清单、分卷合并脚本及Release下载入口 |
-| `archive` | 有实质差异的历史节点与插件版本 |
+| `media` | 首页视频1、分类清单及 Release 下载入口 |
+| `provenance` | Release 资产校验记录 |
 
 ## 阅读与复现顺序
 
 1. 先读[系统总览](docs/overview.md)和[项目经历](docs/project-journey.md)，区分实车部署与插件改造阶段。
 2. 根据[模型与部署说明](docs/training-and-deployment.md)配对观测维度、normalizer、外置`.onnx.data`及动作参数。
 3. 使用目标版本的ROS包、launch和真实硬件配置；归档中部分入口存在缺文件或版本差异，不能假定任意分支开箱即用。
-4. 运行 `python experiments/analysis/analyze_episodes.py` 复核四组episode统计；这一检查无需ROS或模型推理。
+4. 运行 `python core/experiments/analysis/analyze_episodes.py` 复核四组episode统计；这一检查无需ROS或模型推理。
 5. 结合[视频清单](media/README.md)、原始运行日志和[验证边界](docs/limitations-and-validation.md)解释实验结果。
 
 此次整理完成了文件复制哈希校验、模型接口核对、视频去重和数据重新计数，没有重新运行ROS、训练或驾驶小车。原有实验完成情况与本次复核范围分别记录。
